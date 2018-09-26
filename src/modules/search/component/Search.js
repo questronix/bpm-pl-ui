@@ -7,22 +7,7 @@ class Search extends Component {
     return (
       <div className="search">
         <input className="input" type="text" placeholder="Seach policy information">
-        </input>          
-        <button className="btn primary">
-          Search
-        </button>
-        <button className="btn warning">
-          Search
-        </button>
-        <button className="btn success">
-          Search
-        </button>
-        <button className="btn danger">
-          Search
-        </button>
-        <button className="btn info">
-          Search
-        </button>
+        </input>
       </div>
     );
   }
