@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './modules/login/component/Login';
+import Policy from './modules/policy/component/Policy';
 
 class App extends Component {
 
   render() {
     return (
-      <Login />
+      <div>
+        {/* <Login /> */}
+        <Policy />
+      </div>
       // <div className="App">
       //   <label>Policy Number</label>
       //   <input type="text"/>
