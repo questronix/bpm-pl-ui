@@ -31,7 +31,7 @@ class LoginForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="fullscreen-center test flex f-center">
-          <div className="flex f-column flex-container flex-wrap f-center box col xl-3 l-3 m-3 s-3 xs-3 f-justify-around">
+          <div className="flex f-column flex-container flex-wrap f-center box col xl-3 l-3 m-3 s-3 xs-3 f-justify-between">
             <div className="f-start">
               <h4 className="font-danger f-start">
                 Pru Life Login

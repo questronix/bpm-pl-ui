@@ -5,6 +5,7 @@ import './override.css';
 import Search from './modules/search/component/Search';
 import './App.css';
 import Login from './modules/login/component/Login';
+import Policy from './modules/policy/component/Policy';
 
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div>
-      <Login></Login>
+      <Policy/>
       </div>
       // <div className="App">
       //   <label>Policy Number</label>
