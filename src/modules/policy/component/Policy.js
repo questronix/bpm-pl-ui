@@ -22,6 +22,11 @@ class Policy extends Component {
         mobileNumber: '09291234567',
         email: 'email@domain.com',
         dateOfApplication: '11/11/11',
+        salutation: '',
+        gender: 'M',
+        civilStatus: 'Single',
+        tinOrSSNumber: '123',
+        clientTagging: 'HRC',
         presentAddress: {
           addr1: 'addr 1',
           addr2: 'addr 2',

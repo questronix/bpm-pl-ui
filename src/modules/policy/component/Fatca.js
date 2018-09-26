@@ -16,6 +16,7 @@ class Fatca extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleRadioChange = this.handleRadioChange.bind(this);
   }
 
   handleSubmit(event) {
@@ -38,8 +39,11 @@ class Fatca extends Component {
     const name = target.name;
     const value = target.value;
 
+    // This will convert string to boolean
+    const val = (value === "true") ? true : false;
+
     this.setState({
-      [name]: value
+      [name]: val
     });
   }
  
@@ -73,13 +77,14 @@ class Fatca extends Component {
           <label>With Diabetes: 
             <input 
               name="withDiabetes"
-              value={false}
+              value="false"
               type="radio"
-              onChange={this.handleRadioChange}
-              checked/> No
+              checked={this.state.withDiabetes === false}
+              onChange={this.handleRadioChange}/> No
             <input 
               name="withDiabetes"
-              value={true}
+              value="true"
+              checked={this.state.withDiabetes === true}
               onChange={this.handleRadioChange}
               type="radio"/> Yes
           </label>
@@ -88,11 +93,14 @@ class Fatca extends Component {
             <input 
               name="withHypertension"
               value="false"
-              type="radio"
-              checked/> No
+              checked={this.state.withHypertension === false}
+              onChange={this.handleRadioChange}
+              type="radio"/> No
             <input 
               name="withHypertension"
               value="true"
+              checked={this.state.withHypertension === true}
+              onChange={this.handleRadioChange}
               type="radio"/> Yes
           </label>        
           <br/>
@@ -100,11 +108,14 @@ class Fatca extends Component {
             <input 
               name="withPregnancy"
               value="false"
-              type="radio"
-              checked/> No
+              checked={this.state.withPregnancy === false}
+              onChange={this.handleRadioChange}
+              type="radio"/> No
             <input 
               name="withPregnancy"
               value="true"
+              checked={this.state.withPregnancy === true}
+              onChange={this.handleRadioChange}
               type="radio"/> Yes
           </label>        
           <br/>
