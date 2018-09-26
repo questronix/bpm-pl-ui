@@ -72,6 +72,30 @@ class PolicyInformation extends Component {
             value={policy.agentNMA}
             disabled/><br/>
         </label>
+        <label>Gender: 
+          <input 
+            type="text" 
+            value={policy.gender} 
+            disabled/>
+        </label>
+        <label>Salutation: 
+          <input 
+            type="text" 
+            value={policy.salutation} 
+            disabled/><br/>
+        </label>
+        <label>Civil Status: 
+          <input 
+            type="text" 
+            value={policy.civilStatus} 
+            disabled/>
+        </label>
+        <label>TIN/SSS Number: 
+          <input 
+            type="text" 
+            value={policy.tinOrSSSNumber} 
+            disabled/><br/>
+        </label>
         <label>Nationality: 
           <input 
             type="text" 
@@ -110,19 +134,43 @@ class PolicyInformation extends Component {
         <label>Present Address: 
           <input 
             type="text" 
-            value={this.formatAddress(policy.presentAddress)}
+            value={policy.presentAddress.addr1}
+            disabled />
+          <input 
+            type="text" 
+            value={policy.presentAddress.addr2}
+            disabled />
+          <input 
+            type="text"   
+            value={policy.presentAddress.addr3}
             disabled /><br/>
         </label>
         <label>Permanent Address: 
           <input 
             type="text" 
-            value={this.formatAddress(policy.permanentAddress)}
+            value={policy.permanentAddress.addr1}
+            disabled />
+          <input 
+            type="text" 
+            value={policy.permanentAddress.addr2}
+            disabled />
+          <input 
+            type="text"   
+            value={policy.permanentAddress.addr3}
             disabled /><br/>
         </label>
         <label>Business Address: 
           <input 
             type="text" 
-            value={this.formatAddress(policy.businessAddress)}
+            value={policy.businessAddress.addr1}
+            disabled />
+          <input 
+            type="text" 
+            value={policy.businessAddress.addr2}
+            disabled />
+          <input 
+            type="text"   
+            value={policy.businessAddress.addr3}
             disabled /><br/>
         </label>
       </div>
