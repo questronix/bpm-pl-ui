@@ -27,7 +27,7 @@ class SearchPolicyForm extends Component {
  render() {
    return (
      <form onSubmit={this.handleSubmit}>
-      <label> Policy No: 
+      <label> Policy Number: 
         <input 
           type="text" 
           value={this.state.policyNo} 
