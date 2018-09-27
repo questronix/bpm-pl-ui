@@ -34,7 +34,7 @@ class Policy extends Component {
           label: 'Option 2'
         }
       ],
-      action: [
+      actions: [
         {
           id: 1,
           value: true,
