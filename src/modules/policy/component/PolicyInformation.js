@@ -11,29 +11,69 @@ class PolicyInformation extends Component {
 
     return (
       <div className="App">
-        <h1>Policy Information</h1>
-        <label>Agent Code: </label>
-        <input type="text" value={policy.agentCode} disabled/>
-        <label>Agent Name: </label>
-        <input type="text" value={policy.agentName} disabled/>
-        <label>Branch: </label>
-        <input type="text" value={policy.branch} disabled/>
-        <label>NMA: </label>
-        <input type="text" value={policy.nma} disabled/>
-        <label>Plan Desscription: </label>
-        <input type="text" value={policy.planDesc} disabled/>
-        <label>Plan Currency: </label>
-        <input type="text" value={policy.planCurrency} disabled/>
-        <label>Contract Status: </label>
-        <input type="text" value={policy.contractStatus} disabled/>
-        <label>Premium Status: </label>
-        <input type="text" value={policy.premiumStatus} disabled/>
-        <label>Sum Assured: </label>
-        <input type="text" value={policy.sumAssured} disabled/>
-        <label>Risk Commencement Date: </label>
-        <input type="text" value={policy.rcd} disabled/>
-        <label>First Issue Date: </label>
-        <input type="text" value={policy.firstIssueDate} disabled/>
+        <h1 className="font-prulife">Policy Information</h1>
+        <div className="flex-container flex-wraper">
+          <div className="col xl-12">
+            <div className="card">
+              <div className="card-header bg-prulife">
+                <h3 className="font-white no-margin">
+                  General Information
+                </h3>
+              </div>
+              <div className="card-body flex-container flex-wrap">
+                <div className="col xl-6 flex-container flex-wrap">
+                  <div className="col xl-12 f-justify-space-between flex f-center">
+                    <label>Agent Code: </label>
+                    <input className="input" type="text" value={policy.agentCode} disabled />
+                  </div>
+                  <div className="col xl-12 f-justify-space-between flex f-center">
+                    <label>Agent Name: </label>
+                    <input className="input" type="text" value={policy.agentName} disabled />
+                  </div>
+                  <div className="col xl-12 f-justify-space-between flex f-center">
+                    <label>Branch: </label>
+                    <input className="input" type="text" value={policy.branch} disabled />
+                  </div>
+                  <div className="col xl-12 f-justify-space-between flex f-center">
+                    <label>NMA: </label>
+                    <input className="input" type="text" value={policy.nma} disabled />
+                  </div>
+                  <div className="col xl-12 f-justify-space-between flex f-center">
+                    <label>Plan Desscription: </label>
+                    <input className="input" type="text" value={policy.planDesc} disabled />
+                  </div>
+                  <div className="col xl-12 f-justify-space-between flex f-center">
+                    <label>Plan Currency: </label>
+                    <input className="input" type="text" value={policy.planCurrency} disabled />
+                  </div>
+                </div>
+                {/* Separate */}
+                <div className="col xl-6 flex-container flex-wrap">
+                  <div className="col xl-12 f-justify-space-between flex f-center">
+                    <label>Contract Status: </label>
+                    <input className="input" type="text" value={policy.contractStatus} disabled />
+                  </div>
+                  <div className="col xl-12 f-justify-space-between flex f-center">
+                    <label>Premium Status: </label>
+                    <input className="input" type="text" value={policy.premiumStatus} disabled />
+                  </div>
+                  <div className="col xl-12 f-justify-space-between flex f-center">
+                    <label>Sum Assured: </label>
+                    <input className="input" type="text" value={policy.sumAssured} disabled />
+                  </div>
+                  <div className="col xl-12 f-justify-space-between flex f-center">
+                  <label>Risk Commencement Date: </label>
+                  <input className="input" type="text" value={policy.rcd} disabled />
+                </div>
+                <div className="col xl-12 f-justify-space-between flex f-center">
+                  <label>First Issue Date: </label>
+                  <input className="input" type="text" value={policy.firstIssueDate} disabled />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
         {/* <label>Policy Number: 
           <input 
             type="text" 
@@ -195,7 +235,7 @@ class PolicyInformation extends Component {
             value={policy.businessAddress.addr3}
             disabled /><br/>
         </label> */}
-      </div>
+      </div >
     );
   }
 }

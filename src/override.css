@@ -56,17 +56,17 @@ body, html {
 .font-gray {
   color: #bdbdbd; }
 
-.bg-prulife {
-  background-color: #ED1B2E; }
+.font-prulife {
+  color: #ED1B2E; }
 
-.bg-grass-green {
-  background-color: #007953; }
+.font-grass-green {
+  color: #007953; }
 
-.bg-bright-blue {
-  background-color: #0064B9; }
+.font-bright-blue {
+  color: #0064B9; }
 
-.bg-sun-yellow {
-  background-color: #FFB81D; }
+.font-sun-yellow {
+  color: #FFB81D; }
 
 .text-center {
   text-align: center; }
@@ -521,6 +521,12 @@ input {
 .inline-grid {
   display: inline-grid; }
 
+.no-margin {
+  margin: 0; }
+
+.no-padding {
+  padding: 0; }
+
 .flex-container {
   padding: 0;
   margin: 0;
@@ -917,11 +923,13 @@ input.checkbox {
   cursor: pointer; }
 
 .card {
-  width: inherit; }
+  width: inherit;
+  border: solid 1px #bdbdbd;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .card .card-header {
-    padding: 10px; }
+    padding: 20px; }
   .card .card-body {
-    padding: 10px; }
+    padding: 20px; }
 
 .test {
   background-color: #00acc1; }
