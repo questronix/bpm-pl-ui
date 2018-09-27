@@ -12,7 +12,29 @@ class PolicyInformation extends Component {
     return (
       <div className="App">
         <h1>Policy Information</h1>
-        <label>Policy Number: 
+        <label>Agent Code: </label>
+        <input type="text" value={policy.agentCode} disabled/>
+        <label>Agent Name: </label>
+        <input type="text" value={policy.agentName} disabled/>
+        <label>Branch: </label>
+        <input type="text" value={policy.branch} disabled/>
+        <label>NMA: </label>
+        <input type="text" value={policy.nma} disabled/>
+        <label>Plan Desscription: </label>
+        <input type="text" value={policy.planDesc} disabled/>
+        <label>Plan Currency: </label>
+        <input type="text" value={policy.planCurrency} disabled/>
+        <label>Contract Status: </label>
+        <input type="text" value={policy.contractStatus} disabled/>
+        <label>Premium Status: </label>
+        <input type="text" value={policy.premiumStatus} disabled/>
+        <label>Sum Assured: </label>
+        <input type="text" value={policy.sumAssured} disabled/>
+        <label>Risk Commencement Date: </label>
+        <input type="text" value={policy.rcd} disabled/>
+        <label>First Issue Date: </label>
+        <input type="text" value={policy.firstIssueDate} disabled/>
+        {/* <label>Policy Number: 
           <input 
             type="text" 
             value={policy.number} 
@@ -172,7 +194,7 @@ class PolicyInformation extends Component {
             type="text"   
             value={policy.businessAddress.addr3}
             disabled /><br/>
-        </label>
+        </label> */}
       </div>
     );
   }
