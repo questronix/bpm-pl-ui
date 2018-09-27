@@ -11,12 +11,59 @@ class Fatca extends Component {
       withHypertension: false,
       withPregnancy: false,
       flightSSP: '',
-      hazardousHobbies: [],
+      hazardousHobbies: [
+        {
+          id: 1,
+          label: 'Bungee Jumping',
+          value: false,
+        },
+        {
+          id: 2,
+          label: 'Hang Gliding',
+          value: false,
+        },
+        {
+          id: 3,
+          label: 'Horse Racing',
+          value: false,
+        },
+        {
+          id: 4,
+          label: 'Motor Racing',
+          value: false,
+        },
+        {
+          id: 5,
+          label: 'Mountain Climbing',
+          value: false,
+        },
+        {
+          id: 6,
+          label: 'Parachuting',
+          value: false,
+        },
+        {
+          id: 7,
+          label: 'Private Pilot (including Gliding)',
+          value: false,
+        },
+        {
+          id: 8,
+          label: 'Scuba Diving',
+          value: false,
+        },
+        {
+          id: 9,
+          label: 'Sky Diving',
+          value: false,
+        },
+      ],
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleRadioChange = this.handleRadioChange.bind(this);
+    this.handleMultiSelectChange = this.handleMultiSelectChange.bind(this);
   }
 
   handleSubmit(event) {
@@ -47,7 +94,33 @@ class Fatca extends Component {
     });
   }
 
+  handleMultiSelectChange(event) {
+    const target = event.target;
+    const name = target.name;
+    const checked = target.checked;
+
+    const hh = this.state.hazardousHobbies;
+    hh.forEach((hobby) => {
+      if (""+hobby.id === name) {
+        hobby.value = checked;
+      }
+    });
+
+    this.setState({ hazardousHobbies: hh });
+  }
+ 
   render() {
+    const hobbies = this.state.hazardousHobbies
+      .map((hobby, i) => {
+        return <div key={i}>
+          <input 
+            key={hobby.id}
+            name={hobby.id} 
+            checked={hobby.value} 
+            onChange={this.handleMultiSelectChange} 
+            type="checkbox"/> {hobby.label} <br/>
+        </div>
+    });
 
     return (
       <div className="App">
