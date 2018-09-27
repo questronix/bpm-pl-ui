@@ -125,25 +125,49 @@ class PolicyInformation extends Component {
                 value={policy.dateOfApplication}
                 disabled /><br />
             </div>
-            <div className="col xl-6 l-6 m-6 s-12 xs-12 f-center f-justify-between flex">
-              <label className="col xl-6">Present Address: </label>
-              <input className="input col xl-6"
+            <div className=" col xl-12 l-12 m-12 s-12 xs-12 f-center f-justufy-between flex flex-wrap">
+              <label className="col xl-3 s-12">Present Address:</label>
+              <input className="input col xl-3 l-3 m-3 s-12"
                 type="text"
-                value={this.formatAddress(policy.presentAddress)}
+                value={policy.presentAddress.addr1}
+                disabled />
+              <input className="input col xl-3 l-3 m-3 s-12"
+                type="text"
+                value={policy.presentAddress.addr2}
+                disabled />
+              <input className="input col xl-3 l-3 m-3 s-12"
+                type="text"
+                value={policy.presentAddress.addr3}
                 disabled /><br />
             </div>
-            <div className="col xl-6 l-6 m-6 s-12 xs-12 f-center f-justify-between flex">
-              <label className="col xl-6">Permanent Address: </label>
-              <input className="input col xl-6"
+            <div className=" col xl-12 l-12 m-12 s-12 xs-12 f-center f-justufy-between flex flex-wrap">
+              <label className="col xl-3 s-12">Permanent Address:</label>
+              <input className="input col xl-3 l-3 m-3 s-12"
                 type="text"
-                value={this.formatAddress(policy.permanentAddress)}
+                value={policy.permanentAddress.addr1}
+                disabled />
+              <input className="input col xl-3 l-3 m-3 s-12"
+                type="text"
+                value={policy.permanentAddress.addr2}
+                disabled />
+              <input className="input col xl-3 l-3 m-3 s-12"
+                type="text"
+                value={policy.permanentAddress.addr3}
                 disabled /><br />
             </div>
-            <div className="col xl-6 l-6 m-6 s-12 xs-12 f-center f-justify-between flex">
-              <label className="col xl-6">Business Address: </label>
-              <input className="input col xl-6"
+            <div className=" col xl-12 l-12 m-12 s-12 xs-12 f-center f-justufy-between flex flex-wrap">
+              <label className="col xl-3 s-12">Business Address:</label>
+              <input className="input col xl-3 l-3 m-3 s-12"
                 type="text"
-                value={this.formatAddress(policy.businessAddress)}
+                value={policy.businessAddress.addr1}
+                disabled />
+              <input className="input col xl-3 l-3 m-3 s-12"
+                type="text"
+                value={policy.businessAddress.addr2}
+                disabled />
+              <input className="input col xl-3 l-3 m-3 s-12"
+                type="text"
+                value={policy.businessAddress.addr3}
                 disabled /><br />
             </div>
           </div>
