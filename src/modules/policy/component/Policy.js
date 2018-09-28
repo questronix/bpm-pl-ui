@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import SearchPolicyForm from './SearchPolicyForm';
 import PolicyInformation from './PolicyInformation';
 import Fatca from './Fatca';
@@ -8,7 +8,7 @@ class Policy extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTransaction: '' ,
+      selectedTransaction: '',
       transactionCheckList: [],
     }
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
@@ -16,7 +16,7 @@ class Policy extends Component {
 
   componentDidMount() {
     // Init default values to Transaction on page load.
-    this.setState ({
+    this.setState({
       selectedTransaction: '1',
       transactionCheckList: [
         {
@@ -135,7 +135,7 @@ class Policy extends Component {
       ];
     }
 
-    this.setState({ transactionCheckList: t_list});
+    this.setState({ transactionCheckList: t_list });
   }
 
   render() {
@@ -174,20 +174,25 @@ class Policy extends Component {
     };
 
     return (
-      <div>
-        <SearchPolicyForm />
-        <PolicyInformation policy={policy} />
-        <Transaction 
-          transactionCheckList={this.state.transactionCheckList} 
-          onTransactionChange={this.handleTransactionChange} />
-        <Fatca insured={insured}/>
-        <div className="col xl-12  flex f-end">
-        <input className="btn prulife col xl-1" type="button" value="Save" />
+      <div className="flex-container flex-wrap">
+        <div className="col xl-2">
+        </div>
+        <div className="col xl-10 margin-top-90">
+          <h1 className="font-prulife">Policy Information</h1>
+          <SearchPolicyForm />
+          <PolicyInformation policy={policy} />
+          <Transaction
+            transactionCheckList={this.state.transactionCheckList}
+            onTransactionChange={this.handleTransactionChange} />
+          <Fatca insured={insured} />
+          <div className="col xl-12  flex f-end">
+            <input className="btn prulife col xl-1" type="button" value="Save" />
+          </div>
         </div>
       </div>
     );
 
-   }
+  }
 }
 
 export default Policy;

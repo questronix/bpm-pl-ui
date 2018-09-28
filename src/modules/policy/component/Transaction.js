@@ -34,7 +34,7 @@ class Transaction extends Component {
               <div className="card-header bg-prulife flex f-justify-space-between">
                 <div className="col xl-6 flex">
                   <h3 className="font-white">Transaction type:</h3>
-                  <select className="select-no-effect font-white bg-none no-border h3">
+                  <select className="select-no-effect font-white bg-none border-bottom h3">
                     <option className="hidden">Reinstatement</option>
                     <option className="item">Reinstatement</option>
                   </select>
