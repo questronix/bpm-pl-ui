@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import InsuredInformation from './InsuredInformation';
 
 class Fatca extends Component {
   constructor(props) {
@@ -135,6 +136,8 @@ class Fatca extends Component {
                 </h3>
               </div>
               <div className="card-body">
+                <InsuredInformation insured={this.props.insured}/>
+                <hr />
                 <div className="col xl-12 flex f-center f-justify-space-between">
                   <label>FATCA Tagging</label>
                   <input className="input col xl-6"
@@ -205,59 +208,6 @@ class Fatca extends Component {
                   </div>
                 </div>
                 <hr/>
-                {/* <div>
-                  <label>With Diabetes:</label>
-                  <input className="input col"
-                    name="withDiabetes"
-                    value="false"
-                    type="radio"
-                    checked={this.state.withDiabetes === false}
-                    onChange={this.handleRadioChange} /> No
-                  <input className="input col"
-                    name="withDiabetes"
-                    value="true"
-                    checked={this.state.withDiabetes === true}
-                    onChange={this.handleRadioChange}
-                    type="radio" /> Yes
-                </div>
-                <div>
-                  <label>With Hypertension:</label>
-                  <input className="input col"
-                    name="withHypertension"
-                    value="false"
-                    checked={this.state.withHypertension === false}
-                    onChange={this.handleRadioChange}
-                    type="radio" /> No
-            <input className="input col"
-                    name="withHypertension"
-                    value="true"
-                    checked={this.state.withHypertension === true}
-                    onChange={this.handleRadioChange}
-                    type="radio" /> Yes
-              </div>
-                <div>
-                  <label>With Pregnancy:</label>
-                  <input className="input col"
-                    name="withPregnancy"
-                    value="false"
-                    checked={this.state.withPregnancy === false}
-                    onChange={this.handleRadioChange}
-                    type="radio" /> No
-            <input className="input col"
-                    name="withPregnancy"
-                    value="true"
-                    checked={this.state.withPregnancy === true}
-                    onChange={this.handleRadioChange}
-                    type="radio" /> Yes
-              </div>
-                <div>
-                  <label>Flight Stewardess/Steward/Pilot/Purser:</label>
-                  <input className="input col xl-6"
-                    name="flightSSP"
-                    value={this.state.flightSSP}
-                    onChange={this.handleInputChange}
-                    type="text" /> No
-              </div> */}
                     <div className="col xl-12 flex-container flex-wrap">
                       <h4 className="col xl-12">Hazardous Hobbies:</h4><br />
                       <div className="col xl-6 flex">

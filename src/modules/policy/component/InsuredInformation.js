@@ -7,14 +7,14 @@ class InsuredInformation extends Component {
 
     return (
       <div className="App">
-        <div className="flex-container flex-wraper">
+        {/* <div className="flex-container flex-wraper">
           <div className="col xl-12">
             <div className="card col xl-12 l-12 m-12 s-12 xs-12 no-padding">
               <div className="card-header bg-prulife">
                 <h3 className="font-white no-margin">
                   Insured Information
                 </h3>
-              </div>
+              </div> */}
               <div className="card-body flex-container flex-wrap">
                 <div className="col xl-6 l-6 m-12 s-12 xs-12 flex-container flex-wrap">
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
@@ -87,9 +87,9 @@ class InsuredInformation extends Component {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      </div >
+      //   </div>
+      // </div>
+      // </div >
     );
   }
 }
