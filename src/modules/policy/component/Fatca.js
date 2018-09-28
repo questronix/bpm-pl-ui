@@ -110,17 +110,17 @@ class Fatca extends Component {
   }
 
   render() {
-    const hobbies = this.state.hazardousHobbies
-      .map((hobby, i) => {
-        return <div key={i}>
-          <input
-            key={hobby.id}
-            name={hobby.id}
-            checked={hobby.value}
-            onChange={this.handleMultiSelectChange}
-            type="checkbox" /> {hobby.label} <br />
-        </div>
-      });
+    // const hobbies = this.state.hazardousHobbies
+    //   .map((hobby, i) => {
+    //     return <div key={i}>
+    //       <input
+    //         key={hobby.id}
+    //         name={hobby.id}
+    //         checked={hobby.value}
+    //         onChange={this.handleMultiSelectChange}
+    //         type="checkbox" /> {hobby.label} <br />
+    //     </div>
+    //   });
 
     return (
       <div className="App">
@@ -133,79 +133,79 @@ class Fatca extends Component {
                     <h3 className="font-white no margin">
                       Insured Information
                 </h3>
+              </div>
+              <div className="card-body">
+                <div className="col xl-12 flex f-center f-justify-space-between">
+                  <label>FATCA Tagging</label>
+                  <input className="input col xl-6"
+                    name="fatca"
+                    value={this.state.fatca}
+                    onChange={this.handleInputChange}
+                    type="text" />
+                </div>
+                <div className="col xl-12 flex f-center f-justify-space-between">
+                  <label>Place of Signing within the Philippines:</label>
+                  <input className="input col xl-6"
+                    name="placeOfSigning"
+                    value={this.state.placeOfSigning}
+                    onChange={this.handleInputChange}
+                    type="text" />
+                </div>
+                <div className="col xl-12 flex f-center f-justify-space-between">
+                  <label>Statement of Insurability:</label>
+                  <input className="input col xl-6"
+                    name="statementOfInsurablity"
+                    value={this.state.statementOfInsurablity}
+                    onChange={this.handleInputChange}
+                    type="text" />
+                </div>
+                <hr/>
+                <div className="flex-container flex-wrap ">
+                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                    <input
+                      id="Diabetes"
+                      type="checkbox"
+                      name="withDiabetes" />
+                    <label className=" flex f-justify-space-between" htmlFor="Diabetes">
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Diabetes:</div>
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    </label>
                   </div>
-                  <div className="card-body">
-                    <div className="col xl-12 flex f-center f-justify-space-between">
-                      <label>FATCA Tagging</label>
-                      <input className="input col xl-6"
-                        name="fatca"
-                        value={this.state.fatca}
-                        onChange={this.handleInputChange}
-                        type="text" />
-                    </div>
-                    <div className="col xl-12 flex f-center f-justify-space-between">
-                      <label>Place of Signing within the Philippines:</label>
-                      <input className="input col xl-6"
-                        name="placeOfSigning"
-                        value={this.state.placeOfSigning}
-                        onChange={this.handleInputChange}
-                        type="text" />
-                    </div>
-                    <div className="col xl-12 flex f-center f-justify-space-between">
-                      <label>Statement of Insurability:</label>
-                      <input className="input col xl-6"
-                        name="statementOfInsurablity"
-                        value={this.state.statementOfInsurablity}
-                        onChange={this.handleInputChange}
-                        type="text" />
-                    </div>
-                    <hr />
-                    <div className="flex-container flex-wrap ">
-                      <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="Diabetes"
-                          type="checkbox"
-                          name="withDiabetes" />
-                        <label className=" flex f-justify-space-between" for="Diabetes">
-                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Diabetes:</div>
-                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="Hypertension"
-                          type="checkbox"
-                          name="withHypertension" />
-                        <label className="flex f-justify-space-between" for="Hypertension">
-                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Hypertension:</div>
-                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="withPregnancy"
-                          type="checkbox"
-                          name="withPregnancy"
-                          value="false" />
-                        <label className="flex f-justify-space-between" for="withPregnancy">
-                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Pregnancy:</div>
-                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="test"
-                          type="checkbox"
-                          name="withPregnancy"
-                          value="false" />
-                        <label className="flex f-justify-space-between" for="test">
-                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Test</div>
-                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                    </div>
-                    <hr />
-                    {/* <div>
+                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                    <input
+                      id="Hypertension"
+                      type="checkbox"
+                      name="withHypertension" />
+                    <label className="flex f-justify-space-between" htmlFor="Hypertension">
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Hypertension:</div>
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    </label>
+                  </div>
+                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                    <input
+                      id="withPregnancy"
+                      type="checkbox"
+                      name="withPregnancy"
+                      value="false" />
+                    <label className="flex f-justify-space-between" htmlFor="withPregnancy">
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Pregnancy:</div>
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    </label>
+                  </div>
+                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                    <input
+                      id="test"
+                      type="checkbox"
+                      name="withPregnancy"
+                      value="false" />
+                    <label className="flex f-justify-space-between" htmlFor="test">
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Test</div>
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    </label>
+                  </div>
+                </div>
+                <hr/>
+                {/* <div>
                   <label>With Diabetes:</label>
                   <input className="input col"
                     name="withDiabetes"
@@ -321,11 +321,6 @@ class Fatca extends Component {
             </div>
           </div>
         </form>
-
-        {/* <select>
-          <option value="1">Sample</option>
-          <option value="1">sample 2</option>
-        </select> */}
       </div >
     );
   }

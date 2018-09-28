@@ -3,6 +3,7 @@ import SearchPolicyForm from './SearchPolicyForm';
 import PolicyInformation from './PolicyInformation';
 import Fatca from './Fatca';
 import Transaction from './Transaction';
+import InsuredInformation from './InsuredInformation';
 
 class Policy extends Component {
   constructor(props) {
@@ -154,6 +155,25 @@ class Policy extends Component {
       firstIssueDate: '05-OCT-2012',
     };
 
+    const insured = {
+      salutation: 'MR',
+      firstName: 'RAMIREZ',
+      lastName: 'DANIVIC JESUS N.',
+      gender: 'MALE',
+      occupation: 'OTHER OCCUPATION',
+      hrc: 'No value',
+      vip: 'No value',
+      str: 'No value',
+      nationality: 'PHILIPPINES',
+      dateOfBirth: '19-SEP-1973',
+      attainedAge: 'SINGLE',
+      civilStatus: 'SINGLE',
+      telNumber: '09171234567',
+      mobileNumber: '09291234567',
+      tinOrSss: 'No value',
+      email: 'sample@email.com',
+    };
+
     return (
       <div>
         <SearchPolicyForm />
@@ -161,6 +181,7 @@ class Policy extends Component {
         <Transaction 
           transactionCheckList={this.state.transactionCheckList} 
           onTransactionChange={this.handleTransactionChange} />
+        <InsuredInformation insured={insured} />
         <Fatca />
         <div className="col xl-12  flex f-end">
         <input className="btn prulife col xl-1" type="button" value="Save" />
