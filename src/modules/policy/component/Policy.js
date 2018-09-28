@@ -126,11 +126,8 @@ class Policy extends Component {
       return (
         <div>
           <SearchPolicyForm />
-          <hr/>
           <PolicyInformation policy={policy} />
-          <hr />
           <Transaction transaction={transaction}/>
-          <hr />
           <Fatca />
           <input type="button" value="Save" />
         </div>

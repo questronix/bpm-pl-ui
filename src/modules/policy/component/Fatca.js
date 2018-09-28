@@ -157,7 +157,53 @@ class Fatca extends Component {
                     onChange={this.handleInputChange}
                     type="text" />
                 </div>
-                <div>
+                <hr/>
+                <div className="flex-container flex-wrap ">
+                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                    <input
+                      id="Diabetes"
+                      type="checkbox"
+                      name="withDiabetes" />
+                    <label className=" flex f-justify-space-between" for="Diabetes">
+                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Diabetes:</div>
+                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    </label>
+                  </div>
+                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                    <input
+                      id="Hypertension"
+                      type="checkbox"
+                      name="withHypertension" />
+                    <label className="flex f-justify-space-between" for="Hypertension">
+                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Hypertension:</div>
+                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    </label>
+                  </div>
+                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                    <input
+                      id="withPregnancy"
+                      type="checkbox"
+                      name="withPregnancy"
+                      value="false" />
+                    <label className="flex f-justify-space-between" for="withPregnancy">
+                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Pregnancy:</div>
+                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    </label>
+                  </div>
+                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                    <input
+                      id="test"
+                      type="checkbox"
+                      name="withPregnancy"
+                      value="false" />
+                    <label className="flex f-justify-space-between" for="test">
+                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Test</div>
+                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    </label>
+                  </div>
+                </div>
+                <hr/>
+                {/* <div>
                   <label>With Diabetes:</label>
                   <input className="input col"
                     name="withDiabetes"
@@ -171,16 +217,6 @@ class Fatca extends Component {
                     checked={this.state.withDiabetes === true}
                     onChange={this.handleRadioChange}
                     type="radio" /> Yes
-                    <div className="col xl-12 flex f-center f-justify-space-between">
-                    <div class="can-toggle can-toggle--size-small">
-                      <input id="b" type="checkbox" />
-                      <label for="b">
-                        <div class="can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        <div class="can-toggle__label-text">With Diabetes:</div>
-                      </label>
-                    </div>
-                  </div>
-
                 </div>
                 <div>
                   <label>With Hypertension:</label>
@@ -219,7 +255,7 @@ class Fatca extends Component {
                     value={this.state.flightSSP}
                     onChange={this.handleInputChange}
                     type="text" /> No
-              </div>
+              </div> */}
                 <div className="col xl-12 flex f-justify-between flex-container flex-wrap f-center">
                   <h4 className="col xl-12">Hazardous Hobbies:</h4><br />
                   <label className="col xl-6">Bungee Jumping</label>

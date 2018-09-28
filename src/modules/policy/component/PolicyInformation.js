@@ -21,7 +21,7 @@ class PolicyInformation extends Component {
                 </h3>
               </div>
               <div className="card-body flex-container flex-wrap">
-                <div className="col xl-6 l-6 m-6 s-12 xs-12 flex-container flex-wrap">
+                <div className="col xl-6 l-6 m-12 s-12 xs-12 flex-container flex-wrap">
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Agent Code: </label>
                     <input className="input disabled" type="text" value={policy.agentCode} disabled />
@@ -48,7 +48,7 @@ class PolicyInformation extends Component {
                   </div>
                 </div>
                 {/* Separate */}
-                <div className="col xl-6 xl-6 l-6 m-6 s-12 xs-12 flex-container flex-wrap">
+                <div className="col xl-6 xl-6 l-6 m-12 s-12 xs-12 flex-container flex-wrap">
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Contract Status: </label>
                     <input className="input disabled" type="text" value={policy.contractStatus} disabled />
