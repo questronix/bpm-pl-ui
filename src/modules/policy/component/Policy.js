@@ -3,7 +3,6 @@ import SearchPolicyForm from './SearchPolicyForm';
 import PolicyInformation from './PolicyInformation';
 import Fatca from './Fatca';
 import Transaction from './Transaction';
-import InsuredInformation from './InsuredInformation';
 
 class Policy extends Component {
   constructor(props) {
@@ -181,8 +180,7 @@ class Policy extends Component {
         <Transaction 
           transactionCheckList={this.state.transactionCheckList} 
           onTransactionChange={this.handleTransactionChange} />
-        <InsuredInformation insured={insured} />
-        <Fatca />
+        <Fatca insured={insured}/>
         <div className="col xl-12  flex f-end">
         <input className="btn prulife col xl-1" type="button" value="Save" />
         </div>
