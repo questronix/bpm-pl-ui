@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+    import React, { Component } from 'react';
 
 class Transaction extends Component {
   render() {
@@ -33,8 +33,8 @@ class Transaction extends Component {
                 <h3 className="font-white">TXN {this.props.transaction.number}</h3>
               </div>
               <div className="card-body flex-container flex-wrap">
-                <div className="col xl-6 flex f-center">
-                  <div class="switch-field flex f-column col xl-3">
+                <div className="col xl-6 l-6 m-12 s-12 xs-12 flex f-center">
+                  <div class="switch-field flex f-column col xl-3 l-3 m-6 s-12 xs-12">
                     <input type="radio" id="switch_3_left"
                       name="action"
                       value="false"
@@ -58,7 +58,7 @@ class Transaction extends Component {
                     <label for="switch_3_right">Waiver</label>
                   </div>
                 </div>
-                <div className="col xl-6 flex-container flex-wrap">
+                <div className="col xl-6 l-6 m-12 s-12 xs-12 flex-container flex-wrap">
                   {actions}
                 </div>
               </div>
