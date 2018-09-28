@@ -1,15 +1,24 @@
     import React, { Component } from 'react';
 
 class Transaction extends Component {
+  constructor(props) {
+    super(props);
+    this.handleRadioChange = this.handleRadioChange.bind(this);
+  }
+
+  handleRadioChange(event) {
+    this.props.onTransactionChange(event.target.value);
+  }
+
   render() {
-    const actions = this.props.transaction.checkList
-      .map((action, i) => {
+    const transactionCheckList = this.props.transactionCheckList
+      .map((item, i) => {
         return <div className="col xl-12" key={i}>
-          <label className="container">{action.label}
+          <label className="container">{item.label}
             <input
-              key={action.id}
-              name={action.id}
-              // checked={action.value} 
+              key={item.id}
+              name={item.id}
+              // checked={item.value} 
               // onChange={this.handleMultiSelectChange} 
               type="checkbox" />
               <span className="checkmark"></span>
@@ -30,36 +39,33 @@ class Transaction extends Component {
                     <option className="item">Reinstatement</option>
                   </select>
                 </div>
-                <h3 className="font-white">TXN {this.props.transaction.number}</h3>
+                <h3 className="font-white">TXN 2018-000001</h3>
               </div>
               <div className="card-body flex-container flex-wrap">
                 <div className="col xl-6 l-6 m-12 s-12 xs-12 flex f-center">
                   <div class="switch-field flex f-column col xl-3 l-3 m-6 s-12 xs-12">
                     <input type="radio" id="switch_3_left"
                       name="action"
-                      value="false"
-                      // checked={this.state.withHypertension === false}
+                      value="1"
                       onChange={this.handleRadioChange}
                       type="radio" />
                     <label for="switch_3_left">Updating</label>
                     <input type="radio" id="switch_3_center"
                       name="action"
-                      value="false"
-                      // checked={this.state.withHypertension === false}
+                      value="2"
                       onChange={this.handleRadioChange}
                       type="radio" />
                     <label for="switch_3_center">Rebating</label>
                     <input type="radio" id="switch_3_right"
                       name="action"
-                      value="false"
-                      // checked={this.state.withHypertension === false}
+                      value="3"
                       onChange={this.handleRadioChange}
                       type="radio" />
                     <label for="switch_3_right">Waiver</label>
                   </div>
                 </div>
-                <div className="col xl-6 l-6 m-12 s-12 xs-12 flex-container flex-wrap">
-                  {actions}
+                <div className="col xl-6 flex-container flex-wrap">
+                  {transactionCheckList}
                 </div>
               </div>
             </div>
