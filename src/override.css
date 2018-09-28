@@ -146,6 +146,14 @@ body, html {
   margin: 5px;
   cursor: pointer;
   border-radius: 3px; }
+  .btn.prulife {
+    background-color: #ED1B2E;
+    color: #fff;
+    border: solid 3px #ED1B2E; }
+    .btn.prulife:hover {
+      background-color: #fff;
+      color: #ED1B2E;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn.primary {
     background-color: #1e88e5;
     color: #fff;
@@ -674,6 +682,9 @@ select {
     border: solid 1px #bdbdbd;
     color: #2b2b2b;
     box-shadow: none; }
+
+.padding-10 {
+  padding: 10px; }
 
 .invisible {
   visibility: hidden; }
@@ -1398,7 +1409,7 @@ body {
   border-top: none; }
 
 /* The container */
-.container {
+.checkbox {
   display: block;
   position: relative;
   padding-left: 35px;
@@ -1414,7 +1425,7 @@ body {
   /* Standard syntax */ }
 
 /* Hide the browser's default checkbox */
-.container input {
+.checkbox input {
   position: absolute;
   opacity: 0;
   cursor: pointer; }
@@ -1431,12 +1442,12 @@ body {
   transition: .3s ease-in-out; }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.checkbox:hover input ~ .checkmark {
   background-color: #fff;
   border-color: #ED1B2E; }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.checkbox input:checked ~ .checkmark {
   background-color: #ED1B2E;
   border: solid 1px #ED1B2E; }
 
@@ -1447,11 +1458,11 @@ body {
   display: none; }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.checkbox input:checked ~ .checkmark:after {
   display: block; }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.checkbox .checkmark:after {
   left: 7px;
   top: 4px;
   width: 4px;

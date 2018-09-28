@@ -177,16 +177,15 @@ class Policy extends Component {
     return (
       <div>
         <SearchPolicyForm />
-        <hr/>
         <PolicyInformation policy={policy} />
-        <hr />
         <Transaction 
           transactionCheckList={this.state.transactionCheckList} 
           onTransactionChange={this.handleTransactionChange} />
-        <hr />
         <InsuredInformation insured={insured} />
         <Fatca />
-        <input type="button" value="Save" />
+        <div className="col xl-12  flex f-end">
+        <input className="btn prulife col xl-1" type="button" value="Save" />
+        </div>
       </div>
     );
 
