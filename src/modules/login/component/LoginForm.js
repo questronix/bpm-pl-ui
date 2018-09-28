@@ -25,6 +25,8 @@ class LoginForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state);
+    // implement authentication here
+    window.location.href = "/";
   }
 
   render() {
@@ -49,7 +51,7 @@ class LoginForm extends Component {
               <label className="col xl-3 l-3 m-3 s-3 xs-3">Password:</label>
               <input className="input col xl-9 l-9 m-9 s-9 xs-9"
                 name="password"
-                type="text"
+                type="password"
                 value={this.state.password}
                 onChange={this.handleInputChange} />
             </div>
