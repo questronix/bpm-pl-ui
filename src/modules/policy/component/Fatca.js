@@ -110,17 +110,17 @@ class Fatca extends Component {
   }
 
   render() {
-    const hobbies = this.state.hazardousHobbies
-      .map((hobby, i) => {
-        return <div key={i}>
-          <input
-            key={hobby.id}
-            name={hobby.id}
-            checked={hobby.value}
-            onChange={this.handleMultiSelectChange}
-            type="checkbox" /> {hobby.label} <br />
-        </div>
-      });
+    // const hobbies = this.state.hazardousHobbies
+    //   .map((hobby, i) => {
+    //     return <div key={i}>
+    //       <input
+    //         key={hobby.id}
+    //         name={hobby.id}
+    //         checked={hobby.value}
+    //         onChange={this.handleMultiSelectChange}
+    //         type="checkbox" /> {hobby.label} <br />
+    //     </div>
+    //   });
 
     return (
       <div className="App">
@@ -159,46 +159,46 @@ class Fatca extends Component {
                 </div>
                 <hr/>
                 <div className="flex-container flex-wrap ">
-                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
                     <input
                       id="Diabetes"
                       type="checkbox"
                       name="withDiabetes" />
-                    <label className=" flex f-justify-space-between" for="Diabetes">
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Diabetes:</div>
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    <label className=" flex f-justify-space-between" htmlFor="Diabetes">
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Diabetes:</div>
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
                     </label>
                   </div>
-                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
                     <input
                       id="Hypertension"
                       type="checkbox"
                       name="withHypertension" />
-                    <label className="flex f-justify-space-between" for="Hypertension">
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Hypertension:</div>
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    <label className="flex f-justify-space-between" htmlFor="Hypertension">
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Hypertension:</div>
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
                     </label>
                   </div>
-                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
                     <input
                       id="withPregnancy"
                       type="checkbox"
                       name="withPregnancy"
                       value="false" />
-                    <label className="flex f-justify-space-between" for="withPregnancy">
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Pregnancy:</div>
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    <label className="flex f-justify-space-between" htmlFor="withPregnancy">
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Pregnancy:</div>
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
                     </label>
                   </div>
-                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
                     <input
                       id="test"
                       type="checkbox"
                       name="withPregnancy"
                       value="false" />
-                    <label className="flex f-justify-space-between" for="test">
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Test</div>
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                    <label className="flex f-justify-space-between" htmlFor="test">
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Test</div>
+                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
                     </label>
                   </div>
                 </div>
@@ -282,11 +282,6 @@ class Fatca extends Component {
             </div>
           </div>
         </form>
-
-        {/* <select>
-          <option value="1">Sample</option>
-          <option value="1">sample 2</option>
-        </select> */}
       </div >
     );
   }

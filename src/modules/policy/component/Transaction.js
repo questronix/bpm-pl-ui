@@ -43,25 +43,28 @@ class Transaction extends Component {
               </div>
               <div className="card-body flex-container flex-wrap">
                 <div className="col xl-6 l-6 m-12 s-12 xs-12 flex f-center">
-                  <div class="switch-field flex f-column col xl-3 l-3 m-6 s-12 xs-12">
-                    <input type="radio" id="switch_3_left"
+                  <div className="switch-field flex f-column col xl-3 l-3 m-6 s-12 xs-12">
+                    <input 
+                      type="radio" 
+                      id="switch_3_left"
                       name="action"
                       value="1"
-                      onChange={this.handleRadioChange}
-                      type="radio" />
-                    <label for="switch_3_left">Updating</label>
-                    <input type="radio" id="switch_3_center"
+                      onChange={this.handleRadioChange} />
+                    <label htmlFor="switch_3_left">Updating</label>
+                    <input 
+                      type="radio" 
+                      id="switch_3_center"
                       name="action"
                       value="2"
-                      onChange={this.handleRadioChange}
-                      type="radio" />
-                    <label for="switch_3_center">Rebating</label>
-                    <input type="radio" id="switch_3_right"
+                      onChange={this.handleRadioChange} />
+                    <label htmlFor="switch_3_center">Rebating</label>
+                    <input 
+                      type="radio" 
+                      id="switch_3_right"
                       name="action"
                       value="3"
-                      onChange={this.handleRadioChange}
-                      type="radio" />
-                    <label for="switch_3_right">Waiver</label>
+                      onChange={this.handleRadioChange} />
+                    <label htmlFor="switch_3_right">Waiver</label>
                   </div>
                 </div>
                 <div className="col xl-6 flex-container flex-wrap">
