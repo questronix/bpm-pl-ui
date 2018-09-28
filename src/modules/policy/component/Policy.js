@@ -168,6 +168,7 @@ class Policy extends Component {
         <input type="button" value="Save" />
       </div>
     );
+
    }
 }
 
