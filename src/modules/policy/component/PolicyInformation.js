@@ -14,7 +14,7 @@ class PolicyInformation extends Component {
         <h1 className="font-prulife">Policy Information</h1>
         <div className="flex-container flex-wraper">
           <div className="col xl-12">
-            <div className="card">
+            <div className="card col xl-12 l-12 m-12 s-12 xs-12 no-padding">
               <div className="card-header bg-prulife">
                 <h3 className="font-white no-margin">
                   General Information
@@ -24,50 +24,50 @@ class PolicyInformation extends Component {
                 <div className="col xl-6 l-6 m-6 s-12 xs-12 flex-container flex-wrap">
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Agent Code: </label>
-                    <input className="input" type="text" value={policy.agentCode} disabled />
+                    <input className="input disabled" type="text" value={policy.agentCode} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Agent Name: </label>
-                    <input className="input" type="text" value={policy.agentName} disabled />
+                    <input className="input disabled" type="text" value={policy.agentName} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Branch: </label>
-                    <input className="input" type="text" value={policy.branch} disabled />
+                    <input className="input disabled" type="text" value={policy.branch} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>NMA: </label>
-                    <input className="input" type="text" value={policy.nma} disabled />
+                    <input className="input disabled" type="text" value={policy.nma} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Plan Desscription: </label>
-                    <input className="input" type="text" value={policy.planDesc} disabled />
+                    <input className="input disabled" type="text" value={policy.planDesc} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Plan Currency: </label>
-                    <input className="input" type="text" value={policy.planCurrency} disabled />
+                    <input className="input disabled" type="text" value={policy.planCurrency} disabled />
                   </div>
                 </div>
                 {/* Separate */}
                 <div className="col xl-6 xl-6 l-6 m-6 s-12 xs-12 flex-container flex-wrap">
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Contract Status: </label>
-                    <input className="input" type="text" value={policy.contractStatus} disabled />
+                    <input className="input disabled" type="text" value={policy.contractStatus} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Premium Status: </label>
-                    <input className="input" type="text" value={policy.premiumStatus} disabled />
+                    <input className="input disabled" type="text" value={policy.premiumStatus} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Sum Assured: </label>
-                    <input className="input" type="text" value={policy.sumAssured} disabled />
+                    <input className="input disabled" type="text" value={policy.sumAssured} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                   <label>Risk Commencement Date: </label>
-                  <input className="input" type="text" value={policy.rcd} disabled />
+                  <input className="input disabled" type="text" value={policy.rcd} disabled />
                 </div>
                 <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                   <label>First Issue Date: </label>
-                  <input className="input" type="text" value={policy.firstIssueDate} disabled />
+                  <input className="input disabled" type="text" value={policy.firstIssueDate} disabled />
                 </div>
               </div>
             </div>
