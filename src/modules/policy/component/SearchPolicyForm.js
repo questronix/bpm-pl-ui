@@ -28,12 +28,13 @@ class SearchPolicyForm extends Component {
    return (
      <form onSubmit={this.handleSubmit}>
       <label> Policy Number: 
-        <input 
+        <input className="input"
           type="text" 
+          placeholder="Input policy number here"
           value={this.state.policyNo} 
           onChange={this.handleInputChange} />
       </label>
-      <input className="btn primary" type="submit" value="Search" />
+      <input className="btn prulife" type="submit" value="Search" />
      </form>
    );
  }

@@ -11,7 +11,6 @@ class PolicyInformation extends Component {
 
     return (
       <div className="App">
-        <h1 className="font-prulife">Policy Information</h1>
         <div className="flex-container flex-wraper">
           <div className="col xl-12">
             <div className="card col xl-12 l-12 m-12 s-12 xs-12 no-padding">
