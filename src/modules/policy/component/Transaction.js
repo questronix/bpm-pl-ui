@@ -14,7 +14,7 @@ class Transaction extends Component {
     const transactionCheckList = this.props.transactionCheckList
       .map((item, i) => {
         return <div className="col xl-12" key={i}>
-          <label className="container">{item.label}
+          <label className="checkbox">{item.label}
             <input
               key={item.id}
               name={item.id}

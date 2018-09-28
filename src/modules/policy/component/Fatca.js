@@ -125,85 +125,87 @@ class Fatca extends Component {
     return (
       <div className="App">
         <form onSubmit={this.handleSubmit}>
-          <div className="flex-containter flex-wrap col xl-12">
-            <div className="card col xl-12 l-12 m-12 s-12 xs-12 no-padding">
-              <div className="card-header bg-prulife">
-                <h3 className="font-white no margin">
-                  Insured Information
+          <div>
+            <div className="flex-containter flex-wrap">
+              <div className="padding-10">
+                <div className="card col xl-12 l-12 m-12 s-12 xs-12 no-padding">
+                  <div className="card-header bg-prulife">
+                    <h3 className="font-white no margin">
+                      Insured Information
                 </h3>
-              </div>
-              <div className="card-body">
-                <div className="col xl-12 flex f-center f-justify-space-between">
-                  <label>FATCA Tagging</label>
-                  <input className="input col xl-6"
-                    name="fatca"
-                    value={this.state.fatca}
-                    onChange={this.handleInputChange}
-                    type="text" />
-                </div>
-                <div className="col xl-12 flex f-center f-justify-space-between">
-                  <label>Place of Signing within the Philippines:</label>
-                  <input className="input col xl-6"
-                    name="placeOfSigning"
-                    value={this.state.placeOfSigning}
-                    onChange={this.handleInputChange}
-                    type="text" />
-                </div>
-                <div className="col xl-12 flex f-center f-justify-space-between">
-                  <label>Statement of Insurability:</label>
-                  <input className="input col xl-6"
-                    name="statementOfInsurablity"
-                    value={this.state.statementOfInsurablity}
-                    onChange={this.handleInputChange}
-                    type="text" />
-                </div>
-                <hr/>
-                <div className="flex-container flex-wrap ">
-                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="Diabetes"
-                      type="checkbox"
-                      name="withDiabetes" />
-                    <label className=" flex f-justify-space-between" for="Diabetes">
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Diabetes:</div>
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
                   </div>
-                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="Hypertension"
-                      type="checkbox"
-                      name="withHypertension" />
-                    <label className="flex f-justify-space-between" for="Hypertension">
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Hypertension:</div>
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="withPregnancy"
-                      type="checkbox"
-                      name="withPregnancy"
-                      value="false" />
-                    <label className="flex f-justify-space-between" for="withPregnancy">
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Pregnancy:</div>
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                  <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="test"
-                      type="checkbox"
-                      name="withPregnancy"
-                      value="false" />
-                    <label className="flex f-justify-space-between" for="test">
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Test</div>
-                      <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                </div>
-                <hr/>
-                {/* <div>
+                  <div className="card-body">
+                    <div className="col xl-12 flex f-center f-justify-space-between">
+                      <label>FATCA Tagging</label>
+                      <input className="input col xl-6"
+                        name="fatca"
+                        value={this.state.fatca}
+                        onChange={this.handleInputChange}
+                        type="text" />
+                    </div>
+                    <div className="col xl-12 flex f-center f-justify-space-between">
+                      <label>Place of Signing within the Philippines:</label>
+                      <input className="input col xl-6"
+                        name="placeOfSigning"
+                        value={this.state.placeOfSigning}
+                        onChange={this.handleInputChange}
+                        type="text" />
+                    </div>
+                    <div className="col xl-12 flex f-center f-justify-space-between">
+                      <label>Statement of Insurability:</label>
+                      <input className="input col xl-6"
+                        name="statementOfInsurablity"
+                        value={this.state.statementOfInsurablity}
+                        onChange={this.handleInputChange}
+                        type="text" />
+                    </div>
+                    <hr />
+                    <div className="flex-container flex-wrap ">
+                      <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                        <input
+                          id="Diabetes"
+                          type="checkbox"
+                          name="withDiabetes" />
+                        <label className=" flex f-justify-space-between" for="Diabetes">
+                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Diabetes:</div>
+                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                        </label>
+                      </div>
+                      <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                        <input
+                          id="Hypertension"
+                          type="checkbox"
+                          name="withHypertension" />
+                        <label className="flex f-justify-space-between" for="Hypertension">
+                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Hypertension:</div>
+                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                        </label>
+                      </div>
+                      <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                        <input
+                          id="withPregnancy"
+                          type="checkbox"
+                          name="withPregnancy"
+                          value="false" />
+                        <label className="flex f-justify-space-between" for="withPregnancy">
+                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Pregnancy:</div>
+                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                        </label>
+                      </div>
+                      <div class="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                        <input
+                          id="test"
+                          type="checkbox"
+                          name="withPregnancy"
+                          value="false" />
+                        <label className="flex f-justify-space-between" for="test">
+                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Test</div>
+                          <div class="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
+                        </label>
+                      </div>
+                    </div>
+                    <hr />
+                    {/* <div>
                   <label>With Diabetes:</label>
                   <input className="input col"
                     name="withDiabetes"
@@ -256,27 +258,64 @@ class Fatca extends Component {
                     onChange={this.handleInputChange}
                     type="text" /> No
               </div> */}
-                <div className="col xl-12 flex f-justify-between flex-container flex-wrap f-center">
-                  <h4 className="col xl-12">Hazardous Hobbies:</h4><br />
-                  <label className="col xl-6">Bungee Jumping</label>
-                  <input className="input col xl-6 " name="hazardousHobbies" type="checkbox" />
-                  <label className="col xl-6">Hang Gliding</label>
-                  <input className="input col xl-6 " name="hazardousHobbies" type="checkbox" />
-                  <label className="col xl-6">Horse Racing</label>
-                  <input className="input col xl-6 " name="hazardousHobbies" type="checkbox" />
-                  <label className="col xl-6">Motor Racing</label>
-                  <input className="input col xl-6 " name="hazardousHobbies" type="checkbox" />
-                  <label className="col xl-6">Mountain Climbing</label>
-                  <input className="input col xl-6 " name="hazardousHobbies" type="checkbox" />
-                  <label className="col xl-6">Parachuting</label>
-                  <input className="input col xl-6 " name="hazardousHobbies" type="checkbox" />
-                  <label className="col xl-6">Private Pilot (includig Gliding)</label>
-                  <input className="input col xl-6 " name="hazardousHobbies" type="checkbox" />
-                  <label className="col xl-6">Scuba Diving</label>
-                  <input className="input col xl-6 " name="hazardousHobbies" type="checkbox" />
-                  <label className="col xl-6">Sky Diving</label>
-                  <input className="input col xl-6 " name="hazardousHobbies" type="checkbox" />
-                  <input className="btn primary col xl-12 " type="submit" value="submit" />
+                    <div className="col xl-12 flex-container flex-wrap">
+                      <h4 className="col xl-12">Hazardous Hobbies:</h4><br />
+                      <div className="col xl-6 flex">
+                        <label className="checkbox">Bungee Jumping
+                    <input className="" name="hazardousHobbies" type="checkbox" />
+                          <span className="checkmark"></span>
+                        </label>
+                      </div>
+                      <div className="col xl-6 flex">
+                        <label className="checkbox">Hang Gliding
+                    <input className="" name="hazardousHobbies" type="checkbox" />
+                          <span className="checkmark"></span>
+                        </label>
+                      </div>
+                      <div className="col xl-6 flex">
+                        <label className="checkbox">Horse Racing
+                    <input className="" name="hazardousHobbies" type="checkbox" />
+                          <span className="checkmark"></span>
+                        </label>
+                      </div>
+                      <div className="col xl-6 flex">
+                        <label className="checkbox">Motor Racing
+                    <input className="" name="hazardousHobbies" type="checkbox" />
+                          <span className="checkmark"></span>
+                        </label>
+                      </div>
+                      <div className="col xl-6 flex">
+                        <label className="checkbox">Mountain Climbing
+                    <input className="" name="hazardousHobbies" type="checkbox" />
+                          <span className="checkmark"></span>
+                        </label>
+                      </div>
+                      <div className="col xl-6 flex">
+                        <label className="checkbox">Parachuting
+                    <input className="" name="hazardousHobbies" type="checkbox" />
+                          <span className="checkmark"></span>
+                        </label>
+                      </div>
+                      <div className="col xl-6 flex">
+                        <label className="checkbox">Private Pilot (includig Gliding)
+                    <input className="" name="hazardousHobbies" type="checkbox" />
+                          <span className="checkmark"></span>
+                        </label>
+                      </div>
+                      <div className="col xl-6 flex">
+                        <label className="checkbox">Scuba Diving
+                    <input className="" name="hazardousHobbies" type="checkbox" />
+                          <span className="checkmark"></span>
+                        </label>
+                      </div>
+                      <div className="col xl-6 flex">
+                        <label className="checkbox">Sky Diving
+                    <input className="" name="hazardousHobbies" type="checkbox" />
+                          <span className="checkmark"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
