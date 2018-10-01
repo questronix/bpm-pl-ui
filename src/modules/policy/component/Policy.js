@@ -3,6 +3,8 @@ import SearchPolicyForm from './SearchPolicyForm';
 import PolicyInformation from './PolicyInformation';
 import Fatca from './Fatca';
 import Transaction from './Transaction';
+import { PolicyService }  from '../../../services/request';
+import axios from 'axios';
 
 class Policy extends Component {
   constructor(props) {
@@ -60,43 +62,52 @@ class Policy extends Component {
 
   handlePolicySearchSubmit(policyNumber) {
     this.setState({ policyNumberSearch: policyNumber });
+    PolicyService.getPolicyInformationByID({ policyNumber }).then((result) => {
+      this.setState({ 
+        policy: result.data.data.policy ,
+        insured: result.data.data.insured,
+      });
+      console.log('Result: ', result);
+    }).catch((err) => {
+      console.log('Error: ', err);
+    });
     // TODO: REST calling here
-    if (policyNumber === '00000001') {
-      this.setState({
-        policy: {
-          number: '00000001',
-          agentCode: 'ROMEO CAMILLE ABION',
-          agentName: 'JADEITE',
-          branch: 'RAMIREZ, DANIVIC JESUS N.',
-          nma: 'RAMIREZ, DANIVIC JESUS N.',
-          planDesc: 'PLPP - PRULINK ASSURANCE ACCOUNT PLUS',
-          planCurrency: 'PHP',
-          contractStatus: 'IN FORCE',
-          premiumStatus: 'PREMIUM PAYING',
-          sumAssured: '1,000,000.00',
-          rcd: '05-OCT-2012',
-          firstIssueDate: '05-OCT-2012',
-        },
-        insured: {
-          salutation: 'MR',
-          firstName: 'RAMIREZ',
-          lastName: 'DANIVIC JESUS N.',
-          gender: 'MALE',
-          occupation: 'OTHER OCCUPATION',
-          hrc: 'No value',
-          vip: 'No value',
-          str: 'No value',
-          nationality: 'PHILIPPINES',
-          dateOfBirth: '19-SEP-1973',
-          attainedAge: 'SINGLE',
-          civilStatus: 'SINGLE',
-          telNumber: '09171234567',
-          mobileNumber: '09291234567',
-          tinOrSss: 'No value',
-          email: 'sample@email.com', 
-        }
-      })
-    }
+    // if (policyNumber === '00000001') {
+    //   this.setState({
+    //     policy: {
+    //       number: '00000001',
+    //       agentCode: 'ROMEO CAMILLE ABION',
+    //       agentName: 'JADEITE',
+    //       branch: 'RAMIREZ, DANIVIC JESUS N.',
+    //       nma: 'RAMIREZ, DANIVIC JESUS N.',
+    //       planDesc: 'PLPP - PRULINK ASSURANCE ACCOUNT PLUS',
+    //       planCurrency: 'PHP',
+    //       contractStatus: 'IN FORCE',
+    //       premiumStatus: 'PREMIUM PAYING',
+    //       sumAssured: '1,000,000.00',
+    //       rcd: '05-OCT-2012',
+    //       firstIssueDate: '05-OCT-2012',
+    //     },
+    //     insured: {
+    //       salutation: 'MR',
+    //       firstName: 'RAMIREZ',
+    //       lastName: 'DANIVIC JESUS N.',
+    //       gender: 'MALE',
+    //       occupation: 'OTHER OCCUPATION',
+    //       hrc: 'No value',
+    //       vip: 'No value',
+    //       str: 'No value',
+    //       nationality: 'PHILIPPINES',
+    //       dateOfBirth: '19-SEP-1973',
+    //       attainedAge: 'SINGLE',
+    //       civilStatus: 'SINGLE',
+    //       telNumber: '09171234567',
+    //       mobileNumber: '09291234567',
+    //       tinOrSss: 'No value',
+    //       email: 'sample@email.com', 
+    //     }
+    //   })
+    // }
   }
 
   handleTransactionChange(transactionType) {
