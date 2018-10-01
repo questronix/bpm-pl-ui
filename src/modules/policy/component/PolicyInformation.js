@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 
 class PolicyInformation extends Component {
 
-  formatAddress(data) {
-    return data.addr1 + ', ' + data.addr2 + ',' + data.addr3;
-  }
-
   render() {
-    const policy = this.props.policy;
 
     return (
       <div className="App">
@@ -21,219 +16,59 @@ class PolicyInformation extends Component {
               </div>
               <div className="card-body flex-container flex-wrap">
                 <div className="col xl-6 l-6 m-12 s-12 xs-12 flex-container flex-wrap">
-                  <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
+                 <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Agent Code: </label>
-                    <input className="input disabled" type="text" value={policy.agentCode} disabled />
+                    <input className="input disabled" type="text" defaultValue={this.props.policy.agentCode} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Agent Name: </label>
-                    <input className="input disabled" type="text" value={policy.agentName} disabled />
+                    <input className="input disabled" type="text" defaultValue={this.props.policy.agentName} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Branch: </label>
-                    <input className="input disabled" type="text" value={policy.branch} disabled />
+                    <input className="input disabled" type="text" defaultValue={this.props.policy.branch} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>NMA: </label>
-                    <input className="input disabled" type="text" value={policy.nma} disabled />
+                    <input className="input disabled" type="text" defaultValue={this.props.policy.nma} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Plan Desscription: </label>
-                    <input className="input disabled" type="text" value={policy.planDesc} disabled />
+                    <input className="input disabled" type="text" defaultValue={this.props.policy.planDesc} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Plan Currency: </label>
-                    <input className="input disabled" type="text" value={policy.planCurrency} disabled />
+                    <input className="input disabled" type="text" defaultValue={this.props.policy.planCurrency} disabled />
                   </div>
                 </div>
-                {/* Separate */}
+
+                
                 <div className="col xl-6 xl-6 l-6 m-12 s-12 xs-12 flex-container flex-wrap">
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Contract Status: </label>
-                    <input className="input disabled" type="text" value={policy.contractStatus} disabled />
+                    <input className="input disabled" type="text" defaultValue={this.props.policy.contractStatus} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Premium Status: </label>
-                    <input className="input disabled" type="text" value={policy.premiumStatus} disabled />
+                    <input className="input disabled" type="text" defaultValue={this.props.policy.premiumStatus} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Sum Assured: </label>
-                    <input className="input disabled" type="text" value={policy.sumAssured} disabled />
+                    <input className="input disabled" type="text" defaultValue={this.props.policy.sumAssured} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                   <label>Risk Commencement Date: </label>
-                  <input className="input disabled" type="text" value={policy.rcd} disabled />
+                  <input className="input disabled" type="text" defaultValue={this.props.policy.rcd} disabled />
                 </div>
                 <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                   <label>First Issue Date: </label>
-                  <input className="input disabled" type="text" value={policy.firstIssueDate} disabled />
+                  <input className="input disabled" type="text" defaultValue={this.props.policy.firstIssueDate} disabled />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-        {/* <label>Policy Number: 
-          <input 
-            type="text" 
-            value={policy.number} 
-            disabled/>
-        </label>
-        <label>Policy Status: 
-          <input 
-            type="text" 
-            value={policy.status} 
-            disabled/><br/>
-        </label>
-        <label>Insured Client ID: 
-          <input 
-            type="text" 
-            value={policy.insuredClientID} 
-            disabled/>
-          </label>
-        <label>Insured Name:
-          <input 
-            type="text" 
-            value={policy.insuredName}
-            disabled/><br/>
-        </label>
-        <label>Owner Client ID: 
-          <input 
-            type="text" 
-            value={policy.ownerClientID}
-            disabled/>
-        </label>
-        <label>Policy Owner Name: 
-          <input 
-            type="text" 
-            value={policy.ownerName}
-            disabled/><br/>
-        </label>
-        <label>Risk Commencement Date (RCD): 
-          <input 
-            type="text"
-            value={policy.rcd}
-            disabled/>
-        </label>
-        <label>Agent Code: 
-          <input 
-            type="text" 
-            value={policy.agentCode}
-            disabled/><br/>
-        </label>
-        <label>Agent Name: 
-          <input 
-            type="text" 
-            value={policy.agentName}
-            disabled/>
-        </label>
-        <label>Agent NMA: 
-          <input 
-            type="text" 
-            value={policy.agentNMA}
-            disabled/><br/>
-        </label>
-        <label>Gender: 
-          <input 
-            type="text" 
-            value={policy.gender} 
-            disabled/>
-        </label>
-        <label>Salutation: 
-          <input 
-            type="text" 
-            value={policy.salutation} 
-            disabled/><br/>
-        </label>
-        <label>Civil Status: 
-          <input 
-            type="text" 
-            value={policy.civilStatus} 
-            disabled/>
-        </label>
-        <label>TIN/SSS Number: 
-          <input 
-            type="text" 
-            value={policy.tinOrSSSNumber} 
-            disabled/><br/>
-        </label>
-        <label>Nationality: 
-          <input 
-            type="text" 
-            value={policy.nationality}
-            disabled/>
-        </label>
-        <label>Occupation: 
-          <input 
-            type="text" 
-            value={policy.occupation}
-            disabled/><br/>
-        </label>
-        <label>Attained Age: 
-          <input 
-            type="text" 
-            value={policy.attainedAge}
-            disabled/>
-        </label>
-        <label>Mobile Number:
-          <input 
-            type="text" 
-            disabled/><br/>
-        </label>
-        <label>Email Address: 
-          <input 
-            type="text" 
-            value={policy.emailAddress}
-            disabled/>
-        </label>
-        <label>Date Of Application: 
-          <input 
-            type="text" 
-            value={policy.dateOfApplication}
-            disabled/><br/>
-        </label>
-        <label>Present Address: 
-          <input 
-            type="text" 
-            value={policy.presentAddress.addr1}
-            disabled />
-          <input 
-            type="text" 
-            value={policy.presentAddress.addr2}
-            disabled />
-          <input 
-            type="text"   
-            value={policy.presentAddress.addr3}
-            disabled /><br/>
-        </label>
-        <label>Permanent Address: 
-          <input 
-            type="text" 
-            value={policy.permanentAddress.addr1}
-            disabled />
-          <input 
-            type="text" 
-            value={policy.permanentAddress.addr2}
-            disabled />
-          <input 
-            type="text"   
-            value={policy.permanentAddress.addr3}
-            disabled /><br/>
-        </label>
-        <label>Business Address: 
-          <input 
-            type="text" 
-            value={policy.businessAddress.addr1}
-            disabled />
-          <input 
-            type="text" 
-            value={policy.businessAddress.addr2}
-            disabled />
-          <input 
-            type="text"   
-            value={policy.businessAddress.addr3}
-            disabled /><br/>
-        </label> */}
       </div >
     );
   }

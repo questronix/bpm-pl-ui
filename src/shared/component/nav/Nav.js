@@ -6,34 +6,34 @@ class Nav extends Component {
       <div className="App">
         <nav className="navbar fit-width">
           <div className="nav-brand font-white">
-            <a href="#">
+            <a href="jsx-a11y/href-no-hash">
               BPM
             </a>
           </div>
           <div className="navmenu">
             <ul>
               <li>
-                <a href="#">
+                <a href="jsx-a11y/href-no-hash">
                   Item 1
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="jsx-a11y/href-no-hash">
                   Item 2
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="jsx-a11y/href-no-hash">
                   Item 3
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="jsx-a11y/href-no-hash">
                   Item 4
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="jsx-a11y/href-no-hash">
                   Item 5
                 </a>
               </li>

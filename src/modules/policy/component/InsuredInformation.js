@@ -19,70 +19,70 @@ class InsuredInformation extends Component {
                 <div className="col xl-6 l-6 m-12 s-12 xs-12 flex-container flex-wrap">
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Salutation: </label>
-                    <input className="input disabled" type="text" value={insured.salutation} disabled />
+                    <input className="input disabled" type="text" defaultValue={insured.salutation} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Last Name: </label>
-                    <input className="input disabled" type="text" value={insured.lastName} disabled />
+                    <input className="input disabled" type="text" defaultValue={insured.lastName} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>First Name: </label>
-                    <input className="input disabled" type="text" value={insured.firstName} disabled />
+                    <input className="input disabled" type="text" defaultValue={insured.firstName} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Gender: </label>
-                    <input className="input disabled" type="text" value={insured.gender} disabled />
+                    <input className="input disabled" type="text" defaultValue={insured.gender} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Occupation: </label>
-                    <input className="input disabled" type="text" value={insured.occupation} disabled />
+                    <input className="input disabled" type="text" defaultValue={insured.occupation} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>HRC: </label>
-                    <input className="input disabled" type="text" value={insured.hrc} disabled />
+                    <input className="input disabled" type="text" defaultValue={insured.hrc} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>VIP: </label>
-                    <input className="input disabled" type="text" value={insured.vip} disabled />
+                    <input className="input disabled" type="text" defaultValue={insured.vip} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>STR: </label>
-                    <input className="input disabled" type="text" value={insured.str} disabled />
+                    <input className="input disabled" type="text" defaultValue={insured.str} disabled />
                   </div>
                 </div>
                 {/* Separate */}
                 <div className="col xl-6 xl-6 l-6 m-12 s-12 xs-12 flex-container flex-wrap">
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Nationality: </label>
-                    <input className="input disabled" type="text" value={insured.nationality} disabled />
+                    <input className="input disabled" type="text" defaultValue={insured.nationality} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Date of Birth: </label>
-                    <input className="input disabled" type="text" value={insured.dateOfBirth} disabled />
+                    <input className="input disabled" type="text" defaultValue={insured.dateOfBirth} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                     <label>Attained Age: </label>
-                    <input className="input disabled" type="text" value={insured.attainedAge} disabled />
+                    <input className="input disabled" type="text" defaultValue={insured.attainedAge} disabled />
                   </div>
                   <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                   <label>Civil Status: </label>
-                  <input className="input disabled" type="text" value={insured.civilStatus} disabled />
+                  <input className="input disabled" type="text" defaultValue={insured.civilStatus} disabled />
                 </div>
                 <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                   <label>Tel. Number: </label>
-                  <input className="input disabled" type="text" value={insured.telNumber} disabled />
+                  <input className="input disabled" type="text" defaultValue={insured.telNumber} disabled />
                 </div>
                 <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                   <label>Mobile Number: </label>
-                  <input className="input disabled" type="text" value={insured.mobileNumber} disabled />
+                  <input className="input disabled" type="text" defaultValue={insured.mobileNumber} disabled />
                 </div>
                 <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                   <label>TIN/SSS: </label>
-                  <input className="input disabled" type="text" value={insured.tinOrSss} disabled />
+                  <input className="input disabled" type="text" defaultValue={insured.tinOrSss} disabled />
                 </div>
                 <div className="col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex f-center">
                   <label>Email: </label>
-                  <input className="input disabled" type="text" value={insured.email} disabled />
+                  <input className="input disabled" type="text" defaultValue={insured.email} disabled />
                 </div>
               </div>
             </div>
