@@ -20,7 +20,7 @@ class SearchPolicyForm extends Component {
     const value = event.target.value;
 
     this.setState({
-      policyNo: value
+      policyNumber: value
     })
   }
 

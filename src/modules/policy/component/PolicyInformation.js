@@ -57,7 +57,7 @@ class PolicyInformation extends Component {
                   </div>
                   <div className="s-f-column xs-f-column col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex xl-f-center l-f-center m-f-center s-f-start xs-f-start">
                     <label>Risk Commencement Date: </label>
-                    <input className="input col xl-6 l-6 m-6 s-isabled" col type="text" defaultValue={this.props.policy.rcd} disabled />
+                    <input className="input col xl-6 l-6 m-6 disabled" type="text" defaultValue={this.props.policy.rcd} disabled />
                   </div>
                   <div className="s-f-column xs-f-column col xl-12 l-12 m-12 s-12 xs-12 f-justify-space-between flex xl-f-center l-f-center m-f-center s-f-start xs-f-start">
                     <label>First Issue Date: </label>
