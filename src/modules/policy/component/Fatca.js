@@ -280,7 +280,7 @@ class Fatca extends Component {
                   </div>
                 </div>
 
-                {/* Tentative display. Will confirm this to sir mic */}
+                {/* TODO: Tentative display. Will confirm this to sir mic */}
                 {/* <hr/> */}
                     {/* <div className="col xl-12 flex-container flex-wrap">
                       <h4 className="col xl-12">Hazardous Hobbies:</h4><br />
