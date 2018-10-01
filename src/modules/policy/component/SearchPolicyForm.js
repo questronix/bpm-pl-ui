@@ -4,17 +4,17 @@ class SearchPolicyForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      policyNo: '',
+      policyNumber: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    console.log(this.state);
-  }
+ handleSubmit(event) {
+   event.preventDefault();
+   this.props.onPolicySearchSubmit(this.state.policyNumber);
+ }
 
   handleInputChange(event) {
     const value = event.target.value;
@@ -32,7 +32,7 @@ class SearchPolicyForm extends Component {
           <input className="input xl-4 l-4 m-4 col s-9 xs-9"
             type="text"
             placeholder="Input policy number here"
-            value={this.state.policyNo}
+            value={this.state.policyNumber}
             onChange={this.handleInputChange} />
           <input className="btn bright-blue col xl-1 l-1 m-1 s-3 xs-3" type="submit" value="Search" />
         </div>

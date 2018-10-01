@@ -12,27 +12,27 @@ class SideBar extends Component {
           </div>
           <ul className="sidebar-list">
             <li>
-              <a href="#">
+              <a href="jsx-a11y/href-no-hash">
                 This is a test
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="jsx-a11y/href-no-hash">
                 This is a test
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="jsx-a11y/href-no-hash">
                 This is a test
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="jsx-a11y/href-no-hash">
                 This is a test
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="jsx-a11y/href-no-hash">
                 This is a test
               </a>
             </li>
