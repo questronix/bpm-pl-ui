@@ -128,10 +128,10 @@ class Fatca extends Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <div className="flex-containter flex-wrap">
-              <div className="padding-10">
+              <div className="">
                 <div className="card col xl-12 l-12 m-12 s-12 xs-12 no-padding">
                   <div className="card-header bg-prulife">
-                    <h3 className="font-white no margin">
+                    <h3 className="font-white no-padding no-margin">
                       Insured Information
                 </h3>
               </div>

@@ -4,7 +4,7 @@ class SideBar extends Component {
   render() {
     return (
       <div className="App">
-        <div className="sidebar col xl-2">
+        <div className="sidebar col xl-2 l-2  m-2  s-hide  xs-hide">
           <div className="sidebar-header">
             <h3>
               Tasks
