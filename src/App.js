@@ -1,24 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import './override.css';
-import './App.css';
-import Login from './modules/login/component/Login';
-import Policy from './modules/policy/component/Policy';
-import Nav from './shared/component/nav/Nav';
-import SideBar from './shared/component/sidebar/SideBar';
-
-// TODO: temporary only
-function Home() {
-  return (
-    <div>
-      <Nav/>
-      <SideBar/>
-      <Policy/>
-    </div>
-  );
-}
+import routes from './routes';
 
 class App extends Component {
 
@@ -26,9 +10,13 @@ class App extends Component {
     return (
       <Router>
       <div>
-        {/* <Redirect from="/" to="login" /> */}
-        <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
+        {routes.map((route, index) => 
+          <Route 
+            key={index} 
+            exact={route.exact} 
+            path={route.path}
+            component={route.main} /> 
+        )}
       </div>
     </Router>
     );
