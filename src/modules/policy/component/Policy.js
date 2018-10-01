@@ -175,9 +175,10 @@ class Policy extends Component {
 
     return (
       <div className="flex-container flex-wrap">
-        <div className="col xl-2">
+        <div className="col xl-2 l-2 m-2 s-hide xs-hide">
+        sad
         </div>
-        <div className="col xl-10 margin-top-90">
+        <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
           <h1 className="font-prulife">Policy Information</h1>
           <SearchPolicyForm />
           <PolicyInformation policy={policy} />
@@ -185,8 +186,8 @@ class Policy extends Component {
             transactionCheckList={this.state.transactionCheckList}
             onTransactionChange={this.handleTransactionChange} />
           <Fatca insured={insured} />
-          <div className="col xl-12  flex f-end">
-            <input className="btn prulife col xl-1" type="button" value="Save" />
+          <div className="col xl-12 l-12 m-2 s-12 xs-12  flex xl-f-end l-f-end m-f-end s-f-center xs-f-center">
+            <input className="btn prulife col xl-1 l-1 m-12 s-12 xs-12" type="button" value="Save" />
           </div>
         </div>
       </div>

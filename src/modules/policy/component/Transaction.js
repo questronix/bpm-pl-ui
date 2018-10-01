@@ -32,14 +32,14 @@ class Transaction extends Component {
           <div className="col xl-12">
             <div className="card col xl-12 l-12 m-12 s-12 xs-12 no-padding">
               <div className="card-header bg-prulife flex f-justify-space-between">
-                <div className="col xl-6 flex">
-                  <h3 className="font-white">Transaction type:</h3>
-                  <select className="select-no-effect font-white bg-none border-bottom h3">
+                <div className="col xl-6 flex no-padding">
+                  <h3 className="font-white no-padding no-margin flex f-center">Transaction type:</h3>
+                  <select className="select-no-effect no-margin no-padding font-white bg-none border-bottom h3">
                     <option className="hidden">Reinstatement</option>
                     <option className="item">Reinstatement</option>
                   </select>
                 </div>
-                <h3 className="font-white">TXN 2018-000001</h3>
+                <h3 className="font-white no-margin f-center flex">TXN 2018-000001</h3>
               </div>
               <div className="card-body flex-container flex-wrap">
                 <div className="col xl-6 l-6 m-12 s-12 xs-12 flex f-center">
@@ -67,7 +67,7 @@ class Transaction extends Component {
                     <label htmlFor="switch_3_right">Waiver</label>
                   </div>
                 </div>
-                <div className="col xl-6 flex-container flex-wrap">
+                <div className="col xl-6 l-6 m-12 s-12 xs-12 flex-container flex-wrap">
                   {transactionCheckList}
                 </div>
               </div>
