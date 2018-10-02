@@ -5,7 +5,7 @@ class Nav extends Component {
     return (
       <div className="App">
         <nav className="navbar">
-          <div className="nav-brand font-white">
+          <div className="nav-brand font-prulife">
             <a href="jsx-a11y/href-no-hash">
               BPM
             </a>

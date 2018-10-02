@@ -34,7 +34,7 @@ class SearchPolicyForm extends Component {
             placeholder="Input policy number here"
             value={this.state.policyNumber}
             onChange={this.handleInputChange} />
-          <input className="btn bright-blue col xl-1 l-1 m-1 s-3 xs-3" type="submit" value="Search" />
+          <input className="btn prulife col xl-1 l-1 m-1 s-3 xs-3" type="submit" value="Search" />
         </div>
       </form>
     );

@@ -1,3 +1,6 @@
+body, html, h1, h3, h4, h5, h6, a, p, span {
+  color: #68737A; }
+
 body, html {
   max-width: 100%;
   min-height: 100%;
@@ -49,6 +52,9 @@ body, html {
 .bg-sun-yellow {
   background-color: #FFB81D !important; }
 
+.bg-prugray {
+  background-color: #68737A !important; }
+
 .bg-none {
   background-color: transparent; }
 
@@ -75,6 +81,9 @@ body, html {
 
 .font-gray {
   color: #bdbdbd !important; }
+
+.font-prugray {
+  color: #68737A !important; }
 
 .font-prulife {
   color: #ED1B2E !important; }
@@ -170,6 +179,14 @@ body, html {
     .btn.prulife:hover {
       background-color: #fff;
       color: #ED1B2E;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  .btn.prugray {
+    background-color: #68737A;
+    color: #fff;
+    border: solid 3px #68737A; }
+    .btn.prugray:hover {
+      background-color: #fff;
+      color: #68737A;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn.grass-green {
     background-color: #007953;
@@ -1438,6 +1455,17 @@ input.checkbox {
   .card .card-body {
     padding: 20px; }
 
+.card-alt {
+  width: inherit;
+  border: solid 1px #bdbdbd;
+  border-left: solid 5px #ED1B2E;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  .card-alt .card-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee; }
+  .card-alt .card-body {
+    padding: 20px; }
+
 .can-toggle {
   position: relative; }
   .can-toggle *, .can-toggle *:before, .can-toggle *:after {
@@ -1759,12 +1787,12 @@ input.checkbox {
 /* On mouse-over, add a grey background color */
 .checkbox:hover input ~ .checkmark {
   background-color: #fff;
-  border-color: #ED1B2E; }
+  border-color: #007953; }
 
 /* When the checkbox is checked, add a blue background */
 .checkbox input:checked ~ .checkmark {
-  background-color: #ED1B2E;
-  border: solid 1px #ED1B2E; }
+  background-color: #43a047;
+  border: solid 1px #007953; }
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
@@ -1794,23 +1822,23 @@ input.checkbox {
 nav {
   z-index: 10; }
   nav.navbar {
-    background-color: #2b2b2b;
+    background-color: #fff;
     position: fixed;
     padding: 10px 0px;
     height: 70px;
     width: 100%;
-    margin-bottom: 90px; }
+    margin-bottom: 90px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
     nav.navbar p, nav.navbar a, nav.navbar h1, nav.navbar h2, nav.navbar h3, nav.navbar h4, nav.navbar h5, nav.navbar h6 {
       font-display: none;
-      text-decoration: none;
-      color: #fff; }
+      text-decoration: none; }
     nav.navbar .nav-brand {
       margin: 0px 30px; }
     nav.navbar .navmenu ul, nav.navbar .navmenu ol {
       margin: 0px 30px; }
       nav.navbar .navmenu ul li, nav.navbar .navmenu ol li {
         padding: 10px;
-        border-bottom: solid 3px #2b2b2b;
+        border-bottom: solid 3px #fff;
         -webkit-transition: all .3s ease-out;
         -moz-transition: all .3s ease-out;
         -ms-transition: all .3s ease-out;
@@ -1819,12 +1847,16 @@ nav {
         nav.navbar .navmenu ul li:hover, nav.navbar .navmenu ol li:hover {
           border-bottom: solid 3px #ED1B2E;
           color: #fff; }
+        nav.navbar .navmenu ul li p, nav.navbar .navmenu ul li a, nav.navbar .navmenu ul li h1, nav.navbar .navmenu ul li h2, nav.navbar .navmenu ul li h3, nav.navbar .navmenu ul li h4, nav.navbar .navmenu ul li h5, nav.navbar .navmenu ul li h6, nav.navbar .navmenu ol li p, nav.navbar .navmenu ol li a, nav.navbar .navmenu ol li h1, nav.navbar .navmenu ol li h2, nav.navbar .navmenu ol li h3, nav.navbar .navmenu ol li h4, nav.navbar .navmenu ol li h5, nav.navbar .navmenu ol li h6 {
+          color: #68737A; }
+        nav.navbar .navmenu ul li:hover a, nav.navbar .navmenu ol li:hover a {
+          color: #ED1B2E; }
         nav.navbar .navmenu ul li a, nav.navbar .navmenu ol li a {
           font-weight: 300;
           margin: 0 10px !important; }
 
 .sidebar {
-  background-color: #2b2b2b;
+  background-color: rgba(104, 115, 122, 0.1);
   position: fixed;
   height: 100%;
   padding-top: 90px;
@@ -1840,7 +1872,7 @@ nav {
     padding-left: 30px;
     color: #fff; }
   .sidebar ul.sidebar-list, .sidebar ol.sidebar-list {
-    color: #fff; }
+    color: #68737A; }
     .sidebar ul.sidebar-list li, .sidebar ol.sidebar-list li {
       -webkit-transition: all .3s ease-out;
       -moz-transition: all .3s ease-out;
@@ -1849,12 +1881,15 @@ nav {
       transition: all 0.3s ease-out;
       padding: 20px 30px 20px 30px; }
       .sidebar ul.sidebar-list li:hover, .sidebar ol.sidebar-list li:hover {
-        background-color: #ED1B2E;
+        background-color: #68737A;
         color: #fff; }
+        .sidebar ul.sidebar-list li:hover p, .sidebar ul.sidebar-list li:hover a, .sidebar ul.sidebar-list li:hover h1, .sidebar ul.sidebar-list li:hover h2, .sidebar ul.sidebar-list li:hover h3, .sidebar ul.sidebar-list li:hover h4, .sidebar ul.sidebar-list li:hover h5, .sidebar ul.sidebar-list li:hover h6, .sidebar ol.sidebar-list li:hover p, .sidebar ol.sidebar-list li:hover a, .sidebar ol.sidebar-list li:hover h1, .sidebar ol.sidebar-list li:hover h2, .sidebar ol.sidebar-list li:hover h3, .sidebar ol.sidebar-list li:hover h4, .sidebar ol.sidebar-list li:hover h5, .sidebar ol.sidebar-list li:hover h6 {
+          font-display: none;
+          text-decoration: none;
+          color: #fff; }
       .sidebar ul.sidebar-list li p, .sidebar ul.sidebar-list li a, .sidebar ul.sidebar-list li h1, .sidebar ul.sidebar-list li h2, .sidebar ul.sidebar-list li h3, .sidebar ul.sidebar-list li h4, .sidebar ul.sidebar-list li h5, .sidebar ul.sidebar-list li h6, .sidebar ol.sidebar-list li p, .sidebar ol.sidebar-list li a, .sidebar ol.sidebar-list li h1, .sidebar ol.sidebar-list li h2, .sidebar ol.sidebar-list li h3, .sidebar ol.sidebar-list li h4, .sidebar ol.sidebar-list li h5, .sidebar ol.sidebar-list li h6 {
         font-display: none;
-        text-decoration: none;
-        color: #fff; }
+        text-decoration: none; }
 
 /*the container must be positioned relative:*/
 .select {

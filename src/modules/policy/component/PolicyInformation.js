@@ -8,11 +8,11 @@ class PolicyInformation extends Component {
       <div className="App">
         <div className="flex-container flex-wraper">
           <div className="col xl-12">
-            <div className="card col xl-12 l-12 m-12 s-12 xs-12 no-padding">
-              <div className="card-header bg-prulife">
-                <h3 className="font-white no-margin">
+            <div className="card-alt col xl-12 l-12 m-12 s-12 xs-12 no-padding">
+              <div className="card-header">
+                <h2  className="no-margin font-prugray">
                   General Information
-                </h3>
+                </h2>
               </div>
               <div className="card-body flex-container flex-wrap">
                 <div className="flex-container flex-wrap col xl-6 l-6 m-6 s-12 xs-12">
