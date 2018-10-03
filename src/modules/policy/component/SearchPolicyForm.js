@@ -42,7 +42,10 @@ class SearchPolicyForm extends Component {
               placeholder="Input policy number here"
               value={this.state.policyNumber}
               onChange={this.handleInputChange} />
-              <input className="btn prulife col xl-1 l-1 m-1 s-3 xs-3" type="submit" value="Search" />
+              <button className="btn prulife col xl-1 l-1 m-1 s-3 xs-3" type="submit" >
+              Search
+              {/* <span className="fa fa-search font-white"></span> */}
+              </button>
             </Fragment>)}
         </div>
       </form>

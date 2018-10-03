@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import SearchPolicyForm from './SearchPolicyForm';
 import PolicyInformation from './PolicyInformation';
 import Fatca from './Fatca';
 import Transaction from './Transaction';
 import WarningAlert from '../../../shared/component/alerts/Warning';
 import ErrorAlert from '../../../shared/component/alerts/Error';
-import { PolicyService }  from '../../../services/request';
+import { PolicyService } from '../../../services/request';
 import Tabs from '../../../shared/component/tabs/Tabs';
+import PageLoading from '../../../shared/component/loadings/PageLoading';
 
 class Policy extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class Policy extends Component {
       transactionCheckList: [],
       statementOfInsurability: false,
       isSearching: false,
+      isError:false,
     }
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
@@ -70,6 +72,7 @@ class Policy extends Component {
     this.setState({
       policyNumberSearch: policyNumber,
       isSearching: true,
+      isError:false,
     });
     PolicyService.getPolicyInformationByID({ policyNumber }).then((result) => {
       this.setState({
@@ -82,8 +85,8 @@ class Policy extends Component {
     }).catch((err) => {
       this.setState({
         isSearching: false,
+        isError: true,
       });
-      alert('Error while fetching data');
       console.log('Error: ', err);
     });
 
@@ -218,25 +221,33 @@ class Policy extends Component {
   render() {
     return (
       <div className="flex-container flex-wrap">
-        <div className="col xl-2 l-2 m-2 s-hide xs-hide">
-          made by questronix
+        <div className="col xl-2 l-2 m-2 s-hide xs-hide invisible">
+          made by questroni+x
         </div>
         <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
           <h1 className="font-prulife">Policy Information</h1>
-           <SearchPolicyForm 
-            onPolicySearchSubmit={this.handlePolicySearchSubmit} 
+          <SearchPolicyForm
+            onPolicySearchSubmit={this.handlePolicySearchSubmit}
             isSearching={this.state.isSearching} />
-          <PolicyInformation policy={this.state.policy} />
-          <Transaction
-            transactionCheckList={this.state.transactionCheckList}
-            onTransactionCheckListChange={this.handleTransactionCheckList}
-            onTransactionChange={this.handleTransactionChange} />
-          <Fatca insured={this.state.insured} />
-          <div className="flex-container">
-            <div className="col xl-12 l-12 m-2 s-12 xs-12  flex xl-f-end l-f-end m-f-end s-f-center xs-f-center">
-              <input className="btn prulife col xl-1 l-1 m-12 s-12 xs-12" type="button" value="Save" />
-            </div>
-          </div>
+            {this.state.isError && <div className="flex-container flex-wrap"><div className="col"><ErrorAlert>Policy information not found</ErrorAlert></div></div>}
+          {this.state.isSearching ?
+            (<Fragment>
+              <PageLoading />
+
+            </Fragment>) :
+            (<Fragment>
+              <PolicyInformation policy={this.state.policy} />
+              <Transaction
+                transactionCheckList={this.state.transactionCheckList}
+                onTransactionCheckListChange={this.handleTransactionCheckList}
+                onTransactionChange={this.handleTransactionChange} />
+              <Fatca insured={this.state.insured} />
+              <div className="flex-container">
+                <div className="col xl-12 l-12 m-2 s-12 xs-12  flex xl-f-end l-f-end m-f-end s-f-center xs-f-center">
+                  <input className="btn prulife col xl-1 l-1 m-12 s-12 xs-12" type="button" value="Save" />
+                </div>
+              </div>
+            </Fragment>)}
         </div>
       </div>
     );

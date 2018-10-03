@@ -155,14 +155,14 @@ class Fatca extends Component {
       <div className="App">
         <form onSubmit={this.handleSubmit}>
           <div>
-            <div className="flex-container">
+            {/* <div className="flex-container">
               <div className="col">
                 <Tabs
                   tabHeader={tabHeader}
                   tabBody={tabBody}>
                 </Tabs>
               </div>
-            </div>
+            </div> */}
             <div className="flex-container flex-wrap">
               <div className="col">
                 <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
@@ -170,31 +170,41 @@ class Fatca extends Component {
                     <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active">
                       Insured Information
                     </div>
+                    <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 ">
+                      Owner Information
+                    </div>
                   </div>
-              <div className="card-body">
-                <InsuredInformation insured={this.props.insured} />
-                <hr />
-                <div className="flex-container flex-wrap ">
-                  <CheckBox label="DowJones:" cName="dowJones"/>
-                  <CheckBox label="With Diabetes:" cName="withDiabetes"/>
-                  <CheckBox label="With Hypertension:" cName="withHypertension"/>
-                  <CheckBox label="With Pregnancy:" cName="withPregnancy"/>
-                  <CheckBox label="MID:" cName="mid"/>
-                  <CheckBox label="FATCA Tagging:" cName="fatcaTagging"/>
-                  <CheckBoxAddon label="Statement of Insurability Declarations:" cVal={this.state.soi} cName="soi" onToggleChange={this.handleToggleChange}>
-                      <input type="text" className="col" name="soiText" value={this.state.soiText} onChange={this.handleInputChange}/>
-                  </CheckBoxAddon>
-                  <CheckBox label="Beyond MPT:" cName="beyondMPT"/>
-                  <CheckBox label="With Existing Policies:" cName="withExistingPolicies"/>
-                  <CheckBox label="With Pending Policies:" cName="withPendingPolicies"/>
-                  <CheckBoxAddon label="With Different Agent:" cVal={this.state.differentAgent} cName="differentAgent" onToggleChange={this.handleToggleChange}>
-                      <input type="number" className="col" name="differentAgentText" value={this.state.differentAgentText} onChange={this.handleInputChange}/>
-                  </CheckBoxAddon>
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small"></div>
+                  <div className="tab-body">
+                    <InsuredInformation insured={this.props.insured} />
+                    <hr />
+                    <div className="flex-container flex-wrap">
+                      <div className="col flex-container flex-wrap">
+                        <CheckBox label="DowJones:" cName="dowJones" />
+                        <CheckBox label="With Diabetes:" cName="withDiabetes" />
+                        <CheckBox label="With Hypertension:" cName="withHypertension" />
+                        <CheckBox label="With Pregnancy:" cName="withPregnancy" />
+                        <CheckBox label="MID:" cName="mid" />
+                        <CheckBox label="FATCA Tagging:" cName="fatcaTagging" />
+                        <CheckBoxAddon label="Statement of Insurability Declarations:" cVal={this.state.soi} cName="soi" onToggleChange={this.handleToggleChange}>
+                          <div className="col xl-12">
+                            <input type="text" className="col input" name="soiText" value={this.state.soiText} onChange={this.handleInputChange} />
+                          </div>
+                        </CheckBoxAddon>
+                        <CheckBox label="Beyond MPT:" cName="beyondMPT" />
+                        <CheckBox label="With Existing Policies:" cName="withExistingPolicies" />
+                        <CheckBox label="With Pending Policies:" cName="withPendingPolicies" />
+                        <CheckBoxAddon label="With Different Agent:" cVal={this.state.differentAgent} cName="differentAgent" onToggleChange={this.handleToggleChange}>
+                          <div className="col xl-12">
+                            <input type="number" className="col input" name="differentAgentText" value={this.state.differentAgentText} onChange={this.handleInputChange} />
+                          </div>
+                        </CheckBoxAddon>
+                        <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+                        </div>
+                      </div>
 
-                    {/* TODO: Tentative display. Will confirm this to sir mic */}
-                    {/* <hr/> */}
-                    {/* <div className="col xl-12 flex-container flex-wrap">
+                      {/* TODO: Tentative display. Will confirm this to sir mic */}
+                      {/* <hr/> */}
+                      {/* <div className="col xl-12 flex-container flex-wrap">
                       <h4 className="col xl-12">Hazardous Hobbies:</h4><br />
                       <div className="col xl-6 flex">
                         <label className="checkbox">Bungee Jumping
@@ -251,9 +261,9 @@ class Fatca extends Component {
                         </label>
                       </div>
                     </div> */}
+                    </div>
                   </div>
                 </div>
-              </div>
               </div>
             </div>
           </div>
