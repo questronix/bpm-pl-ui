@@ -11,13 +11,18 @@ const getClient = () => {
   return client;
 }
 
-export default class apiClient {
+//TODO: change apiClient to ApiClient
+class ApiClient {
   constructor() {
     this.client = getClient();
   }
+  
+  setHeaders(headers) {
+    this.client.defaults.headers = headers;
+    return this;
+  }
 
   getClient() {
-    console.log(this.client);
     return this.client;
   }
 
@@ -40,6 +45,10 @@ export default class apiClient {
     console.log(`DELETE request: ${path} \n params: ${JSON.stringify(params)}`);
     return request(this.client.delete(path, params));
   }
+}
+
+export {
+  ApiClient,
 }
 
 function request(req) {
