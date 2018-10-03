@@ -27,16 +27,6 @@ class SearchPolicyForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="flex-wrap flex-container">
-          <div className="xl-hide card-alt">
-            <div className="card-header">
-              <h3>
-                test header
-            </h3>
-            </div>
-            <div className="card-body">
-              teststeasdasd
-          </div>
-          </div>
           <label className="col xl-1 l-1 m-1 s-12 xs-12 flex f-center"><span className="fa fa-warning"></span> Policy Number: </label>
           {this.props.isSearching ?
             (<Fragment>
@@ -45,7 +35,7 @@ class SearchPolicyForm extends Component {
                 placeholder="Input policy number here"
                 value={this.state.policyNumber}
                 onChange={this.handleInputChange} disabled />
-              <input className="btn disabled prugray col xl-1 l-1 m-1 s-3 xs-3" disabled type="submit" value="Searching" />
+              <input className="btn font-prugray disabled prugray col xl-1 l-1 m-1 s-3 xs-3" disabled type="submit" value="Searching" />
             </Fragment>) :
             (<Fragment><input className="input xl-4 l-4 m-4 col s-9 xs-9"
               type="text"

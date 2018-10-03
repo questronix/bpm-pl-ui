@@ -55,7 +55,12 @@ class LoginForm extends Component {
                 value={this.state.password}
                 onChange={this.handleInputChange} />
             </div>
-            <input className="btn primary fit-width" type="submit" value="Login" />
+            <button className="btn col xl-12 prulife"
+            type="submit" 
+            value="Login" >
+            Login
+            </button>
+            {/* <input className="btn col xl-12 primary" type="submit" value="Login" ></input> */}
           </div>
         </div>
       </form>

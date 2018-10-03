@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Card from '../../../shared/component/cards/Cards';
 
 class InsuredInformation extends Component {
 

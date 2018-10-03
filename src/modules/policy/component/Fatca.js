@@ -129,13 +129,21 @@ class Fatca extends Component {
           <div>
             <div className="flex-container flex-wrap">
               <div className="col">
-                <div className="card-alt col xl-12 l-12 m-12 s-12 xs-12 no-padding">
-                  <div className="card-header">
-                    <h2 className="font-prugray no-padding no-margin">
+                <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
+                  <div className="tab-container flex-container no-padding col xl-12">
+                    <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active">
                       Insured Information
-                </h2>
+                    </div>
+                    <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2">
+                      Owner Information
+                    </div>
                   </div>
-                  <div className="card-body">
+                  <div className="col tab-header">
+                    <h3 className="font-prugray ">
+                      Insured Information
+                    </h3>
+                  </div>
+                  <div className="tab-body">
                     <InsuredInformation insured={this.props.insured} />
                     <hr />
                     <div className="flex-container flex-wrap ">
