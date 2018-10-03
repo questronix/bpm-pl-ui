@@ -168,164 +168,9 @@ class Fatca extends Component {
                 <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
                   <div className="tab-container flex-container no-padding col xl-12">
                     <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active">
-                      <h2> Insured Information</h2>
-                    </div>
-      {/* </div>    
-                    <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2">
-                      Owner Information
-                    </div>
-                  </div>
-                  <div className="col tab-header">
-                    <h3 className="font-prugray ">
                       Insured Information
-                    </h3>
+                    </div>
                   </div>
-                  <div className="tab-body">
-                    <InsuredInformation insured={this.props.insured} />
-                    <hr />
-                    <div className="flex-container flex-wrap ">
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="dowJones"
-                          type="checkbox"
-                          name="dowJones" />
-                        <label className="flex f-justify-space-between" htmlFor="dowJones">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Dow Jones:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="Diabetes"
-                          type="checkbox"
-                          name="withDiabetes" />
-                        <label className=" flex f-justify-space-between" htmlFor="Diabetes">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Diabetes:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="Hypertension"
-                          type="checkbox"
-                          name="withHypertension" />
-                        <label className="flex f-justify-space-between" htmlFor="Hypertension">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Hypertension:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="withPregnancy"
-                          type="checkbox"
-                          name="withPregnancy"
-                          value="false" />
-                        <label className="flex f-justify-space-between" htmlFor="withPregnancy">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Pregnancy:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="mid"
-                          type="checkbox"
-                          name="mid" />
-                        <label className="flex f-justify-space-between" htmlFor="mid">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">MID:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="fatca"
-                          type="checkbox"
-                          name="fatca"
-                          value="false" />
-                        <label className="flex f-justify-space-between" htmlFor="fatca">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">FATCA Tagging:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="soi"
-                          type="checkbox"
-                          name="soi"
-                          value="false" />
-                        <label className="flex f-justify-space-between" htmlFor="soi">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Statement of Insurability Declarations:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="beyondMPT"
-                          type="checkbox"
-                          name="beyondMPT"
-                          value="false" />
-                        <label className="flex f-justify-space-between" htmlFor="beyondMPT">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Beyond MPT:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="withExisitingPolicies"
-                          type="checkbox"
-                          name="withExisitingPolicies"
-                          value="false" />
-                        <label className="flex f-justify-space-between" htmlFor="withExisitingPolicies">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Existing Policies:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="wihtPendingPolicies"
-                          type="checkbox"
-                          name="wihtPendingPolicies"
-                          value="false" />
-                        <label className="flex f-justify-space-between" htmlFor="wihtPendingPolicies">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Pending Policies:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="WithDifferentAgent"
-                          type="checkbox"
-                          name="WithDifferentAgent"
-                          value="false" />
-                        <label className="flex f-justify-space-between" htmlFor="WithDifferentAgent">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Different Agent:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="signatureVerified"
-                          type="checkbox"
-                          name="signatureVerified"
-                          value="false" />
-                        <label className="flex f-justify-space-between" htmlFor="signatureVerified">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Signature Verified:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                        <input
-                          id="placeOfSigning"
-                          type="checkbox"
-                          name="placeOfSigning"
-                          value="false" />
-                        <label className="flex f-justify-space-between" htmlFor="placeOfSigning">
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Place of Signing within PH:</div>
-                          <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                        </label>
-                      </div>
-                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                      </div>
-                    </div> */}
               <div className="card-body">
                 <InsuredInformation insured={this.props.insured} />
                 <hr />
@@ -345,6 +190,7 @@ class Fatca extends Component {
                   <CheckBoxAddon label="With Different Agent:" cVal={this.state.differentAgent} cName="differentAgent" onToggleChange={this.handleToggleChange}>
                       <input type="number" className="col" name="differentAgentText" value={this.state.differentAgentText} onChange={this.handleInputChange}/>
                   </CheckBoxAddon>
+                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small"></div>
 
                     {/* TODO: Tentative display. Will confirm this to sir mic */}
                     {/* <hr/> */}
