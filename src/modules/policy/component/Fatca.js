@@ -127,7 +127,7 @@ class Fatca extends Component {
       <div className="App">
         <form onSubmit={this.handleSubmit}>
           <div>
-            <div className="flex-containter flex-wrap">
+            <div className="flex-container flex-wrap">
               <div className="col">
                 <div className="card-alt col xl-12 l-12 m-12 s-12 xs-12 no-padding">
                   <div className="card-header">

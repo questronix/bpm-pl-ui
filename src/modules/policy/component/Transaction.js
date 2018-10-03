@@ -28,7 +28,7 @@ class Transaction extends Component {
 
     return (
       <div>
-        <div className="flex-container flex-wraper">
+        <div className="flex-container flex-wrap">
           <div className="col xl-12">
             <div className="card-alt col xl-12 l-12 m-12 s-12 xs-12 no-padding">
               <div className="card-header flex f-justify-space-between">
