@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import InsuredInformation from './InsuredInformation';
+import Tabs from '../../../shared/component/tabs/Tabs';
 
 class Fatca extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Fatca extends Component {
       withHypertension: false,
       withPregnancy: false,
       flightSSP: '',
+      tabPage: 1,
       hazardousHobbies: [
         {
           id: 1,
@@ -111,6 +113,18 @@ class Fatca extends Component {
   }
 
   render() {
+
+    let tabHeader;
+    let tabBody;
+    let tabNav;
+
+    if (this.state.tabPage === 1) {
+      tabHeader = "Tab Page 1";
+      tabBody = <InsuredInformation insured={this.props.insured} />;
+    }
+    else if (this.state.tabPage === 2) {
+      tabHeader = "Tab Page 2";
+    }
     // const hobbies = this.state.hazardousHobbies
     //   .map((hobby, i) => {
     //     return <div key={i}>
@@ -127,6 +141,14 @@ class Fatca extends Component {
       <div className="App">
         <form onSubmit={this.handleSubmit}>
           <div>
+            <div className="flex-container">
+              <div className="col">
+                <Tabs
+                  tabHeader={tabHeader}
+                  tabBody={tabBody}>
+                </Tabs>
+              </div>
+            </div>
             <div className="flex-container flex-wrap">
               <div className="col">
                 <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
@@ -359,5 +381,6 @@ class Fatca extends Component {
     );
   }
 }
+
 
 export default Fatca;

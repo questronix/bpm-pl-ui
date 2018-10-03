@@ -64,6 +64,9 @@ body, html {
 .bg-prugray {
   background-color: #68737A !important; }
 
+.bg-lightgray {
+  background-color: #eee !important; }
+
 .bg-none {
   background-color: transparent; }
 

@@ -5,7 +5,8 @@ import Fatca from './Fatca';
 import Transaction from './Transaction';
 import { PolicyService } from '../../../services/request';
 import axios from 'axios';
-import Tabs from '../../../shared/component/tabs/Tabs';
+import WarningAlert from '../../../shared/component/alerts/Warning';
+import ErrorAlert from '../../../shared/component/alerts/Error';
 
 class Policy extends Component {
   constructor(props) {
@@ -211,7 +212,7 @@ class Policy extends Component {
     return (
       <div className="flex-container flex-wrap">
         <div className="col xl-2 l-2 m-2 s-hide xs-hide">
-          sad
+          made by questronix
         </div>
         <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
           <h1 className="font-prulife">Policy Information</h1>

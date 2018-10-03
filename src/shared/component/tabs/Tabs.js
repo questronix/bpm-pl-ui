@@ -8,34 +8,20 @@ class Tabs extends Component {
           <div className="tabs col">
             <div className="flex-container col xl-12 no-padding tab-container">
               <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active">
-                active tab
-              </div>
-              <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-disabled">
-                disabled tab
+                Insured Informatmion
               </div>
               <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2">
-                other tab
+                Owner Informatmion
               </div>
             </div>
             <div className="col">
               <div className="tab-header">
                 <h3>
-                  This is a tab header
+                  {this.props.tabHeader}
               </h3>
               </div>
               <div className="tab-body">
-                <div className="card-alt">
-                  <div className="card-header">
-                    <h3 className="no-padding no-margin">
-                      Card header
-                  </h3>
-                  </div>
-                  <div className="card-body">
-                    <p>
-                      This is a card body
-                  </p>
-                  </div>
-                </div>
+                  {this.props.tabBody}
               </div>
             </div>
           </div>
