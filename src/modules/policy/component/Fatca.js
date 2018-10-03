@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import InsuredInformation from './InsuredInformation';
 import Tabs from '../../../shared/component/tabs/Tabs';
+import CheckBoxAddon from '../../../shared/component/checkbox/CheckBoxAddon';
+import CheckBox from '../../../shared/component/checkbox/CheckBox';
 
 class Fatca extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      soi: false,
+      soiText: '',
+      differentAgent: false,
+      differentAgentText: '',
       fatca: '',
       placeOfSigning: '',
-      statementOfInsurablity: '',
       withDiabetes: false,
       withHypertension: false,
       withPregnancy: false,
@@ -67,6 +72,7 @@ class Fatca extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleRadioChange = this.handleRadioChange.bind(this);
     this.handleMultiSelectChange = this.handleMultiSelectChange.bind(this);
+    this.handleToggleChange = this.handleToggleChange.bind(this);
   }
 
   handleSubmit(event) {
@@ -93,7 +99,15 @@ class Fatca extends Component {
     const val = (value === "true") ? true : false;
 
     this.setState({
-      [name]: val
+      [name]: !val
+    });
+  }
+
+  handleToggleChange(name, value) {
+    const val = (value === "true") ? true : false;
+
+    this.setState({
+      [name]: !val
     });
   }
 
@@ -154,8 +168,9 @@ class Fatca extends Component {
                 <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
                   <div className="tab-container flex-container no-padding col xl-12">
                     <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active">
-                      Insured Information
+                      <h2> Insured Information</h2>
                     </div>
+      {/* </div>    
                     <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2">
                       Owner Information
                     </div>
@@ -310,7 +325,26 @@ class Fatca extends Component {
                       </div>
                       <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
                       </div>
-                    </div>
+                    </div> */}
+              <div className="card-body">
+                <InsuredInformation insured={this.props.insured} />
+                <hr />
+                <div className="flex-container flex-wrap ">
+                  <CheckBox label="DowJones:" cName="dowJones"/>
+                  <CheckBox label="With Diabetes:" cName="withDiabetes"/>
+                  <CheckBox label="With Hypertension:" cName="withHypertension"/>
+                  <CheckBox label="With Pregnancy:" cName="withPregnancy"/>
+                  <CheckBox label="MID:" cName="mid"/>
+                  <CheckBox label="FATCA Tagging:" cName="fatcaTagging"/>
+                  <CheckBoxAddon label="Statement of Insurability Declarations:" cVal={this.state.soi} cName="soi" onToggleChange={this.handleToggleChange}>
+                      <input type="text" className="col" name="soiText" value={this.state.soiText} onChange={this.handleInputChange}/>
+                  </CheckBoxAddon>
+                  <CheckBox label="Beyond MPT:" cName="beyondMPT"/>
+                  <CheckBox label="With Existing Policies:" cName="withExistingPolicies"/>
+                  <CheckBox label="With Pending Policies:" cName="withPendingPolicies"/>
+                  <CheckBoxAddon label="With Different Agent:" cVal={this.state.differentAgent} cName="differentAgent" onToggleChange={this.handleToggleChange}>
+                      <input type="number" className="col" name="differentAgentText" value={this.state.differentAgentText} onChange={this.handleInputChange}/>
+                  </CheckBoxAddon>
 
                     {/* TODO: Tentative display. Will confirm this to sir mic */}
                     {/* <hr/> */}
@@ -373,6 +407,7 @@ class Fatca extends Component {
                     </div> */}
                   </div>
                 </div>
+              </div>
               </div>
             </div>
           </div>

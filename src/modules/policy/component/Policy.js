@@ -3,10 +3,10 @@ import SearchPolicyForm from './SearchPolicyForm';
 import PolicyInformation from './PolicyInformation';
 import Fatca from './Fatca';
 import Transaction from './Transaction';
-import { PolicyService } from '../../../services/request';
-import axios from 'axios';
 import WarningAlert from '../../../shared/component/alerts/Warning';
 import ErrorAlert from '../../../shared/component/alerts/Error';
+import { PolicyService }  from '../../../services/request';
+import Tabs from '../../../shared/component/tabs/Tabs';
 
 class Policy extends Component {
   constructor(props) {
@@ -17,10 +17,12 @@ class Policy extends Component {
       insured: {},
       selectedTransaction: '',
       transactionCheckList: [],
+      statementOfInsurability: false,
       isSearching: false,
     }
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
+    this.handleTransactionCheckList = this.handleTransactionCheckList.bind(this);
   }
 
   componentDidMount() {
@@ -31,32 +33,32 @@ class Policy extends Component {
       transactionCheckList: [
         {
           id: 1,
-          value: false,
+          isChecked: false,
           label: 'Health Statement Form (HSF)',
         },
         {
           id: 2,
-          value: false,
+          isChecked: false,
           label: 'U/W routine requirements',
         },
         {
           id: 3,
-          value: false,
+          isChecked: false,
           label: 'Payment of Premium Arrears',
         },
         {
           id: 4,
-          value: false,
+          isChecked: false,
           label: 'Specimen Signature Form (if applicable)',
         },
         {
           id: 5,
-          value: false,
+          isChecked: false,
           label: 'Valid Government Issued ID (if applicable)',
         },
         {
           id: 6,
-          value: false,
+          isChecked: false,
           label: 'Valid Non-Government Issued ID (if applicable)',
         },
       ]
@@ -81,6 +83,7 @@ class Policy extends Component {
       this.setState({
         isSearching: false,
       });
+      alert('Error while fetching data');
       console.log('Error: ', err);
     });
 
@@ -131,32 +134,32 @@ class Policy extends Component {
       t_list = [
         {
           id: 1,
-          value: false,
+          isChecked: false,
           label: 'Health Statement Form (HSF)',
         },
         {
           id: 2,
-          value: false,
+          isChecked: false,
           label: 'U/W routine requirements',
         },
         {
           id: 3,
-          value: false,
+          isChecked: false,
           label: 'Payment of Premium Arrears',
         },
         {
           id: 4,
-          value: false,
+          isChecked: false,
           label: 'Specimen Signature Form (if applicable)',
         },
         {
           id: 5,
-          value: false,
+          isChecked: false,
           label: 'Valid Government Issued ID (if applicable)',
         },
         {
           id: 6,
-          value: false,
+          isChecked: false,
           label: 'Valid Non-Government Issued ID (if applicable)',
         }
       ];
@@ -165,27 +168,27 @@ class Policy extends Component {
       t_list = [
         {
           id: 1,
-          value: false,
+          isChecked: false,
           label: 'Health Statement Form (HSF)',
         },
         {
           id: 2,
-          value: false,
+          isChecked: false,
           label: 'Health Statement Form (HSF)',
         },
         {
           id: 3,
-          value: false,
+          isChecked: false,
           label: 'Specimen Signature Form (if applicable)',
         },
         {
           id: 4,
-          value: false,
+          isChecked: false,
           label: 'Valid Government Issued ID (if applicable)',
         },
         {
           id: 5,
-          value: false,
+          isChecked: false,
           label: 'Valid Non-Government Issued ID (if applicable)',
         },
       ];
@@ -194,18 +197,22 @@ class Policy extends Component {
       t_list = [
         {
           id: 1,
-          value: false,
+          isChecked: false,
           label: 'Discretionary Waiver Form',
         },
         {
           id: 2,
-          value: false,
+          isChecked: false,
           label: 'Payment of reinstatement cost',
         },
       ];
     }
 
     this.setState({ transactionCheckList: t_list });
+  }
+
+  handleTransactionCheckList(updatedTransactionCheckList) {
+    this.setState({ transactionCheckList: updatedTransactionCheckList });
   }
 
   render() {
@@ -216,10 +223,13 @@ class Policy extends Component {
         </div>
         <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
           <h1 className="font-prulife">Policy Information</h1>
-          <SearchPolicyForm onPolicySearchSubmit={this.handlePolicySearchSubmit} isSearching={this.state.isSearching} />
+           <SearchPolicyForm 
+            onPolicySearchSubmit={this.handlePolicySearchSubmit} 
+            isSearching={this.state.isSearching} />
           <PolicyInformation policy={this.state.policy} />
           <Transaction
             transactionCheckList={this.state.transactionCheckList}
+            onTransactionCheckListChange={this.handleTransactionCheckList}
             onTransactionChange={this.handleTransactionChange} />
           <Fatca insured={this.state.insured} />
           <div className="flex-container">

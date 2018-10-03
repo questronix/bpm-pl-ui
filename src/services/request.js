@@ -1,7 +1,7 @@
-import apiClient from '../lib/api/apiClient';
+import { ApiClient } from '../lib/api/ApiClient';
 import Policy from './Policy/Policy';
 
-let client = new apiClient();
+let client = new ApiClient();
 let axios = client.getClient();
 
 axios.interceptors.response.use(function(response) {
