@@ -15,6 +15,7 @@ class Policy extends Component {
       insured: {},
       selectedTransaction: '',
       transactionCheckList: [],
+      statementOfInsurability: false,
       isSearching: false,
     }
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
@@ -30,12 +31,12 @@ class Policy extends Component {
       transactionCheckList: [
         {
           id: 1,
-          isChecked: true,
+          isChecked: false,
           label: 'Health Statement Form (HSF)',
         },
         {
           id: 2,
-          isChecked: true,
+          isChecked: false,
           label: 'U/W routine requirements',
         },
         {
@@ -220,7 +221,9 @@ class Policy extends Component {
         </div>
         <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
           <h1 className="font-prulife">Policy Information</h1>
-           <SearchPolicyForm onPolicySearchSubmit={this.handlePolicySearchSubmit} isSearching={this.state.isSearching} />
+           <SearchPolicyForm 
+            onPolicySearchSubmit={this.handlePolicySearchSubmit} 
+            isSearching={this.state.isSearching} />
           <PolicyInformation policy={this.state.policy} />
           <Transaction
             transactionCheckList={this.state.transactionCheckList}

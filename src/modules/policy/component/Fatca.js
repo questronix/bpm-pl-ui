@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InsuredInformation from './InsuredInformation';
 import CheckBoxAddon from '../../../shared/component/checkbox/CheckBoxAddon';
+import CheckBox from '../../../shared/component/checkbox/CheckBox';
 
 class Fatca extends Component {
   constructor(props) {
@@ -8,6 +9,8 @@ class Fatca extends Component {
     this.state = {
       soi: false,
       soiText: '',
+      differentAgent: false,
+      differentAgentText: '',
       fatca: '',
       placeOfSigning: '',
       withDiabetes: false,
@@ -98,19 +101,12 @@ class Fatca extends Component {
     });
   }
 
-  handleToggleChange(value) {
-    // const target = event.target;
-    // const name = target.name;
-    // const value = target.value;
-
-    // This will convert string to boolean
+  handleToggleChange(name, value) {
     const val = (value === "true") ? true : false;
 
-    alert(val);
-
-    // this.setState({
-    //   [name]: !val
-    // });
+    this.setState({
+      [name]: !val
+    });
   }
 
   handleMultiSelectChange(event) {
@@ -154,12 +150,25 @@ class Fatca extends Component {
                 </h2>
               </div>
               <div className="card-body">
-                <InsuredInformation insured={this.props.insured}/>
+                <InsuredInformation insured={this.props.insured} />
                 <hr />
                 <div className="flex-container flex-wrap ">
-                  <CheckBoxAddon label="Awesome?" val={this.state.soi} onChange={this.handleRadioChange}>
-                      <input type="text" className="col"/>
+                  <CheckBox label="DowJones:" cName="dowJones"/>
+                  <CheckBox label="With Diabetes:" cName="withDiabetes"/>
+                  <CheckBox label="With Hypertension:" cName="withHypertension"/>
+                  <CheckBox label="With Pregnancy:" cName="withPregnancy"/>
+                  <CheckBox label="MID:" cName="mid"/>
+                  <CheckBox label="FATCA Tagging:" cName="fatcaTagging"/>
+                  <CheckBoxAddon label="Statement of Insurability Declarations:" cVal={this.state.soi} cName="soi" onToggleChange={this.handleToggleChange}>
+                      <input type="text" className="col" name="soiText" value={this.state.soiText} onChange={this.handleInputChange}/>
                   </CheckBoxAddon>
+                  <CheckBox label="Beyond MPT:" cName="beyondMPT"/>
+                  <CheckBox label="With Existing Policies:" cName="withExistingPolicies"/>
+                  <CheckBox label="With Pending Policies:" cName="withPendingPolicies"/>
+                  <CheckBoxAddon label="With Different Agent:" cVal={this.state.differentAgent} cName="differentAgent" onToggleChange={this.handleToggleChange}>
+                      <input type="number" className="col" name="differentAgentText" value={this.state.differentAgentText} onChange={this.handleInputChange}/>
+                  </CheckBoxAddon>
+{/*                   
                   <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
                     <input
                       id="dowJones"
@@ -222,19 +231,9 @@ class Fatca extends Component {
                       <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
                     </label>
                   </div>
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="soi"
-                      type="checkbox"
-                      name="soi"
-                      value={this.state.soi} 
-                      checked={this.state.statementOfInsurablity}
-                      onChange={this.handleRadioChange} />
-                    <label className="flex f-justify-space-between" htmlFor="soi">
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Statement of Insurability Declarations:</div>
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
+                  <CheckBoxAddon label="Statement of Insurability Declarations:" cVal={this.state.soi} cName="soi" onToggleChange={this.handleToggleChange}>
+                      <input type="text" className="col" name="soiText" value={this.state.soiText} onChange={this.handleInputChange}/>
+                  </CheckBoxAddon>
                   <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
                     <input
                       id="beyondMPT"
@@ -268,17 +267,9 @@ class Fatca extends Component {
                       <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
                     </label>
                   </div>
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="WithDifferentAgent"
-                      type="checkbox"
-                      name="WithDifferentAgent"
-                      value="false" />
-                    <label className="flex f-justify-space-between" htmlFor="WithDifferentAgent">
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Different Agent:</div>
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
+                  <CheckBoxAddon label="With Different Agent:" cVal={this.state.differentAgent} cName="differentAgent" onToggleChange={this.handleToggleChange}>
+                      <input type="number" className="col" name="differentAgentText" value={this.state.differentAgentText} onChange={this.handleInputChange}/>
+                  </CheckBoxAddon> */}
 
                     {/* TODO: Tentative display. Will confirm this to sir mic */}
                     {/* <hr/> */}
