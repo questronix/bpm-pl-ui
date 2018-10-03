@@ -4,8 +4,7 @@ import PolicyInformation from './PolicyInformation';
 import Fatca from './Fatca';
 import Transaction from './Transaction';
 import { PolicyService }  from '../../../services/request';
-import axios from 'axios';
-import Tabs from '../../../shared/component/tabs/tabs';
+import Tabs from '../../../shared/component/tabs/Tabs';
 
 class Policy extends Component {
   constructor(props) {
@@ -20,6 +19,7 @@ class Policy extends Component {
     }
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
+    this.handleTransactionCheckList = this.handleTransactionCheckList.bind(this);
   }
 
   componentDidMount() {
@@ -30,32 +30,32 @@ class Policy extends Component {
       transactionCheckList: [
         {
           id: 1,
-          value: false,
+          isChecked: true,
           label: 'Health Statement Form (HSF)',
         },
         {
           id: 2,
-          value: false,
+          isChecked: true,
           label: 'U/W routine requirements',
         },
         {
           id: 3,
-          value: false,
+          isChecked: false,
           label: 'Payment of Premium Arrears',
         },
         {
           id: 4,
-          value: false,
+          isChecked: false,
           label: 'Specimen Signature Form (if applicable)',
         },
         {
           id: 5,
-          value: false,
+          isChecked: false,
           label: 'Valid Government Issued ID (if applicable)',
         },
         {
           id: 6,
-          value: false,
+          isChecked: false,
           label: 'Valid Non-Government Issued ID (if applicable)',
         },
       ]
@@ -80,6 +80,7 @@ class Policy extends Component {
       this.setState({ 
         isSearching: false,
       });
+      alert('Error while fetching data');
       console.log('Error: ', err);
     });
 
@@ -130,32 +131,32 @@ class Policy extends Component {
       t_list = [
         {
           id: 1,
-          value: false,
+          isChecked: false,
           label: 'Health Statement Form (HSF)',
         },
         {
           id: 2,
-          value: false,
+          isChecked: false,
           label: 'U/W routine requirements',
         },
         {
           id: 3,
-          value: false,
+          isChecked: false,
           label: 'Payment of Premium Arrears',
         },
         {
           id: 4,
-          value: false,
+          isChecked: false,
           label: 'Specimen Signature Form (if applicable)',
         },
         {
           id: 5,
-          value: false,
+          isChecked: false,
           label: 'Valid Government Issued ID (if applicable)',
         },
         {
           id: 6,
-          value: false,
+          isChecked: false,
           label: 'Valid Non-Government Issued ID (if applicable)',
         }
       ];
@@ -164,27 +165,27 @@ class Policy extends Component {
       t_list = [
         {
           id: 1,
-          value: false,
+          isChecked: false,
           label: 'Health Statement Form (HSF)',
         },
         {
           id: 2,
-          value: false,
+          isChecked: false,
           label: 'Health Statement Form (HSF)',
         },
         {
           id: 3,
-          value: false,
+          isChecked: false,
           label: 'Specimen Signature Form (if applicable)',
         },
         {
           id: 4,
-          value: false,
+          isChecked: false,
           label: 'Valid Government Issued ID (if applicable)',
         },
         {
           id: 5,
-          value: false,
+          isChecked: false,
           label: 'Valid Non-Government Issued ID (if applicable)',
         },
       ];
@@ -193,18 +194,22 @@ class Policy extends Component {
       t_list = [
         {
           id: 1,
-          value: false,
+          isChecked: false,
           label: 'Discretionary Waiver Form',
         },
         {
           id: 2,
-          value: false,
+          isChecked: false,
           label: 'Payment of reinstatement cost',
         },
       ];
     }
 
     this.setState({ transactionCheckList: t_list });
+  }
+
+  handleTransactionCheckList(updatedTransactionCheckList) {
+    this.setState({ transactionCheckList: updatedTransactionCheckList });
   }
 
   render() {
@@ -219,6 +224,7 @@ class Policy extends Component {
           <PolicyInformation policy={this.state.policy} />
           <Transaction
             transactionCheckList={this.state.transactionCheckList}
+            onTransactionCheckListChange={this.handleTransactionCheckList}
             onTransactionChange={this.handleTransactionChange} />
           <Fatca insured={this.state.insured} />
           <div className="col xl-12 l-12 m-2 s-12 xs-12  flex xl-f-end l-f-end m-f-end s-f-center xs-f-center">
