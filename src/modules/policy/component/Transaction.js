@@ -3,6 +3,8 @@
 class Transaction extends Component {
   constructor(props) {
     super(props);
+    // this.state = this.props || {
+    //   transactionCheckList: this.props.transactionCheckList };
     this.handleRadioChange = this.handleRadioChange.bind(this);
   }
 
@@ -10,21 +12,32 @@ class Transaction extends Component {
     this.props.onTransactionChange(event.target.value);
   }
 
+  handleMultiSelectChange(i, event) {
+    const target = event.target;
+    this.props.transactionCheckList[i].isChecked = !this.props.transactionCheckList[i].isChecked;
+    // target.checked = true;
+    console.log(this.props.transactionCheckList[i]);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+  }
+  
   render() {
+    console.log(this.props);
     const transactionCheckList = this.props.transactionCheckList
-      .map((item, i) => {
-        return <div className="col xl-12" key={i}>
+      .map((item, i) => (
+        <div className="col xl-12" key={i}>
           <label className="checkbox">{item.label}
             <input
-              key={item.id}
-              name={item.id}
-              // checked={item.value} 
-              // onChange={this.handleMultiSelectChange} 
+              // checked={item.isChecked}
+              // value={item.isChecked}
+              onChange={(e) => this.handleMultiSelectChange(i, e)} 
               type="checkbox" />
               <span className="checkmark"></span>
           </label>
         </div>
-      });
+      ));
 
     return (
       <div>
