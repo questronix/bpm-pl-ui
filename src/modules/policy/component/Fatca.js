@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import InsuredInformation from './InsuredInformation';
+import Tabs from '../../../shared/component/tabs/Tabs';
 import CheckBoxAddon from '../../../shared/component/checkbox/CheckBoxAddon';
 import CheckBox from '../../../shared/component/checkbox/CheckBox';
 
@@ -17,6 +18,7 @@ class Fatca extends Component {
       withHypertension: false,
       withPregnancy: false,
       flightSSP: '',
+      tabPage: 1,
       hazardousHobbies: [
         {
           id: 1,
@@ -125,6 +127,18 @@ class Fatca extends Component {
   }
 
   render() {
+
+    let tabHeader;
+    let tabBody;
+    let tabNav;
+
+    if (this.state.tabPage === 1) {
+      tabHeader = "Tab Page 1";
+      tabBody = <InsuredInformation insured={this.props.insured} />;
+    }
+    else if (this.state.tabPage === 2) {
+      tabHeader = "Tab Page 2";
+    }
     // const hobbies = this.state.hazardousHobbies
     //   .map((hobby, i) => {
     //     return <div key={i}>
@@ -141,14 +155,22 @@ class Fatca extends Component {
       <div className="App">
         <form onSubmit={this.handleSubmit}>
           <div>
+            <div className="flex-container">
+              <div className="col">
+                <Tabs
+                  tabHeader={tabHeader}
+                  tabBody={tabBody}>
+                </Tabs>
+              </div>
+            </div>
             <div className="flex-container flex-wrap">
               <div className="col">
-                <div className="card-alt col xl-12 l-12 m-12 s-12 xs-12 no-padding">
-                  <div className="card-header">
-                    <h2 className="font-prugray no-padding no-margin">
+                <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
+                  <div className="tab-container flex-container no-padding col xl-12">
+                    <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active">
                       Insured Information
-                </h2>
-              </div>
+                    </div>
+                  </div>
               <div className="card-body">
                 <InsuredInformation insured={this.props.insured} />
                 <hr />
@@ -168,108 +190,7 @@ class Fatca extends Component {
                   <CheckBoxAddon label="With Different Agent:" cVal={this.state.differentAgent} cName="differentAgent" onToggleChange={this.handleToggleChange}>
                       <input type="number" className="col" name="differentAgentText" value={this.state.differentAgentText} onChange={this.handleInputChange}/>
                   </CheckBoxAddon>
-{/*                   
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="dowJones"
-                      type="checkbox"
-                      name="dowJones" />
-                    <label className="flex f-justify-space-between" htmlFor="dowJones">
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Dow Jones:</div>
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="Diabetes"
-                      type="checkbox"
-                      name="withDiabetes" />
-                    <label className=" flex f-justify-space-between" htmlFor="Diabetes">
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Diabetes:</div>
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="Hypertension"
-                      type="checkbox"
-                      name="withHypertension" />
-                    <label className="flex f-justify-space-between" htmlFor="Hypertension">
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Hypertension:</div>
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="withPregnancy"
-                      type="checkbox"
-                      name="withPregnancy"
-                      value="false" />
-                    <label className="flex f-justify-space-between" htmlFor="withPregnancy">
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Pregnancy:</div>
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="mid"
-                      type="checkbox"
-                      name="mid" />
-                    <label className="flex f-justify-space-between" htmlFor="mid">
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">MID:</div>
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="fatca"
-                      type="checkbox"
-                      name="fatca"
-                      value="false" />
-                    <label className="flex f-justify-space-between" htmlFor="fatca">
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">FATCA Tagging:</div>
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                  <CheckBoxAddon label="Statement of Insurability Declarations:" cVal={this.state.soi} cName="soi" onToggleChange={this.handleToggleChange}>
-                      <input type="text" className="col" name="soiText" value={this.state.soiText} onChange={this.handleInputChange}/>
-                  </CheckBoxAddon>
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="beyondMPT"
-                      type="checkbox"
-                      name="beyondMPT"
-                      value="false" />
-                    <label className="flex f-justify-space-between" htmlFor="beyondMPT">
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">Beyond MPT:</div>
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="withExisitingPolicies"
-                      type="checkbox"
-                      name="withExisitingPolicies"
-                      value="false" />
-                    <label className="flex f-justify-space-between" htmlFor="withExisitingPolicies">
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Existing Policies:</div>
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
-                    <input
-                      id="wihtPendingPolicies"
-                      type="checkbox"
-                      name="wihtPendingPolicies"
-                      value="false" />
-                    <label className="flex f-justify-space-between" htmlFor="wihtPendingPolicies">
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__label-text">With Pending Policies:</div>
-                      <div className="col xl-6 l-6 m-6 s-12 xs-12 no-padding can-toggle__switch" data-checked="Yes" data-unchecked="No"></div>
-                    </label>
-                  </div>
-                  <CheckBoxAddon label="With Different Agent:" cVal={this.state.differentAgent} cName="differentAgent" onToggleChange={this.handleToggleChange}>
-                      <input type="number" className="col" name="differentAgentText" value={this.state.differentAgentText} onChange={this.handleInputChange}/>
-                  </CheckBoxAddon> */}
+                  <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small"></div>
 
                     {/* TODO: Tentative display. Will confirm this to sir mic */}
                     {/* <hr/> */}
@@ -341,5 +262,6 @@ class Fatca extends Component {
     );
   }
 }
+
 
 export default Fatca;

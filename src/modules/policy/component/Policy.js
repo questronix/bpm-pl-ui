@@ -3,6 +3,8 @@ import SearchPolicyForm from './SearchPolicyForm';
 import PolicyInformation from './PolicyInformation';
 import Fatca from './Fatca';
 import Transaction from './Transaction';
+import WarningAlert from '../../../shared/component/alerts/Warning';
+import ErrorAlert from '../../../shared/component/alerts/Error';
 import { PolicyService }  from '../../../services/request';
 import Tabs from '../../../shared/component/tabs/Tabs';
 
@@ -65,20 +67,20 @@ class Policy extends Component {
 
   handlePolicySearchSubmit(policyNumber) {
 
-    this.setState({ 
+    this.setState({
       policyNumberSearch: policyNumber,
       isSearching: true,
     });
     PolicyService.getPolicyInformationByID({ policyNumber }).then((result) => {
-      this.setState({ 
-        policy: result.data.data.policy ,
+      this.setState({
+        policy: result.data.data.policy,
         insured: result.data.data.insured,
         isSearching: false,
       });
       console.log('Result: ', result);
 
     }).catch((err) => {
-      this.setState({ 
+      this.setState({
         isSearching: false,
       });
       alert('Error while fetching data');
@@ -217,7 +219,7 @@ class Policy extends Component {
     return (
       <div className="flex-container flex-wrap">
         <div className="col xl-2 l-2 m-2 s-hide xs-hide">
-        sad
+          made by questronix
         </div>
         <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
           <h1 className="font-prulife">Policy Information</h1>
@@ -230,10 +232,11 @@ class Policy extends Component {
             onTransactionCheckListChange={this.handleTransactionCheckList}
             onTransactionChange={this.handleTransactionChange} />
           <Fatca insured={this.state.insured} />
-          <div className="col xl-12 l-12 m-2 s-12 xs-12  flex xl-f-end l-f-end m-f-end s-f-center xs-f-center">
-            <input className="btn prulife col xl-1 l-1 m-12 s-12 xs-12" type="button" value="Save" />
+          <div className="flex-container">
+            <div className="col xl-12 l-12 m-2 s-12 xs-12  flex xl-f-end l-f-end m-f-end s-f-center xs-f-center">
+              <input className="btn prulife col xl-1 l-1 m-12 s-12 xs-12" type="button" value="Save" />
+            </div>
           </div>
-          <Tabs/>
         </div>
       </div>
     );
