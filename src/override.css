@@ -179,6 +179,9 @@ body, html {
     .btn.prulife:hover {
       background-color: #fff;
       color: #ED1B2E;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn.prugray {
     background-color: #68737A;
@@ -187,6 +190,9 @@ body, html {
     .btn.prugray:hover {
       background-color: #fff;
       color: #68737A;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn.grass-green {
     background-color: #007953;
@@ -195,6 +201,9 @@ body, html {
     .btn.grass-green:hover {
       background-color: #fff;
       color: #007953;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn.bright-blue {
     background-color: #0064B9;
@@ -203,6 +212,9 @@ body, html {
     .btn.bright-blue:hover {
       background-color: #fff;
       color: #0064B9;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn.sun-yellow {
     background-color: #FFB81D;
@@ -211,6 +223,9 @@ body, html {
     .btn.sun-yellow:hover {
       background-color: #fff;
       color: #FFB81D;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn.primary {
     background-color: #1e88e5;
@@ -219,6 +234,9 @@ body, html {
     .btn.primary:hover {
       background-color: #fff;
       color: #1e88e5;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn.danger {
     background-color: #e53935;
@@ -227,6 +245,9 @@ body, html {
     .btn.danger:hover {
       background-color: #fff;
       color: #e53935;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn.info {
     background-color: #00acc1;
@@ -235,6 +256,9 @@ body, html {
     .btn.info:hover {
       background-color: #fff;
       color: #00acc1;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn.warning {
     background-color: #fdd835;
@@ -243,6 +267,9 @@ body, html {
     .btn.warning:hover {
       background-color: #fff;
       color: #fdd835;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn.success {
     background-color: #43a047;
@@ -251,6 +278,9 @@ body, html {
     .btn.success:hover {
       background-color: #fff;
       color: #43a047;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
 
 .btn-l {
@@ -272,6 +302,9 @@ body, html {
     .btn-l.primary:hover {
       background-color: #fff;
       color: #1e88e5;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-l.danger {
     background-color: #e53935;
@@ -280,6 +313,9 @@ body, html {
     .btn-l.danger:hover {
       background-color: #fff;
       color: #e53935;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-l.info {
     background-color: #00acc1;
@@ -288,6 +324,9 @@ body, html {
     .btn-l.info:hover {
       background-color: #fff;
       color: #00acc1;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-l.warning {
     background-color: #fdd835;
@@ -296,6 +335,9 @@ body, html {
     .btn-l.warning:hover {
       background-color: #fff;
       color: #fdd835;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-l.success {
     background-color: #43a047;
@@ -304,6 +346,9 @@ body, html {
     .btn-l.success:hover {
       background-color: #fff;
       color: #43a047;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
 
 .btn-s {
@@ -325,6 +370,9 @@ body, html {
     .btn-s.primary:hover {
       background-color: #fff;
       color: #1e88e5;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-s.danger {
     background-color: #e53935;
@@ -333,6 +381,9 @@ body, html {
     .btn-s.danger:hover {
       background-color: #fff;
       color: #e53935;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-s.info {
     background-color: #00acc1;
@@ -341,6 +392,9 @@ body, html {
     .btn-s.info:hover {
       background-color: #fff;
       color: #00acc1;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-s.warning {
     background-color: #fdd835;
@@ -349,6 +403,9 @@ body, html {
     .btn-s.warning:hover {
       background-color: #fff;
       color: #fdd835;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-s.success {
     background-color: #43a047;
@@ -357,6 +414,9 @@ body, html {
     .btn-s.success:hover {
       background-color: #fff;
       color: #43a047;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
 
 .btn-alt {
@@ -378,10 +438,16 @@ body, html {
     .btn-alt.primary:hover {
       background-color: #26aaff;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt.primary:focus {
       background-color: #fff;
       color: #1e88e5;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt.danger {
     background-color: #e53935;
@@ -390,10 +456,16 @@ body, html {
     .btn-alt.danger:hover {
       background-color: #ff4742;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt.danger:focus {
       background-color: #fff;
       color: #e53935;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt.info {
     background-color: #00acc1;
@@ -402,10 +474,16 @@ body, html {
     .btn-alt.info:hover {
       background-color: #00d7f1;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt.info:focus {
       background-color: #fff;
       color: #00acc1;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt.warning {
     background-color: #fdd835;
@@ -414,10 +492,16 @@ body, html {
     .btn-alt.warning:hover {
       background-color: #ffff42;
       color: #2b2b2b;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt.warning:focus {
       background-color: #fff;
       color: #fdd835;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt.success {
     background-color: #43a047;
@@ -426,10 +510,16 @@ body, html {
     .btn-alt.success:hover {
       background-color: #54c859;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt.success:focus {
       background-color: #fff;
       color: #43a047;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
 
 .btn-alt-l {
@@ -451,10 +541,16 @@ body, html {
     .btn-alt-l.primary:hover {
       background-color: #26aaff;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt-l.primary:focus {
       background-color: #fff;
       color: #1e88e5;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt-l.danger {
     background-color: #e53935;
@@ -463,10 +559,16 @@ body, html {
     .btn-alt-l.danger:hover {
       background-color: #ff4742;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt-l.danger:focus {
       background-color: #fff;
       color: #e53935;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt-l.info {
     background-color: #00acc1;
@@ -475,10 +577,16 @@ body, html {
     .btn-alt-l.info:hover {
       background-color: #00d7f1;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt-l.info:focus {
       background-color: #fff;
       color: #00acc1;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt-l.warning {
     background-color: #fdd835;
@@ -487,10 +595,16 @@ body, html {
     .btn-alt-l.warning:hover {
       background-color: #ffff42;
       color: #2b2b2b;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt-l.warning:focus {
       background-color: #fff;
       color: #fdd835;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt-l.success {
     background-color: #43a047;
@@ -499,10 +613,16 @@ body, html {
     .btn-alt-l.success:hover {
       background-color: #54c859;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt-l.success:focus {
       background-color: #fff;
       color: #43a047;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
 
 .btn-alt-s {
@@ -524,10 +644,16 @@ body, html {
     .btn-alt-s.primary:hover {
       background-color: #26aaff;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt-s.primary:focus {
       background-color: #fff;
       color: #1e88e5;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt-s.danger {
     background-color: #e53935;
@@ -536,10 +662,16 @@ body, html {
     .btn-alt-s.danger:hover {
       background-color: #ff4742;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt-s.danger:focus {
       background-color: #fff;
       color: #e53935;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt-s.info {
     background-color: #00acc1;
@@ -548,10 +680,16 @@ body, html {
     .btn-alt-s.info:hover {
       background-color: #00d7f1;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt-s.info:focus {
       background-color: #fff;
       color: #00acc1;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt-s.warning {
     background-color: #fdd835;
@@ -560,10 +698,16 @@ body, html {
     .btn-alt-s.warning:hover {
       background-color: #ffff42;
       color: #2b2b2b;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt-s.warning:focus {
       background-color: #fff;
       color: #fdd835;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .btn-alt-s.success {
     background-color: #43a047;
@@ -572,10 +716,16 @@ body, html {
     .btn-alt-s.success:hover {
       background-color: #54c859;
       color: #fff;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
     .btn-alt-s.success:focus {
       background-color: #fff;
       color: #43a047;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
 
 input {
@@ -813,7 +963,16 @@ ul, li, ol {
   right: 0; }
 
 .disabled {
-  cursor: not-allowed; }
+  background-color: #eee !important;
+  cursor: not-allowed !important;
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Standard syntax */ }
 
 .flex, nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol {
   display: -webkit-box;
@@ -845,6 +1004,9 @@ ul, li, ol {
   background-color: white;
   border: solid #bdbdbd 1px;
   border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
 
 .fullscreen-container {
@@ -1449,6 +1611,9 @@ input.checkbox {
 .card {
   width: inherit;
   border: solid 1px #bdbdbd;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .card .card-header {
     padding: 20px; }
@@ -1459,6 +1624,9 @@ input.checkbox {
   width: inherit;
   border: solid 1px #bdbdbd;
   border-left: solid 5px #ED1B2E;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   .card-alt .card-header {
     padding: 20px;
@@ -1941,5 +2109,29 @@ nav {
 
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1); }
+
+.tabs {
+  background-color: #fff;
+  border: solid 1px #bdbdbd; }
+  .tabs .tab-title {
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all 0.3s ease-out;
+    transform: translate(-11px, -53px);
+    background-color: #fff;
+    border-top: solid 1px #bdbdbd;
+    border-right: solid 1px #bdbdbd;
+    border-bottom: solid 3px #bdbdbd;
+    border-left: solid 1px #bdbdbd;
+    cursor: pointer;
+    border-radius: 15px 15px 0 0; }
+    .tabs .tab-title:hover {
+      background-color: rgba(104, 115, 122, 0.1);
+      color: #68737A; }
+  .tabs .tab-active {
+    border-bottom: solid 3px #ED1B2E;
+    color: #68737A; }
 
 /*# sourceMappingURL=Override.css.map */
