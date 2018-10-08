@@ -198,6 +198,9 @@ class Fatca extends Component {
                             <input type="number" className="col input" name="differentAgentText" value={this.state.differentAgentText} onChange={this.handleInputChange} />
                           </div>
                         </CheckBoxAddon>
+                        <CheckBox label="With claim records:" cName="withClaimRecords" />
+                        <CheckBox label="With Reinsurance:" cName="withReinsurance" />
+                        <CheckBox label="With substandard rating:" cName="withSubstandardRating" />
                         <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
                         </div>
                       </div>
