@@ -168,10 +168,10 @@ class Fatca extends Component {
                 <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
                   <div className="tab-container flex-container no-padding col xl-12">
                     <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active">
-                      Insured Information
+                        Insured Information
                     </div>
                     <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 ">
-                      Owner Information
+                        Owner Information
                     </div>
                   </div>
                   <div className="tab-body">

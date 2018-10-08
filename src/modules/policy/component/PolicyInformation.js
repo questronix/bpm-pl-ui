@@ -10,9 +10,9 @@ class PolicyInformation extends Component {
           <div className="col xl-12">
             <div className="card-alt col xl-12 l-12 m-12 s-12 xs-12 no-padding">
               <div className="card-header">
-                <h2  className="no-margin font-prugray">
+                <h3  className="no-margin font-prugray">
                   General Information
-                </h2>
+                </h3>
               </div>
               <div className="card-body flex-container flex-wrap">
                 <div className="flex-container flex-wrap col xl-6 l-6 m-6 s-12 xs-12">

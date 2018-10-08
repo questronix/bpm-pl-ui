@@ -1404,7 +1404,7 @@ ul, li, ol {
 
   .s-f-justify-around {
     justify-content: space-around; } }
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 479px) and (min-width: 100px) {
   .col {
     padding: 10px;
     max-width: 100%;
@@ -2036,7 +2036,8 @@ nav {
     border-right: solid 1px #bdbdbd;
     cursor: pointer;
     color: #68737A;
-    border-radius: 10px 10px 0 0; }
+    border-radius: 10px 10px 0 0;
+    padding: 15px; }
     .tabs .tab-title:hover {
       background-color: #eee;
       color: #68737A;
@@ -2148,10 +2149,17 @@ nav {
   -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: infinite; }
 
-.fade-in, html, body, div {
+.fade-in, div {
   animation-name: fade-in;
   animation-duration: .5s;
   -webkit-animation-name: fade-in;
   -webkit-animation-duration: .5s; }
+
+div {
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -ms-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all 0.3s ease-out; }
 
 /*# sourceMappingURL=Override.css.map */
