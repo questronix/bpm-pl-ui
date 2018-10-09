@@ -8,6 +8,7 @@ import ErrorAlert from '../../../shared/component/alerts/Error';
 import { PolicyService } from '../../../services/request';
 import Tabs from '../../../shared/component/tabs/Tabs';
 import PageLoading from '../../../shared/component/loadings/PageLoading';
+import CardWidget from '../../../shared/component/Widgets/CardWidget';
 
 class Policy extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class Policy extends Component {
       transactionCheckList: [],
       statementOfInsurability: false,
       isSearching: false,
-      isError:false,
+      isError: false,
     }
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
@@ -72,7 +73,7 @@ class Policy extends Component {
     this.setState({
       policyNumberSearch: policyNumber,
       isSearching: true,
-      isError:false,
+      isError: false,
     });
     PolicyService.getPolicyInformationByID({ policyNumber }).then((result) => {
       this.setState({
@@ -229,7 +230,7 @@ class Policy extends Component {
           <SearchPolicyForm
             onPolicySearchSubmit={this.handlePolicySearchSubmit}
             isSearching={this.state.isSearching} />
-            {this.state.isError && <div className="flex-container flex-wrap"><div className="col"><ErrorAlert>Policy information not found</ErrorAlert></div></div>}
+          {this.state.isError && <div className="flex-container flex-wrap"><div className="col"><ErrorAlert>Policy information not found</ErrorAlert></div></div>}
           {this.state.isSearching ?
             (<Fragment>
               <PageLoading />

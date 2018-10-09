@@ -3,6 +3,7 @@ import InsuredInformation from './InsuredInformation';
 import Tabs from '../../../shared/component/tabs/Tabs';
 import CheckBoxAddon from '../../../shared/component/checkbox/CheckBoxAddon';
 import CheckBox from '../../../shared/component/checkbox/CheckBox';
+import CardWidget from '../../../shared/component/Widgets/CardWidget';
 
 class Fatca extends Component {
   constructor(props) {
@@ -168,10 +169,10 @@ class Fatca extends Component {
                 <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
                   <div className="tab-container flex-container no-padding col xl-12">
                     <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active">
-                        Insured Information
+                      Insured Information
                     </div>
                     <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 ">
-                        Owner Information
+                      Owner Information
                     </div>
                   </div>
                   <div className="tab-body">
@@ -201,6 +202,7 @@ class Fatca extends Component {
                         <CheckBox label="With claim records:" cName="withClaimRecords" />
                         <CheckBox label="With Reinsurance:" cName="withReinsurance" />
                         <CheckBox label="With substandard rating:" cName="withSubstandardRating" />
+                        <CheckBox label="Relative of Agent:" cName="relativeOfAgent" />
                         <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
                         </div>
                       </div>

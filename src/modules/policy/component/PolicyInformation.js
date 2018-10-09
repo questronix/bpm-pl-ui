@@ -72,6 +72,10 @@ class PolicyInformation extends Component {
                     <input className="input col xl-6 l-6 m-6  disabled" type="text" defaultValue={this.props.policy.firstIssueDate} disabled />
                   </div>
                   <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 f-justify-space-between flex xl-f-center l-f-center m-f-center s-f-start xs-f-start">
+                    <label>Date of Signing: </label>
+                    <input className="input col xl-6 l-6 m-6  disabled" type="text" defaultValue={this.props.policy.dateOfSigning} disabled />
+                  </div>
+                  <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 f-justify-space-between flex xl-f-center l-f-center m-f-center s-f-start xs-f-start">
                   </div>
                 </div>
               </div>
