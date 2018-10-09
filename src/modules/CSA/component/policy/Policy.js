@@ -3,11 +3,9 @@ import SearchPolicyForm from './SearchPolicyForm';
 import PolicyInformation from './PolicyInformation';
 import Fatca from './Fatca';
 import Transaction from './Transaction';
-import WarningAlert from '../../../shared/component/alerts/Warning';
-import ErrorAlert from '../../../shared/component/alerts/Error';
-import { PolicyService } from '../../../services/request';
-import Tabs from '../../../shared/component/tabs/Tabs';
-import PageLoading from '../../../shared/component/loadings/PageLoading';
+import ErrorAlert from '../../../../shared/component/alerts/Error';
+import { PolicyService } from '../../services/request';
+import PageLoading from '../../../../shared/component/loadings/PageLoading';
 
 class Policy extends Component {
   constructor(props) {

@@ -1,19 +1,20 @@
 import React from 'react';
-import './App.css';
-import './override.css';
-import Login from './modules/login/component/Login';
-import Main from './shared/component/main/Main';
 
-const routes = [
-  {
-    path: "/",
-    exact: true,
-    main: () => <Main />,
-  },
+import Login from './modules/Login/component/Login';
+import CSAroutes from './modules/CSA/routes' ;
+
+const miscRoutes = [
   {
     path: '/login',
     main: () => <Login />,
   }
 ];
+
+const userRole = 'CSA';
+
+let routes;
+if (userRole === 'CSA') {
+  routes = [...CSAroutes, ...miscRoutes];
+}
 
 export default routes;

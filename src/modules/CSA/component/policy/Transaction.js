@@ -13,18 +13,13 @@ class Transaction extends Component {
   }
 
   handleMultiSelectChange(i, event) {
-    const target = event.target;
+    // const target = event.target;
     this.props.transactionCheckList[i].isChecked = !this.props.transactionCheckList[i].isChecked;
     // target.checked = true;
     console.log(this.props.transactionCheckList[i]);
   }
-
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-  }
   
   render() {
-    console.log(this.props);
     const transactionCheckList = this.props.transactionCheckList
       .map((item, i) => (
         <div className="col xl-12" key={i}>

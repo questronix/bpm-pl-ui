@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import InsuredInformation from './InsuredInformation';
-import Tabs from '../../../shared/component/tabs/Tabs';
-import CheckBoxAddon from '../../../shared/component/checkbox/CheckBoxAddon';
-import CheckBox from '../../../shared/component/checkbox/CheckBox';
+import CheckBoxAddon from '../../../../shared/component/checkbox/CheckBoxAddon';
+import CheckBox from '../../../../shared/component/checkbox/CheckBox';
 
 class Fatca extends Component {
   constructor(props) {
@@ -128,17 +127,19 @@ class Fatca extends Component {
 
   render() {
 
-    let tabHeader;
-    let tabBody;
-    let tabNav;
+    // let tabHeader;
+    // let tabBody;
+    // let tabNav;
 
-    if (this.state.tabPage === 1) {
-      tabHeader = "Tab Page 1";
-      tabBody = <InsuredInformation insured={this.props.insured} />;
-    }
-    else if (this.state.tabPage === 2) {
-      tabHeader = "Tab Page 2";
-    }
+    // if (this.state.tabPage === 1) {
+    //   tabHeader = "Tab Page 1";
+    //   tabBody = <InsuredInformation insured={this.props.insured} />;
+    // }
+    // else if (this.state.tabPage === 2) {
+    //   tabHeader = "Tab Page 2";
+    // }
+
+
     // const hobbies = this.state.hazardousHobbies
     //   .map((hobby, i) => {
     //     return <div key={i}>
