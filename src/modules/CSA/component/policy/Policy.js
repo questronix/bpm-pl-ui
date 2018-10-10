@@ -23,6 +23,7 @@ class Policy extends Component {
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
     this.handleTransactionCheckList = this.handleTransactionCheckList.bind(this);
+    this.handleNewTaskSubmit = this.handleNewTaskSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -62,6 +63,45 @@ class Policy extends Component {
           label: 'Valid Non-Government Issued ID (if applicable)',
         },
       ]
+    });
+  }
+
+  handleNewTaskSubmit() {
+    PolicyService.createNewTask({
+      number: "1000",
+      agentCode: "Agent React",
+      agentName: "Agent Name",
+      branch: "Dito Branch",
+      nma: "NMA",
+      planDesc: "POWER",
+      planCurrency: "PESO",
+      contractStatus: "ACTIVE",
+      premiumStatus: "SUPAH",
+      sumAssured: 100000,
+      rcd: "2018-01-01",
+      firstIssueDate: "2018-01-01",
+      salutation: "YAY",
+      firstName: "Juan",
+      lastName: "Collins",
+      gender: "M",
+      occupation: "DEV",
+      hrc: "hrc",
+      vip: "YEAH",
+      str: "YEAH",
+      nationality: "Filipino",
+      dateOfBirth: "2018-01-01",
+      attainedAge: 100,
+      civilStatus: "S",
+      telNumber: "09",
+      mobileNumber: "09",
+      tinOrSss: "09",
+      email: "sample@email.com",
+      createdBy: 1
+    }).then((result) => {
+      alert('New Task Successfully CREATED!');
+      console.log(result);
+    }).catch((err) => {
+      console.log('CREATE TASK ERROR:', err);
     });
   }
 
@@ -242,7 +282,7 @@ class Policy extends Component {
               <Fatca insured={this.state.insured} />
               <div className="flex-container">
                 <div className="col xl-12 l-12 m-2 s-12 xs-12  flex xl-f-end l-f-end m-f-end s-f-center xs-f-center">
-                  <input className="btn prulife col xl-1 l-1 m-12 s-12 xs-12" type="button" value="Save" />
+                  <input className="btn prulife col xl-1 l-1 m-12 s-12 xs-12" type="button" value="Save" onClick={this.handleNewTaskSubmit}/>
                 </div>
               </div>
             </Fragment>)}
