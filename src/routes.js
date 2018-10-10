@@ -2,6 +2,7 @@ import React from 'react';
 
 import Login from './modules/Login/component/Login';
 import CSAroutes from './modules/CSA/routes' ;
+import Processorroutes from './modules/Processor/routes' ;
 
 const genericRoutes = [
   {
@@ -14,7 +15,7 @@ const userRole = 'CSA';
 
 let routes;
 if (userRole === 'CSA') {
-  routes = [...CSAroutes, ...genericRoutes];
+  routes = [...CSAroutes, ...Processorroutes, ...genericRoutes];
 }
 
 export default routes;
