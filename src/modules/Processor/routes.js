@@ -1,9 +1,9 @@
 import React from 'react';
-import CSA from './pages/Policy';
+import CSA from './pages/Processor';
 
 const routes = [
   {
-    path: "/policy",
+    path: "/processor",
     exact: true,
     main: () => <CSA />,
   },
