@@ -1,5 +1,5 @@
-import { ApiClient } from '../lib/api/ApiClient';
-import Policy from './Policy/Policy';
+import { ApiClient } from '../../../lib/api/ApiClient';
+import Policy from './policy/Policy';
 
 let client = new ApiClient();
 let axios = client.getClient();

@@ -1,4 +1,4 @@
-    import React, { Component } from 'react';
+import React, { Component } from 'react';
 
 class Transaction extends Component {
   constructor(props) {
@@ -13,18 +13,13 @@ class Transaction extends Component {
   }
 
   handleMultiSelectChange(i, event) {
-    const target = event.target;
+    // const target = event.target;
     this.props.transactionCheckList[i].isChecked = !this.props.transactionCheckList[i].isChecked;
     // target.checked = true;
     console.log(this.props.transactionCheckList[i]);
   }
-
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-  }
   
   render() {
-    console.log(this.props);
     const transactionCheckList = this.props.transactionCheckList
       .map((item, i) => (
         <div className="col xl-12" key={i}>
@@ -32,9 +27,9 @@ class Transaction extends Component {
             <input
               // checked={item.isChecked}
               // value={item.isChecked}
-              onChange={(e) => this.handleMultiSelectChange(i, e)} 
+              onChange={(e) => this.handleMultiSelectChange(i, e)}
               type="checkbox" />
-              <span className="checkmark"></span>
+            <span className="checkmark"></span>
           </label>
         </div>
       ));
@@ -46,33 +41,33 @@ class Transaction extends Component {
             <div className="card-alt col xl-12 l-12 m-12 s-12 xs-12 no-padding">
               <div className="card-header flex f-justify-space-between">
                 <div className="col xl-6 flex no-padding">
-                  <h2 className="font-prugray no-padding no-margin flex f-center">Transaction type:</h2> &nbsp;
+                  <h3 className="font-prugray no-padding no-margin flex f-center">Transaction type:</h3> &nbsp;
                   <select className="select-no-effect no-margin no-padding font-prulife bg-none border-bottom h3">
                     <option className="hidden font-prugray">Reinstatement</option>
                     <option className="item font-prugray">Reinstatement</option>
                   </select>
                 </div>
-                <h3 className="font-prugrayno-margin f-center flex">TXN 2018-000001</h3>
+                <h3 className="font-prugrayno-margin f-center flex font-prulife no-padding no-margin">TXN 2018-000001</h3>
               </div>
               <div className="card-body flex-container flex-wrap">
                 <div className="col xl-6 l-6 m-12 s-12 xs-12 flex f-center">
                   <div className="switch-field flex f-column col xl-3 l-3 m-6 s-12 xs-12">
-                    <input 
-                      type="radio" 
+                    <input
+                      type="radio"
                       id="switch_3_left"
                       name="action"
                       value="1"
                       onChange={this.handleRadioChange} />
                     <label htmlFor="switch_3_left">Updating</label>
-                    <input 
-                      type="radio" 
+                    <input
+                      type="radio"
                       id="switch_3_center"
                       name="action"
                       value="2"
                       onChange={this.handleRadioChange} />
                     <label htmlFor="switch_3_center">Rebating</label>
-                    <input 
-                      type="radio" 
+                    <input
+                      type="radio"
                       id="switch_3_right"
                       name="action"
                       value="3"

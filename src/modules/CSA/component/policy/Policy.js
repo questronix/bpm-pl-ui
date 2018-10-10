@@ -3,11 +3,9 @@ import SearchPolicyForm from './SearchPolicyForm';
 import PolicyInformation from './PolicyInformation';
 import Fatca from './Fatca';
 import Transaction from './Transaction';
-import WarningAlert from '../../../shared/component/alerts/Warning';
-import ErrorAlert from '../../../shared/component/alerts/Error';
-import { PolicyService } from '../../../services/request';
-import Tabs from '../../../shared/component/tabs/Tabs';
-import PageLoading from '../../../shared/component/loadings/PageLoading';
+import ErrorAlert from '../../../../shared/component/alerts/Error';
+import { PolicyService } from '../../services/request';
+import PageLoading from '../../../../shared/component/loadings/PageLoading';
 
 class Policy extends Component {
   constructor(props) {
@@ -20,11 +18,12 @@ class Policy extends Component {
       transactionCheckList: [],
       statementOfInsurability: false,
       isSearching: false,
-      isError:false,
+      isError: false,
     }
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
     this.handleTransactionCheckList = this.handleTransactionCheckList.bind(this);
+    this.handleNewTaskSubmit = this.handleNewTaskSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -67,12 +66,51 @@ class Policy extends Component {
     });
   }
 
+  handleNewTaskSubmit() {
+    PolicyService.createNewTask({
+      number: "1000",
+      agentCode: "Agent React",
+      agentName: "Agent Name",
+      branch: "Dito Branch",
+      nma: "NMA",
+      planDesc: "POWER",
+      planCurrency: "PESO",
+      contractStatus: "ACTIVE",
+      premiumStatus: "SUPAH",
+      sumAssured: 100000,
+      rcd: "2018-01-01",
+      firstIssueDate: "2018-01-01",
+      salutation: "YAY",
+      firstName: "Juan",
+      lastName: "Collins",
+      gender: "M",
+      occupation: "DEV",
+      hrc: "hrc",
+      vip: "YEAH",
+      str: "YEAH",
+      nationality: "Filipino",
+      dateOfBirth: "2018-01-01",
+      attainedAge: 100,
+      civilStatus: "S",
+      telNumber: "09",
+      mobileNumber: "09",
+      tinOrSss: "09",
+      email: "sample@email.com",
+      createdBy: 1
+    }).then((result) => {
+      alert('New Task Successfully CREATED!');
+      console.log(result);
+    }).catch((err) => {
+      console.log('CREATE TASK ERROR:', err);
+    });
+  }
+
   handlePolicySearchSubmit(policyNumber) {
 
     this.setState({
       policyNumberSearch: policyNumber,
       isSearching: true,
-      isError:false,
+      isError: false,
     });
     PolicyService.getPolicyInformationByID({ policyNumber }).then((result) => {
       this.setState({
@@ -222,14 +260,14 @@ class Policy extends Component {
     return (
       <div className="flex-container flex-wrap">
         <div className="col xl-2 l-2 m-2 s-hide xs-hide invisible">
-          made by questroni+x
+          made by questronix
         </div>
         <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
-          <h1 className="font-prulife">Policy Information</h1>
+          <h1 className="font-prulife flex s-f-center xs-f-center">Policy Information</h1>
           <SearchPolicyForm
             onPolicySearchSubmit={this.handlePolicySearchSubmit}
             isSearching={this.state.isSearching} />
-            {this.state.isError && <div className="flex-container flex-wrap"><div className="col"><ErrorAlert>Policy information not found</ErrorAlert></div></div>}
+          {this.state.isError && <div className="flex-container flex-wrap"><div className="col"><ErrorAlert>Policy information not found</ErrorAlert></div></div>}
           {this.state.isSearching ?
             (<Fragment>
               <PageLoading />
@@ -244,7 +282,7 @@ class Policy extends Component {
               <Fatca insured={this.state.insured} />
               <div className="flex-container">
                 <div className="col xl-12 l-12 m-2 s-12 xs-12  flex xl-f-end l-f-end m-f-end s-f-center xs-f-center">
-                  <input className="btn prulife col xl-1 l-1 m-12 s-12 xs-12" type="button" value="Save" />
+                  <input className="btn prulife col xl-1 l-1 m-12 s-12 xs-12" type="button" value="Save" onClick={this.handleNewTaskSubmit}/>
                 </div>
               </div>
             </Fragment>)}

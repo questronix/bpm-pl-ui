@@ -6,4 +6,8 @@ export default class Policy {
   getPolicyInformationByID(args) {
     return this.http.post('/policy', args);
   }
+
+  createNewTask(args) {
+    return this.http.post('/policy', args);
+  }
 }

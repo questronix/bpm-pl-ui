@@ -3,9 +3,16 @@ import axios from 'axios';
 const getClient = () => {
 
   const config = {
-      baseURL: 'http://localhost:3001',
+      baseURL: 'http://localhost:9000',
       timeout: 2000,
   };
+
+  // config.headers = {
+    // 'Access-Control-Allow-Origin': '*',
+    // Authorization: 'Bearer ' + token,
+    // 'Accept': 'application/json',
+		// 'Content-Type': 'application/json',
+  // };
 
   const client = axios.create(config);
   return client;
