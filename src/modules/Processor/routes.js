@@ -1,11 +1,12 @@
 import React from 'react';
-import CSA from './pages/Processor';
+import Processor from './pages/ProcessorPage';
 
 const routes = [
   {
+    label: 'Dashboard',
     path: "/processor",
     exact: true,
-    main: () => <CSA />,
+    component: () => <Processor />,
   },
 ];
 

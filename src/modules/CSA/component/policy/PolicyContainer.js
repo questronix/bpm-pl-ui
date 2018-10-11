@@ -4,21 +4,65 @@ import PolicyInformation from './PolicyInformation';
 import Fatca from './Fatca';
 import Transaction from './Transaction';
 import ErrorAlert from '../../../../shared/component/alerts/Error';
-import { PolicyService } from '../../services/request';
 import PageLoading from '../../../../shared/component/loadings/PageLoading';
+import { PolicyService, TaskService } from '../../services';
 
 class Policy extends Component {
   constructor(props) {
     super(props);
     this.state = {
       policyNumberSearch: '',
-      policy: {},
+      policy: {
+        "id": '',
+        "number": '',
+        "agentCode": '',
+        "agentName": '',
+        "branch": '',
+        "nma": '',
+        "planDesc": '',
+        "planCurrency": '',
+        "contractStatus": '',
+        "premiumStatus": '',
+        "sumAssured": 0,
+        "rcd": '',
+        "firstIssueDate": '',
+        "salutation": '',
+        "firstName": '',
+        "lastName": '',
+        "gender": '',
+        "occupation": '',
+        "hrc": '',
+        "vip": '',
+        "str": '',
+        "nationality": '',
+        "dateOfBirth": '',
+        "attainedAge": '',
+        "civilStatus": '',
+        "telNumber": '',
+        "mobileNumber": '',
+        "tinOrSss": '',
+        "email": '',
+        "createdAt": "",
+        "createdBy": {
+            "id": '',
+            "username": "",
+            "firstName": "",
+            "lastName": "",
+            "ldapId": "",
+            "role": "",
+            "status": '',
+            "createdAt": ""
+        },
+      },
       insured: {},
       selectedTransaction: '',
       transactionCheckList: [],
       statementOfInsurability: false,
       isSearching: false,
       isError: false,
+      isSubmitting: false,
+      isSubmitError: false,
+      taskId: '',
     }
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
@@ -28,6 +72,34 @@ class Policy extends Component {
 
   componentDidMount() {
     // Init default values to Transaction on page load.
+    
+
+    this.setState({
+      taskId: this.getQueryStringValue("id")
+    });
+
+    const username = sessionStorage.getItem('username');
+    console.log(this.state.taskId);
+    TaskService.getTaskDetails(this.getQueryStringValue("id"), username).then((res) => {
+      // console.log(res.data);
+      // console.log(res.data.id);
+      // this.setState({
+        // policy: res.data.policy
+        // let toupdate = Object.keys(res.data.policy);
+        // let policy = this.state.policy;
+        // toupdate.forEach(elem=>{
+        //   if(typeof toupdate[elem] != "undefined"){
+        //     policy[elem] = toupdate[elem];
+        //   }
+        // }); 
+        this.setState({
+          policy : res.data.policy
+        });
+      // });
+    }).catch((err) => {
+      console.log('CREATE TASK ERROR:', err);
+    });
+
     // TODO: REST call here
     this.setState({
       selectedTransaction: '1',
@@ -66,39 +138,15 @@ class Policy extends Component {
     });
   }
 
+  getQueryStringValue (key) {  
+    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+  }  
+
   handleNewTaskSubmit() {
-    PolicyService.createNewTask({
-      number: "1000",
-      agentCode: "Agent React",
-      agentName: "Agent Name",
-      branch: "Dito Branch",
-      nma: "NMA",
-      planDesc: "POWER",
-      planCurrency: "PESO",
-      contractStatus: "ACTIVE",
-      premiumStatus: "SUPAH",
-      sumAssured: 100000,
-      rcd: "2018-01-01",
-      firstIssueDate: "2018-01-01",
-      salutation: "YAY",
-      firstName: "Juan",
-      lastName: "Collins",
-      gender: "M",
-      occupation: "DEV",
-      hrc: "hrc",
-      vip: "YEAH",
-      str: "YEAH",
-      nationality: "Filipino",
-      dateOfBirth: "2018-01-01",
-      attainedAge: 100,
-      civilStatus: "S",
-      telNumber: "09",
-      mobileNumber: "09",
-      tinOrSss: "09",
-      email: "sample@email.com",
-      createdBy: 1
-    }).then((result) => {
-      alert('New Task Successfully CREATED!');
+    const username = sessionStorage.getItem('username');
+    TaskService.submitTask(this.getQueryStringValue("id"), username, this.state.policy).then((result) => {
+      // alert('New Task Successfully CREATED!');
+      window.location.href="/csa";
       console.log(result);
     }).catch((err) => {
       console.log('CREATE TASK ERROR:', err);
@@ -112,13 +160,24 @@ class Policy extends Component {
       isSearching: true,
       isError: false,
     });
-    PolicyService.getPolicyInformationByID({ policyNumber }).then((result) => {
+    PolicyService.getPolicyInformationByID({ policyNumber }).then((res) => {
+      
+      let policy = this.state.policy;
+      console.log('before', policy);
+      let rp = res.data.data.policy;
+      let toupdate = Object.keys(rp);
+      toupdate.forEach(elem=>{
+        if(typeof rp[elem] != "undefined"){
+          policy[elem] = rp[elem];
+        }
+      });
+      console.log('after', policy);
       this.setState({
-        policy: result.data.data.policy,
-        insured: result.data.data.insured,
+        policy: policy,
+        insured: res.data.data.insured,
         isSearching: false,
       });
-      console.log('Result: ', result);
+      // console.log('Result: ', result);
 
     }).catch((err) => {
       this.setState({
@@ -259,7 +318,7 @@ class Policy extends Component {
   render() {
     return (
       <div className="flex-container flex-wrap">
-        <div className="col xl-2 l-2 m-2 s-hide xs-hide invisible">
+        <div className="col xl-1 l-1 m-1 s-hide xs-hide invisible">
           made by questronix
         </div>
         <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">

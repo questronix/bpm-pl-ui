@@ -7,12 +7,13 @@ const getClient = () => {
       timeout: 2000,
   };
 
-  // config.headers = {
-    // 'Access-Control-Allow-Origin': '*',
+  config.headers = {
+    'Access-Control-Allow-Origin': '*',
     // Authorization: 'Bearer ' + token,
-    // 'Accept': 'application/json',
-		// 'Content-Type': 'application/json',
-  // };
+    // 'origin': 'localhost',
+    'Accept': 'application/json',
+		'Content-Type': 'application/json',
+  };
 
   const client = axios.create(config);
   return client;

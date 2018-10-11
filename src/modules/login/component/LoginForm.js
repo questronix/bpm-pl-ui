@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { LoginService } from '../services';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -6,6 +7,8 @@ class LoginForm extends Component {
     this.state = {
       username: '',
       password: '',
+      isSubmitting: false,
+      isError: false,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -24,9 +27,38 @@ class LoginForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
-    // implement authentication here
-    window.location.href = "/";
+    this.setState({ isSubmitting: true});
+    LoginService.login({ username: this.state.username, password: this.state.password }).then((res) => {
+      if (res.status === 200) {
+        this.setState({ isError: false});
+        sessionStorage.setItem('username', this.state.username);
+        sessionStorage.setItem('user_info', JSON.stringify(res.data));
+        sessionStorage.setItem('is_authenticated', true);
+        this.redirect(res.data.role);
+      }
+      else {
+        this.setState({ isError: true});
+      }
+    }).finally(() => {
+      this.setState({ isSubmitting: false});
+      if (this.state.isError) {
+        alert('error!');
+      }
+    });
+  }
+
+  redirect(role) {
+    if (role === 'CSA') {
+      window.location.href = "/csa";
+    }
+    else if(role === 'PROCESSOR') {
+      window.location.href = "/processor";
+    }
+  }
+
+  componentWillMount() {
+    localStorage.clear();
+    sessionStorage.clear();
   }
 
   render() {
@@ -44,6 +76,7 @@ class LoginForm extends Component {
               <input className="input col xl-9 l-9 m-9 s-9 xs-9"
                 name="username"
                 type="text"
+                disabled={this.state.isSubmitting}
                 value={this.state.username}
                 onChange={this.handleInputChange} />
             </div>
@@ -52,13 +85,15 @@ class LoginForm extends Component {
               <input className="input col xl-9 l-9 m-9 s-9 xs-9"
                 name="password"
                 type="password"
+                disabled={this.state.isSubmitting}
                 value={this.state.password}
                 onChange={this.handleInputChange} />
             </div>
             <button className="btn col xl-12 prulife"
             type="submit" 
+            disabled={this.state.isSubmitting}
             value="Login" >
-            Login
+            {this.state.isSubmitting ? 'Please wait..' : 'Login'}
             </button>
             {/* <input className="btn col xl-12 primary" type="submit" value="Login" ></input> */}
           </div>
