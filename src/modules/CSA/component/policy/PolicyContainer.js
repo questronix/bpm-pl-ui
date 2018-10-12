@@ -146,7 +146,7 @@ class Policy extends Component {
     const username = sessionStorage.getItem('username');
     TaskService.submitTask(this.getQueryStringValue("id"), username, this.state.policy).then((result) => {
       // alert('New Task Successfully CREATED!');
-      window.location.href="/csa";
+      window.location.href="/csa/tasks";
       console.log(result);
     }).catch((err) => {
       console.log('CREATE TASK ERROR:', err);

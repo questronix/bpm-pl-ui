@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { TaskService } from '../../services';
 import PolicyContainer from '../policy/PolicyContainer';
 
-class EditTask extends Component {
+class EditTaskContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -15,15 +14,6 @@ class EditTask extends Component {
     this.setState({
       id: this.getQueryStringValue("id")
     });
-    // const username = sessionStorage.getItem('username');
-    // TaskService.getAllTasks(username).then((res) => {
-    //   console.log(res.data);
-    //   this.setState({
-    //     tasks: res.data
-    //   })
-    // }).finally(() => {
-      
-    // });
   }
 
   getQueryStringValue (key) {  
@@ -31,11 +21,12 @@ class EditTask extends Component {
   }  
 
   render() {
-    // console.log("YAAAY", this.state.tasks);
     return(
-      <PolicyContainer />
+      <div>
+        <PolicyContainer /> 
+      </div>
     );
   }
 }
 
-export default EditTask;
+export default EditTaskContainer;

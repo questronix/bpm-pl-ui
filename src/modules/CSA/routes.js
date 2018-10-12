@@ -1,25 +1,32 @@
 import React from 'react';
-import Task from './pages/TaskPage';
-import Dashboard from './pages/DashboardPage';
-import TaskEdit from './component/task/EditTask';
+import DashboardPage from './pages/DashboardPage';
+import TaskPage from './pages/task/TaskPage';
+// import EditTaskPage from './component/task/EditTask';
+import EditTaskPage from './pages/task/EditTaskPage';
 
 const routes = [
   {
     label: 'Dashboard',
     path: "/csa",
     exact: true,
-    component: () => <Dashboard />,
+    component: () => <DashboardPage />,
   },
   {
     label: 'New Task',
-    path: "/csa/tasks/new",
+    path: "/csa/tasks",
     exact: true,
-    component: () => <Task />,
+    component: () => <TaskPage />,
   },
+  // {
+  //   label: 'New Task',
+  //   path: "/csa/tasks/new",
+  //   exact: true,
+  //   component: () => <TaskPage />,
+  // },
   {
     path: "/csa/tasks/edit",
     exact: true,
-    component: () => <TaskEdit />,
+    component: () => <EditTaskPage />,
   },
 ];
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TaskContainer from '../task/TaskContainer';
 import { TaskService } from '../../services';
 
 class DashboardContainer extends Component {
@@ -28,7 +27,6 @@ class DashboardContainer extends Component {
           <h1 className="font-prulife flex s-f-center xs-f-center">Dashboard</h1>
           <button className="btn btn-prulife" onClick={this.createTask}>Create Task</button>
           <h3 className="flex s-f-center xs-f-center">Welcome back, {JSON.parse(sessionStorage.getItem('user_info')).firstName}.</h3>
-          <TaskContainer />
         </div>
       </div>
     );
