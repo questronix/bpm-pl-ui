@@ -1110,30 +1110,30 @@ hr {
 .margin-auto {
   margin: auto; }
 
-.flex, nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol, .card-widget .card-image {
+.flex, nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol, .card-widget .card-image, .task-widget .task-counter {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -moz-flex;
   display: -webkit-flex;
   display: flex; }
-  .flex.f-wrap, nav.f-wrap.navbar, nav.navbar .navmenu ul.f-wrap, nav.navbar .navmenu ol.f-wrap, .card-widget .f-wrap.card-image, .flex .f-wrap, nav.navbar .f-wrap, nav.navbar .navmenu ul .f-wrap, nav.navbar .navmenu ol .f-wrap, .card-widget .card-image .f-wrap {
+  .flex.f-wrap, nav.f-wrap.navbar, nav.navbar .navmenu ul.f-wrap, nav.navbar .navmenu ol.f-wrap, .card-widget .f-wrap.card-image, .task-widget .f-wrap.task-counter, .flex .f-wrap, nav.navbar .f-wrap, nav.navbar .navmenu ul .f-wrap, nav.navbar .navmenu ol .f-wrap, .card-widget .card-image .f-wrap, .task-widget .task-counter .f-wrap {
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap; }
-  .flex.f-center, nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol, .card-widget .f-center.card-image, .card-widget nav.card-image.navbar, .flex .f-center, nav.navbar .f-center, nav.navbar .navmenu ul .f-center, nav.navbar .navmenu ol .f-center, .card-widget .card-image .f-center, .flex nav.navbar, nav.navbar nav.navbar, .card-widget .card-image nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol {
+  .flex.f-center, nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol, .card-widget .f-center.card-image, .card-widget nav.card-image.navbar, .task-widget .task-counter, .flex .f-center, nav.navbar .f-center, nav.navbar .navmenu ul .f-center, nav.navbar .navmenu ol .f-center, .card-widget .card-image .f-center, .task-widget .task-counter .f-center, .flex nav.navbar, nav.navbar nav.navbar, .card-widget .card-image nav.navbar, .task-widget .task-counter nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol, .flex .task-widget .task-counter, .task-widget .flex .task-counter, nav.navbar .task-widget .task-counter, .task-widget nav.navbar .task-counter, .card-widget .card-image .task-widget .task-counter, .task-widget .card-widget .card-image .task-counter, .task-widget .task-counter .task-counter {
     justify-content: center;
     align-items: center; }
-  .flex.f-start, nav.f-start.navbar, nav.navbar .navmenu ul.f-start, nav.navbar .navmenu ol.f-start, .card-widget .f-start.card-image, .flex .f-start, nav.navbar .f-start, nav.navbar .navmenu ul .f-start, nav.navbar .navmenu ol .f-start, .card-widget .card-image .f-start {
+  .flex.f-start, nav.f-start.navbar, nav.navbar .navmenu ul.f-start, nav.navbar .navmenu ol.f-start, .card-widget .f-start.card-image, .task-widget .f-start.task-counter, .flex .f-start, nav.navbar .f-start, nav.navbar .navmenu ul .f-start, nav.navbar .navmenu ol .f-start, .card-widget .card-image .f-start, .task-widget .task-counter .f-start {
     justify-content: flex-start; }
-  .flex.f-end, nav.f-end.navbar, nav.navbar .navmenu ul.f-end, nav.navbar .navmenu ol.f-end, .card-widget .f-end.card-image, .flex .f-end, nav.navbar .f-end, nav.navbar .navmenu ul .f-end, nav.navbar .navmenu ol .f-end, .card-widget .card-image .f-end {
+  .flex.f-end, nav.f-end.navbar, nav.navbar .navmenu ul.f-end, nav.navbar .navmenu ol.f-end, .card-widget .f-end.card-image, .task-widget .f-end.task-counter, .flex .f-end, nav.navbar .f-end, nav.navbar .navmenu ul .f-end, nav.navbar .navmenu ol .f-end, .card-widget .card-image .f-end, .task-widget .task-counter .f-end {
     justify-content: flex-end; }
-  .flex.f-row, nav.f-row.navbar, nav.navbar .navmenu ul.f-row, nav.navbar .navmenu ol.f-row, .card-widget .f-row.card-image, .flex .f-row, nav.navbar .f-row, nav.navbar .navmenu ul .f-row, nav.navbar .navmenu ol .f-row, .card-widget .card-image .f-row {
+  .flex.f-row, nav.f-row.navbar, nav.navbar .navmenu ul.f-row, nav.navbar .navmenu ol.f-row, .card-widget .f-row.card-image, .task-widget .f-row.task-counter, .flex .f-row, nav.navbar .f-row, nav.navbar .navmenu ul .f-row, nav.navbar .navmenu ol .f-row, .card-widget .card-image .f-row, .task-widget .task-counter .f-row {
     flex-direction: row; }
-  .flex.f-column, nav.f-column.navbar, nav.navbar .navmenu ul.f-column, nav.navbar .navmenu ol.f-column, .card-widget .f-column.card-image, .flex .f-column, nav.navbar .f-column, nav.navbar .navmenu ul .f-column, nav.navbar .navmenu ol .f-column, .card-widget .card-image .f-column {
+  .flex.f-column, nav.f-column.navbar, nav.navbar .navmenu ul.f-column, nav.navbar .navmenu ol.f-column, .card-widget .f-column.card-image, .task-widget .f-column.task-counter, .flex .f-column, nav.navbar .f-column, nav.navbar .navmenu ul .f-column, nav.navbar .navmenu ol .f-column, .card-widget .card-image .f-column, .task-widget .task-counter .f-column {
     flex-direction: column; }
-  .flex.f-justify-space-between, nav.navbar, nav.navbar .navmenu ul.f-justify-space-between, nav.navbar .navmenu ol.f-justify-space-between, .card-widget .f-justify-space-between.card-image, .card-widget nav.card-image.navbar, .flex .f-justify-space-between, nav.navbar .f-justify-space-between, nav.navbar .navmenu ul .f-justify-space-between, nav.navbar .navmenu ol .f-justify-space-between, .card-widget .card-image .f-justify-space-between, .flex nav.navbar, nav.navbar nav.navbar, .card-widget .card-image nav.navbar {
+  .flex.f-justify-space-between, nav.navbar, nav.navbar .navmenu ul.f-justify-space-between, nav.navbar .navmenu ol.f-justify-space-between, .card-widget .f-justify-space-between.card-image, .card-widget nav.card-image.navbar, .task-widget .f-justify-space-between.task-counter, .task-widget nav.task-counter.navbar, .flex .f-justify-space-between, nav.navbar .f-justify-space-between, nav.navbar .navmenu ul .f-justify-space-between, nav.navbar .navmenu ol .f-justify-space-between, .card-widget .card-image .f-justify-space-between, .task-widget .task-counter .f-justify-space-between, .flex nav.navbar, nav.navbar nav.navbar, .card-widget .card-image nav.navbar, .task-widget .task-counter nav.navbar {
     justify-content: space-between; }
-  .flex.f-justify-around, nav.f-justify-around.navbar, nav.navbar .navmenu ul.f-justify-around, nav.navbar .navmenu ol.f-justify-around, .card-widget .f-justify-around.card-image, .flex .f-justify-around, nav.navbar .f-justify-around, nav.navbar .navmenu ul .f-justify-around, nav.navbar .navmenu ol .f-justify-around, .card-widget .card-image .f-justify-around {
+  .flex.f-justify-around, nav.f-justify-around.navbar, nav.navbar .navmenu ul.f-justify-around, nav.navbar .navmenu ol.f-justify-around, .card-widget .f-justify-around.card-image, .task-widget .f-justify-around.task-counter, .flex .f-justify-around, nav.navbar .f-justify-around, nav.navbar .navmenu ul .f-justify-around, nav.navbar .navmenu ol .f-justify-around, .card-widget .card-image .f-justify-around, .task-widget .task-counter .f-justify-around {
     justify-content: space-around; }
 
 .box {
@@ -2425,5 +2425,15 @@ div {
         color: #68737A;
         background-size: 100%;
         transition: background 0s; }
+
+.task-widget {
+  background: linear-gradient(45deg, #ED1B2E, #0064B9);
+  max-width: 33%; }
+  .task-widget .task-counter {
+    flex-direction: row; }
+    .task-widget .task-counter h1, .task-widget .task-counter h2, .task-widget .task-counter h3, .task-widget .task-counter h4, .task-widget .task-counter h5, .task-widget .task-counter h6 {
+      color: #fff; }
+    .task-widget .task-counter h1 {
+      font-size: 4rem; }
 
 /*# sourceMappingURL=Override.css.map */
