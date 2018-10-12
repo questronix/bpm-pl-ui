@@ -293,110 +293,110 @@ body, html {
   margin: 5px;
   cursor: pointer;
   border-radius: 3px; }
-  .btn.prulife, .card-widget .prulife.card-btn {
+  .btn.prulife, .card-widget .prulife.card-btn, .btn .prulife, .card-widget .card-btn .prulife {
     background-color: #ED1B2E;
     color: #fff;
     border: solid 3px #ED1B2E; }
-    .btn.prulife:hover, .card-widget .prulife.card-btn:hover {
+    .btn.prulife:hover, .card-widget .prulife.card-btn:hover, .btn .prulife:hover, .card-widget .card-btn .prulife:hover {
       background-color: #fff;
       color: #ED1B2E;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn.prugray, .card-widget .prugray.card-btn {
+  .btn.prugray, .card-widget .prugray.card-btn, .btn .prugray, .card-widget .card-btn .prugray {
     background-color: #68737A;
     color: #fff;
     border: solid 3px #68737A; }
-    .btn.prugray:hover, .card-widget .prugray.card-btn:hover {
+    .btn.prugray:hover, .card-widget .prugray.card-btn:hover, .btn .prugray:hover, .card-widget .card-btn .prugray:hover {
       background-color: #fff;
       color: #68737A;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn.grass-green, .card-widget .grass-green.card-btn {
+  .btn.grass-green, .card-widget .grass-green.card-btn, .btn .grass -green, .card-widget .card-btn .grass -green {
     background-color: #007953;
     color: #fff;
     border: solid 3px #007953; }
-    .btn.grass-green:hover, .card-widget .grass-green.card-btn:hover {
+    .btn.grass-green:hover, .card-widget .grass-green.card-btn:hover, .btn .grass -green:hover, .card-widget .card-btn .grass -green:hover {
       background-color: #fff;
       color: #007953;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn.bright-blue, .card-widget .bright-blue.card-btn {
+  .btn.bright-blue, .card-widget .bright-blue.card-btn, .btn .bright -blue, .card-widget .card-btn .bright -blue {
     background-color: #0064B9;
     color: #fff;
     border: solid 3px #0064B9; }
-    .btn.bright-blue:hover, .card-widget .bright-blue.card-btn:hover {
+    .btn.bright-blue:hover, .card-widget .bright-blue.card-btn:hover, .btn .bright -blue:hover, .card-widget .card-btn .bright -blue:hover {
       background-color: #fff;
       color: #0064B9;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn.sun-yellow, .card-widget .sun-yellow.card-btn {
+  .btn.sun-yellow, .card-widget .sun-yellow.card-btn, .btn .sun -yellow, .card-widget .card-btn .sun -yellow {
     background-color: #FFB81D;
     color: #fff;
     border: solid 3px #FFB81D; }
-    .btn.sun-yellow:hover, .card-widget .sun-yellow.card-btn:hover {
+    .btn.sun-yellow:hover, .card-widget .sun-yellow.card-btn:hover, .btn .sun -yellow:hover, .card-widget .card-btn .sun -yellow:hover {
       background-color: #fff;
       color: #FFB81D;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn.primary, .card-widget .primary.card-btn {
+  .btn.primary, .card-widget .primary.card-btn, .btn .primary, .card-widget .card-btn .primary {
     background-color: #1e88e5;
     color: #fff;
     border: solid 3px #1e88e5; }
-    .btn.primary:hover, .card-widget .primary.card-btn:hover {
+    .btn.primary:hover, .card-widget .primary.card-btn:hover, .btn .primary:hover, .card-widget .card-btn .primary:hover {
       background-color: #fff;
       color: #1e88e5;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn.danger, .card-widget .danger.card-btn {
+  .btn.danger, .card-widget .danger.card-btn, .btn .danger, .card-widget .card-btn .danger {
     background-color: #e53935;
     color: #fff;
     border: solid 3px #e53935; }
-    .btn.danger:hover, .card-widget .danger.card-btn:hover {
+    .btn.danger:hover, .card-widget .danger.card-btn:hover, .btn .danger:hover, .card-widget .card-btn .danger:hover {
       background-color: #fff;
       color: #e53935;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn.info, .card-widget .info.card-btn {
+  .btn.info, .card-widget .info.card-btn, .btn .info, .card-widget .card-btn .info {
     background-color: #00acc1;
     color: #fff;
     border: solid 3px #00acc1; }
-    .btn.info:hover, .card-widget .info.card-btn:hover {
+    .btn.info:hover, .card-widget .info.card-btn:hover, .btn .info:hover, .card-widget .card-btn .info:hover {
       background-color: #fff;
       color: #00acc1;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn.warning, .card-widget .warning.card-btn {
+  .btn.warning, .card-widget .warning.card-btn, .btn .warning, .card-widget .card-btn .warning {
     background-color: #fdd835;
     color: #fff;
     border: solid 3px #fdd835; }
-    .btn.warning:hover, .card-widget .warning.card-btn:hover {
+    .btn.warning:hover, .card-widget .warning.card-btn:hover, .btn .warning:hover, .card-widget .card-btn .warning:hover {
       background-color: #fff;
       color: #fdd835;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn.success, .card-widget .success.card-btn {
+  .btn.success, .card-widget .success.card-btn, .btn .success, .card-widget .card-btn .success {
     background-color: #43a047;
     color: #fff;
     border: solid 3px #43a047; }
-    .btn.success:hover, .card-widget .success.card-btn:hover {
+    .btn.success:hover, .card-widget .success.card-btn:hover, .btn .success:hover, .card-widget .card-btn .success:hover {
       background-color: #fff;
       color: #43a047;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
@@ -416,55 +416,55 @@ body, html {
   margin: 5px;
   cursor: pointer;
   border-radius: 3px; }
-  .btn-l.primary {
+  .btn-l.primary, .btn-l .primary {
     background-color: #1e88e5;
     color: #fff;
     border: solid 3px #1e88e5; }
-    .btn-l.primary:hover {
+    .btn-l.primary:hover, .btn-l .primary:hover {
       background-color: #fff;
       color: #1e88e5;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-l.danger {
+  .btn-l.danger, .btn-l .danger {
     background-color: #e53935;
     color: #fff;
     border: solid 3px #e53935; }
-    .btn-l.danger:hover {
+    .btn-l.danger:hover, .btn-l .danger:hover {
       background-color: #fff;
       color: #e53935;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-l.info {
+  .btn-l.info, .btn-l .info {
     background-color: #00acc1;
     color: #fff;
     border: solid 3px #00acc1; }
-    .btn-l.info:hover {
+    .btn-l.info:hover, .btn-l .info:hover {
       background-color: #fff;
       color: #00acc1;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-l.warning {
+  .btn-l.warning, .btn-l .warning {
     background-color: #fdd835;
     color: #fff;
     border: solid 3px #fdd835; }
-    .btn-l.warning:hover {
+    .btn-l.warning:hover, .btn-l .warning:hover {
       background-color: #fff;
       color: #fdd835;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-l.success {
+  .btn-l.success, .btn-l .success {
     background-color: #43a047;
     color: #fff;
     border: solid 3px #43a047; }
-    .btn-l.success:hover {
+    .btn-l.success:hover, .btn-l .success:hover {
       background-color: #fff;
       color: #43a047;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
@@ -484,55 +484,55 @@ body, html {
   margin: 5px;
   cursor: pointer;
   border-radius: 3px; }
-  .btn-s.primary {
+  .btn-s.primary, .btn-s .primary {
     background-color: #1e88e5;
     color: #fff;
     border: solid 3px #1e88e5; }
-    .btn-s.primary:hover {
+    .btn-s.primary:hover, .btn-s .primary:hover {
       background-color: #fff;
       color: #1e88e5;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-s.danger {
+  .btn-s.danger, .btn-s .danger {
     background-color: #e53935;
     color: #fff;
     border: solid 3px #e53935; }
-    .btn-s.danger:hover {
+    .btn-s.danger:hover, .btn-s .danger:hover {
       background-color: #fff;
       color: #e53935;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-s.info {
+  .btn-s.info, .btn-s .info {
     background-color: #00acc1;
     color: #fff;
     border: solid 3px #00acc1; }
-    .btn-s.info:hover {
+    .btn-s.info:hover, .btn-s .info:hover {
       background-color: #fff;
       color: #00acc1;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-s.warning {
+  .btn-s.warning, .btn-s .warning {
     background-color: #fdd835;
     color: #fff;
     border: solid 3px #fdd835; }
-    .btn-s.warning:hover {
+    .btn-s.warning:hover, .btn-s .warning:hover {
       background-color: #fff;
       color: #fdd835;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-s.success {
+  .btn-s.success, .btn-s .success {
     background-color: #43a047;
     color: #fff;
     border: solid 3px #43a047; }
-    .btn-s.success:hover {
+    .btn-s.success:hover, .btn-s .success:hover {
       background-color: #fff;
       color: #43a047;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
@@ -552,90 +552,90 @@ body, html {
   margin: 5px;
   cursor: pointer;
   border-radius: 3px; }
-  .btn-alt.primary {
+  .btn-alt.primary, .btn-alt .primary {
     background-color: #1e88e5;
     color: #fff;
     border: solid 3px #1e88e5; }
-    .btn-alt.primary:hover {
+    .btn-alt.primary:hover, .btn-alt .primary:hover {
       background-color: #26aaff;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt.primary:focus {
+    .btn-alt.primary:focus, .btn-alt .primary:focus {
       background-color: #fff;
       color: #1e88e5;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt.danger {
+  .btn-alt.danger, .btn-alt .danger {
     background-color: #e53935;
     color: #fff;
     border: solid 3px #e53935; }
-    .btn-alt.danger:hover {
+    .btn-alt.danger:hover, .btn-alt .danger:hover {
       background-color: #ff4742;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt.danger:focus {
+    .btn-alt.danger:focus, .btn-alt .danger:focus {
       background-color: #fff;
       color: #e53935;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt.info {
+  .btn-alt.info, .btn-alt .info {
     background-color: #00acc1;
     color: #fff;
     border: solid 3px #00acc1; }
-    .btn-alt.info:hover {
+    .btn-alt.info:hover, .btn-alt .info:hover {
       background-color: #00d7f1;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt.info:focus {
+    .btn-alt.info:focus, .btn-alt .info:focus {
       background-color: #fff;
       color: #00acc1;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt.warning {
+  .btn-alt.warning, .btn-alt .warning {
     background-color: #fdd835;
     color: #fff;
     border: solid 3px #fdd835; }
-    .btn-alt.warning:hover {
+    .btn-alt.warning:hover, .btn-alt .warning:hover {
       background-color: #ffff42;
       color: #2b2b2b;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt.warning:focus {
+    .btn-alt.warning:focus, .btn-alt .warning:focus {
       background-color: #fff;
       color: #fdd835;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt.success {
+  .btn-alt.success, .btn-alt .success {
     background-color: #43a047;
     color: #fff;
     border: solid 3px #43a047; }
-    .btn-alt.success:hover {
+    .btn-alt.success:hover, .btn-alt .success:hover {
       background-color: #54c859;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt.success:focus {
+    .btn-alt.success:focus, .btn-alt .success:focus {
       background-color: #fff;
       color: #43a047;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
@@ -655,90 +655,90 @@ body, html {
   margin: 5px;
   cursor: pointer;
   border-radius: 3px; }
-  .btn-alt-l.primary {
+  .btn-alt-l.primary, .btn-alt-l .primary {
     background-color: #1e88e5;
     color: #fff;
     border: solid 3px #1e88e5; }
-    .btn-alt-l.primary:hover {
+    .btn-alt-l.primary:hover, .btn-alt-l .primary:hover {
       background-color: #26aaff;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt-l.primary:focus {
+    .btn-alt-l.primary:focus, .btn-alt-l .primary:focus {
       background-color: #fff;
       color: #1e88e5;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt-l.danger {
+  .btn-alt-l.danger, .btn-alt-l .danger {
     background-color: #e53935;
     color: #fff;
     border: solid 3px #e53935; }
-    .btn-alt-l.danger:hover {
+    .btn-alt-l.danger:hover, .btn-alt-l .danger:hover {
       background-color: #ff4742;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt-l.danger:focus {
+    .btn-alt-l.danger:focus, .btn-alt-l .danger:focus {
       background-color: #fff;
       color: #e53935;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt-l.info {
+  .btn-alt-l.info, .btn-alt-l .info {
     background-color: #00acc1;
     color: #fff;
     border: solid 3px #00acc1; }
-    .btn-alt-l.info:hover {
+    .btn-alt-l.info:hover, .btn-alt-l .info:hover {
       background-color: #00d7f1;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt-l.info:focus {
+    .btn-alt-l.info:focus, .btn-alt-l .info:focus {
       background-color: #fff;
       color: #00acc1;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt-l.warning {
+  .btn-alt-l.warning, .btn-alt-l .warning {
     background-color: #fdd835;
     color: #fff;
     border: solid 3px #fdd835; }
-    .btn-alt-l.warning:hover {
+    .btn-alt-l.warning:hover, .btn-alt-l .warning:hover {
       background-color: #ffff42;
       color: #2b2b2b;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt-l.warning:focus {
+    .btn-alt-l.warning:focus, .btn-alt-l .warning:focus {
       background-color: #fff;
       color: #fdd835;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt-l.success {
+  .btn-alt-l.success, .btn-alt-l .success {
     background-color: #43a047;
     color: #fff;
     border: solid 3px #43a047; }
-    .btn-alt-l.success:hover {
+    .btn-alt-l.success:hover, .btn-alt-l .success:hover {
       background-color: #54c859;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt-l.success:focus {
+    .btn-alt-l.success:focus, .btn-alt-l .success:focus {
       background-color: #fff;
       color: #43a047;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
@@ -758,90 +758,90 @@ body, html {
   margin: 5px;
   cursor: pointer;
   border-radius: 3px; }
-  .btn-alt-s.primary {
+  .btn-alt-s.primary, .btn-alt-s .primary {
     background-color: #1e88e5;
     color: #fff;
     border: solid 3px #1e88e5; }
-    .btn-alt-s.primary:hover {
+    .btn-alt-s.primary:hover, .btn-alt-s .primary:hover {
       background-color: #26aaff;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt-s.primary:focus {
+    .btn-alt-s.primary:focus, .btn-alt-s .primary:focus {
       background-color: #fff;
       color: #1e88e5;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt-s.danger {
+  .btn-alt-s.danger, .btn-alt-s .danger {
     background-color: #e53935;
     color: #fff;
     border: solid 3px #e53935; }
-    .btn-alt-s.danger:hover {
+    .btn-alt-s.danger:hover, .btn-alt-s .danger:hover {
       background-color: #ff4742;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt-s.danger:focus {
+    .btn-alt-s.danger:focus, .btn-alt-s .danger:focus {
       background-color: #fff;
       color: #e53935;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt-s.info {
+  .btn-alt-s.info, .btn-alt-s .info {
     background-color: #00acc1;
     color: #fff;
     border: solid 3px #00acc1; }
-    .btn-alt-s.info:hover {
+    .btn-alt-s.info:hover, .btn-alt-s .info:hover {
       background-color: #00d7f1;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt-s.info:focus {
+    .btn-alt-s.info:focus, .btn-alt-s .info:focus {
       background-color: #fff;
       color: #00acc1;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt-s.warning {
+  .btn-alt-s.warning, .btn-alt-s .warning {
     background-color: #fdd835;
     color: #fff;
     border: solid 3px #fdd835; }
-    .btn-alt-s.warning:hover {
+    .btn-alt-s.warning:hover, .btn-alt-s .warning:hover {
       background-color: #ffff42;
       color: #2b2b2b;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt-s.warning:focus {
+    .btn-alt-s.warning:focus, .btn-alt-s .warning:focus {
       background-color: #fff;
       color: #fdd835;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-  .btn-alt-s.success {
+  .btn-alt-s.success, .btn-alt-s .success {
     background-color: #43a047;
     color: #fff;
     border: solid 3px #43a047; }
-    .btn-alt-s.success:hover {
+    .btn-alt-s.success:hover, .btn-alt-s .success:hover {
       background-color: #54c859;
       color: #fff;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
-    .btn-alt-s.success:focus {
+    .btn-alt-s.success:focus, .btn-alt-s .success:focus {
       background-color: #fff;
       color: #43a047;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
@@ -1669,43 +1669,45 @@ input.checkbox {
   .card-alt .card-body, .card-table .card-body {
     padding: 20px; }
 
-.card-table .table-footer ul.navi {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0; }
-  .card-table .table-footer ul.navi li {
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-    -ms-transition: all .3s ease-out;
-    -o-transition: all .3s ease-out;
-    transition: all 0.3s ease-out;
-    margin: 5px;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    width: 40px;
-    text-align: center;
-    display: flex; }
-    .card-table .table-footer ul.navi li:hover {
-      border-radius: 50%;
-      background-color: rgba(104, 115, 122, 0.2); }
-.card-table #table {
-  width: 100%; }
-  .card-table #table tr {
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-    -ms-transition: all .3s ease-out;
-    -o-transition: all .3s ease-out;
-    transition: all 0.3s ease-out; }
-    .card-table #table tr th {
-      border: none;
-      padding: 20px;
-      background-color: white;
-      border-bottom: 1px solid #bdbdbd; }
-    .card-table #table tr td {
-      text-align: center; }
-    .card-table #table tr:hover {
-      background-color: rgba(104, 115, 122, 0.1); }
+.card-table {
+  margin: 10px; }
+  .card-table .table-footer ul.navi {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0; }
+    .card-table .table-footer ul.navi li {
+      -webkit-transition: all .3s ease-out;
+      -moz-transition: all .3s ease-out;
+      -ms-transition: all .3s ease-out;
+      -o-transition: all .3s ease-out;
+      transition: all 0.3s ease-out;
+      margin: 5px;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      width: 40px;
+      text-align: center;
+      display: flex; }
+      .card-table .table-footer ul.navi li:hover {
+        border-radius: 50%;
+        background-color: rgba(104, 115, 122, 0.2); }
+  .card-table #table {
+    width: 100%; }
+    .card-table #table tr {
+      -webkit-transition: all .3s ease-out;
+      -moz-transition: all .3s ease-out;
+      -ms-transition: all .3s ease-out;
+      -o-transition: all .3s ease-out;
+      transition: all 0.3s ease-out; }
+      .card-table #table tr th {
+        border: none;
+        padding: 20px;
+        background-color: white;
+        border-bottom: 1px solid #bdbdbd; }
+      .card-table #table tr td {
+        text-align: center; }
+      .card-table #table tr:hover {
+        background-color: rgba(104, 115, 122, 0.1); }
 
 .can-toggle {
   position: relative; }
