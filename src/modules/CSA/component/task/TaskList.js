@@ -36,7 +36,11 @@ const TaskList = (props) => (
         ))}
       </tbody>
     </table>
-    ): 'No available tasks.' }
+    ):
+   (<div className="flex f-center">
+    <h1>No Data Available
+    </h1>
+   </div>)}
   </div>
 );
 
