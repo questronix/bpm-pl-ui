@@ -90,8 +90,12 @@ app.use(session({
   // res.redirect('/#');
 // });
 
+let task = require('./Modules/Task');
+app.use('/api/tasks', task);
+
 app.get('/api', function response(req, res) {
-  res.send('API GOES HERE');
+    // task
+  res.send({sample: 'API GOES HERE'});
 });
 
 app.get('*', (req,res) =>{

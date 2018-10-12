@@ -7,6 +7,10 @@ import ProcessorRoutes from './modules/Processor/routes' ;
 
 const genericRoutes = [
   {
+    path: '/',
+    component: () => <Login />,
+  }, 
+  {
     path: '/login',
     component: () => <Login />,
   }, 
