@@ -2594,7 +2594,8 @@ div {
 
 .tooltip {
   position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   -webkit-transition: all .3s ease-out;
   -moz-transition: all .3s ease-out;
   -ms-transition: all .3s ease-out;
@@ -2615,7 +2616,7 @@ div {
     border-radius: 3px;
     position: absolute;
     z-index: 1;
-    transform: translate(-10%, -100%); }
+    transform: translate(0%, -100%); }
   .tooltip:hover .tooltip-text {
     opacity: 1; }
 
