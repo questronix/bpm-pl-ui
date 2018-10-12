@@ -92,6 +92,7 @@ class Policy extends Component {
         //     policy[elem] = toupdate[elem];
         //   }
         // }); 
+        console.log(res.data.policy);
         this.setState({
           policy : res.data.policy
         });

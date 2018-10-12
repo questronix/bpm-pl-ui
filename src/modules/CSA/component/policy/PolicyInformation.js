@@ -14,7 +14,7 @@ class PolicyInformation extends Component {
                   General Information
                 </h3>
                 <h3  className="no-margin font-prulife font-prugray">
-                  {/* {this.props.policy.id} */}
+                  {(this.props.policy.createdAt).substring(0,4)} - {(this.props.policy.id + "").padStart(6,"0")}
                 </h3>
               </div>
               <div className="card-body flex-container flex-wrap">

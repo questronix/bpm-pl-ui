@@ -31,9 +31,49 @@ const TaskList = (props) => (
   //   </table>
   //   ): 'No available tasks.' }
   // </div>
-  <div>
-    <CardTable/>
+  <div className="card-table">
+    {props.tasks ? (
+    <table id="table" cellPadding="0" cellSpacing="0">
+      <thead>
+        <tr>
+          <th>Process Name</th>
+          <th>Transaction No</th>
+          <th>Date Created</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        { props.tasks.map((task, index) => (
+        <tr key={index}>
+          <td>
+              {task.name}
+          </td>
+          <td>
+              {task.policy.appNo}
+          </td>
+          <td>
+            {(new Date(task.policy.createdAt)).toDateString()}
+          </td>
+            <td>{(task.completed) ?'Completed' : 'Draft'}</td>
+          <td>
+            {!task.completed ? (
+              <button className="btn prulife"> 
+                <a className="font-white" href={`/csa/tasks/edit?id=${task.id}`}>Edit</a>
+              </button>) 
+              : 'No Action'}
+          </td>
+        </tr>
+        ))}
+      </tbody>
+    </table>
+    ): 'No available tasks.' }
   </div>
+
+
+  // <div>
+  //   <CardTable/>
+  // </div>
 );
 
 export default TaskList;

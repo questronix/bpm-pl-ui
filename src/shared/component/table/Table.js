@@ -8,7 +8,7 @@ class CardTable extends Component {
           <div className="col xl-12">
             <div className="card-table">
               <table id="table" cellPadding="0" cellSpacing="0">
-                {/* <thead> */}
+                <thead>
                   <tr>
                     <th>Process Name</th>
                     <th>Application No</th>
@@ -16,8 +16,8 @@ class CardTable extends Component {
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
-                {/* </thead> */}
-                {/* <tbody> */}
+                </thead>
+                <tbody>
                   <tr>
                     <td>
                       PN-2212303-3221
@@ -37,7 +37,7 @@ class CardTable extends Component {
                     </button>
                     </td>
                   </tr>
-                {/* </tbody> */}
+                </tbody>
               </table>
             </div>
            </div>
