@@ -92,6 +92,7 @@ class Policy extends Component {
         //     policy[elem] = toupdate[elem];
         //   }
         // }); 
+        console.log(res.data.policy);
         this.setState({
           policy : res.data.policy
         });
@@ -335,6 +336,7 @@ class Policy extends Component {
             (<Fragment>
               <PolicyInformation policy={this.state.policy} />
               <Transaction
+                policy={this.state.policy}
                 transactionCheckList={this.state.transactionCheckList}
                 onTransactionCheckListChange={this.handleTransactionCheckList}
                 onTransactionChange={this.handleTransactionChange} />

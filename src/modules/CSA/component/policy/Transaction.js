@@ -47,7 +47,9 @@ class Transaction extends Component {
                     <option className="item font-prugray">Reinstatement</option>
                   </select>
                 </div>
-                <h3 className="font-prugrayno-margin f-center flex font-prulife no-padding no-margin">TXN 2018-000001</h3>
+                <h3 className="font-prugrayno-margin f-center flex font-prulife no-padding no-margin">Transaction No: {this.props.policy.appNo}
+                {/* {(this.props.policy.createdAt).substring(0,4)} - {(this.props.policy.id + "").padStart(6,"0")} */}
+                </h3>
               </div>
               <div className="card-body flex-container flex-wrap">
                 <div className="col xl-6 l-6 m-12 s-12 xs-12 flex f-center">
