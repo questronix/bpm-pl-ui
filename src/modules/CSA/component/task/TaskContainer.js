@@ -13,7 +13,7 @@ class TaskContainer extends Component {
 
   createTask() {
     TaskService.createNewTask({ username: sessionStorage.getItem('username')}).then((res) => {
-      window.location.href="/csa";
+      window.location.href=`/csa/tasks/edit?id=${res.data.id}`;
       console.log(res);
     }).catch((err) => {
       console.log(err);
