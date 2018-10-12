@@ -336,6 +336,7 @@ class Policy extends Component {
             (<Fragment>
               <PolicyInformation policy={this.state.policy} />
               <Transaction
+                policy={this.state.policy}
                 transactionCheckList={this.state.transactionCheckList}
                 onTransactionCheckListChange={this.handleTransactionCheckList}
                 onTransactionChange={this.handleTransactionChange} />

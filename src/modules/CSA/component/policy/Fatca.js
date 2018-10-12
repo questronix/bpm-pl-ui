@@ -171,9 +171,9 @@ class Fatca extends Component {
                     <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active">
                       Insured Information
                     </div>
-                    <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 ">
+                    {/* <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 ">
                       Owner Information
-                    </div>
+                    </div> */}
                   </div>
                   <div className="tab-body">
                     <InsuredInformation insured={this.props.insured} />
