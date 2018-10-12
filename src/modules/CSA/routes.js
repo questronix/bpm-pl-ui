@@ -1,11 +1,32 @@
 import React from 'react';
-import CSA from './pages/Policy';
+import DashboardPage from './pages/DashboardPage';
+import TaskPage from './pages/task/TaskPage';
+// import EditTaskPage from './component/task/EditTask';
+import EditTaskPage from './pages/task/EditTaskPage';
 
 const routes = [
   {
-    path: "/policy",
+    label: 'Dashboard',
+    path: "/csa",
     exact: true,
-    main: () => <CSA />,
+    component: () => <DashboardPage />,
+  },
+  {
+    label: 'New Task',
+    path: "/csa/tasks",
+    exact: true,
+    component: () => <TaskPage />,
+  },
+  // {
+  //   label: 'New Task',
+  //   path: "/csa/tasks/new",
+  //   exact: true,
+  //   component: () => <TaskPage />,
+  // },
+  {
+    path: "/csa/tasks/edit",
+    exact: true,
+    component: () => <EditTaskPage />,
   },
 ];
 

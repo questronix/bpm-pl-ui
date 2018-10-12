@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Nav extends Component {
+
+
   render() {
+
+    const links = this.props.links.map((link, i) => (
+      <li key={i}>
+        <Link to={link.path}> {link.label} </Link>
+      </li>
+    ));
+
     return (
       <div className="App">
         <nav className="navbar">
@@ -12,39 +22,22 @@ class Nav extends Component {
           </div>
           <div className="navmenu m-hide s-hide xs-hide">
             <ul>
+              {links}
               <li>
-                <a href="jsx-a11y/href-no-hash">
-                  Item 1
+                <a className="btn prulife" href="/login">
+                  Logout
                 </a>
               </li>
-              <li>
-                <a href="jsx-a11y/href-no-hash">
-                  Item 2
-                </a>
-              </li>
-              <li>
-                <a href="jsx-a11y/href-no-hash">
-                  Item 3
-                </a>
-              </li>
-              <li>
-                <a href="jsx-a11y/href-no-hash">
-                  Item 4
-                </a>
-              </li>
-              <li>
-                <a href="jsx-a11y/href-no-hash">
-                  Item 5
-                </a>
-              </li>
-              <button className="btn prulife">
-                Logout
-              </button>
             </ul>
           </div>
           <div className="navmenu xl-hide l-hide">
             <ul>
-              <button className="btn-alt-s info">Dropdown</button>
+              {/* <button className="btn-alt-s info">Dropdown</button> */}
+              <li>
+                <a href="/login">
+                  Logout
+                </a>
+              </li>
             </ul>
           </div>
         </nav>

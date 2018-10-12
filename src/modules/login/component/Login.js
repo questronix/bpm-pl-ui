@@ -5,7 +5,6 @@ class Login extends Component {
 
   render() {
     return (
-      // TODO: Add additional element here, Jerome.
       <div>
         <LoginForm />
       </div>

@@ -14,7 +14,7 @@ class PolicyInformation extends Component {
                   General Information
                 </h3>
                 <h3  className="no-margin font-prulife font-prugray">
-                  PN-0000132514
+                  {/* {this.props.policy.id} */}
                 </h3>
               </div>
               <div className="card-body flex-container flex-wrap">

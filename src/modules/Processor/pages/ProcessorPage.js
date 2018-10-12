@@ -1,15 +1,17 @@
 // TODO: FIX import
 
 import React, {Component} from 'react';
-import Policy from '../component/policy/Policy';
+import links from '../routes';
 import Nav from '../../../shared/component/nav/Nav';
 import SideBar from '../../../shared/component/sidebar/SideBar';
+import Processor from '../component/processor/ProcessorContainer';
 
 export default class Main extends Component {
   render() {
     return (
       <div>
-        <Nav/> <SideBar/> <Policy/>
+        <Nav links={links}/> <SideBar/> 
+        <Processor/>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import { ApiClient } from '../../../lib/api/ApiClient';
-import Policy from './policy/Policy';
+import Login from './Login';
 
 let client = new ApiClient();
 let axios = client.getClient();
@@ -10,8 +10,8 @@ axios.interceptors.response.use(function(response) {
   return Promise.reject(error);
 });
 
-const PolicyService = new Policy(client);
+const LoginService = new Login(client);
 
 export {
-  PolicyService,
+  LoginService
 }
