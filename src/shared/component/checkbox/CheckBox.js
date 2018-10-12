@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 class CheckBox extends Component {
   render() {
+    let chkBoxStyle = `can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small ${this.props.class}`;
     return (
-      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
+      <div className={chkBoxStyle} >
         <input
           id={this.props.cName}
           name={this.props.cName}

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import CsaClient from './CsaClient';
+import PrescreeningInfo from './PreScreening';
+import CardTable from '../../../../shared/component/table/Table';
+import TaskCounter from '../../../../shared/component/Widgets/TaskStatus';
 
 class ProcessorContainer extends Component {
   constructor(props) {
@@ -16,11 +19,16 @@ class ProcessorContainer extends Component {
           made by questronix
         </div>
         <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
-          <h1 className="font-prulife flex s-f-center xs-f-center">Policy Information</h1>
+          <h1 className="font-prulife flex s-f-center xs-f-center">Prescreening Information</h1>
+          <PrescreeningInfo/>
+          <h1 className="font-prulife flex s-f-center xs-f-center">Processor Information</h1>
+          <CsaClient/>
           {/* <CsaPolicy /> */}
-          <CsaClient sampleData={this.state.sample}/>
+          {/* <CsaClient sampleData={this.state.sample}/> */}
           {/* <CProcessorPolicy /> */}
           {/* <CProcessorClient /> */}
+          <CardTable/>
+          <TaskCounter/>
         </div>
       </div>
     );

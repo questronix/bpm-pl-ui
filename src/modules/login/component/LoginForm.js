@@ -64,38 +64,43 @@ class LoginForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className="fullscreen-center test flex f-center">
-          <div className="flex f-column flex-container flex-wrap f-center box col xl-3 l-3 m-3 s-3 xs-3 f-justify-between">
-            <div className="f-start">
-              <h4 className="font-danger f-start">
-                Pru Life Login
-            </h4>
+        <div className="login">
+          {/* <img src="https://i.imgur.com/DkX0ZtJ.jpg"></img> */}
+          <div className="login-form col xl-3 l-3 m-4 s-12 xs-12 flex f-center f-column">
+            <div>
+              <div className="login-header">
+                <h3 className="font-prulife text-center">
+                  Prulife login
+              </h3>
+              </div>
+              <div className="login-body">
+                <div className="f-row f-center flex-container flex-wrap col xl-12 flex">
+                  <label className="col xl-3 l-3 m-12 s-12 xs-12 text-center">Username:</label>
+                  <input className="input col xl-9 l-9 m-9 s-9 xs-9"
+                    name="username"
+                    type="text"
+                    disabled={this.state.isSubmitting}
+                    value={this.state.username}
+                    onChange={this.handleInputChange} />
+                </div>
+                <div className="f-row f-center flex-container flex-wrap col xl-12 flex">
+                  <label className="col xl-3 l-3 m-12 s-12 xs-12 text-center">Password:</label>
+                  <input className="input col xl-9 l-9 m-9 s-9 xs-9"
+                    name="password"
+                    type="password"
+                    disabled={this.state.isSubmitting}
+                    value={this.state.password}
+                    onChange={this.handleInputChange} />
+                </div>
+              </div>
+              <div className="f-row f-center flex-container flex-wrap col xl-12 flex">
+              <button className="btn col xl-10 prulife"
+                type="submit" 
+                disabled={this.state.isSubmitting}>
+                  {this.state.isSubmitting ? 'Please wait..' : 'Login'} 
+                </button>
+              </div>
             </div>
-            <div className="f-row f-center f-justify-around flex-container flex-wrap col xl-12">
-              <label className="col xl-3 l-3 m-3 s-3 xs-3">Username:</label>
-              <input className="input col xl-9 l-9 m-9 s-9 xs-9"
-                name="username"
-                type="text"
-                disabled={this.state.isSubmitting}
-                value={this.state.username}
-                onChange={this.handleInputChange} />
-            </div>
-            <div className="f-row f-center f-justify-around flex-container flex-wrap col xl-12">
-              <label className="col xl-3 l-3 m-3 s-3 xs-3">Password:</label>
-              <input className="input col xl-9 l-9 m-9 s-9 xs-9"
-                name="password"
-                type="password"
-                disabled={this.state.isSubmitting}
-                value={this.state.password}
-                onChange={this.handleInputChange} />
-            </div>
-            <button className="btn col xl-12 prulife"
-            type="submit" 
-            disabled={this.state.isSubmitting}
-            value="Login" >
-            {this.state.isSubmitting ? 'Please wait..' : 'Login'}
-            </button>
-            {/* <input className="btn col xl-12 primary" type="submit" value="Login" ></input> */}
           </div>
         </div>
       </form>
