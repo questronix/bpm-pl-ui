@@ -3,7 +3,7 @@ import { TaskService } from '../../services';
 import TaskList from './TaskList';
 
 class TaskContainer extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       tasks: [],
@@ -12,14 +12,14 @@ class TaskContainer extends Component {
   }
 
   createTask() {
-    TaskService.createNewTask({ username: sessionStorage.getItem('username')}).then((res) => {
-      window.location.href=`/csa/tasks/edit?id=${res.data.id}`;
+    TaskService.createNewTask({ username: sessionStorage.getItem('username') }).then((res) => {
+      window.location.href = `/csa/tasks/edit?id=${res.data.id}`;
       console.log(res);
     }).catch((err) => {
       console.log(err);
     });
   }
-  
+
   componentDidMount() {
     const username = sessionStorage.getItem('username');
     TaskService.getAllTasks(username).then((res) => {
@@ -28,16 +28,29 @@ class TaskContainer extends Component {
         tasks: res.data
       })
     }).finally(() => {
-      
+
     });
   }
 
   render() {
-    return(
+    return (
       <div className="flex-container flex-wrap flex f-center">
         <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
           <h1 className="font-prulife flex s-f-center xs-f-center">Tasks</h1>
-          <button className="btn prulife" onClick={this.createTask}>Create Task</button>
+          <div className="col xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
+            <div className="">
+              <input className="input" placeholder="Search task..."/>
+              <button className="btn prulife">
+                Search
+              </button>
+            </div>
+            <div className="tooltip">
+            <span className="tooltip-text">
+            Add a task
+            </span>
+            <button className="round-btn prulife" onClick={this.createTask}><span className="fa fa-plus"></span></button>
+            </div>
+          </div>
           <TaskList tasks={this.state.tasks} />
         </div>
       </div>
