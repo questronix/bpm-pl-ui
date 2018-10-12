@@ -1708,6 +1708,8 @@ input.checkbox {
         text-align: center; }
       .card-table #table tr:hover {
         background-color: rgba(104, 115, 122, 0.1); }
+    .card-table #table tbody tr td {
+      padding: 20px; }
 
 .can-toggle {
   position: relative; }

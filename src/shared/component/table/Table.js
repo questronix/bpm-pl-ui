@@ -32,9 +32,9 @@ class CardTable extends Component {
                       Dec. 26, 2017
                   </td>
                     <td>
-                      <button className="btn prulife">
+                      <a className="btn prulife">
                         Action button
-                    </button>
+                    </a>
                     </td>
                   </tr>
                 </tbody>
