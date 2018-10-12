@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { TaskService } from '../../services';
 import TaskList from './TaskList';
+import CardWidget from '../../../../shared/component/Widgets/CardWidget';
 
 class TaskContainer extends Component {
   constructor(props) {
@@ -39,8 +40,9 @@ class TaskContainer extends Component {
           <h1 className="font-prulife flex s-f-center xs-f-center">Tasks</h1>
           <div className="col xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
             <div className="">
-              <input className="input" placeholder="Search task..."/>
-              <button className="btn prulife">
+              <input className="input-search" placeholder="Search task..."/>
+                <span className="fa fa-search input-icon"></span>
+              <button className="btn bright-blue">
                 Search
               </button>
             </div>
@@ -48,7 +50,7 @@ class TaskContainer extends Component {
             <span className="tooltip-text">
             Add a task
             </span>
-            <button className="round-btn prulife" onClick={this.createTask}><span className="fa fa-plus"></span></button>
+            <button className="round-btn grass-green" onClick={this.createTask}><span className="fa fa-plus"></span></button>
             </div>
           </div>
           <TaskList tasks={this.state.tasks} />
