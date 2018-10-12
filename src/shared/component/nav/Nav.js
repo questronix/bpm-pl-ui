@@ -23,21 +23,17 @@ class Nav extends Component {
           <div className="navmenu m-hide s-hide xs-hide">
             <ul>
               {links}
-              <li>
-                <a className="btn prulife" href="/login">
+                <a className="btn-s prulife " href="/login">
                   Logout
                 </a>
-              </li>
             </ul>
           </div>
           <div className="navmenu xl-hide l-hide">
             <ul>
               {/* <button className="btn-alt-s info">Dropdown</button> */}
-              <li>
                 <a href="/login">
                   Logout
                 </a>
-              </li>
             </ul>
           </div>
         </nav>

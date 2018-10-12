@@ -473,6 +473,8 @@ body, html {
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
 
 .btn-s {
+  font-size: .8rem;
+  font-weight: 200;
   padding: 5px;
   text-align: center;
   outline: none;
@@ -481,16 +483,27 @@ body, html {
   -ms-transition: all .3s ease-out;
   -o-transition: all .3s ease-out;
   transition: all 0.3s ease-out;
-  margin: 5px;
+  margin: 10px;
   cursor: pointer;
   border-radius: 3px; }
-  .btn-s.primary, .btn-s .primary {
-    background-color: #1e88e5;
+  .btn-s.prulife, .btn-s .prulife {
+    background-color: #ED1B2E;
     color: #fff;
-    border: solid 3px #1e88e5; }
+    border: solid 3px #ED1B2E; }
+    .btn-s.prulife:hover, .btn-s .prulife:hover {
+      background-color: #fff;
+      color: #ED1B2E;
+      -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  .btn-s.primary, .btn-s .primary {
+    background-color: #ED1B2E;
+    color: #fff;
+    border: solid 3px #ED1B2E; }
     .btn-s.primary:hover, .btn-s .primary:hover {
       background-color: #fff;
-      color: #1e88e5;
+      color: #ED1B2E;
       -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       -ms-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
@@ -1051,10 +1064,10 @@ ul, li, ol {
 .inline-grid {
   display: inline-grid; }
 
-.no-margin, .card-alt .card-header h1, .card-table .card-header h1, .card-alt .card-header h2, .card-table .card-header h2, .card-alt .card-header h3, .card-table .card-header h3, .card-alt .card-header h4, .card-table .card-header h4, .card-alt .card-header h5, .card-table .card-header h5, .card-alt .card-header p, .card-table .card-header p, .card-alt .card-header span, .card-table .card-header span, .card-alt .card-header a, .card-table .card-header a, .card-alt .card-header i, .card-table .card-header i, nav.navbar, nav.navbar p, nav.navbar a, nav.navbar h1, nav.navbar h2, nav.navbar h3, nav.navbar h4, nav.navbar h5, nav.navbar h6, .sidebar ul.sidebar-list li p, .sidebar ul.sidebar-list li a, .sidebar ul.sidebar-list li h1, .sidebar ul.sidebar-list li h2, .sidebar ul.sidebar-list li h3, .sidebar ul.sidebar-list li h4, .sidebar ul.sidebar-list li h5, .sidebar ul.sidebar-list li h6, .sidebar ol.sidebar-list li p, .sidebar ol.sidebar-list li a, .sidebar ol.sidebar-list li h1, .sidebar ol.sidebar-list li h2, .sidebar ol.sidebar-list li h3, .sidebar ol.sidebar-list li h4, .sidebar ol.sidebar-list li h5, .sidebar ol.sidebar-list li h6, .card-widget .card-btn {
+.no-margin, .card-alt .card-header h1, .card-table .card-header h1, .card-alt .card-header h2, .card-table .card-header h2, .card-alt .card-header h3, .card-table .card-header h3, .card-alt .card-header h4, .card-table .card-header h4, .card-alt .card-header h5, .card-table .card-header h5, .card-alt .card-header p, .card-table .card-header p, .card-alt .card-header span, .card-table .card-header span, .card-alt .card-header a, .card-table .card-header a, .card-alt .card-header i, .card-table .card-header i, .sidebar ul.sidebar-list li p, .sidebar ul.sidebar-list li a, .sidebar ul.sidebar-list li h1, .sidebar ul.sidebar-list li h2, .sidebar ul.sidebar-list li h3, .sidebar ul.sidebar-list li h4, .sidebar ul.sidebar-list li h5, .sidebar ul.sidebar-list li h6, .sidebar ol.sidebar-list li p, .sidebar ol.sidebar-list li a, .sidebar ol.sidebar-list li h1, .sidebar ol.sidebar-list li h2, .sidebar ol.sidebar-list li h3, .sidebar ol.sidebar-list li h4, .sidebar ol.sidebar-list li h5, .sidebar ol.sidebar-list li h6, .card-widget .card-btn {
   margin: 0 !important; }
 
-.no-padding, nav.navbar p, nav.navbar a, nav.navbar h1, nav.navbar h2, nav.navbar h3, nav.navbar h4, nav.navbar h5, nav.navbar h6, .sidebar ul.sidebar-list, .sidebar ol.sidebar-list, .sidebar ul.sidebar-list li p, .sidebar ul.sidebar-list li a, .sidebar ul.sidebar-list li h1, .sidebar ul.sidebar-list li h2, .sidebar ul.sidebar-list li h3, .sidebar ul.sidebar-list li h4, .sidebar ul.sidebar-list li h5, .sidebar ul.sidebar-list li h6, .sidebar ol.sidebar-list li p, .sidebar ol.sidebar-list li a, .sidebar ol.sidebar-list li h1, .sidebar ol.sidebar-list li h2, .sidebar ol.sidebar-list li h3, .sidebar ol.sidebar-list li h4, .sidebar ol.sidebar-list li h5, .sidebar ol.sidebar-list li h6, .tabs {
+.no-padding, .sidebar ul.sidebar-list, .sidebar ol.sidebar-list, .sidebar ul.sidebar-list li p, .sidebar ul.sidebar-list li a, .sidebar ul.sidebar-list li h1, .sidebar ul.sidebar-list li h2, .sidebar ul.sidebar-list li h3, .sidebar ul.sidebar-list li h4, .sidebar ul.sidebar-list li h5, .sidebar ul.sidebar-list li h6, .sidebar ol.sidebar-list li p, .sidebar ol.sidebar-list li a, .sidebar ol.sidebar-list li h1, .sidebar ol.sidebar-list li h2, .sidebar ol.sidebar-list li h3, .sidebar ol.sidebar-list li h4, .sidebar ol.sidebar-list li h5, .sidebar ol.sidebar-list li h6, .tabs {
   padding: 0 !important; }
 
 .flex-container, nav.navbar .navmenu ul, nav.navbar .navmenu ol {
@@ -2078,6 +2091,7 @@ nav {
     padding: 10px 0px;
     height: 70px;
     width: 100%;
+    margin-top: 0px;
     margin-bottom: 90px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
     nav.navbar p, nav.navbar a, nav.navbar h1, nav.navbar h2, nav.navbar h3, nav.navbar h4, nav.navbar h5, nav.navbar h6 {
