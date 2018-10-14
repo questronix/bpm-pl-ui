@@ -2,12 +2,12 @@ import React from 'react';
 import DashboardContainer from '../component/dashboard/DashboardContainer';
 import Nav from '../component/nav/Nav';
 
-const DashboardPage = (props) => {
-  console.log(props);
+const DashboardPage = ({match}) => {
+  console.log(match);
   return (
     <div>
       <Nav /> 
-      <DashboardContainer />
+      <DashboardContainer {...match}/>
     </div>
   );
 };
