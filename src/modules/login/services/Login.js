@@ -6,15 +6,18 @@ export default class Login {
   login(args) {
     // return this.http.post('/auth/login', args);
     return new Promise((resolve, reject) => {
+      const data = {
+        id: 1,
+        firstName: 'Juan',
+        lastName: 'Sipag',
+        role: 'CSA',
+      };
+
+      if (args.username === 'processor') data.role = 'PROCESSOR';
       setTimeout(() => {
         resolve({ 
           status: 200,
-          data: {
-            id: 1,
-            firstName: 'Juan',
-            lastName: 'Sipag',
-            role: 'CSA',
-          }
+          data
         })
       }, 1500);
     });
