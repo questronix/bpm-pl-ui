@@ -18,6 +18,7 @@ class DashboardContainer extends Component {
   }
 
   render() {
+    console.log(this.props);
     return(
       <div className="flex-container flex-wrap">
         <div className="col xl-2 l-2 m-2 s-hide xs-hide invisible">
