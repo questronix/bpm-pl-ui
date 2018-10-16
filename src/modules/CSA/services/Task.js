@@ -16,7 +16,7 @@ export default class Task {
   }
 
   getTaskDetails(taskId, username) {
-    return this.http.get(`/tasks/3877d623-d11b-11e8-be1f-429f38baa9cd?username=${username}`, {});
+    return this.http.get(`/tasks/${taskId}?username=${username}`, {});
   }
 
   submitTask(taskId, username, data) {
