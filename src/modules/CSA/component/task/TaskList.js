@@ -29,7 +29,7 @@ const TaskList = (props) => (
             <td>{(task.completed) ?'Completed' : 'Draft'}</td>
           <td>
             {!task.completed ? (
-                <a className="btn prulife" href={`/csa/tasks/edit?id=${task.id}`}>Edit</a>
+                <a className="btn prulife" href={`/tasks/edit?id=${task.id}`}>Edit</a>
             ) : 'No Action'}
           </td>
         </tr>

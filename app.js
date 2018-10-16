@@ -50,7 +50,8 @@ app.use(function (req, res, next) {
 // serve the files out of ./public as our main files
 // app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/static/', express.static(path.join(__dirname, 'dist')));
-app.use('/csa/static/', express.static(path.join(__dirname, 'dist')));
+app.use('/dashboard/static/', express.static(path.join(__dirname, 'dist')));
+app.use('/tasks/static/', express.static(path.join(__dirname, 'dist')));
 
 //session
 const session = require('express-session');

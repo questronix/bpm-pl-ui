@@ -5,19 +5,17 @@ import EditTaskPage from './pages/task/EditTaskPage';
 
 const routes = [
   {
-    label: 'Dashboard',
-    path: "/csa/",
-    exact: true,
+    path: "/dashboard",
     component: DashboardPage,
   },
   {
-    label: 'New Task',
-    path: "/csa/tasks",
+    path: "/tasks",
+    exact: true, 
     component: TaskPage,
   },
   {
-    path: "/csa/tasks/edit",
-    compoent: EditTaskPage,
+    path: "/tasks/edit",
+    component: EditTaskPage,
   },
 ];
 

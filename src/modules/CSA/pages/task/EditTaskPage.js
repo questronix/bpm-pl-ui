@@ -3,7 +3,7 @@ import React from 'react';
 import EditTaskContainer from '../../component/task/EditTaskContainer';
 import Nav from '../../component/nav/Nav';
 
-const DashboardPage = (props) => {
+const EditTaskPage = (props) => {
   console.log(props);
   return (
     <div>
@@ -13,4 +13,4 @@ const DashboardPage = (props) => {
   );
 };
 
-export default DashboardPage;
+export default EditTaskPage;
