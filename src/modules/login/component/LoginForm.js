@@ -99,12 +99,11 @@ class LoginForm extends Component {
                 disabled={this.state.isSubmitting}>
                   {this.state.isSubmitting ? 'Please wait..' : 'Login'} 
                 </button> */}
-                {this.state.isSubmitting ? (<span className="spinner pusle"></span>) : 
+                {this.state.isSubmitting ? (<span className="spinner atom"></span>) : 
                 <button className="btn col xl-10 prulife"
                 type="submit" >
                   Login
                 </button>}
-                
               </div>
             </div>
           </div>
