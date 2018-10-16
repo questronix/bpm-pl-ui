@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CsaClient from './CsaClient';
 import PrescreeningInfo from './PreScreening';
 import CardTable from '../../../../shared/component/table/Table';
-import TaskCounter from '../../../../shared/component/Widgets/TaskStatus';
+import TaskCounter from '../../../../shared/component/Widgets/TaskCounter';
 
 class ProcessorContainer extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class ProcessorContainer extends Component {
           {/* <CProcessorPolicy /> */}
           {/* <CProcessorClient /> */}
           <CardTable/>
-          <TaskCounter/>
+          {/* <TaskCounter/> */}
         </div>
       </div>
     );

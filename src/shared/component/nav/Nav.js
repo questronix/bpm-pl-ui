@@ -23,7 +23,7 @@ class Nav extends Component {
           <div className="navmenu m-hide s-hide xs-hide">
             <ul>
               {links}
-                <a className="btn-s prulife " href="/login">
+                <a className="btn-min prulife " href="/login">
                   Logout
                 </a>
             </ul>

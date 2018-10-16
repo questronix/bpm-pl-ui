@@ -94,11 +94,16 @@ class LoginForm extends Component {
                 </div>
               </div>
               <div className="f-row f-center flex-container flex-wrap col xl-12 flex">
-              <button className="btn col xl-10 prulife"
+              {/* <button className="btn col xl-10 prulife"
                 type="submit" 
                 disabled={this.state.isSubmitting}>
                   {this.state.isSubmitting ? 'Please wait..' : 'Login'} 
-                </button>
+                </button> */}
+                {this.state.isSubmitting ? (<span className="spinner atom"></span>) : 
+                <button className="btn col xl-10 prulife"
+                type="submit" >
+                  Login
+                </button>}
               </div>
             </div>
           </div>
