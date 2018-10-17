@@ -12,7 +12,7 @@ export default class Task {
   }
 
   createNewTask(args) {
-    return this.http.post(`/process/start`, args);
+    return this.http.post(`/tasks`, args);
   }
 
   getTaskDetails(taskId, username) {

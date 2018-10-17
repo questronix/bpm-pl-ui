@@ -3,7 +3,7 @@ import axios from 'axios';
 const getClient = () => {
 
   const config = {
-      baseURL: 'http://localhost:9000',
+      baseURL: 'http://localhost:3000/api',
       timeout: 2000,
   };
 

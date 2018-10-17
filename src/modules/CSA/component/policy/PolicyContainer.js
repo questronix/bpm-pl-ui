@@ -15,6 +15,7 @@ class Policy extends Component {
       policy: {
         "id": '',
         "number": '',
+        "status": '',
         "agentCode": '',
         "agentName": '',
         "branch": '',
@@ -145,12 +146,41 @@ class Policy extends Component {
 
   handleNewTaskSubmit() {
     const username = sessionStorage.getItem('username');
-    TaskService.submitTask(this.getQueryStringValue("id"), username, this.state.policy).then((result) => {
-      // alert('New Task Successfully CREATED!');
-      window.location.href="/csa/tasks";
-      console.log(result);
-    }).catch((err) => {
-      console.log('CREATE TASK ERROR:', err);
+    let policy = this.state.policy;
+    let policyKeys = Object.keys(this.state.policy);
+
+    // Filtering out number, id, appNo, status, createdBy and info field
+    let infoKeys = policyKeys.filter(info => info != 'number' && info != 'id' && info != 'appNo' && info != 'status' && info !='createdBy' && info != 'info');
+    let info = {};
+    infoKeys.forEach(elem=> {
+      info[elem] = policy[elem];
+    })
+
+    const formData = {
+      id: this.state.policy.id,
+      number: this.state.policy.number,
+      appNo: this.state.policy.appNo,
+      createdBy: this.state.policy.createdBy,
+      status: false, // temporary
+      info: JSON.stringify(info)
+    }
+
+    console.log('policyKeys', policyKeys);
+    console.log('infoKeys', infoKeys);
+    console.log('info', info);
+    console.log('formData', formData);
+    TaskService.submitTask(this.getQueryStringValue("id"), username, formData).then((res) => {
+      console.log(res.data.error);
+      if (!res.data.error) {
+        alert('New Task Successfully CREATED!');
+        window.location.href="/tasks"; 
+      }
+      else {
+        alert(res.data.error);
+      }
+      console.log(res.data);
+    }).finally(() => {
+      // console.log('CREATE TASK ERROR:', err);
     });
   }
 
