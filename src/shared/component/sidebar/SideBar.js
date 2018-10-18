@@ -37,7 +37,7 @@ class SideBar extends Component {
               </ul>
             </div>
             <ul className="sidebar-list">
-              <li className="items">
+              {/* <li className="items">
                 <ul className="item-list">
                   <li>
                     PN-220133-0222155
@@ -56,6 +56,33 @@ class SideBar extends Component {
                   <a href="#" className="btn success xl-6 l-6 m-6 s-6 xs-6">
                     Accept
                   </a>
+                </ul>
+              </li> */}
+              <li className="items">
+                <ul className="item-list">
+                  <li>
+                    PN-220133-0222155
+                  </li>
+                  <li>
+                    ACC-225015ASP
+                  </li>
+                  <li>
+                    10/21/18
+                  </li>
+                  <li className="btn-sidebar">
+                    <span className="fa fa-eye">&nbsp;
+                      <a href="#">
+                         View
+                      </a>
+                    </span>
+                  </li>
+                  <li className="btn-sidebar">
+                    <span className="fa fa-check">&nbsp;
+                      <a href="#">
+                        Accept
+                      </a>
+                    </span>
+                  </li>
                 </ul>
               </li>
               <li className="items">
@@ -69,14 +96,20 @@ class SideBar extends Component {
                   <li>
                     10/21/18
                   </li>
-                </ul>
-                <ul className="sidebar-list-button">
-                  <a href="#" className="btn primary xl-6 l-6 m-6 s-6 xs-6">
-                    View
-                  </a>
-                  <a href="#" className="btn success xl-6 l-6 m-6 s-6 xs-6">
-                    Accept
-                  </a>
+                  <li className="btn-sidebar">
+                    <span className="fa fa-eye">&nbsp;
+                      <a href="#">
+                         View
+                      </a>
+                    </span>
+                  </li>
+                  <li className="btn-sidebar">
+                    <span className="fa fa-check">&nbsp;
+                      <a href="#">
+                        Accept
+                      </a>
+                    </span>
+                  </li>
                 </ul>
               </li>
               <li className="items">
@@ -90,14 +123,47 @@ class SideBar extends Component {
                   <li>
                     10/21/18
                   </li>
+                  <li className="btn-sidebar">
+                    <span className="fa fa-eye">&nbsp;
+                      <a href="#">
+                         View
+                      </a>
+                    </span>
+                  </li>
+                  <li className="btn-sidebar">
+                    <span className="fa fa-check">&nbsp;
+                      <a href="#">
+                        Accept
+                      </a>
+                    </span>
+                  </li>
                 </ul>
-                <ul className="sidebar-list-button">
-                  <a href="#" className="btn primary xl-6 l-6 m-6 s-6 xs-6">
-                    View
-                  </a>
-                  <a href="#" className="btn success xl-6 l-6 m-6 s-6 xs-6">
-                    Accept
-                  </a>
+              </li>
+              <li className="items">
+                <ul className="item-list">
+                  <li>
+                    PN-220133-0222155
+                  </li>
+                  <li>
+                    ACC-225015ASP
+                  </li>
+                  <li>
+                    10/21/18
+                  </li>
+                  <li className="btn-sidebar">
+                    <span className="fa fa-eye">&nbsp;
+                      <a href="#">
+                         View
+                      </a>
+                    </span>
+                  </li>
+                  <li className="btn-sidebar">
+                    <span className="fa fa-check">&nbsp;
+                      <a href="#">
+                        Accept
+                      </a>
+                    </span>
+                  </li>
                 </ul>
               </li>
             </ul>

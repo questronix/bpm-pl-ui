@@ -5,7 +5,7 @@ class CardTable extends Component {
     return (
       <div className="App">
         <div className="flex-container flex-wrap">
-          <div className="card-table">
+          <div className="col xl-12 card-table">
             <table id="table" cellPadding="0" cellSpacing="0">
               <thead>
                 <tr>
