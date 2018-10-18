@@ -23,10 +23,6 @@ export default class Task {
     return this.http.post(`/tasks/${taskId}?uid=${uid}`, data);
   }
 
-  getAllTaskHistory(uid) {
-    return this.http.get(`/tasks/history?uid=${uid}`, {});
-  }
-
   // startProcess(args) {
   //   return this.http.post(`/tasks/new`, args);
   // }

@@ -4,10 +4,10 @@ import React, {Component} from 'react';
 import links from '../routes';
 import Nav from '../../../shared/component/nav/Nav';
 import SideBar from '../../../shared/component/sidebar/SideBar';
-import Processor from '../component/processor/ProcessorContainer';
+import EditTaskContainer from '../component/task/EditTaskContainer';
 import { TaskService } from '../../../services/index';
 
-export default class Main extends Component {
+export default class EditTaskPage extends Component {
   constructor(props) {
     super(props);
 
@@ -37,7 +37,7 @@ export default class Main extends Component {
       <div>
         <Nav links={links}/> 
         <SideBar tasks={this.state.tasks}/> 
-        {/* <Processor/> */}
+        <EditTaskContainer/>
       </div>
     );
   }

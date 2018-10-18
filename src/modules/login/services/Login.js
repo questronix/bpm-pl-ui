@@ -7,13 +7,16 @@ export default class Login {
     // return this.http.post('/auth/login', args);
     return new Promise((resolve, reject) => {
       const data = {
-        id: 1,
+        id: 3,
         firstName: 'Juan',
         lastName: 'Sipag',
         role: 'CSA',
       };
 
-      if (args.username === 'processor') data.role = 'PROCESSOR';
+      if (args.username === 'processor')  {
+        data.role = 'PROCESSOR'; 
+        data.id = 4;
+      }
       setTimeout(() => {
         resolve({ 
           status: 200,

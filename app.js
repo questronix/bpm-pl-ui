@@ -52,6 +52,7 @@ app.use(function (req, res, next) {
 app.use('/static/', express.static(path.join(__dirname, 'dist')));
 app.use('/dashboard/static/', express.static(path.join(__dirname, 'dist')));
 app.use('/tasks/static/', express.static(path.join(__dirname, 'dist')));
+// app.use('/processor/static/', express.static(path.join(__dirname, 'dist')));
 
 //session
 const session = require('express-session');

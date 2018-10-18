@@ -1,4 +1,5 @@
 import Processor from './pages/ProcessorPage';
+import EditTaskPage from './pages/EditTaskPage';
 
 const routes = [
   {
@@ -6,6 +7,12 @@ const routes = [
     path: "/processor",
     exact: true,
     component: Processor,
+  },
+  {
+    label: 'Tasks',
+    path: "/tasks/edit",
+    exact: true,
+    component: EditTaskPage,
   },
 ];
 

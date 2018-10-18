@@ -7,10 +7,9 @@ const url = process.env.BPM_URL;
 // Get all tasks
 router.get('/', (req, res) => {
   ajax.setOptions({
-    uri: `${url}/tasks?username=${req.query.username}`,
+    uri: `${url}/tasks?uid=${req.query.uid}`,
   }).get().then(data=>{
     res.send(JSON.parse(data.body));
-    resolve(data.body)
   }).catch(err=>{
     console.log(err);
   });
@@ -31,10 +30,9 @@ router.get('/', (req, res) => {
 // Get task details
 router.get('/:taskId', (req, res) => {
   ajax.setOptions({
-    uri: `${url}/tasks/${req.params.taskId}?username=${req.query.username}`,
+    uri: `${url}/tasks/${req.params.taskId}?uid=${req.query.uid}`,
   }).get().then(data=>{
     res.send(JSON.parse(data.body));
-    resolve(data.body)
   }).catch(err=>{
     console.log(err);
   });
@@ -42,11 +40,11 @@ router.get('/:taskId', (req, res) => {
 
 // Submit task
 router.post('/:taskId', (req, res) => {
+  // res.send(`${url}/tasks/${req.params.taskId}?uid=${req.query.uid}`);
   ajax.setOptions({
-    uri: `${url}/tasks/${req.params.taskId}?username=${req.query.username}`,
+    uri: `${url}/tasks/${req.params.taskId}?uid=${req.query.uid}`,
   }).post(req.body).then(data=>{
     res.send(data.body);
-    resolve(data.body)
   }).catch(err=>{
     console.log(err);
   });
@@ -57,7 +55,6 @@ router.post('/', (req, res) => {
     uri: `${url}/process/start`,
   }).post(req.body).then(data=>{
     res.send(data.body);
-    resolve(data.body)
   }).catch(err=>{
     console.log(err);
   });

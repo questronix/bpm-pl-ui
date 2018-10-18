@@ -1,15 +1,21 @@
 import React from 'react';
 
+
 const TaskList = (props) => (
+
   <div className="card-table">
     {props.tasks ? (
     <table id="table" cellPadding="0" cellSpacing="0">
       <thead>
         <tr>
-          <th>Process Name</th>
-          <th>Transaction No</th>
-          <th>Date Created</th>
+          <th>Policy Number</th>
+          <th>Application Number</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          {/* <th>Assigned To</th> //This will add on higher admin.*/}
+              {/* {(task.policy.createdAt).substring(0,4)} - {(task.policy.id + "").padStart(6,"0")} */}
           <th>Status</th>
+          <th>Date Created</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -17,16 +23,23 @@ const TaskList = (props) => (
         { props.tasks.map((task, index) => (
         <tr key={index}>
           <td>
-              {task.name}
+              {task.variables.policy.number ? task.variables.policy.number : '-'}
           </td>
           <td>
-            {task.policy.appNo}
-              {/* {(task.policy.createdAt).substring(0,4)} - {(task.policy.id + "").padStart(6,"0")} */}
+            {task.variables.appno}
           </td>
           <td>
-            {(new Date(task.policy.createdAt)).toDateString()}
+            {task.variables.policy.info != null ? JSON.parse(task.variables.policy.info).insured.firstName : '-'}
           </td>
-            <td>{(task.completed) ?'Completed' : 'Draft'}</td>
+          <td>
+            {task.variables.policy.info != null ? JSON.parse(task.variables.policy.info).insured.lastName : '-'}
+          </td>
+          <td>
+            {(task.variables.status) ?'For Processing' : 'Draft'}
+          </td>
+          <td>
+            {(new Date(task.variables.policy.createdAt)).toDateString()}
+          </td>
           <td>
             {!task.completed ? (
                 <a className="btn prulife" href={`/tasks/edit?id=${task.id}`}>Edit</a>
