@@ -67,7 +67,7 @@ class Transaction extends Component {
                       name="action"
                       value="2"
                       onChange={this.handleRadioChange} />
-                    <label htmlFor="switch_3_center">Rebating</label>
+                    <label htmlFor="switch_3_center">Redating</label>
                     <input
                       type="radio"
                       id="switch_3_right"

@@ -1034,7 +1034,7 @@ body, html {
 .input-icon {
   margin-left: -5px;
   color: #bdbdbd;
-  padding-bottom: 12px;
+  padding-bottom: 11px;
   border-bottom: 2px solid #bdbdbd;
   -webkit-transition: all .3s ease-out;
   -moz-transition: all .3s ease-out;
@@ -1237,6 +1237,12 @@ select {
 ul, li, ol {
   list-style-type: none; }
 
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
 .hide {
   display: none; }
 
@@ -1273,10 +1279,10 @@ ul, li, ol {
 .inline-grid {
   display: inline-grid; }
 
-.no-margin, .card-alt .card-header h1, .card-table .card-header h1, .card-alt .card-header h2, .card-table .card-header h2, .card-alt .card-header h3, .card-table .card-header h3, .card-alt .card-header h4, .card-table .card-header h4, .card-alt .card-header h5, .card-table .card-header h5, .card-alt .card-header p, .card-table .card-header p, .card-alt .card-header span, .card-table .card-header span, .card-alt .card-header a, .card-table .card-header a, .card-alt .card-header i, .card-table .card-header i, .sidebar ul.sidebar-list li p, .sidebar ul.sidebar-list li a, .sidebar ul.sidebar-list li h1, .sidebar ul.sidebar-list li h2, .sidebar ul.sidebar-list li h3, .sidebar ul.sidebar-list li h4, .sidebar ul.sidebar-list li h5, .sidebar ul.sidebar-list li h6, .sidebar ol.sidebar-list li p, .sidebar ol.sidebar-list li a, .sidebar ol.sidebar-list li h1, .sidebar ol.sidebar-list li h2, .sidebar ol.sidebar-list li h3, .sidebar ol.sidebar-list li h4, .sidebar ol.sidebar-list li h5, .sidebar ol.sidebar-list li h6, .card-widget .card-btn, .card-img-container .card-btn {
+.no-margin, .card-alt .card-header h1, .card-table .card-header h1, .card-alt .card-header h2, .card-table .card-header h2, .card-alt .card-header h3, .card-table .card-header h3, .card-alt .card-header h4, .card-table .card-header h4, .card-alt .card-header h5, .card-table .card-header h5, .card-alt .card-header p, .card-table .card-header p, .card-alt .card-header span, .card-table .card-header span, .card-alt .card-header a, .card-table .card-header a, .card-alt .card-header i, .card-table .card-header i, .sidebar ul.sidebar-list .item-list p, .sidebar ul.sidebar-list .item-list a, .sidebar ul.sidebar-list .item-list h1, .sidebar ul.sidebar-list .item-list h2, .sidebar ul.sidebar-list .item-list h3, .sidebar ul.sidebar-list .item-list h4, .sidebar ul.sidebar-list .item-list h5, .sidebar ul.sidebar-list .item-list h6, .sidebar ol.sidebar-list .item-list p, .sidebar ol.sidebar-list .item-list a, .sidebar ol.sidebar-list .item-list h1, .sidebar ol.sidebar-list .item-list h2, .sidebar ol.sidebar-list .item-list h3, .sidebar ol.sidebar-list .item-list h4, .sidebar ol.sidebar-list .item-list h5, .sidebar ol.sidebar-list .item-list h6, .card-widget .card-btn, .card-img-container .card-btn {
   margin: 0 !important; }
 
-.no-padding, .sidebar ul.sidebar-list, .sidebar ol.sidebar-list, .sidebar ul.sidebar-list li p, .sidebar ul.sidebar-list li a, .sidebar ul.sidebar-list li h1, .sidebar ul.sidebar-list li h2, .sidebar ul.sidebar-list li h3, .sidebar ul.sidebar-list li h4, .sidebar ul.sidebar-list li h5, .sidebar ul.sidebar-list li h6, .sidebar ol.sidebar-list li p, .sidebar ol.sidebar-list li a, .sidebar ol.sidebar-list li h1, .sidebar ol.sidebar-list li h2, .sidebar ol.sidebar-list li h3, .sidebar ol.sidebar-list li h4, .sidebar ol.sidebar-list li h5, .sidebar ol.sidebar-list li h6, .tabs {
+.no-padding, .sidebar ul.sidebar-list, .sidebar ol.sidebar-list, .sidebar ul.sidebar-list .item-list p, .sidebar ul.sidebar-list .item-list a, .sidebar ul.sidebar-list .item-list h1, .sidebar ul.sidebar-list .item-list h2, .sidebar ul.sidebar-list .item-list h3, .sidebar ul.sidebar-list .item-list h4, .sidebar ul.sidebar-list .item-list h5, .sidebar ul.sidebar-list .item-list h6, .sidebar ol.sidebar-list .item-list p, .sidebar ol.sidebar-list .item-list a, .sidebar ol.sidebar-list .item-list h1, .sidebar ol.sidebar-list .item-list h2, .sidebar ol.sidebar-list .item-list h3, .sidebar ol.sidebar-list .item-list h4, .sidebar ol.sidebar-list .item-list h5, .sidebar ol.sidebar-list .item-list h6, .tabs {
   padding: 0 !important; }
 
 .flex-container, nav.navbar .navmenu ul, nav.navbar .navmenu ol {
@@ -1332,30 +1338,30 @@ hr {
 .margin-auto {
   margin: auto; }
 
-.flex, nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol, .card-widget .card-image, .task-widget .task-counter {
+.flex, nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol, .sidebar ul.sidebar-list .items:hover .sidebar-list-button, .sidebar ol.sidebar-list .items:hover .sidebar-list-button, .card-widget .card-image, .task-widget .task-counter {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -moz-flex;
   display: -webkit-flex;
   display: flex; }
-  .flex.f-wrap, nav.f-wrap.navbar, nav.navbar .navmenu ul.f-wrap, nav.navbar .navmenu ol.f-wrap, .card-widget .f-wrap.card-image, .task-widget .f-wrap.task-counter, .flex .f-wrap, nav.navbar .f-wrap, nav.navbar .navmenu ul .f-wrap, nav.navbar .navmenu ol .f-wrap, .card-widget .card-image .f-wrap, .task-widget .task-counter .f-wrap {
+  .flex.f-wrap, nav.f-wrap.navbar, nav.navbar .navmenu ul.f-wrap, nav.navbar .navmenu ol.f-wrap, .sidebar ul.sidebar-list .items:hover .f-wrap.sidebar-list-button, .sidebar ol.sidebar-list .items:hover .f-wrap.sidebar-list-button, .card-widget .f-wrap.card-image, .task-widget .f-wrap.task-counter, .flex .f-wrap, nav.navbar .f-wrap, nav.navbar .navmenu ul .f-wrap, nav.navbar .navmenu ol .f-wrap, .sidebar ul.sidebar-list .items:hover .sidebar-list-button .f-wrap, .sidebar ol.sidebar-list .items:hover .sidebar-list-button .f-wrap, .card-widget .card-image .f-wrap, .task-widget .task-counter .f-wrap {
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap; }
-  .flex.f-center, nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol, .card-widget .f-center.card-image, .card-widget nav.card-image.navbar, .task-widget .task-counter, .flex .f-center, nav.navbar .f-center, nav.navbar .navmenu ul .f-center, nav.navbar .navmenu ol .f-center, .card-widget .card-image .f-center, .task-widget .task-counter .f-center, .flex nav.navbar, nav.navbar nav.navbar, .card-widget .card-image nav.navbar, .task-widget .task-counter nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol, .flex .task-widget .task-counter, .task-widget .flex .task-counter, nav.navbar .task-widget .task-counter, .task-widget nav.navbar .task-counter, .card-widget .card-image .task-widget .task-counter, .task-widget .card-widget .card-image .task-counter, .task-widget .task-counter .task-counter {
+  .flex.f-center, nav.navbar, nav.navbar .navmenu ul, nav.navbar .navmenu ol, .sidebar ul.sidebar-list .items:hover .sidebar-list-button, .sidebar ol.sidebar-list .items:hover .sidebar-list-button, .card-widget .f-center.card-image, .card-widget nav.card-image.navbar, .task-widget .task-counter, .flex .f-center, nav.navbar .f-center, nav.navbar .navmenu ul .f-center, nav.navbar .navmenu ol .f-center, .sidebar ul.sidebar-list .items:hover .sidebar-list-button .f-center, .sidebar ol.sidebar-list .items:hover .sidebar-list-button .f-center, .card-widget .card-image .f-center, .task-widget .task-counter .f-center, .flex nav.navbar, nav.navbar nav.navbar, .sidebar ul.sidebar-list .items:hover .sidebar-list-button nav.navbar, .sidebar ol.sidebar-list .items:hover .sidebar-list-button nav.navbar, .card-widget .card-image nav.navbar, .task-widget .task-counter nav.navbar, nav.navbar .navmenu ul, .sidebar ul.sidebar-list .items:hover .sidebar-list-button nav.navbar .navmenu ul, nav.navbar .navmenu .sidebar ul.sidebar-list .items:hover .sidebar-list-button ul, .sidebar ol.sidebar-list .items:hover .sidebar-list-button nav.navbar .navmenu ul, nav.navbar .navmenu .sidebar ol.sidebar-list .items:hover .sidebar-list-button ul, nav.navbar .navmenu ol, .sidebar ul.sidebar-list .items:hover .sidebar-list-button nav.navbar .navmenu ol, nav.navbar .navmenu .sidebar ul.sidebar-list .items:hover .sidebar-list-button ol, .sidebar ol.sidebar-list .items:hover .sidebar-list-button nav.navbar .navmenu ol, nav.navbar .navmenu .sidebar ol.sidebar-list .items:hover .sidebar-list-button ol, .flex .sidebar ul.sidebar-list .items:hover .sidebar-list-button, .sidebar ul.sidebar-list .items:hover .flex .sidebar-list-button, nav.navbar .sidebar ul.sidebar-list .items:hover .sidebar-list-button, .sidebar ul.sidebar-list .items:hover nav.navbar .sidebar-list-button, .sidebar nav.navbar .navmenu ul.sidebar-list .items:hover .sidebar-list-button, .sidebar ul.sidebar-list .items:hover .sidebar-list-button .sidebar-list-button, .card-widget .card-image .sidebar ul.sidebar-list .items:hover .sidebar-list-button, .sidebar ul.sidebar-list .items:hover .card-widget .card-image .sidebar-list-button, .task-widget .task-counter .sidebar ul.sidebar-list .items:hover .sidebar-list-button, .sidebar ul.sidebar-list .items:hover .task-widget .task-counter .sidebar-list-button, .flex .sidebar ol.sidebar-list .items:hover .sidebar-list-button, .sidebar ol.sidebar-list .items:hover .flex .sidebar-list-button, nav.navbar .sidebar ol.sidebar-list .items:hover .sidebar-list-button, .sidebar ol.sidebar-list .items:hover nav.navbar .sidebar-list-button, .sidebar nav.navbar .navmenu ol.sidebar-list .items:hover .sidebar-list-button, .sidebar ol.sidebar-list .items:hover .sidebar-list-button .sidebar-list-button, .card-widget .card-image .sidebar ol.sidebar-list .items:hover .sidebar-list-button, .sidebar ol.sidebar-list .items:hover .card-widget .card-image .sidebar-list-button, .task-widget .task-counter .sidebar ol.sidebar-list .items:hover .sidebar-list-button, .sidebar ol.sidebar-list .items:hover .task-widget .task-counter .sidebar-list-button, .flex .task-widget .task-counter, .task-widget .flex .task-counter, nav.navbar .task-widget .task-counter, .task-widget nav.navbar .task-counter, .sidebar ul.sidebar-list .items:hover .sidebar-list-button .task-widget .task-counter, .task-widget .sidebar ul.sidebar-list .items:hover .sidebar-list-button .task-counter, .sidebar ol.sidebar-list .items:hover .sidebar-list-button .task-widget .task-counter, .task-widget .sidebar ol.sidebar-list .items:hover .sidebar-list-button .task-counter, .card-widget .card-image .task-widget .task-counter, .task-widget .card-widget .card-image .task-counter, .task-widget .task-counter .task-counter {
     justify-content: center;
     align-items: center; }
-  .flex.f-start, nav.f-start.navbar, nav.navbar .navmenu ul.f-start, nav.navbar .navmenu ol.f-start, .card-widget .f-start.card-image, .task-widget .f-start.task-counter, .flex .f-start, nav.navbar .f-start, nav.navbar .navmenu ul .f-start, nav.navbar .navmenu ol .f-start, .card-widget .card-image .f-start, .task-widget .task-counter .f-start {
+  .flex.f-start, nav.f-start.navbar, nav.navbar .navmenu ul.f-start, nav.navbar .navmenu ol.f-start, .sidebar ul.sidebar-list .items:hover .f-start.sidebar-list-button, .sidebar ol.sidebar-list .items:hover .f-start.sidebar-list-button, .card-widget .f-start.card-image, .task-widget .f-start.task-counter, .flex .f-start, nav.navbar .f-start, nav.navbar .navmenu ul .f-start, nav.navbar .navmenu ol .f-start, .sidebar ul.sidebar-list .items:hover .sidebar-list-button .f-start, .sidebar ol.sidebar-list .items:hover .sidebar-list-button .f-start, .card-widget .card-image .f-start, .task-widget .task-counter .f-start {
     justify-content: flex-start; }
-  .flex.f-end, nav.f-end.navbar, nav.navbar .navmenu ul.f-end, nav.navbar .navmenu ol.f-end, .card-widget .f-end.card-image, .task-widget .f-end.task-counter, .flex .f-end, nav.navbar .f-end, nav.navbar .navmenu ul .f-end, nav.navbar .navmenu ol .f-end, .card-widget .card-image .f-end, .task-widget .task-counter .f-end {
+  .flex.f-end, nav.f-end.navbar, nav.navbar .navmenu ul.f-end, nav.navbar .navmenu ol.f-end, .sidebar ul.sidebar-list .items:hover .f-end.sidebar-list-button, .sidebar ol.sidebar-list .items:hover .f-end.sidebar-list-button, .card-widget .f-end.card-image, .task-widget .f-end.task-counter, .flex .f-end, nav.navbar .f-end, nav.navbar .navmenu ul .f-end, nav.navbar .navmenu ol .f-end, .sidebar ul.sidebar-list .items:hover .sidebar-list-button .f-end, .sidebar ol.sidebar-list .items:hover .sidebar-list-button .f-end, .card-widget .card-image .f-end, .task-widget .task-counter .f-end {
     justify-content: flex-end; }
-  .flex.f-row, nav.f-row.navbar, nav.navbar .navmenu ul.f-row, nav.navbar .navmenu ol.f-row, .card-widget .f-row.card-image, .task-widget .f-row.task-counter, .flex .f-row, nav.navbar .f-row, nav.navbar .navmenu ul .f-row, nav.navbar .navmenu ol .f-row, .card-widget .card-image .f-row, .task-widget .task-counter .f-row {
+  .flex.f-row, nav.f-row.navbar, nav.navbar .navmenu ul.f-row, nav.navbar .navmenu ol.f-row, .sidebar ul.sidebar-list .items:hover .f-row.sidebar-list-button, .sidebar ol.sidebar-list .items:hover .f-row.sidebar-list-button, .card-widget .f-row.card-image, .task-widget .f-row.task-counter, .flex .f-row, nav.navbar .f-row, nav.navbar .navmenu ul .f-row, nav.navbar .navmenu ol .f-row, .sidebar ul.sidebar-list .items:hover .sidebar-list-button .f-row, .sidebar ol.sidebar-list .items:hover .sidebar-list-button .f-row, .card-widget .card-image .f-row, .task-widget .task-counter .f-row {
     flex-direction: row; }
-  .flex.f-column, nav.f-column.navbar, nav.navbar .navmenu ul.f-column, nav.navbar .navmenu ol.f-column, .card-widget .f-column.card-image, .task-widget .f-column.task-counter, .flex .f-column, nav.navbar .f-column, nav.navbar .navmenu ul .f-column, nav.navbar .navmenu ol .f-column, .card-widget .card-image .f-column, .task-widget .task-counter .f-column {
+  .flex.f-column, nav.f-column.navbar, nav.navbar .navmenu ul.f-column, nav.navbar .navmenu ol.f-column, .sidebar ul.sidebar-list .items:hover .f-column.sidebar-list-button, .sidebar ol.sidebar-list .items:hover .f-column.sidebar-list-button, .card-widget .f-column.card-image, .task-widget .f-column.task-counter, .flex .f-column, nav.navbar .f-column, nav.navbar .navmenu ul .f-column, nav.navbar .navmenu ol .f-column, .sidebar ul.sidebar-list .items:hover .sidebar-list-button .f-column, .sidebar ol.sidebar-list .items:hover .sidebar-list-button .f-column, .card-widget .card-image .f-column, .task-widget .task-counter .f-column {
     flex-direction: column; }
-  .flex.f-justify-space-between, nav.navbar, nav.navbar .navmenu ul.f-justify-space-between, nav.navbar .navmenu ol.f-justify-space-between, .card-widget .f-justify-space-between.card-image, .card-widget nav.card-image.navbar, .task-widget .f-justify-space-between.task-counter, .task-widget nav.task-counter.navbar, .flex .f-justify-space-between, nav.navbar .f-justify-space-between, nav.navbar .navmenu ul .f-justify-space-between, nav.navbar .navmenu ol .f-justify-space-between, .card-widget .card-image .f-justify-space-between, .task-widget .task-counter .f-justify-space-between, .flex nav.navbar, nav.navbar nav.navbar, .card-widget .card-image nav.navbar, .task-widget .task-counter nav.navbar {
+  .flex.f-justify-space-between, nav.navbar, nav.navbar .navmenu ul.f-justify-space-between, nav.navbar .navmenu ol.f-justify-space-between, .sidebar ul.sidebar-list .items:hover .f-justify-space-between.sidebar-list-button, .sidebar ul.sidebar-list .items:hover nav.sidebar-list-button.navbar, .sidebar ol.sidebar-list .items:hover .f-justify-space-between.sidebar-list-button, .sidebar ol.sidebar-list .items:hover nav.sidebar-list-button.navbar, .card-widget .f-justify-space-between.card-image, .card-widget nav.card-image.navbar, .task-widget .f-justify-space-between.task-counter, .task-widget nav.task-counter.navbar, .flex .f-justify-space-between, nav.navbar .f-justify-space-between, nav.navbar .navmenu ul .f-justify-space-between, nav.navbar .navmenu ol .f-justify-space-between, .sidebar ul.sidebar-list .items:hover .sidebar-list-button .f-justify-space-between, .sidebar ol.sidebar-list .items:hover .sidebar-list-button .f-justify-space-between, .card-widget .card-image .f-justify-space-between, .task-widget .task-counter .f-justify-space-between, .flex nav.navbar, nav.navbar nav.navbar, .sidebar ul.sidebar-list .items:hover .sidebar-list-button nav.navbar, .sidebar ol.sidebar-list .items:hover .sidebar-list-button nav.navbar, .card-widget .card-image nav.navbar, .task-widget .task-counter nav.navbar {
     justify-content: space-between; }
-  .flex.f-justify-around, nav.f-justify-around.navbar, nav.navbar .navmenu ul.f-justify-around, nav.navbar .navmenu ol.f-justify-around, .card-widget .f-justify-around.card-image, .task-widget .f-justify-around.task-counter, .flex .f-justify-around, nav.navbar .f-justify-around, nav.navbar .navmenu ul .f-justify-around, nav.navbar .navmenu ol .f-justify-around, .card-widget .card-image .f-justify-around, .task-widget .task-counter .f-justify-around {
+  .flex.f-justify-around, nav.f-justify-around.navbar, nav.navbar .navmenu ul.f-justify-around, nav.navbar .navmenu ol.f-justify-around, .sidebar ul.sidebar-list .items:hover .f-justify-around.sidebar-list-button, .sidebar ol.sidebar-list .items:hover .f-justify-around.sidebar-list-button, .card-widget .f-justify-around.card-image, .task-widget .f-justify-around.task-counter, .flex .f-justify-around, nav.navbar .f-justify-around, nav.navbar .navmenu ul .f-justify-around, nav.navbar .navmenu ol .f-justify-around, .sidebar ul.sidebar-list .items:hover .sidebar-list-button .f-justify-around, .sidebar ol.sidebar-list .items:hover .sidebar-list-button .f-justify-around, .card-widget .card-image .f-justify-around, .task-widget .task-counter .f-justify-around {
     justify-content: space-around; }
 
 .box {
@@ -2329,6 +2335,22 @@ nav {
           font-weight: 300;
           margin: 0 10px !important; }
 
+.sidebar-tab-title li {
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -ms-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all 0.3s ease-out;
+  padding: 20px 0 20px 0;
+  cursor: pointer; }
+  .sidebar-tab-title li:hover {
+    background-color: rgba(104, 115, 122, 0.2);
+    border-bottom: 2px solid #ED1B2E; }
+.sidebar-tab-title .active {
+  background-color: #fff !important;
+  color: #68737A;
+  border-bottom: 2px solid #ED1B2E; }
+
 .sidebar {
   background-color: rgba(104, 115, 122, 0.1);
   position: fixed;
@@ -2348,21 +2370,49 @@ nav {
     border-bottom: 1px solid #bdbdbd; }
   .sidebar ul.sidebar-list, .sidebar ol.sidebar-list {
     color: #68737A; }
-    .sidebar ul.sidebar-list li, .sidebar ol.sidebar-list li {
+    .sidebar ul.sidebar-list .sidebar-list-button, .sidebar ol.sidebar-list .sidebar-list-button {
+      display: none;
+      padding: 0;
+      margin-top: -55px; }
+      .sidebar ul.sidebar-list .sidebar-list-button a, .sidebar ol.sidebar-list .sidebar-list-button a {
+        opacity: 0;
+        transform: translate(0, -15px); }
+    .sidebar ul.sidebar-list .items, .sidebar ol.sidebar-list .items {
+      -webkit-transition: all .3s ease-out;
+      -moz-transition: all .3s ease-out;
+      -ms-transition: all .3s ease-out;
+      -o-transition: all .3s ease-out;
+      transition: all 0.3s ease-out; }
+      .sidebar ul.sidebar-list .items:hover, .sidebar ol.sidebar-list .items:hover {
+        background-color: #68737A; }
+      .sidebar ul.sidebar-list .items:hover .item-list, .sidebar ol.sidebar-list .items:hover .item-list {
+        opacity: 0; }
+      .sidebar ul.sidebar-list .items:hover .sidebar-list-button, .sidebar ol.sidebar-list .items:hover .sidebar-list-button {
+        background-color: #68737A; }
+        .sidebar ul.sidebar-list .items:hover .sidebar-list-button a, .sidebar ol.sidebar-list .items:hover .sidebar-list-button a {
+          opacity: 1;
+          margin-left: 0;
+          margin-right: 0; }
+    .sidebar ul.sidebar-list .item-list, .sidebar ol.sidebar-list .item-list {
       -webkit-transition: all .3s ease-out;
       -moz-transition: all .3s ease-out;
       -ms-transition: all .3s ease-out;
       -o-transition: all .3s ease-out;
       transition: all 0.3s ease-out;
-      padding: 20px 30px 20px 30px; }
-      .sidebar ul.sidebar-list li:hover, .sidebar ol.sidebar-list li:hover {
+      padding: 20px; }
+      .sidebar ul.sidebar-list .item-list li, .sidebar ol.sidebar-list .item-list li {
+        font-size: .7rem; }
+        .sidebar ul.sidebar-list .item-list li:first-child, .sidebar ol.sidebar-list .item-list li:first-child {
+          font-size: .95rem;
+          font-weight: bold; }
+      .sidebar ul.sidebar-list .item-list:hover, .sidebar ol.sidebar-list .item-list:hover {
         background-color: #68737A;
         color: #fff; }
-        .sidebar ul.sidebar-list li:hover p, .sidebar ul.sidebar-list li:hover a, .sidebar ul.sidebar-list li:hover h1, .sidebar ul.sidebar-list li:hover h2, .sidebar ul.sidebar-list li:hover h3, .sidebar ul.sidebar-list li:hover h4, .sidebar ul.sidebar-list li:hover h5, .sidebar ul.sidebar-list li:hover h6, .sidebar ol.sidebar-list li:hover p, .sidebar ol.sidebar-list li:hover a, .sidebar ol.sidebar-list li:hover h1, .sidebar ol.sidebar-list li:hover h2, .sidebar ol.sidebar-list li:hover h3, .sidebar ol.sidebar-list li:hover h4, .sidebar ol.sidebar-list li:hover h5, .sidebar ol.sidebar-list li:hover h6 {
+        .sidebar ul.sidebar-list .item-list:hover p, .sidebar ul.sidebar-list .item-list:hover a, .sidebar ul.sidebar-list .item-list:hover h1, .sidebar ul.sidebar-list .item-list:hover h2, .sidebar ul.sidebar-list .item-list:hover h3, .sidebar ul.sidebar-list .item-list:hover h4, .sidebar ul.sidebar-list .item-list:hover h5, .sidebar ul.sidebar-list .item-list:hover h6, .sidebar ol.sidebar-list .item-list:hover p, .sidebar ol.sidebar-list .item-list:hover a, .sidebar ol.sidebar-list .item-list:hover h1, .sidebar ol.sidebar-list .item-list:hover h2, .sidebar ol.sidebar-list .item-list:hover h3, .sidebar ol.sidebar-list .item-list:hover h4, .sidebar ol.sidebar-list .item-list:hover h5, .sidebar ol.sidebar-list .item-list:hover h6 {
           font-display: none;
           text-decoration: none;
           color: #fff; }
-      .sidebar ul.sidebar-list li p, .sidebar ul.sidebar-list li a, .sidebar ul.sidebar-list li h1, .sidebar ul.sidebar-list li h2, .sidebar ul.sidebar-list li h3, .sidebar ul.sidebar-list li h4, .sidebar ul.sidebar-list li h5, .sidebar ul.sidebar-list li h6, .sidebar ol.sidebar-list li p, .sidebar ol.sidebar-list li a, .sidebar ol.sidebar-list li h1, .sidebar ol.sidebar-list li h2, .sidebar ol.sidebar-list li h3, .sidebar ol.sidebar-list li h4, .sidebar ol.sidebar-list li h5, .sidebar ol.sidebar-list li h6 {
+      .sidebar ul.sidebar-list .item-list p, .sidebar ul.sidebar-list .item-list a, .sidebar ul.sidebar-list .item-list h1, .sidebar ul.sidebar-list .item-list h2, .sidebar ul.sidebar-list .item-list h3, .sidebar ul.sidebar-list .item-list h4, .sidebar ul.sidebar-list .item-list h5, .sidebar ul.sidebar-list .item-list h6, .sidebar ol.sidebar-list .item-list p, .sidebar ol.sidebar-list .item-list a, .sidebar ol.sidebar-list .item-list h1, .sidebar ol.sidebar-list .item-list h2, .sidebar ol.sidebar-list .item-list h3, .sidebar ol.sidebar-list .item-list h4, .sidebar ol.sidebar-list .item-list h5, .sidebar ol.sidebar-list .item-list h6 {
         font-display: none;
         text-decoration: none; }
 
@@ -2655,12 +2705,11 @@ div {
 
 .task-widget {
   margin: 10px;
-  width: inherit;
-  width: fit-content;
-  padding: 20px 40px; }
-  .task-widget .gradient-bg {
+  width: max-content; }
+  .task-widget .gdient-bg {
     background: linear-gradient(45deg, #ED1B2E, #0064B9); }
   .task-widget .task-counter {
+    padding: 10px 30px;
     flex-direction: row; }
     .task-widget .task-counter h1, .task-widget .task-counter h2, .task-widget .task-counter h3, .task-widget .task-counter h4, .task-widget .task-counter h5, .task-widget .task-counter h6 {
       color: #fff;
