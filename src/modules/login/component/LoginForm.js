@@ -53,6 +53,8 @@ class LoginForm extends Component {
     }
     else if(role === 'PROCESSOR') {
       window.location.href = "/processor";
+    }else if (role === "ADMIN"){
+      window.location.href = "/admin";  
     }
   }
 
