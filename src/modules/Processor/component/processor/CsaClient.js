@@ -13,24 +13,24 @@ const CsaClient = (props) => {
           </div>
           <div className="card-body">
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap">
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Reinsurance :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Reinsurance :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Policy Current Rating :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Policy Current Rating :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Amount in Suspense :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Amount in Suspense :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>NTU Validation :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">NTU Validation :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
               <CheckBox class=" col" label="Claim History :" cName="claimHistory" />
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
               </div>
             </div>
           </div>
@@ -42,19 +42,19 @@ const CsaClient = (props) => {
           </div>
           <div className="card-body">
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap">
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>CRC Scoring :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">CRC Scoring :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Premiums :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Premiums :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Back Premiums :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Back Premiums :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
               </div>
             </div>
           </div>

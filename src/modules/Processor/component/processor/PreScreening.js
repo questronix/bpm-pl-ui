@@ -21,20 +21,20 @@ const PrescreeningInfo = (props) => {
               </h3>
             </div>
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap tab-body">
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Policy Number :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Policy Number :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Product Type :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Product Type :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Sum Assured :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Sum Assured :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
               <CheckBox class=" col" label="FATCA Tagging :" cName="fatcaTagging" />
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
               </div>
             </div>
             <hr className="xl-11" />
@@ -44,21 +44,21 @@ const PrescreeningInfo = (props) => {
               </h3>
             </div>
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap tab-body">
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Cleint type :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Cleint type :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Attain Age :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Attain Age :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Client Tagging :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Client Tagging :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Statement of Insurability :</label>
-                <input className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Statement of Insurability :</label>
+                <input className="col input disabled" type="text" disabled />
               </div>
               <CheckBox class=" col" label="MID :" cName="mid" />
               <CheckBox class=" col" label="Dow Jones Hit :" cName="dowJonesHit" />
