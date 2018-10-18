@@ -16,6 +16,10 @@ class ProcessorContainer extends Component {
   }
 
   componentDidMount() {
+    this.getApplicationDocs("12345678");
+  }
+
+  getApplicationDocs(appNo) {
     FileNetService.getDocs().then((res) => {
       console.log(res);
       this.setState({

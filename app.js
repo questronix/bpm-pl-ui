@@ -92,7 +92,10 @@ app.use(session({
 // });
 
 let task = require('./Modules/Task');
+let fileNet = require('./Modules/FileNet');
+
 app.use('/api/tasks', task);
+app.use('/api/filenet', fileNet);
 
 app.get('/api', function response(req, res) {
     // task

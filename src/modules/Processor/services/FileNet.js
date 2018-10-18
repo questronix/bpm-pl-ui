@@ -4,10 +4,6 @@ export default class FileNet {
   }
 
   getDocs() {
-    return this.http.get(`/fr`, {});
+    return this.http.post(`/filenet`, {});
   }
-
-  // startProcess(args) {
-  //   return this.http.post(`/tasks/new`, args);
-  // }
 }
