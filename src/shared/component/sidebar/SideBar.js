@@ -160,7 +160,7 @@ class SideBar extends Component {
                   <li className="btn-sidebar">
                     <span className="fa fa-check">&nbsp;
                       <a href="#">
-                        Accept
+                        Claim
                       </a>
                     </span>
                   </li>
