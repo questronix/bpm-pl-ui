@@ -13,7 +13,16 @@ export default class Login {
         role: 'CSA',
       };
 
-      if (args.username === 'processor') data.role = 'PROCESSOR';
+      console.log(args.username)
+
+      if (args.username === 'processor') { 
+        data.role = 'PROCESSOR';
+      }
+      else if (args.username === 'admin') { 
+       // alert(1)
+        data.role = 'ADMIN';
+      }
+
       setTimeout(() => {
         resolve({ 
           status: 200,
