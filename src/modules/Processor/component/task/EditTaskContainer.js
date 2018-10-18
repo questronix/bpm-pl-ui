@@ -49,7 +49,7 @@ class EditTaskContainer extends Component {
   }
 
   componentDidMount() {
-    this.getApplicationDocs("12345678");
+    // this.getApplicationDocs("12345678");
 
     const user = JSON.parse(sessionStorage.getItem('user_info'));
     this.getTaskInfo(user.id);

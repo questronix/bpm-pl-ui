@@ -60,4 +60,14 @@ router.post('/', (req, res) => {
   });
 });
 
+router.post('/:taskId/claim', (req, res) => {
+  ajax.setOptions({
+    uri: `${url}/tasks/${req.params.taskId}/claim?uid=${req.query.uid}`,
+  }).post(req.body).then(data=>{
+    res.send(data.body);
+  }).catch(err=>{
+    console.log(err);
+  });
+});
+
 module.exports = router;

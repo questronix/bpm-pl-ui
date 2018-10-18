@@ -35,7 +35,7 @@ const TaskList = (props) => (
             {task.variables.policy.info != null ? JSON.parse(task.variables.policy.info).insured.lastName : '-'}
           </td>
           <td>
-            {(task.variables.status) ?'For Processing' : 'Draft'}
+            {(task.variables.status) ? task.variables.status.toUpperCase() : 'Draft'}
           </td>
           <td>
             {(new Date(task.variables.policy.createdAt)).toDateString()}
@@ -43,12 +43,13 @@ const TaskList = (props) => (
           <td>
             {!task.completed ? (
                 <a className="btn prulife" href={`/tasks/edit?id=${task.id}`}>Edit</a>
-            ) : 'No Action'}
+            ) : <a className="btn prulife" href={`/tasks/edit?id=${task.id}`}>View</a>}
           </td>
         </tr>
         ))}
       </tbody>
     </table>
+    
     ):
    (<div className="flex f-center">
     <h1>No Data Available

@@ -5,7 +5,7 @@ const router = express.Router();
 const url = process.env.FILENET_URL;
 const sharp = require('sharp');
 
-const fileRes = require('../../tiff.json');
+// const fileRes = require('../../tiff.json');
 router.post('/', (req, res) => {
   return new Promise(async(resolve, reject) => {
     const decoded = new Buffer(fileRes.result.images[0], 'base64');

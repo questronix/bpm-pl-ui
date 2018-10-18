@@ -49,10 +49,12 @@ class LoginForm extends Component {
 
   redirect(role) {
     if (role === 'CSA') {
-      window.location.href = "/dashboard";
+      window.location.href = "/tasks";
     }
     else if(role === 'PROCESSOR') {
       window.location.href = "/processor";
+    }else if (role === "ADMIN"){
+      window.location.href = "/admin";  
     }
   }
 

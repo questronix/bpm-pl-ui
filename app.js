@@ -103,75 +103,27 @@ app.get('/api', function response(req, res) {
   res.send({sample: 'API GOES HERE'});
 });
 
-const sharp = require('sharp');
-const fileRes = require('./tiff.json');
+// const sharp = require('sharp');
+// const fileRes = require('./tiff.json');
 
-app.get('/api/fr', async(req, res) => {
+// app.get('/api/fr', async(req, res) => {
     
-    const decoded = new Buffer(fileRes.result.images[0], 'base64');
-    // res.send({decoded});
-    try {
-        const data = await sharp(decoded)
-        .png()
-        .toBuffer();
+//     const decoded = new Buffer(fileRes.result.images[0], 'base64');
+//     // res.send({decoded});
+//     try {
+//         const data = await sharp(decoded)
+//         .png()
+//         .toBuffer();
 
-        // res.send(data);
+//         // res.send(data);
         
-        const a = data.toString('base64');
-        res.send(`data:image/tiff;base64, ${a}`);
-        // res.send(`<html> <body> <img src="data:image/tiff;base64, ${a}"></body>  </html>`);
-    } catch (error) {
-        console.log(error);
-    }
-
-    // sharp(decoded)
-    // .toFile('output.tiff')
-    // .then(info => { res.send({info}) })
-    // .catch(err => { res.send(err.stack) });
-
-    // res.send()   
-    // try {
-    //     sharp(tiffFile)
-    //     // .tiff({
-    //     //     compression: 'lzw',
-    //     //     squash: true
-    //     // })
-    //     // .background('white')
-    //     // .embed()
-    //     .toBuffer()
-    //     .then(data_img => {
-    //         //  tiff image data
-    //     });
-    // } catch (error) {
-    //     console.log(error);
-    // }
-    // try {
-    //     const data = await sharp(decode)
-    //     .jpeg({
-    //         quality: 100,
-    //         chromaSubsampling: '4:4:4'
-    //     })
-    //     .toBuffer();
-    // } catch (error) {
-    //     console.log(error);
-    // }
-    // res.send(data);
-    // const base64Data = new Buffer(str);
-    // try {
-    //     const {data, info} = await sharp(str).tiff({
-    //         compression: 'lzw',
-    //         squash: true
-    //     })
-    //     .toFile('sampleout.tiff');
-    // } catch (error) {
-    //     console.log(error);
-    // }
-    // .then(data_img => {
-    //     //  tiff image data
-    //     res.send(data_img);
-    //  });
-    // res.send(`<html> <body> <img src="data:image/tiff;base64, ${str}"></body>  </html>`);
-});
+//         const a = data.toString('base64');
+//         res.send(`data:image/tiff;base64, ${a}`);
+//         // res.send(`<html> <body> <img src="data:image/tiff;base64, ${a}"></body>  </html>`);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// });
 
 app.get('*', (req,res) =>{
   // res.sendFile(path.join(__dirname+'/public/index.html'));

@@ -23,20 +23,20 @@ const PrescreeningInfo = (props) => {
               </h3>
             </div>
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap tab-body">
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Policy Number :</label>
-                <input value={insuredInfo.policy.number} className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Policy Number :</label>
+                <input value={insuredInfo.policy.number} className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Product Type :</label>
-                <input value={insuredInfo.policy.sumAssured} className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Product Type :</label>
+                <input value={insuredInfo.policy.sumAssured} className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
-                <label>Sum Assured :</label>
-                <input value={insuredInfo.policy.productType} className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+                <label className="label">Sum Assured :</label>
+                <input value={insuredInfo.policy.productType} className="col input disabled" type="text" disabled />
               </div>
               <CheckBox class=" col" label="FATCA Tagging :" cName="fatcaTagging" />
-              <div value={insuredInfo.policy.fatcaTagging} className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
+              <div value={insuredInfo.policy.fatcaTagging} className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
               </div>
             </div>
             <hr className="xl-11" />
@@ -46,21 +46,21 @@ const PrescreeningInfo = (props) => {
               </h3>
             </div>
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap tab-body">
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
                 <label>Cleint type :</label>
-                <input value={insuredInfo.client.type} className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+                <input value={insuredInfo.client.type} className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
                 <label>Attain Age :</label>
-                <input value={insuredInfo.client.attainedAge} className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+                <input value={insuredInfo.client.attainedAge} className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
                 <label>Client Tagging :</label>
-                <input value={insuredInfo.client.clientTagging} className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+                <input value={insuredInfo.client.clientTagging} className="col input disabled" type="text" disabled />
               </div>
-              <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
+              <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
                 <label>Statement of Insurability :</label>
-                <input value={insuredInfo.client.soi} className="col xl-6 l-6 m-6 s-6 xs-6 input disabled" type="text" disabled />
+                <input value={insuredInfo.client.soi} className="col input disabled" type="text" disabled />
               </div>
               <CheckBox value={insuredInfo.client.mid} class=" col" label="MID :" cName="mid" />
               <CheckBox value={insuredInfo.client.dowJones} class=" col" label="Dow Jones Hit :" cName="dowJonesHit" />

@@ -180,7 +180,7 @@ class Fatca extends Component {
                     <hr />
                     <div className="flex-container flex-wrap">
                       <div className="col flex-container flex-wrap">
-                        <CheckBox label="DowJones:" cName="dowJones" />
+                        {/* <CheckBox label="DowJones:" cName="dowJones" /> */}
                         <CheckBox label="With Diabetes:" cName="withDiabetes" />
                         <CheckBox label="With Hypertension:" cName="withHypertension" />
                         <CheckBox label="With Pregnancy:" cName="withPregnancy" />
@@ -194,7 +194,8 @@ class Fatca extends Component {
                         <CheckBox label="Beyond MPT:" cName="beyondMPT" />
                         <CheckBox label="With Existing Policies:" cName="withExistingPolicies" />
                         <CheckBox label="With Pending Policies:" cName="withPendingPolicies" />
-                        <CheckBoxAddon label="With Different Agent:" cVal={this.state.differentAgent} cName="differentAgent" onToggleChange={this.handleToggleChange}>
+                        <CheckBox label="Signature verified:" cName="signatureVerified" />
+                        <CheckBoxAddon label="With Reinstating Agent:" cVal={this.state.differentAgent} cName="differentAgent" onToggleChange={this.handleToggleChange}>
                           <div className="col xl-12">
                             <input type="number" className="col input" name="differentAgentText" value={this.state.differentAgentText} onChange={this.handleInputChange} />
                           </div>
