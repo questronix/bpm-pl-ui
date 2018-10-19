@@ -33,13 +33,13 @@ app.use(bodyParser.urlencoded({
 // setup success/error handler
 app.use(function (req, res, next) {
     res.success = function (body) {
-        logger.log('debug', res.req.method + ' ' + req.originalUrl + ' response', body);
+        console.log('debug', res.req.method + ' ' + req.originalUrl + ' response', body);
         res.status(200);
         res.json(body);
     };
 
     res.error = function (error) {
-        logger.log('error', res.req.method + ' ' + req.originalUrl + ' response', error);
+        console.log('error', res.req.method + ' ' + req.originalUrl + ' response', error);
         res.status(error.status);
         res.json(error.error);
     };
@@ -94,9 +94,11 @@ app.use(session({
 
 let task = require('./Modules/Task');
 let fileNet = require('./Modules/FileNet');
+let login = require('./Modules/Login');
 
 app.use('/api/tasks', task);
 app.use('/api/filenet', fileNet);
+app.use('/api/login', login);
 
 app.get('/api', function response(req, res) {
     // task

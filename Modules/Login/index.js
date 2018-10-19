@@ -3,14 +3,11 @@ const express = require('express');
 const router = express.Router();
 
 const lm = require('./model/Login');
-const logger = require('../Common/services/Logger');
 
 router.post('/', (req, res, next)=>{
   const ACTION = '[postLogin]';
-  logger.log('debug', TAG + ACTION + ' request body', req.body)
-  lm.authenticate(req.body.username, req.body.password)
+  lm.authenticate(req.body.username)
   .then(data=>{
-    req.session.user = data;
     res.success(data);
   })
   .catch(error=>{

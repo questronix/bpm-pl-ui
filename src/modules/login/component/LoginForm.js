@@ -31,6 +31,7 @@ class LoginForm extends Component {
     LoginService.login({ username: this.state.username, password: this.state.password }).then((res) => {
       if (res.status === 200) {
         this.setState({ isError: false});
+        console.log('RESULT', res);
         sessionStorage.setItem('username', this.state.username);
         sessionStorage.setItem('user_info', JSON.stringify(res.data));
         sessionStorage.setItem('is_authenticated', true);
