@@ -9,8 +9,8 @@ const fn = require('./model/FileNet');
 router.post('/', (req, res) => {
   const ACTION = '[getDocs]';
   fn.getDocs(req.body)
-  .then(async(data)=>{
-    // res.success(data);
+  .then(async(fileRes)=>{
+    // res.success(fileRes);
     const decoded = new Buffer(fileRes.result.images[0], 'base64');
     try {
       const data = await sharp(decoded)
