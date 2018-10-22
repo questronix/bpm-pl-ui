@@ -1,11 +1,10 @@
 // TODO: FIX import
 
 import React, {Component} from 'react';
-import links from '../routes';
-import Nav from '../../../shared/component/nav/Nav';
+// import Nav from '../../../shared/component/nav/Nav';
 import SideBar from '../../../shared/component/sidebar/SideBar';
-import Processor from '../component/processor/ProcessorContainer';
 import { TaskService } from '../../../services/index';
+import Nav from '../component/nav/Nav';
 
 export default class Main extends Component {
   constructor(props) {
@@ -61,7 +60,7 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-        <Nav links={links}/> 
+        <Nav /> 
         <SideBar tasks={this.state.tasks} onTabClick={this.handleSidebarTabClick}/> 
         {/* <Processor/> */}
       </div>
