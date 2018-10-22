@@ -49,7 +49,7 @@ class EditTaskContainer extends Component {
   }
 
   componentDidMount() {
-    // this.getApplicationDocs("12345678");
+    this.getApplicationDocs("181234567");
 
     const user = JSON.parse(sessionStorage.getItem('user_info'));
     this.getTaskInfo(user.id);
@@ -72,7 +72,16 @@ class EditTaskContainer extends Component {
   }
 
   getApplicationDocs(appNo) {
-    FileNetService.getDocs().then((res) => {
+    const d = {
+      "result": {
+        "data": {
+          "applicationNumber": `${appNo}`,
+          "docId": "2"
+        }
+      }
+    };
+    
+    FileNetService.getDocs(d).then((res) => {
       console.log(res);
       this.setState({
         doc: res.data
