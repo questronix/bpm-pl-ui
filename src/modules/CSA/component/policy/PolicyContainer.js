@@ -12,9 +12,16 @@ class Policy extends Component {
     super(props);
     this.state = {
       policyNumberSearch: '',
+      polId: '',
+      polNumber: '',
+      isCompleteAndValid: false,
+      type: 'csa',
+      action: 'complete',
+      info: {},
       policy: {
         "id": '',
         "number": '',
+        "status": '',
         "agentCode": '',
         "agentName": '',
         "branch": '',
@@ -42,17 +49,6 @@ class Policy extends Component {
         "mobileNumber": '',
         "tinOrSss": '',
         "email": '',
-        "createdAt": "",
-        "createdBy": {
-            "id": '',
-            "username": "",
-            "firstName": "",
-            "lastName": "",
-            "ldapId": "",
-            "role": "",
-            "status": '',
-            "createdAt": ""
-        },
       },
       insured: {},
       selectedTransaction: '',
@@ -78,9 +74,9 @@ class Policy extends Component {
       taskId: this.getQueryStringValue("id")
     });
 
-    const username = sessionStorage.getItem('username');
+    const user = JSON.parse(sessionStorage.getItem('user_info'));
     console.log(this.state.taskId);
-    TaskService.getTaskDetails(this.getQueryStringValue("id"), username).then((res) => {
+    TaskService.getTaskDetails(this.getQueryStringValue("id"), user.id).then((res) => {
       // console.log(res.data);
       // console.log(res.data.id);
       // this.setState({
@@ -92,9 +88,13 @@ class Policy extends Component {
         //     policy[elem] = toupdate[elem];
         //   }
         // }); 
-        console.log(res.data.policy);
+        console.log(res.data);
+        console.log(variables);
+        const variables = res.data.variables;
         this.setState({
-          policy : res.data.policy
+          policy : res.data.variables,
+          polId: variables.policy.id,
+          polNumber: variables.policy.number,
         });
       // });
     }).catch((err) => {
@@ -144,13 +144,60 @@ class Policy extends Component {
   }  
 
   handleNewTaskSubmit() {
-    const username = sessionStorage.getItem('username');
-    TaskService.submitTask(this.getQueryStringValue("id"), username, this.state.policy).then((result) => {
-      // alert('New Task Successfully CREATED!');
-      window.location.href="/csa/tasks";
-      console.log(result);
-    }).catch((err) => {
-      console.log('CREATE TASK ERROR:', err);
+
+    let policy = this.state.policy;
+    let policyKeys = Object.keys(this.state.policy);
+
+    // Filtering out number, id, appNo, status, createdBy and info field
+    // let infoKeys = policyKeys.filter(info => info != 'number' && 
+    //   info != 'id' && 
+    //   info != 'appNo' && 
+    //   info != 'status' && 
+    //   info !='createdBy' && 
+    //   info != 'info');
+    // let info = {};
+    // infoKeys.forEach(elem=> {
+    //   info[elem] = policy[elem];
+    // })
+
+    // const formData = {
+    //   id: this.state.policy.id,
+    //   number: this.state.policy.number,
+    //   appNo: this.state.policy.appNo,
+    //   createdBy: this.state.policy.createdBy,
+    //   status: false, // temporary
+    //   info: JSON.stringify(info)
+    // }
+    const formData = {
+      policy: {
+        id: this.state.polId,
+        number: this.state.polNumber,
+        info: JSON.stringify(this.state.info)
+      },
+      isCompleteAndValid: true,
+      type: 'csa',
+      action: 'complete',
+      
+    }
+
+    // console.log('policyKeys', policyKeys);
+    // console.log('infoKeys', infoKeys);
+    // console.log('info', info);
+    console.log('formData', formData);
+
+    const user = JSON.parse(sessionStorage.getItem('user_info'));
+    TaskService.submitTask(this.getQueryStringValue("id"), user.id, formData).then((res) => {
+      console.log(res.data.error);
+      if (!res.data.error) {
+        alert('Task Submitted!');
+        window.location.href="/tasks"; 
+      }
+      else {
+        alert(res.data.error);
+      }
+      console.log(res.data);
+    }).finally(() => {
+      // console.log('CREATE TASK ERROR:', err);
     });
   }
 
@@ -177,8 +224,10 @@ class Policy extends Component {
         policy: policy,
         insured: res.data.data.insured,
         isSearching: false,
+        polNumber: policy.number,
+        info: { policy: res.data.data.policy, insured: res.data.data.insured },
       });
-      // console.log('Result: ', result);
+      console.log('SEARCH INFO: ', this.state.info);
 
     }).catch((err) => {
       this.setState({

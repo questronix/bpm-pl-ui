@@ -27,6 +27,9 @@ export default class Task {
     return this.http.get(`/tasks/history?uid=${uid}`, {});
   }
 
+  claim(taskId, uid) {
+    return this.http.post(`/tasks/${taskId}/claim?uid=${uid}`, { action: "claim" });
+  }
   // startProcess(args) {
   //   return this.http.post(`/tasks/new`, args);
   // }

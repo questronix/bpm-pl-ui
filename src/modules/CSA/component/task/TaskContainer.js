@@ -8,25 +8,37 @@ class TaskContainer extends Component {
     super(props);
     this.state = {
       tasks: [],
+      taskHistory: [],
     }
     this.createTask = this.createTask.bind(this);
   }
 
   createTask() {
     TaskService.createNewTask({ username: sessionStorage.getItem('username') }).then((res) => {
-      window.location.href = `/csa/tasks/edit?id=${res.data.id}`;
-      console.log(res);
+      // alert(res.data.id);
+      window.location.href = `/tasks`;
+      console.log(res.data);
     }).catch((err) => {
       console.log(err);
     });
   }
 
   componentDidMount() {
-    const username = sessionStorage.getItem('username');
-    TaskService.getAllTasks(username).then((res) => {
+    const user = JSON.parse(sessionStorage.getItem('user_info'));
+
+    TaskService.getAllTasks(user.id).then((res) => {
       console.log(res.data);
       this.setState({
         tasks: res.data
+      })
+    }).finally(() => {
+
+    });
+
+    TaskService.getAllTaskHistory(user.id).then((res) => {
+      console.log(res.data);
+      this.setState({
+        taskHistory: res.data
       })
     }).finally(() => {
 
@@ -54,6 +66,9 @@ class TaskContainer extends Component {
             </div>
           </div>
           <TaskList tasks={this.state.tasks} />
+          <h1>Task History</h1>
+          <TaskList tasks={this.state.taskHistory} />
+          
         </div>
       </div>
     );

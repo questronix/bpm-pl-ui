@@ -2,22 +2,25 @@
 import DashboardPage from './pages/DashboardPage';
 import TaskPage from './pages/task/TaskPage';
 import EditTaskPage from './pages/task/EditTaskPage';
+import NewTaskPage from './pages/task/NewTaskPage';
 
 const routes = [
   {
-    label: 'Dashboard',
-    path: "/csa/",
-    exact: true,
+    path: "/dashboard",
     component: DashboardPage,
   },
   {
-    label: 'New Task',
-    path: "/csa/tasks",
+    path: "/tasks",
+    exact: true, 
     component: TaskPage,
   },
   {
-    path: "/csa/tasks/edit",
-    compoent: EditTaskPage,
+    path: "/tasks/edit",
+    component: EditTaskPage,
+  },
+  {
+    path: "/tasks/new",
+    component: NewTaskPage,
   },
 ];
 

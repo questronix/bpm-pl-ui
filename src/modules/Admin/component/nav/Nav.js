@@ -4,11 +4,7 @@ import NavBar from  '../../../../shared/component/nav/Nav';
 const navLinks = [
   {
     label: 'Dashboard',
-    path: '/dashboard',
-  },
-  {
-    label: 'Tasks',
-    path: '/tasks',
+    path: '/admin',
   },
 ]
 

@@ -33,9 +33,11 @@ class DashboardContainer extends Component {
             <button className="btn prulife" onClick={this.createTask}>Create Task</button>
             <h3 className="flex s-f-center xs-f-center">Welcome back, {JSON.parse(sessionStorage.getItem('user_info')).firstName}.</h3>
           </div>
-          <div className="col xl-12">
+          {/* <div className="col xl-12 flex-container flex-wrap">
+              <TaskCounter
+              overallTask="400"
+              taskDone="230"/>
           </div>
-          <TaskCounter />
           <div className="flex-container flex-wrap col xl-12">
             <div class="xl-4">
               <CardImg
@@ -175,7 +177,7 @@ class DashboardContainer extends Component {
                 docsId="10"
                 docs="http://www.pdf995.com/samples/pdf.pdf" />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     );

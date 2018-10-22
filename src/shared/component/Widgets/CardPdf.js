@@ -34,8 +34,8 @@ class CardPdf extends Component {
                   </a>
                 </label>
               </button>
-              <button className="xl-6 l-6 m-6 s-6 xs-6 card-btn btn"  for={this.props.docsId}>
-                <label>
+              <button className="xl-6 l-6 m-6 s-6 xs-6 card-btn btn" >
+                <label for={this.props.docsId}>
                   View document
                 </label>
               </button>

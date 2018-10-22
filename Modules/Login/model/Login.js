@@ -1,14 +1,27 @@
 const TAG = '[Login]';
-const db = require('../../Common/services/Database');
-const err = require('../../Common/services/Errors');
-const logger = require('../../Common/services/Logger');
-const bcrypt = require('bcrypt');
+const ajax = require('../../Common/services/Ajax');
 
-module.exports.authenticate = (username, password)=>{
+module.exports.authenticate = (username)=>{
   const ACTION = '[authenticateAdmin]';
-  logger.log('info', `${TAG}${ACTION}`, {username, password});
-  // return new Promise((resolve, reject)=>{
-  //   //Find user name first
-    
-  // });
+  return new Promise((resolve, reject) =>{ 
+    ajax.setOptions({
+      uri: `${process.env.BPM_URL}/login`
+    }).post({username: username}).then(res=>{
+      if(res.body){
+        resolve(res.body);
+      }else{
+        reject({
+          status: 400,
+          error: {
+            msg: 'User not found'
+          }
+        });
+      }
+    }).catch(error=>{
+      reject({
+        status: 400,
+        error: error
+      });
+    });
+  });
 };
