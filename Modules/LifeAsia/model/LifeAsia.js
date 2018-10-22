@@ -2,12 +2,12 @@ const TAG = '[LifeAsia]';
 const ajax = require('../../Common/services/Ajax');
 const url = process.env.LIFE_ASIA_URL;
 
-module.exports.getDocs = (args)=>{
-  const ACTION = '[getDocs]';
+module.exports.getPolicy = (args)=>{
+  const ACTION = '[gwtPolicy]';
   return new Promise((resolve, reject) =>{ 
-    // resolve(`${process.env.FILENET_URL}/Filenet/listPolicyDocByAppNumber`);
+    // resolve(`${url}/requestDetailstoLifeAsia`);
     ajax.setOptions({
-      uri: `${process.env.FILENET_URL}/requestDetailstoLifeAsia`
+      uri: `${url}/requestDetailstoLifeAsia`
     }).post(args).then(res=>{
       if(res.body){
         resolve(res.body);
