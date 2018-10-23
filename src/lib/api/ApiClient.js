@@ -4,7 +4,7 @@ const getClient = () => {
 
   const config = {
       baseURL: '/api',
-      timeout: 2000,
+      // timeout: 2000, removed because of filenet slow response
   };
 
   config.headers = {

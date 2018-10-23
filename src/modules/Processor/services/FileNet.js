@@ -3,7 +3,7 @@ export default class FileNet {
     this.http = client;
   }
 
-  getDocs() {
-    return this.http.post(`/filenet`, {});
+  getDocs(args) {
+    return this.http.post(`/filenet`, args);
   }
 }

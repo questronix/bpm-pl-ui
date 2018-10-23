@@ -6,8 +6,8 @@ export default class Policy {
   }
 
   getPolicyInformationByID(args) {
-    // return this.http.post('/policy', args);
-    return axios.post('http://localhost:3001/policy', args);
+    // return this.http.post('/lifeasia', args);
+    return this.http.post('/lifeasia', args);
   }
 
   createNewTask(args) {

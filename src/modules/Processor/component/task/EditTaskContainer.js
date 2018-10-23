@@ -49,7 +49,7 @@ class EditTaskContainer extends Component {
   }
 
   componentDidMount() {
-    // this.getApplicationDocs("12345678");
+    this.getApplicationDocs("181234567");
 
     const user = JSON.parse(sessionStorage.getItem('user_info'));
     this.getTaskInfo(user.id);
@@ -72,7 +72,16 @@ class EditTaskContainer extends Component {
   }
 
   getApplicationDocs(appNo) {
-    FileNetService.getDocs().then((res) => {
+    const d = {
+      "result": {
+        "data": {
+          "applicationNumber": `${appNo}`,
+          "docId": "2"
+        }
+      }
+    };
+    
+    FileNetService.getDocs(d).then((res) => {
       console.log(res);
       this.setState({
         doc: res.data
@@ -122,7 +131,7 @@ class EditTaskContainer extends Component {
         </div>
         <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
           <h1 className="font-prulife flex s-f-center xs-f-center">Prescreening Information</h1>
-          <CardImg class="xl-4" docsId={1} docs={this.state.doc} docLabel="Application Document" docDate="01-01-01"></CardImg>
+          {this.state.doc ? (<CardImg class="xl-4" docsId={1} docs={this.state.doc} docLabel="Application Document" docDate="01-01-01"></CardImg>) : 'Getting application documents..'}
           <PrescreeningInfo insuredInfo={this.state.insuredInfo} />
           <h1 className="font-prulife flex s-f-center xs-f-center">Processor Information</h1>
           <CsaClient processInfo={this.state.processInfo}/>

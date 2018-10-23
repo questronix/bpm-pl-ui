@@ -43,7 +43,7 @@ class LoginForm extends Component {
     }).finally(() => {
       this.setState({ isSubmitting: false});
       if (this.state.isError) {
-        alert('error!');
+        alert('Invalid username or password!');
       }
     });
   }

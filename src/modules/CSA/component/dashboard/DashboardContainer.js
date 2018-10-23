@@ -35,7 +35,7 @@ class DashboardContainer extends Component {
           </div>
           {/* <div className="col xl-12 flex-container flex-wrap">
               <TaskCounter
-              overallTask="400"
+              overallTask ="400"
               taskDone="230"/>
           </div>
           <div className="flex-container flex-wrap col xl-12">

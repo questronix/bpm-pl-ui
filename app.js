@@ -95,10 +95,12 @@ app.use(session({
 let task = require('./Modules/Task');
 let fileNet = require('./Modules/FileNet');
 let login = require('./Modules/Login');
+let lifeasia = require('./Modules/LifeAsia');
 
 app.use('/api/tasks', task);
 app.use('/api/filenet', fileNet);
 app.use('/api/login', login);
+app.use('/api/lifeasia', lifeasia);
 
 app.get('/api', function response(req, res) {
     // task
