@@ -2,6 +2,27 @@ import React, { Component } from 'react';
 import CheckBox from '../checkbox/CheckBox';
 
 class SideBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebarTab: 0,
+    }
+    this.handleTabClick = this.handleTabClick.bind(this);
+  }
+
+  handleTabClick(e) {
+    if (e.target.name === 'available') {
+      this.setState({
+        sidebarTab: 0
+      });
+    }
+    else {
+      this.setState({
+        sidebarTab: 1
+      });
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -24,13 +45,13 @@ class SideBar extends Component {
           <div className="sidebar-tab">
             <div className="sidebar-tab-title ">
               <ul className="flex-container">
-                <li className="xl-6 text-center active">
-                  <a>
+                <li className={this.state.sidebarTab == 0 ? "xl-6 text-center active" : "xl-6 text-center"}>
+                  <a name="available" onClick={this.handleTabClick}>
                     Available
                   </a>
                 </li>
-                <li className="xl-6 text-center">
-                  <a>
+                <li className={this.state.sidebarTab == 1 ? "xl-6 text-center active" : "xl-6 text-center"}>
+                  <a name="completed" onClick={this.handleTabClick}>
                     Completed
                   </a>
                 </li>
