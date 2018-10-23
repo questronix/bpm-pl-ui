@@ -1,4 +1,5 @@
 import AdminPage from './pages/AdminPage';
+import RolePage from './pages/RolePage';
 
 const routes = [
   {
@@ -6,6 +7,12 @@ const routes = [
     path: "/admin",
     exact: true,
     component: AdminPage,
+  },
+  {
+    label: 'Role Management',
+    path: "/role",
+    exact: true,
+    component: RolePage,
   },
 ];
 
