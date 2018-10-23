@@ -6,11 +6,11 @@ import Nav from '../../../shared/component/nav/Nav';
 import SideBar from '../../../shared/component/sidebar/SideBar';
 import Processor from '../component/admin/adminContainer';
 
-export default class Main extends Component {
+export default class AdminPage extends Component {
   render() {
     return (
       <div>
-        <Nav links={links}/> <SideBar/> 
+        <Nav links={links}/>
         <Processor/>
       </div>
     );
