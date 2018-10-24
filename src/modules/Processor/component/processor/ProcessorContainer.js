@@ -71,8 +71,7 @@ class ProcessorContainer extends Component {
         {/* <CardTable/> */}
         {/* <TaskCounter/> */}
       </div>
-              </div >
-              );
+    );
   }
 }
 
