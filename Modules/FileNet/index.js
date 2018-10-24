@@ -2,7 +2,7 @@ const TAG = ['FileNet'];
 const ajax = require('../Common/services/Ajax');
 const express = require('express');
 const router = express.Router();
-const sharp = require('sharp');
+// const sharp = require('sharp');
 const fn = require('./model/FileNet');
 
 // const fileRes = require('../../tiff.json');
