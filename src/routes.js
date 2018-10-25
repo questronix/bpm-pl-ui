@@ -23,19 +23,24 @@ const genericRoutes = [
 let routes;
 let userRole = '';
 
-if (sessionStorage.getItem('user_info')) {
-  userRole = JSON.parse(sessionStorage.getItem('user_info')).role;
-}
-
-if (userRole === 'CSA') {
-  routes = [...CSARoutes, ...genericRoutes];
-}
-else if (userRole === 'PROCESSOR') {
-  routes = [...ProcessorRoutes, ...genericRoutes];
-}
-else if (userRole === 'ADMIN') {
-  // alert(1)
-  routes = [...AdminRoutes, ...genericRoutes];
+// Dont be confused with '__isLoggedIn', this is a global variable that I initialize every time the page is refreshing.
+// The value of __isLoggedIn came from our express server (session from the server).
+// This variable was initialzed on `src/public/index.ejs` 
+if (__isLoggedIn) {
+  if (sessionStorage.getItem('user_info')) {
+    userRole = JSON.parse(sessionStorage.getItem('user_info')).role;
+  }
+  
+  if (userRole === 'CSA') {
+    routes = [...CSARoutes, ...genericRoutes];
+  }
+  else if (userRole === 'PROCESSOR') {
+    routes = [...ProcessorRoutes, ...genericRoutes];
+  }
+  else if (userRole === 'ADMIN') {
+    // alert(1)
+    routes = [...AdminRoutes, ...genericRoutes];
+  }
 }
 else {
   routes = genericRoutes;

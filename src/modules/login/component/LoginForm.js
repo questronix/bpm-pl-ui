@@ -64,6 +64,10 @@ class LoginForm extends Component {
     sessionStorage.clear();
   }
 
+  componentDidMount() {
+    sessionStorage.setItem('redirectTo', 'eme');
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>

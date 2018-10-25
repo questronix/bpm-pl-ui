@@ -24,19 +24,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div>
         <Switch>
-          {/* {routes.map(({path, component: C }) => (
-            <Route
-              path={path}
-              render={(props) => <C {...props} />}
-          ))} */}
-
-          {routes.map((route, index) => 
-             <Route key={index} {...route} />
-          )}
+            {routes.map((route, index) => 
+              <Route key={index} {...route} />
+            )}
         </Switch>
-      </div>
     </Router>
     );
   }

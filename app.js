@@ -23,7 +23,7 @@ const bodyParser = require('body-parser');
 //set the template engine into ejs
 app.set('views', path.join(__dirname, 'public'));
 app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+// app.engine('html', require('ejs').renderFile);
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({
@@ -99,7 +99,7 @@ let lifeasia = require('./Modules/LifeAsia');
 
 app.use('/api/tasks', task);
 app.use('/api/filenet', fileNet);
-app.use('/api/login', login);
+app.use('/api/auth', login);
 app.use('/api/lifeasia', lifeasia);
 
 app.get('/api', function response(req, res) {
@@ -283,7 +283,7 @@ app.get('/api/fr2',(req, res) => {
 
 app.get('*', (req,res) =>{
   // res.sendFile(path.join(__dirname+'/public/index.html'));
-  res.render('index.html', {});
+  res.render('index.ejs', { isLoggedIn: req.session.user ? true : false });
 });
 
 module.exports = app;

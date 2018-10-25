@@ -4,10 +4,10 @@ export default class Login {
   }
 
   login(args) {
-    return this.http.post('/login', args);
+    return this.http.post('/auth/login', args);
   }
 
   logout(args) {
-    return this.http.post('/logout', args);
+    return this.http.post('/auth/logout', args);
   }
 }
