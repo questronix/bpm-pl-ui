@@ -6,12 +6,13 @@ class Nav extends Component {
 
 
   render() {
+    const path = window.location.pathname;
 
     const links = this.props.links.map((link, i) => (
       < Link to={link.path}>
         <li key={i}>
           <span className={link.icon}></span>
-          <div className={link.active}></div>
+          <div className={path == link.path && 'true'}></div>
           {link.label}
         </li>
       </Link>
