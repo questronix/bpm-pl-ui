@@ -69,25 +69,11 @@ class Policy extends Component {
   componentDidMount() {
     // Init default values to Transaction on page load.
     
-
     this.setState({
       taskId: this.getQueryStringValue("id")
     });
 
-    const user = JSON.parse(sessionStorage.getItem('user_info'));
-    console.log(this.state.taskId);
-    TaskService.getTaskDetails(this.getQueryStringValue("id"), user.id).then((res) => {
-      // console.log(res.data);
-      // console.log(res.data.id);
-      // this.setState({
-        // policy: res.data.policy
-        // let toupdate = Object.keys(res.data.policy);
-        // let policy = this.state.policy;
-        // toupdate.forEach(elem=>{
-        //   if(typeof toupdate[elem] != "undefined"){
-        //     policy[elem] = toupdate[elem];
-        //   }
-        // }); 
+    TaskService.getTaskDetails(this.getQueryStringValue("id")).then((res) => {
         console.log(res.data);
         console.log(variables);
         const variables = res.data.variables;
@@ -96,7 +82,6 @@ class Policy extends Component {
           polId: variables.policy.id,
           polNumber: variables.policy.number,
         });
-      // });
     }).catch((err) => {
       console.log('CREATE TASK ERROR:', err);
     });
@@ -148,26 +133,6 @@ class Policy extends Component {
     let policy = this.state.policy;
     let policyKeys = Object.keys(this.state.policy);
 
-    // Filtering out number, id, appNo, status, createdBy and info field
-    // let infoKeys = policyKeys.filter(info => info != 'number' && 
-    //   info != 'id' && 
-    //   info != 'appNo' && 
-    //   info != 'status' && 
-    //   info !='createdBy' && 
-    //   info != 'info');
-    // let info = {};
-    // infoKeys.forEach(elem=> {
-    //   info[elem] = policy[elem];
-    // })
-
-    // const formData = {
-    //   id: this.state.policy.id,
-    //   number: this.state.policy.number,
-    //   appNo: this.state.policy.appNo,
-    //   createdBy: this.state.policy.createdBy,
-    //   status: false, // temporary
-    //   info: JSON.stringify(info)
-    // }
     const formData = {
       policy: {
         id: this.state.polId,
@@ -180,13 +145,9 @@ class Policy extends Component {
       
     }
 
-    // console.log('policyKeys', policyKeys);
-    // console.log('infoKeys', infoKeys);
-    // console.log('info', info);
     console.log('formData', formData);
 
-    const user = JSON.parse(sessionStorage.getItem('user_info'));
-    TaskService.submitTask(this.getQueryStringValue("id"), user.id, formData).then((res) => {
+    TaskService.submitTask(this.getQueryStringValue("id"), formData).then((res) => {
       console.log(res.data.error);
       if (!res.data.error) {
         alert('Task Submitted!');
