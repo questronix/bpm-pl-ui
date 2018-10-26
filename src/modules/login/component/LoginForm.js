@@ -50,7 +50,9 @@ class LoginForm extends Component {
   }
 
   redirect(role) {
-    const path = window.location.href;
+    const url = window.location.href;
+    const path = window.location.pathname;
+
     if (path === '/' || path === '/login') {
       if (role === 'CSA') {
         window.location.href = "/tasks";
@@ -62,7 +64,7 @@ class LoginForm extends Component {
       }
     }
     else {
-      window.location.href = path;
+      window.location.href = url;
     }
   }
 

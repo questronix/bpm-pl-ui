@@ -25,9 +25,11 @@ const genericRoutes = [
 let routes;
 let userRole = '';
 
-// Dont be confused with '__isLoggedIn', this is a global variable that I initialize every time the page is refreshing.
-// The value of __isLoggedIn came from our express server (session from the server).
-// This variable was initialzed on `src/public/index.ejs` 
+/**
+ * Dont be confused with '__isLoggedIn', this is a global variable that I initialize every time the page is refreshing.
+ * The value of __isLoggedIn came from our express server (session from the server).
+ * This variable was initialzed on `src/public/index.ejs` 
+ */
 if (__isLoggedIn) {
   if (sessionStorage.getItem('user_info')) {
     userRole = JSON.parse(sessionStorage.getItem('user_info')).role;
