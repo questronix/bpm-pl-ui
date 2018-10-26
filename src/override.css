@@ -1120,7 +1120,7 @@ input {
     border: solid 1px #0064B9; }
   .input-container span {
     transform: translate(1px, 40px);
-    padding: 11px 15px;
+    padding: 12px 15px;
     width: 15px;
     background-color: #bdbdbd;
     position: absolute; }
@@ -1459,6 +1459,7 @@ hr {
     top: 0;
     left: 0;
     bottom: 0;
+    height: fit-content;
     margin: auto;
     background-color: white;
     border-radius: 30px;

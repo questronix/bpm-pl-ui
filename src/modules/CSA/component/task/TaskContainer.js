@@ -67,7 +67,7 @@ class TaskContainer extends Component {
           </div>
           <TaskList tasks={this.state.tasks} />
           <h1>Task History</h1>
-          <TaskList tasks={this.state.taskHistory} />
+          {/* <TaskList tasks={this.state.taskHistory} /> */}
           
         </div>
       </div>
