@@ -116,7 +116,9 @@ class SideBar extends Component {
               </ul>
             </div>
             <ul className="sidebar-list">
+              <li className="items">
               {taskList}
+              </li>
             </ul>
           </div>
           {/* <ul className="sidebar-list">
