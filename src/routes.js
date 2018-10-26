@@ -9,10 +9,12 @@ import AdminRoutes from './modules/Admin/routes';
 const genericRoutes = [
   {
     path: '/',
+    // exact: true,
     component: () => <Login />,
   }, 
   {
     path: '/login',
+    exact: true,
     component: () => <Login />,
   }, 
   {
@@ -40,6 +42,9 @@ if (__isLoggedIn) {
   else if (userRole === 'ADMIN') {
     // alert(1)
     routes = [...AdminRoutes, ...genericRoutes];
+  }
+  else {
+    routes = genericRoutes;
   }
 }
 else {

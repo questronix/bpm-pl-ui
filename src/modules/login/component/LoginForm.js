@@ -35,6 +35,7 @@ class LoginForm extends Component {
         sessionStorage.setItem('username', this.state.username);
         sessionStorage.setItem('user_info', JSON.stringify(res.data));
         sessionStorage.setItem('is_authenticated', true);
+        // localStorage.removeItem('redirectTo');
         this.redirect(res.data.role);
       }
       else {
@@ -49,23 +50,25 @@ class LoginForm extends Component {
   }
 
   redirect(role) {
-    if (role === 'CSA') {
-      window.location.href = "/tasks";
+    const path = window.location.pathname;
+    if (path === '/' || path === '/login') {
+      if (role === 'CSA') {
+        window.location.href = "/tasks";
+      }
+      else if(role === 'PROCESSOR') {
+        window.location.href = "/processor";
+      }else if (role === "ADMIN"){
+        window.location.href = "/admin";  
+      }
     }
-    else if(role === 'PROCESSOR') {
-      window.location.href = "/processor";
-    }else if (role === "ADMIN"){
-      window.location.href = "/admin";  
+    else {
+      window.location.href = path;
     }
   }
 
   componentWillMount() {
     localStorage.clear();
     sessionStorage.clear();
-  }
-
-  componentDidMount() {
-    sessionStorage.setItem('redirectTo', 'eme');
   }
 
   render() {
