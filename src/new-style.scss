@@ -400,128 +400,37 @@ body, html{
 .text-right{
     text-align: right;
 }
-//Circle btn
-.round-btn {
-    padding:10px;
-    text-align: center;
-    outline: none;
-    @include transition();
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
+//buttons
+.btn{
+    height: 40px;
+    border-radius: 20px;
+    padding: 0px 20px;
+    background-color: $gray;
+    color: $white;
     display: flex;
     align-items: center;
-    justify-content: center;
-    &.prulife, .prulife {
+    margin-left: 5px;
+    span{
+        font-size: 13px;
+    }
+    @include transition();
+    &:active{
+        transform: scale(.9);
+    }
+    &.prulife{
         background-color: $prulife;
         color: $white;
-        border:solid 3px $prulife;
+        box-shadow: 0px 0px 6px #ED1B2E;
         &:hover{
-            background-color: $white;
-            color: $prulife;
-            @include container-shadow();
+            box-shadow: 0px 0px 25px #ED1B2E;
         }
     }
-    &.prugray, .prugray{
-        background-color: $pru-gray;
-        color: $white;
-        border:solid 3px $pru-gray;
+    &.alt{
+        background-color: $white;
+        color: $black;
+        box-shadow: 0px 0px 6px $light-gray;
         &:hover{
-            background-color: $white;
-            color: $pru-gray;
-            @include container-shadow();
-        }
-    }
-    &.gray, .gray{
-        background-color: $gray;
-        color: $white;
-        border:solid 3px $gray;
-        &:hover{
-            background-color: $white;
-            color: $gray;
-            @include container-shadow();
-        }
-    }
-    &.grass-green,.grass -green{
-        background-color: $grass-green;
-        color: $white;
-        border:solid 3px $grass-green;
-        &:hover{
-            background-color: $white;
-            color: $grass-green;
-            @include container-shadow();
-        }
-    }
-    &.bright-blue,.bright -blue{
-        background-color: $bright-blue;
-        color: $white;
-        border:solid 3px $bright-blue;
-        &:hover{
-            background-color: $white;
-            color: $bright-blue;
-            @include container-shadow();
-        }
-    }
-    &.sun-yellow,.sun -yellow{
-        background-color: $sun-yellow;
-        color: $white;
-        border:solid 3px $sun-yellow;
-        &:hover{
-            background-color: $white;
-            color: $sun-yellow;
-            @include container-shadow();
-        }
-    }
-    &.primary, .primary{
-        background-color: $primary;
-        color: $white;
-        border:solid 3px $primary;
-        &:hover{
-            background-color: $white;
-            color: $primary;
-            @include container-shadow();
-        }
-    }
-    &.danger, .danger{
-        background-color: $danger;
-        color: $white;
-        border:solid 3px $danger;
-        &:hover{
-            background-color: $white;
-            color: $danger;
-            @include container-shadow();
-        }
-    }
-    &.info, .info{
-        background-color: $info;
-        color: $white;
-        border:solid 3px $info;
-        &:hover{
-            background-color: $white;
-            color: $info;
-            @include container-shadow();
-        }
-    }
-    &.warning, .warning{
-        background-color: $warning;
-        color: $white;
-        border:solid 3px $warning;
-        &:hover{
-            background-color: $white;
-            color: $warning;
-            @include container-shadow();
-        }
-    }
-    &.success, .success{
-        background-color: $success;
-        color: $white;
-        border:solid 3px $success;
-        &:hover{
-            background-color: $white;
-            color: $success;
-            @include container-shadow();
+            box-shadow: 0px 0px 25px $light-gray;
         }
     }
 }
@@ -1728,8 +1637,8 @@ table {
     }
 }
 // search
-$color_1: #232323;
-$background_color_1: white;
+    $color_1: #232323;
+    $background_color_1: white;
 
 input[type=search] {
 	&::-ms-clear {
@@ -1757,36 +1666,54 @@ input[type="search"] {
 		display: none;
 	}
 }
-.layout-container {
-	.layout-content {
-		.filters {
-			.search {
-				background-color: $background_color_1;
-				width: 400px;
-				border-radius: 35px;
-				overflow: hidden;
-				input {
-					border: 0px;
-					width: 100%;
-					height: 40px;
-					color: $color_1;
-					font-size: 12px;
-					padding: 0px 35px 0px 15px;
-					box-shadow: 0px 0px 6px #CECECE;
-				}
-				.icon {
-					position: absolute;
-					top: 0px;
-					right: 0px;
-					width: 40px;
-					color: $color_1;
-					font-size: 16px;
-					text-align: center;
-					line-height: 40px;
-					cursor: pointer;
-					z-index: 2;
-				}
-			}
-		}
-	}
+.search-container{
+    overflow: hidden;
+    background-color: $white;
+    border-radius: 20px;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .search{
+        width: 100%;
+        height: 40px;
+        padding-left: 15px;
+        border: none;
+        outline: none;
+    }
+    .search-icon{
+        margin: 0 10px;
+        span{
+            font-size: 13px;
+        }
+    }
+}
+.filters {
+    .search {
+        background-color: $background_color_1;
+        width: 400px;
+        border-radius: 35px;
+        overflow: hidden;
+        input {
+            border: 0px;
+            width: 100%;
+            height: 40px;
+            color: $color_1;
+            font-size: 12px;
+            padding: 0px 35px 0px 15px;
+            box-shadow: 0px 0px 6px #CECECE;
+        }
+        .icon {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 40px;
+            color: $color_1;
+            font-size: 16px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            z-index: 2;
+        }
+    }
 }
