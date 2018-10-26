@@ -86,3 +86,4 @@ yarn-error.log*
 Override.scss
 override.css.map
 .sass-cache
+temp

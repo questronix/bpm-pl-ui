@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import './override.css';
 import routes from './routes';
@@ -24,20 +24,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div>
         <Switch>
-          {/* {routes.map(({path, component: C }) => (
-            <Route
-              path={path}
-              render={(props) => <C {...props} />}
-          ))} */}
-
-          {routes.map((route, index) => 
-             <Route key={index} {...route} />
-          )}
+            {routes.map((route, index) => 
+              <Route key={index} {...route} />
+            )}  
         </Switch>
-      </div>
-    </Router>
+      </Router>
     );
   }
 }

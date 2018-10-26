@@ -64,6 +64,14 @@ function request(req) {
     console.log(`Success Request: ${JSON.stringify(result.data)}`);
     return result;
   }).catch((err) => {
+    /**
+     * This will validate if the user is authorized to make a request from our server. 
+     * Then if not, we will redirect the user to login page. */ 
+    if (err.response.status == 401) {
+      __isLoggedIn = false;
+      // alert('Please login to continue');
+      window.location.href = '/login';
+    }
     console.log(`Error Request: ${JSON.stringify(err)}`);
     return err;
   });
