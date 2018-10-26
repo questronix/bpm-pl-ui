@@ -32,7 +32,7 @@ class CardImg extends Component {
                 <a target="_blank" href={this.props.docs} >
                   <button className="xl-6 l-6 m-6 s-6 xs-6 card-btn btn active">
                     <label>
-                      View in a new tab
+                      Other option
                     </label>
                   </button>
                 </a>
