@@ -67,7 +67,7 @@ export default class Main extends Component {
         <div className="col">
           <div className="flex-container flex-wrap">
             <div className="xl-2"></div>
-            <div className="xl-10 margin-top-90">
+            <div className="xl-10 ">
               <div className="xl-4">
                 <CardImg
                   docLabel="This document"

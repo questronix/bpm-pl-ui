@@ -8,7 +8,7 @@ class RoleContainer extends Component {
     return (
       <div className="flex-container flex-wrap">
         <div className="col no-paddding xl-10 l-10 m-10 s-12 xs-10 margin-auto">
-          <h1 className="font-prulife flex s-f-center xs-f-center margin-top-90">Role Management</h1>
+          <h1 className="font-prulife flex s-f-center xs-f-center ">Role Management</h1>
           <div className="flex-container flex-wrap">
             <RoleList />
             <CreateRole />

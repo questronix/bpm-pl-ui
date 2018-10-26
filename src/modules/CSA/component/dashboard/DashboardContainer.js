@@ -27,7 +27,7 @@ class DashboardContainer extends Component {
         {/* <div className="col xl-2 l-2 m-2 s-hide xs-hide invisible">
           made by questronix
         </div> */}
-        <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
+        <div className="col xl-10 l-10 m-10 s-11 xs-11 ">
           <div className="col xl-12 l-12 m-12 s-12 xs-12">
             <h1 className="font-prulife flex s-f-center xs-f-center">Dashboard</h1>
             <button className="btn prulife" onClick={this.createTask}>Create Task</button>
