@@ -1,72 +1,59 @@
 const TAG = '[Task]';
-const ajax = require('../Common/services/Ajax');
+const Logger = require('../Common/services/Logger');
 const express = require('express');
 const router = express.Router();
-const url = process.env.BPM_URL;
+const mw = require('../Common/middleware/Authentication');
+const task = require('./model/Task');
 
-// Get all tasks
-router.get('/', (req, res) => {
-  ajax.setOptions({
-    uri: `${url}/tasks?uid=${req.query.uid}`,
-  }).get().then(data=>{
-    res.send(JSON.parse(data.body));
-  }).catch(err=>{
-    console.log(err);
+router.post('/', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[postNewTask]';
+  Logger.log('debug', `${TAG}${ACTION} - request paramaters`, req.params);
+  task.new(req.session.user.username).then((data) => {
+    res.send(data);
+  }).catch((err) => {
+    res.error(err);
   });
 });
 
-// Get task by instance ID
-// router.get('/:instanceId', (req, res) => {
-//   ajax.setOptions({
-//     uri: `${url}/${req.params.instanceId}`,
-//   }).get().then(data=>{
-//     res.send(JSON.parse(data.body));
-//     resolve(data.body)
-//   }).catch(err=>{
-//     console.log(err);
-//   });
-// });
-
-// Get task details
-router.get('/:taskId', (req, res) => {
-  ajax.setOptions({
-    uri: `${url}/tasks/${req.params.taskId}?uid=${req.query.uid}`,
-  }).get().then(data=>{
-    res.send(JSON.parse(data.body));
-  }).catch(err=>{
-    console.log(err);
+router.get('/', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[getAllTasks]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+  task.getAll(req.session.user.id).then((data) => {
+    res.send(data);
+  }).catch((err) => {
+    res.error(err);
   });
 });
 
-// Submit task
-router.post('/:taskId', (req, res) => {
-  // res.send(`${url}/tasks/${req.params.taskId}?uid=${req.query.uid}`);
-  ajax.setOptions({
-    uri: `${url}/tasks/${req.params.taskId}?uid=${req.query.uid}`,
-  }).post(req.body).then(data=>{
-    res.send(data.body);
-  }).catch(err=>{
-    console.log(err);
+router.get('/:taskId', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[getTaskDetails]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+  task.getDetails(req.params.taskId, req.session.user.id).then((data) => {
+    res.send(data);
+  }).catch((err) => {
+    res.error(err);
   });
 });
 
-router.post('/', (req, res) => {
-  ajax.setOptions({
-    uri: `${url}/process/start`,
-  }).post(req.body).then(data=>{
-    res.send(data.body);
-  }).catch(err=>{
-    console.log(err);
+router.post('/:taskId', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[postSubmitTask]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+  task.submit(req.body, req.params.taskId, req.session.user.id).then((data) => {
+    res.send(data);
+  }).catch((err) => {
+    res.error(err);
   });
 });
 
-router.post('/:taskId/claim', (req, res) => {
-  ajax.setOptions({
-    uri: `${url}/tasks/${req.params.taskId}/claim?uid=${req.query.uid}`,
-  }).post(req.body).then(data=>{
-    res.send(data.body);
-  }).catch(err=>{
-    console.log(err);
+router.post('/:taskId/claim', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[postClaimTask]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+  task.claim({ action: 'claim' }, req.params.taskId, req.session.user.id).then((data) => {
+    res.send(data);
+  }).catch((err) => {
+    res.error(err);
   });
 });
 
