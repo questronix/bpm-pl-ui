@@ -24,15 +24,12 @@ class Header extends Component {
           </a>
           <div className="dropdown-menu">
             <ul>
-              <li>
-                Items
-              </li>
-              <li>
-                Items
-              </li>
-              <li>
-                Items
-              </li>
+              <a href="#logout">
+                <li>
+                  <span className="fa fa-sign-out-alt"></span> &nbsp;
+                  Logout
+                </li>
+              </a>
             </ul>
           </div>
         </div>

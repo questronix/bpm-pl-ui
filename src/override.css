@@ -529,30 +529,30 @@ hr {
 .margin-auto {
   margin: auto; }
 
-.flex, .btn-circle, nav.navbar .navmenu ul, nav.navbar .navmenu ul li {
+.flex, .btn-circle, nav.navbar .navmenu ul, nav.navbar .navmenu ul li, .dropdown .dropdown-menu ul li {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -moz-flex;
   display: -webkit-flex;
   display: flex; }
-  .flex.f-wrap, .f-wrap.btn-circle, nav.navbar .navmenu ul.f-wrap, nav.navbar .navmenu ul li.f-wrap, .flex .f-wrap, .btn-circle .f-wrap, nav.navbar .navmenu ul .f-wrap {
+  .flex.f-wrap, .f-wrap.btn-circle, nav.navbar .navmenu ul.f-wrap, nav.navbar .navmenu ul li.f-wrap, .dropdown .dropdown-menu ul li.f-wrap, .flex .f-wrap, .btn-circle .f-wrap, nav.navbar .navmenu ul .f-wrap, .dropdown .dropdown-menu ul li .f-wrap {
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap; }
-  .flex.f-center, .btn-circle, nav.navbar .navmenu ul.f-center, nav.navbar .navmenu ul.btn-circle, nav.navbar .navmenu ul li, .flex .f-center, .btn-circle .f-center, nav.navbar .navmenu ul .f-center, .flex .btn-circle, .btn-circle .btn-circle, nav.navbar .navmenu ul .btn-circle, nav.navbar .navmenu ul li {
+  .flex.f-center, .btn-circle, nav.navbar .navmenu ul.f-center, nav.navbar .navmenu ul.btn-circle, nav.navbar .navmenu ul li, .dropdown .dropdown-menu ul li.f-center, .dropdown .dropdown-menu ul li.btn-circle, .flex .f-center, .btn-circle .f-center, nav.navbar .navmenu ul .f-center, .dropdown .dropdown-menu ul li .f-center, .flex .btn-circle, .btn-circle .btn-circle, nav.navbar .navmenu ul .btn-circle, .dropdown .dropdown-menu ul li .btn-circle, nav.navbar .navmenu ul li {
     justify-content: center;
     align-items: center; }
-  .flex.f-start, .f-start.btn-circle, nav.navbar .navmenu ul.f-start, nav.navbar .navmenu ul li.f-start, .flex .f-start, .btn-circle .f-start, nav.navbar .navmenu ul .f-start {
+  .flex.f-start, .f-start.btn-circle, nav.navbar .navmenu ul.f-start, nav.navbar .navmenu ul li.f-start, .dropdown .dropdown-menu ul li.f-start, .flex .f-start, .btn-circle .f-start, nav.navbar .navmenu ul .f-start, .dropdown .dropdown-menu ul li .f-start {
     justify-content: flex-start; }
-  .flex.f-end, .f-end.btn-circle, nav.navbar .navmenu ul.f-end, nav.navbar .navmenu ul li.f-end, .flex .f-end, .btn-circle .f-end, nav.navbar .navmenu ul .f-end {
+  .flex.f-end, .f-end.btn-circle, nav.navbar .navmenu ul.f-end, nav.navbar .navmenu ul li.f-end, .dropdown .dropdown-menu ul li.f-end, .flex .f-end, .btn-circle .f-end, nav.navbar .navmenu ul .f-end, .dropdown .dropdown-menu ul li .f-end {
     justify-content: flex-end; }
-  .flex.f-row, .f-row.btn-circle, nav.navbar .navmenu ul, nav.navbar .navmenu ul li.f-row, .flex .f-row, .btn-circle .f-row, nav.navbar .navmenu ul .f-row, .flex nav.navbar .navmenu ul, nav.navbar .navmenu .flex ul, .btn-circle nav.navbar .navmenu ul, nav.navbar .navmenu .btn-circle ul, nav.navbar .navmenu ul ul {
+  .flex.f-row, .f-row.btn-circle, nav.navbar .navmenu ul, nav.navbar .navmenu ul li.f-row, .dropdown .dropdown-menu ul li.f-row, .flex .f-row, .btn-circle .f-row, nav.navbar .navmenu ul .f-row, .dropdown .dropdown-menu ul li .f-row, .flex nav.navbar .navmenu ul, nav.navbar .navmenu .flex ul, .btn-circle nav.navbar .navmenu ul, nav.navbar .navmenu .btn-circle ul, nav.navbar .navmenu ul ul, .dropdown .dropdown-menu ul li nav.navbar .navmenu ul {
     flex-direction: row; }
-  .flex.f-column, .f-column.btn-circle, nav.navbar .navmenu ul.f-column, nav.navbar .navmenu ul li, .flex .f-column, .btn-circle .f-column, nav.navbar .navmenu ul .f-column, nav.navbar .navmenu ul li {
+  .flex.f-column, .f-column.btn-circle, nav.navbar .navmenu ul.f-column, nav.navbar .navmenu ul li, .dropdown .dropdown-menu ul li.f-column, .flex .f-column, .btn-circle .f-column, nav.navbar .navmenu ul .f-column, .dropdown .dropdown-menu ul li .f-column, nav.navbar .navmenu ul li {
     flex-direction: column; }
-  .flex.f-justify-space-between, .f-justify-space-between.btn-circle, nav.navbar .navmenu ul.f-justify-space-between, nav.navbar .navmenu ul li.f-justify-space-between, .flex .f-justify-space-between, .btn-circle .f-justify-space-between, nav.navbar .navmenu ul .f-justify-space-between {
+  .flex.f-justify-space-between, .f-justify-space-between.btn-circle, nav.navbar .navmenu ul.f-justify-space-between, nav.navbar .navmenu ul li.f-justify-space-between, .dropdown .dropdown-menu ul li.f-justify-space-between, .flex .f-justify-space-between, .btn-circle .f-justify-space-between, nav.navbar .navmenu ul .f-justify-space-between, .dropdown .dropdown-menu ul li .f-justify-space-between {
     justify-content: space-between; }
-  .flex.f-justify-around, .f-justify-around.btn-circle, nav.navbar .navmenu ul.f-justify-around, nav.navbar .navmenu ul li.f-justify-around, .flex .f-justify-around, .btn-circle .f-justify-around, nav.navbar .navmenu ul .f-justify-around {
+  .flex.f-justify-around, .f-justify-around.btn-circle, nav.navbar .navmenu ul.f-justify-around, nav.navbar .navmenu ul li.f-justify-around, .dropdown .dropdown-menu ul li.f-justify-around, .flex .f-justify-around, .btn-circle .f-justify-around, nav.navbar .navmenu ul .f-justify-around, .dropdown .dropdown-menu ul li .f-justify-around {
     justify-content: space-around; }
 
 .box {
@@ -1636,8 +1636,20 @@ input[type="search"]::-webkit-search-results-decoration {
   position: absolute;
   background-color: #fff;
   box-shadow: 0px 0px 6px #CECECE;
-  width: 100%; }
+  width: 150px; }
   .dropdown .dropdown-menu ul li {
-    margin: 5px; }
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all 0.3s ease-out;
+    padding: 10px;
+    word-break: break-all;
+    align-items: center; }
+    .dropdown .dropdown-menu ul li span {
+      font-size: 13px; }
+    .dropdown .dropdown-menu ul li:hover {
+      background-color: #bdbdbd;
+      color: #fff; }
 
 /*# sourceMappingURL=Override.css.map */

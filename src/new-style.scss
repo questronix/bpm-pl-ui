@@ -1762,10 +1762,21 @@ input[type="search"] {
         position: absolute;
         background-color: $white;
         box-shadow: 0px 0px 6px #CECECE;
-        width: 100%;
+        width: 150px;
         ul{
             li{
-                margin: 5px;
+                @include transition();
+                padding: 10px;
+                word-break: break-all;
+                @extend .flex;
+                align-items: center;
+                span{
+                    font-size: 13px;
+                }
+                &:hover{
+                    background-color: $gray;
+                    color: $white;
+                }
             }
         }
         
