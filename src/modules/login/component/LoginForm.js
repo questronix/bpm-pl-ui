@@ -35,8 +35,7 @@ class LoginForm extends Component {
         sessionStorage.setItem('username', this.state.username);
         sessionStorage.setItem('user_info', JSON.stringify(res.data));
         sessionStorage.setItem('is_authenticated', true);
-        // localStorage.removeItem('redirectTo');
-        this.redirect(res.data.role);
+        this.redirect(res.data.role.name);
       }
       else {
         this.setState({ isError: true});

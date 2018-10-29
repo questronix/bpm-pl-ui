@@ -32,7 +32,7 @@ let userRole = '';
  */
 if (__isLoggedIn) {
   if (sessionStorage.getItem('user_info')) {
-    userRole = JSON.parse(sessionStorage.getItem('user_info')).role;
+    userRole = JSON.parse(sessionStorage.getItem('user_info')).role.name;
   }
   
   if (userRole === 'CSA') {
