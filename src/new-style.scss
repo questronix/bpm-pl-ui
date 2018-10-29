@@ -225,6 +225,13 @@ button:disabled,{
 	-o-transition: all .3s ease-out;
 	transition: all .3s ease-out
 }
+@mixin edit-transition($n) {
+    -webkit-transition: all $n ease-out;
+	-moz-transition: all $n ease-out;
+	-ms-transition: all $n ease-out;
+	-o-transition: all $n ease-out;
+	transition: all $n ease-out
+}
 body, html{
     max-width: 100%;
     min-height: 100%;
@@ -1161,7 +1168,6 @@ nav{
                 @extend .f-row;
                 padding: 0 10%;
                 li{
-                    @include transition();
                     width: 150px;
                     @extend .flex;
                     @extend .f-center;
@@ -1763,6 +1769,11 @@ input[type="search"] {
         background-color: $white;
         box-shadow: 0px 0px 6px #CECECE;
         width: 150px;
+        display: none;
+        z-index: 10;
+        &.active{
+            display: block;
+        }
         ul{
             li{
                 @include transition();

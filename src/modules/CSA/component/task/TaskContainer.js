@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TaskService } from '../../services';
 import TaskList from './TaskList';
 import CardWidget from '../../../../shared/component/Widgets/CardWidget';
+import FilterButton from '../../../../shared/component/filterbutton/FilterButton';
 
 class TaskContainer extends Component {
   constructor(props) {
@@ -59,12 +60,7 @@ class TaskContainer extends Component {
               </a>
             </div>
             <div className="flex f-row">
-              <a
-                href="#"
-                className="btn alt">
-                <span className="fa fa-filter"></span>&nbsp;
-                FILTER
-              </a>
+              <FilterButton/>
               <a
                 href="#"
                 className="btn prulife"
