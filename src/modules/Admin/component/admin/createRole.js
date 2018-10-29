@@ -1,9 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const CreateRole = (props) => {
+class CreateRole extends Component{
+  
+  constructor(props){
+    super(props);
+    this.state = {
+      roleTitle: '',
+      roleDescription: '',
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleInputChange(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit() {
+    // console.log(this.state);
+    this.props.onCreateRole(this.state);
+  }
+ 
+  render(){
   return (
     <div className="col xl-3 no-padding">
       <div className="flex-container flex-wrap">
+     
         <div className="card-alt xl-12">
           <div className="card-header">
             <h3>
@@ -18,6 +47,9 @@ const CreateRole = (props) => {
                 </h4>
               </label>
               <input
+                name="roleTitle"
+                value={this.state.roleTitle}
+                onChange={this.handleInputChange}
                 type="text"
                 className="col input custom-input"
                 placeholder="What role do you want to make? "
@@ -30,7 +62,11 @@ const CreateRole = (props) => {
                 </h4>
               </label>
               <textarea
-                className="textarea custom-textarea" placeholder="What doeas your role do?" />
+                name="roleDescription"
+                value={this.state.roleDescription}
+                onChange={this.handleInputChange}
+                className="textarea custom-textarea" 
+                placeholder="What doeas your role do?" />
             </div>
             <div className="flex-container">
               <button className="round-btn gray">
@@ -41,15 +77,18 @@ const CreateRole = (props) => {
               </p>
             </div>
             <div className="flex f-end">
-              <button className="btn prulife">
+              <button onClick={this.handleSubmit} className="btn prulife" type="submit">
                 Create Role
               </button>
             </div>
           </div>
         </div>
+       
       </div>
     </div>
-  );
-};
 
-export default CreateRole;
+  )
+  }
+
+}
+export default CreateRole;  

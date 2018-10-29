@@ -7,26 +7,28 @@ const RoleList = (props) => {
         <div className="card-alt xl-11">
           <div className="card-header">
             <h3>
-              Role List (25)
+              Role List ({props.roles.length})
             </h3>
           </div>
           <div className="card-body no-padding">
             <ul className="compact-list">
-              <li className="compact-item">
+              {props.roles.map((role) => {
+                return(
+                   <li className="compact-item">
                 <a href="#">
                   <h4 className="">
-                    Role Title
+                    {role.roleTitle}
                   </h4>
                   <ul className="flex-container flex-wrap">
                     <li className="col no-padding xl-10">
-                      Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.
+                      {role.roleDescription}
                     </li>
-                    <li className="col no-padding xl-2 flex f-end">
-                      12 Members
-                    </li>
+                    <li> </li>
                   </ul>
                 </a>
               </li>
+              )
+              })}
             </ul>
           </div>
         </div>

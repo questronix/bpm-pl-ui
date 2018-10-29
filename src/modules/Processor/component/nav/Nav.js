@@ -5,6 +5,7 @@ const navLinks = [
   {
     label: 'Dashboard',
     path: '/processor',
+    icon: 'fa fa-tachometer-alt font-prulife',
   },
 ]
 

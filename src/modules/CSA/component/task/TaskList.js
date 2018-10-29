@@ -35,11 +35,21 @@ const TaskList = (props) => (
                 {task.variables.policy.info != null ? JSON.parse(task.variables.policy.info).insured.lastName : '-'}
               </td>
               <td>
-                {(task.variables.status) ? task.variables.status.toUpperCase() : 'Draft'}
+                {new Intl.DateTimeFormat('en-GB', { 
+                   year: 'numeric', 
+                   month: 'long', 
+                   day: '2-digit' 
+                   }).format()}
+                {/* {(new Date(task.variables.policy.createdAt)).toDateString()} */}
               </td>
               <td>
-                {(new Date(task.variables.policy.createdAt)).toDateString()}
+              {task.variables.user.firstName}
+                {/* {task.variables.policy.info != null ? JSON.parse(task.variables.policy.info).createdAt : '-'} */}
               </td>
+              <td>
+                {(task.variables.status) ? task.variables.status.toUpperCase() : 'Draft'}
+              </td>
+           
               <td>
                 {!task.completed ? (
                   <a className="btn prulife" href={`/tasks/edit?id=${task.id}`}>Edit</a>

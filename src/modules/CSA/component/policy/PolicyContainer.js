@@ -371,7 +371,7 @@ class Policy extends Component {
         <div className="col xl-1 l-1 m-1 s-hide xs-hide invisible">
           made by questronix
         </div>
-        <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
+        <div className="col xl-10 l-10 m-10 s-11 xs-11 ">
           <h1 className="font-prulife flex s-f-center xs-f-center">Policy Information</h1>
           <SearchPolicyForm
             onPolicySearchSubmit={this.handlePolicySearchSubmit}
