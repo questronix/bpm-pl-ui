@@ -33,7 +33,7 @@ class Nav extends Component {
           <div className="navmenu xl-hide l-hide">
             <ul>
                 <a href="/login">
-                  Logout2
+                  Logout
                 </a>
             </ul>
           </div>

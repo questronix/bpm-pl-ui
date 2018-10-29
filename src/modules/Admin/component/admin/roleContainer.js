@@ -33,7 +33,8 @@ class RoleContainer extends Component {
     const roles = this.state.data;
     roles.push(role);
     this.setState({
-      data: roles
+      data: roles,
+      value: ''
     });
   }
 

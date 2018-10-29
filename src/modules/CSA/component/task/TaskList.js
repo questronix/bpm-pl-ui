@@ -21,7 +21,7 @@ const TaskList = (props) => (
         <tbody>
           {props.tasks.map((task, index) => (
             <tr key={index}>
-              <td class="bold"><div class="cursor"></div>00000001</td>
+              <td class="bold"><div class="cursor"></div>00000002</td>
               <td>
                 {task.variables.policy.number ? task.variables.policy.number : '-'}
               </td>
@@ -35,11 +35,15 @@ const TaskList = (props) => (
                 {task.variables.policy.info != null ? JSON.parse(task.variables.policy.info).insured.lastName : '-'}
               </td>
               <td>
-                {(task.variables.status) ? task.variables.status.toUpperCase() : 'Draft'}
-              </td>
-              <td>
                 {(new Date(task.variables.policy.createdAt)).toDateString()}
               </td>
+              <td>
+                {task.variables.policy.info != null ? JSON.parse(task.variables.policy.info).createdAt : '-'}
+              </td>
+              <td>
+                {(task.variables.status) ? task.variables.status.toUpperCase() : 'Draft'}
+              </td>
+           
               <td>
                 {!task.completed ? (
                   <a className="btn prulife" href={`/tasks/edit?id=${task.id}`}>Edit</a>
