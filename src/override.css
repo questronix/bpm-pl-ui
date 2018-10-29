@@ -3,7 +3,7 @@
   src: url("/src/lib/Fonts/GOTHIC.TTF") format("TTF"), url("/src/lib/Fonts/GOTHICB.TTF") format("TTF"), url("/src/lib/Fonts/GOTHICBI.TTF") format("TTF"), url("/src/lib/Fonts/GOTHICI.TTF") format("TTF"); }
 body, html, h1, h3, h4, h5, h6, a, p, b {
   color: #68737A;
-  font-family: 'Century Gothic'; }
+  font-family: 'Century Gothic',  sans-serif; }
 
 body, html, a, p {
   font-size: 13px; }

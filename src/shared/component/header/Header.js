@@ -38,7 +38,7 @@ class Header extends Component {
           </a>
           <div className={this.state.isOpen ? 'dropdown-menu active' : 'dropdown-menu'}>
             <ul>
-              <a href="/logout">
+              <a href="/login">
                 <li>
                   <span className="fa fa-sign-out-alt"></span> &nbsp;
                   Logout
