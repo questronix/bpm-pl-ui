@@ -21,7 +21,7 @@ const TaskList = (props) => (
         <tbody>
           {props.tasks.map((task, index) => (
             <tr key={index}>
-              <td class="bold"><div class="cursor"></div>00000002</td>
+              <td class="bold"><div class="cursor"></div>00000001</td>
               <td>
                 {task.variables.policy.number ? task.variables.policy.number : '-'}
               </td>
@@ -35,10 +35,16 @@ const TaskList = (props) => (
                 {task.variables.policy.info != null ? JSON.parse(task.variables.policy.info).insured.lastName : '-'}
               </td>
               <td>
-                {(new Date(task.variables.policy.createdAt)).toDateString()}
+                {new Intl.DateTimeFormat('en-GB', { 
+                   year: 'numeric', 
+                   month: 'long', 
+                   day: '2-digit' 
+                   }).format()}
+                {/* {(new Date(task.variables.policy.createdAt)).toDateString()} */}
               </td>
               <td>
-                {task.variables.policy.info != null ? JSON.parse(task.variables.policy.info).createdAt : '-'}
+              {task.variables.user.firstName}
+                {/* {task.variables.policy.info != null ? JSON.parse(task.variables.policy.info).createdAt : '-'} */}
               </td>
               <td>
                 {(task.variables.status) ? task.variables.status.toUpperCase() : 'Draft'}
