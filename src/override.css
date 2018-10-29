@@ -54,7 +54,7 @@ button:disabled {
   cursor: not-allowed !important;
   background-color: #eee !important;
   color: #bdbdbd !important; }
-  button:disabled:disabled:hover, button:disabled.btn:disabled:hover, .card-img-container button.card-btn:disabled:disabled:hover, button:disabled .btn:disabled:hover, button:disabled .card-img-container .card-btn:disabled:hover, .card-img-container button:disabled .card-btn:disabled:hover {
+  button:disabled:disabled:hover, button:disabled.btn:disabled:hover, button.btn-circle:disabled:disabled:hover, .card-img-container button.card-btn:disabled:disabled:hover, button:disabled .btn:disabled:hover, button:disabled .btn-circle:disabled:hover, button:disabled .card-img-container .card-btn:disabled:hover, .card-img-container button:disabled .card-btn:disabled:hover {
     border: solid 3px #eee;
     cursor: not-allowed;
     background-color: #eee !important;
@@ -322,35 +322,64 @@ body, html {
 .text-right {
   text-align: right; }
 
-.btn, .card-img-container .card-btn {
+.btn, .btn-circle, .card-img-container .card-btn {
   height: 40px;
   border-radius: 20px;
   padding: 0px 20px;
-  background-color: #bdbdbd;
   color: #fff;
+  background-color: #E0E1E2;
   display: flex;
   align-items: center;
   margin-left: 5px;
+  box-shadow: 0px 0px 6px #E0E1E2;
   -webkit-transition: all .3s ease-out;
   -moz-transition: all .3s ease-out;
   -ms-transition: all .3s ease-out;
   -o-transition: all .3s ease-out;
   transition: all 0.3s ease-out; }
-  .btn span, .card-img-container .card-btn span {
+  .btn span, .btn-circle span, .card-img-container .card-btn span {
     font-size: 13px; }
-  .btn:active, .card-img-container .card-btn:active {
+  .btn:active, .btn-circle:active, .card-img-container .card-btn:active {
     transform: scale(0.9); }
-  .btn.prulife, .card-img-container .prulife.card-btn {
+  .btn.prulife, .prulife.btn-circle, .card-img-container .prulife.card-btn {
     background-color: #ED1B2E;
     color: #fff;
     box-shadow: 0px 0px 6px #ED1B2E; }
-    .btn.prulife:hover, .card-img-container .prulife.card-btn:hover {
+    .btn.prulife:hover, .prulife.btn-circle:hover, .card-img-container .prulife.card-btn:hover {
       box-shadow: 0px 0px 25px #ED1B2E; }
-  .btn.alt, .card-img-container .alt.card-btn {
+  .btn.alt, .alt.btn-circle, .card-img-container .alt.card-btn {
     background-color: #fff;
     color: #2b2b2b;
     box-shadow: 0px 0px 6px #eee; }
-    .btn.alt:hover, .card-img-container .alt.card-btn:hover {
+    .btn.alt:hover, .alt.btn-circle:hover, .card-img-container .alt.card-btn:hover {
+      box-shadow: 0px 0px 25px #eee; }
+
+.btn-circle {
+  width: 40px;
+  padding: 0;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -ms-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all 0.3s ease-out;
+  color: #2b2b2b;
+  margin-left: 15px;
+  font-weight: bold; }
+  .btn-circle:active {
+    transform: scale(0.9); }
+  .btn-circle:hover {
+    box-shadow: 0px 0px 25px #E0E1E2; }
+  .btn-circle.active {
+    background-color: #ED1B2E;
+    color: #fff;
+    box-shadow: 0px 0px 6px #ED1B2E; }
+    .btn-circle.active:hover {
+      box-shadow: 0px 0px 25px #ED1B2E; }
+  .btn-circle.alt {
+    background-color: #fff;
+    color: #2b2b2b;
+    box-shadow: 0px 0px 6px #eee; }
+    .btn-circle.alt:hover {
       box-shadow: 0px 0px 25px #eee; }
 
 .item {
@@ -388,6 +417,9 @@ select {
     border: solid 1px #bdbdbd;
     color: #2b2b2b;
     box-shadow: none; }
+
+.margin-container {
+  margin: 10px; }
 
 ul, li, ol {
   list-style-type: none; }
@@ -494,30 +526,30 @@ hr {
 .margin-auto {
   margin: auto; }
 
-.flex, nav.navbar .navmenu ul, nav.navbar .navmenu ul li {
+.flex, .btn-circle, nav.navbar .navmenu ul, nav.navbar .navmenu ul li {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -moz-flex;
   display: -webkit-flex;
   display: flex; }
-  .flex.f-wrap, nav.navbar .navmenu ul.f-wrap, nav.navbar .navmenu ul li.f-wrap, .flex .f-wrap, nav.navbar .navmenu ul .f-wrap {
+  .flex.f-wrap, .f-wrap.btn-circle, nav.navbar .navmenu ul.f-wrap, nav.navbar .navmenu ul li.f-wrap, .flex .f-wrap, .btn-circle .f-wrap, nav.navbar .navmenu ul .f-wrap {
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap; }
-  .flex.f-center, nav.navbar .navmenu ul.f-center, nav.navbar .navmenu ul li, .flex .f-center, nav.navbar .navmenu ul .f-center, nav.navbar .navmenu ul li {
+  .flex.f-center, .btn-circle, nav.navbar .navmenu ul.f-center, nav.navbar .navmenu ul.btn-circle, nav.navbar .navmenu ul li, .flex .f-center, .btn-circle .f-center, nav.navbar .navmenu ul .f-center, .flex .btn-circle, .btn-circle .btn-circle, nav.navbar .navmenu ul .btn-circle, nav.navbar .navmenu ul li {
     justify-content: center;
     align-items: center; }
-  .flex.f-start, nav.navbar .navmenu ul.f-start, nav.navbar .navmenu ul li.f-start, .flex .f-start, nav.navbar .navmenu ul .f-start {
+  .flex.f-start, .f-start.btn-circle, nav.navbar .navmenu ul.f-start, nav.navbar .navmenu ul li.f-start, .flex .f-start, .btn-circle .f-start, nav.navbar .navmenu ul .f-start {
     justify-content: flex-start; }
-  .flex.f-end, nav.navbar .navmenu ul.f-end, nav.navbar .navmenu ul li.f-end, .flex .f-end, nav.navbar .navmenu ul .f-end {
+  .flex.f-end, .f-end.btn-circle, nav.navbar .navmenu ul.f-end, nav.navbar .navmenu ul li.f-end, .flex .f-end, .btn-circle .f-end, nav.navbar .navmenu ul .f-end {
     justify-content: flex-end; }
-  .flex.f-row, nav.navbar .navmenu ul, nav.navbar .navmenu ul li.f-row, .flex .f-row, nav.navbar .navmenu ul .f-row, .flex nav.navbar .navmenu ul, nav.navbar .navmenu .flex ul, nav.navbar .navmenu ul ul {
+  .flex.f-row, .f-row.btn-circle, nav.navbar .navmenu ul, nav.navbar .navmenu ul li.f-row, .flex .f-row, .btn-circle .f-row, nav.navbar .navmenu ul .f-row, .flex nav.navbar .navmenu ul, nav.navbar .navmenu .flex ul, .btn-circle nav.navbar .navmenu ul, nav.navbar .navmenu .btn-circle ul, nav.navbar .navmenu ul ul {
     flex-direction: row; }
-  .flex.f-column, nav.navbar .navmenu ul.f-column, nav.navbar .navmenu ul li, .flex .f-column, nav.navbar .navmenu ul .f-column, nav.navbar .navmenu ul li {
+  .flex.f-column, .f-column.btn-circle, nav.navbar .navmenu ul.f-column, nav.navbar .navmenu ul li, .flex .f-column, .btn-circle .f-column, nav.navbar .navmenu ul .f-column, nav.navbar .navmenu ul li {
     flex-direction: column; }
-  .flex.f-justify-space-between, nav.navbar .navmenu ul.f-justify-space-between, nav.navbar .navmenu ul li.f-justify-space-between, .flex .f-justify-space-between, nav.navbar .navmenu ul .f-justify-space-between {
+  .flex.f-justify-space-between, .f-justify-space-between.btn-circle, nav.navbar .navmenu ul.f-justify-space-between, nav.navbar .navmenu ul li.f-justify-space-between, .flex .f-justify-space-between, .btn-circle .f-justify-space-between, nav.navbar .navmenu ul .f-justify-space-between {
     justify-content: space-between; }
-  .flex.f-justify-around, nav.navbar .navmenu ul.f-justify-around, nav.navbar .navmenu ul li.f-justify-around, .flex .f-justify-around, nav.navbar .navmenu ul .f-justify-around {
+  .flex.f-justify-around, .f-justify-around.btn-circle, nav.navbar .navmenu ul.f-justify-around, nav.navbar .navmenu ul li.f-justify-around, .flex .f-justify-around, .btn-circle .f-justify-around, nav.navbar .navmenu ul .f-justify-around {
     justify-content: space-around; }
 
 .box {

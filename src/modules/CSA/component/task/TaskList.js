@@ -20,7 +20,7 @@ const TaskList = (props) => (
         </thead>
         <tbody>
           {props.tasks.map((task, index) => (
-            <tr key={index}>
+            <tr key={index} >
               <td class="bold"><div class="cursor"></div>00000001</td>
               <td>
                 {task.variables.policy.number ? task.variables.policy.number : '-'}
@@ -65,6 +65,42 @@ const TaskList = (props) => (
         <h1>No Data Available
     </h1>
       </div>)}
+    <div className="flex f-row f-justify-space-between margin-container">
+      <div className="flex f-row">
+        <h4>
+          Total Count:&nbsp;
+        </h4>
+        <h4 className="font-prulife">
+          12,3456
+        </h4>
+      </div>
+      <div className=" flex f-row">
+        <a href="#" className="btn-circle ">
+          <span className="fa fa-angle-double-left"></span>
+        </a>
+        <a href="#" className="btn-circle ">
+          <span className="fa fa-chevron-left"></span>
+        </a>
+        <a href="#" className="btn-circle active">
+          <span className=""> 1 </span>
+        </a>
+        <a href="#" className="btn-circle ">
+          <span className=""> 2 </span>
+        </a>
+        <a href="#" className="btn-circle ">
+          <span className=""> 3 </span>
+        </a>
+        <a href="#" className="btn-circle ">
+          <span className=""> 4 </span>
+        </a>
+        <a href="#" className="btn-circle ">
+          <span className="fa fa-chevron-right"></span>
+        </a>
+        <a href="#" className="btn-circle ">
+          <span className="fa fa-angle-double-right"></span>
+        </a>
+      </div>
+    </div>
   </div>
 );
 

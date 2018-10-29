@@ -405,11 +405,12 @@ body, html{
     height: 40px;
     border-radius: 20px;
     padding: 0px 20px;
-    background-color: $gray;
     color: $white;
+    background-color: #E0E1E2;
     display: flex;
     align-items: center;
     margin-left: 5px;
+    box-shadow: 0px 0px 6px #E0E1E2;
     span{
         font-size: 13px;
     }
@@ -418,6 +419,39 @@ body, html{
         transform: scale(.9);
     }
     &.prulife{
+        background-color: $prulife;
+        color: $white;
+        box-shadow: 0px 0px 6px #ED1B2E;
+        &:hover{
+            box-shadow: 0px 0px 25px #ED1B2E;
+        }
+    }
+    &.alt{
+        background-color: $white;
+        color: $black;
+        box-shadow: 0px 0px 6px $light-gray;
+        &:hover{
+            box-shadow: 0px 0px 25px $light-gray;
+        }
+    }
+}
+.btn-circle{
+    @extend .btn;
+    width: 40px;
+    padding: 0;
+    @extend .flex;
+    @extend .f-center;
+    @include transition();
+    color: $black;
+    margin-left: 15px;
+    font-weight: bold;
+    &:active{
+        transform: scale(.9);
+    }
+    &:hover{
+        box-shadow: 0px 0px 25px #E0E1E2;
+    }
+    &.active{
         background-color: $prulife;
         color: $white;
         box-shadow: 0px 0px 6px #ED1B2E;
@@ -465,6 +499,9 @@ select { /* Chrome/Opera/Safari */
     }
 }
 // misc
+.margin-container{
+    margin:10px;
+}
 ul,li,ol{
     list-style-type: none;
 }
