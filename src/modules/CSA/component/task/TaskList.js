@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 
 const TaskList = (props) => (
@@ -42,8 +44,13 @@ const TaskList = (props) => (
           </td>
           <td>
             {!task.completed ? (
-                <a className="btn prulife" href={`/tasks/edit?id=${task.id}`}>Edit</a>
-            ) : <a className="btn prulife" href={`/tasks/edit?id=${task.id}`}>View</a>}
+                <Link 
+                  to={{
+                    pathname: `/tasks/edit`,
+                    search: `?id=${task.id}`,
+                    state: { fromTaskList: true },
+                  }}>Edit</Link>
+            ) : <Link to={`/tasks/edit?id=${task.id}`}>View</Link> }
           </td>
         </tr>
         ))}

@@ -11,6 +11,7 @@ class EditTaskContainer extends Component {
   }
   
   componentDidMount() {
+    console.log('PROPS ---------------------------------', this.props.location);
     this.setState({
       id: this.getQueryStringValue("id")
     });
