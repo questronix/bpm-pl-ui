@@ -14,7 +14,7 @@ class Header extends Component {
             Aftersales
           </h3>
         </div>
-        <div className="header-action">
+        <div className="header-action dropdown">
           <a href="#" className="flex f-row f-center">
             <span className="fa fa-user"></span> &nbsp;&nbsp;
             <p>
@@ -22,6 +22,19 @@ class Header extends Component {
             </p>
             &nbsp;&nbsp;<span className="fa fa-chevron-down"></span>
           </a>
+          <div className="dropdown-menu">
+            <ul>
+              <li>
+                Items
+              </li>
+              <li>
+                Items
+              </li>
+              <li>
+                Items
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     );

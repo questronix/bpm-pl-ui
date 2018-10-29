@@ -30,6 +30,9 @@ a{
 body{
     background-color: #f0f0f0;
 }
+button{
+    border:none;
+}
 // body, html, h1, h3, h4, h5, h6, a, p, b, ::placeholder, textarea, button{
 //     font-family: 'PruSans';
 //     color: $pru-gray;
@@ -1752,5 +1755,19 @@ input[type="search"] {
             cursor: pointer;
             z-index: 2;
         }
+    }
+}
+.dropdown{
+    .dropdown-menu{
+        position: absolute;
+        background-color: $white;
+        box-shadow: 0px 0px 6px #CECECE;
+        width: 100%;
+        ul{
+            li{
+                margin: 5px;
+            }
+        }
+        
     }
 }
