@@ -112,7 +112,7 @@ class LoginForm extends Component {
                   {this.state.isSubmitting ? 'Please wait..' : 'Login'} 
                 </button> */}
                   {this.state.isSubmitting ? (<span className="spinner atom"></span>) :
-                    <button className="btn xl-10 prulife login-btn"
+                    <button className="btn xl-10 prulife login-btn flex f-center"
                       type="submit" >
                       Login
                   </button>}
