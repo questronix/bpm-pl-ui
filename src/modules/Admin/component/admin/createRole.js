@@ -5,8 +5,8 @@ class CreateRole extends Component{
   constructor(props){
     super(props);
     this.state = {
-      roleTitle: '',
-      roleDescription: '',
+      name: '',
+      description: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -47,8 +47,8 @@ class CreateRole extends Component{
                 </h4>
               </label>
               <input
-                name="roleTitle"
-                value={this.state.roleTitle}
+                name="name"
+                value={this.state.name}
                 onChange={this.handleInputChange}
                 type="text"
                 className="col input custom-input"
@@ -62,8 +62,8 @@ class CreateRole extends Component{
                 </h4>
               </label>
               <textarea
-                name="roleDescription"
-                value={this.state.roleDescription}
+                name="description"
+                value={this.state.description}
                 onChange={this.handleInputChange}
                 className="textarea custom-textarea" 
                 placeholder="What doeas your role do?" />

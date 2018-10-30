@@ -2,40 +2,47 @@ import React, { Component } from 'react';
 import SearchAndAdd from '../../../../shared/component/search-and-add/SearchAndAdd';
 import RoleList from './roleList';
 import CreateRole from './createRole';
+import { RoleService } from '../../services';
 
 class RoleContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state= {
-      data: [
-        {
-          "roleTitle":"CSA",
-          "roleDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel neque purus. Phasellus placerat, nisl ut sagittis hendrerit, erat enim semper neque, at elementum tellus metus at neque",
-          "memberCount" : 10
-        }, {
-          "roleTitle":"Processor",
-          "roleDescription": "Etiam quam nulla, fringilla nec ex at, eleifend",
-          "memberCount" : 12
-
-        }, {
-          "roleTitle":"Admin",
-          "roleDescription": "Sed iaculis nec tortor sed venenatis. Mauris vehicula justo lacus",
-          "memberCount" : 6 
-      }]
+      data: []
+      
     }
 
     this.handleCreateRole = this.handleCreateRole.bind(this);
   }
 
+  componentDidMount() {
+    RoleService.getAllRoles()
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          data: res.data
+        })
+      })
+      .finally(() => {
+        // Do something
+      });
+  }
+
   handleCreateRole(role) {
-    console.log(role);  
-    const roles = this.state.data;
-    roles.push(role);
-    this.setState({
-      data: roles,
-      value: ''
-    });
+    RoleService.createNewRole(role)
+      .then((res)=>{
+      console.log(res.data); 
+      const roles = this.state.data;
+      roles.push(role);
+      this.setState({
+        data: role
+      
+    }) 
+      })
+    .finally(() => {
+    
+  });
   }
 
   render() {
@@ -54,4 +61,3 @@ class RoleContainer extends Component {
 }
 
 export default RoleContainer;
-

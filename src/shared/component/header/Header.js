@@ -3,7 +3,21 @@
 import React, { Component } from 'react';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false
+    }
+  } 
+
+  toggleMenu() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
   render() {
+
     return (
       <div className="header header-container flex f-justify-space-between bg-white f-center">
         <div className="header-brand flex">
@@ -14,7 +28,7 @@ class Header extends Component {
             Aftersales
           </h3>
         </div>
-        <div className="header-action dropdown">
+        <div className="header-action dropdown" onClick={() => this.toggleMenu()}>
           <a href="#" className="flex f-row f-center">
             <span className="fa fa-user"></span> &nbsp;&nbsp;
             <p>
@@ -22,17 +36,14 @@ class Header extends Component {
             </p>
             &nbsp;&nbsp;<span className="fa fa-chevron-down"></span>
           </a>
-          <div className="dropdown-menu">
+          <div className={this.state.isOpen ? 'dropdown-menu active' : 'dropdown-menu'}>
             <ul>
-              <li>
-                Items
-              </li>
-              <li>
-                Items
-              </li>
-              <li>
-                Items
-              </li>
+              <a href="/login">
+                <li>
+                  <span className="fa fa-sign-out-alt"></span> &nbsp;
+                  Logout
+                </li>
+              </a>
             </ul>
           </div>
         </div>

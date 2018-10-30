@@ -17,11 +17,11 @@ const RoleList = (props) => {
                    <li className="compact-item">
                 <a href="#">
                   <h4 className="">
-                    {role.roleTitle}
+                    {role.name}
                   </h4>
-                  <ul className="flex-container flex-wrap">
+                  <ul className="flex-container flex-wrap">   
                     <li className="col no-padding xl-10">
-                      {role.roleDescription}
+                      {role.description}
                     </li>
                     <li> </li>
                   </ul>

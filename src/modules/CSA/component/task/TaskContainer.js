@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { TaskService } from '../../services';
 import TaskList from './TaskList';
+import CardWidget from '../../../../shared/component/Widgets/CardWidget';
+import FilterButton from '../../../../shared/component/filterbutton/FilterButton';
 
 class TaskContainer extends Component {
   constructor(props) {
@@ -47,7 +49,7 @@ class TaskContainer extends Component {
         <div className="col xl-10 l-10 m-10 s-11 xs-11">
           <h1 className="flex s-f-center xs-f-center">My tasks</h1>
           <hr />
-          <div className="col xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
+          <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
             <div className="search-container xl-3">
               <input className="search" placeholder="Search Policy Number" />
               <a href="#" className="search-icon float-left">
@@ -55,12 +57,7 @@ class TaskContainer extends Component {
               </a>
             </div>
             <div className="flex f-row">
-              <a
-                href="#"
-                className="btn alt">
-                <span className="fa fa-filter"></span>&nbsp;
-                FILTER
-              </a>
+              <FilterButton/>
               <a
                 href="#"
                 className="btn prulife"
