@@ -51,16 +51,26 @@ class TaskContainer extends Component {
       <div className="flex-container flex-wrap flex f-center">
         <div className="col xl-10 l-10 m-10 s-11 xs-11">
           <h1 className="flex s-f-center xs-f-center">My tasks</h1>
-          <hr />
           <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
-            <div className="search-container xl-3">
-              <input className="search" placeholder="Search Policy Number" />
-              <a href="#" className="search-icon float-left">
-                <span className="fa fa-search input-icon"></span>
+            <div className=" xl-5 flex f-justify-space-between">
+              <div className="search-container">
+                {/* <FilterButton/> */}
+                <select>
+                  <option value="Policy Number">Policy Number</option>
+                  <option value="Policy Owner">Policy Owner</option>
+                  <option value="Insured Name">Insured Name</option>
+                  <option value="Policy">Policy</option>
+                </select>
+                <input className="search" placeholder="Search..." />
+              </div>
+              <a href="#" className="btn prulife flex f-center">
+                <span className="fa fa-search font-white"></span> &nbsp;
+                <span>
+                SEARCH
+                </span>
               </a>
             </div>
             <div className="flex f-row">
-              <FilterButton/>
               <a
                 href="#"
                 className="btn prulife"
