@@ -13,9 +13,6 @@ class RoleList extends Component{
 
   }
 
-
-
-  
   render(){
     return (
       <div className="col xl-9 no-padding">
