@@ -55,11 +55,7 @@ class CardTable extends Component {
       {elem.status}
     </td>
   
-      <td>
-        <a className="btn prulife">
-          Action button
-      </a>
-      </td>
+     
    </tr>
      );
    });
@@ -76,7 +72,7 @@ class CardTable extends Component {
                   <th>Last Name</th>
                   <th>Date Created</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  
                 </tr>
               </thead>
               <tbody>

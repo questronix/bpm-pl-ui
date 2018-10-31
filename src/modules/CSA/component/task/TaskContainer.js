@@ -15,8 +15,7 @@ class TaskContainer extends Component {
   }
 
   createTask() {
-    TaskService.createNewTask({ username: sessionStorage.getItem('username') }).then((res) => {
-      // alert(res.data.id);
+    TaskService.createNewTask().then((res) => {
       window.location.href = `/tasks`;
       console.log(res.data);
     }).catch((err) => {
@@ -25,9 +24,7 @@ class TaskContainer extends Component {
   }
 
   componentDidMount() {
-    const user = JSON.parse(sessionStorage.getItem('user_info'));
-
-    TaskService.getAllTasks(user.id).then((res) => {
+    TaskService.getAllTasks().then((res) => {
       console.log(res.data);
       this.setState({
         tasks: res.data
@@ -36,7 +33,7 @@ class TaskContainer extends Component {
 
     });
 
-    TaskService.getAllTaskHistory(user.id).then((res) => {
+    TaskService.getAllTaskHistory().then((res) => {
       console.log(res.data);
       this.setState({
         taskHistory: res.data

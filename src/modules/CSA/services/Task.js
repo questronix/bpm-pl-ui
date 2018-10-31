@@ -3,31 +3,27 @@ export default class Task {
     this.http = client;
   }
 
-  getAllTasks(uid) {
-    return this.http.get(`/tasks?uid=${uid}`, {});
+  getAllTasks() {
+    return this.http.get(`/tasks`, {});
   }
 
   getTaskByInstanceId(instanceId) {
     return this.http.get(`/tasks/${instanceId}`);
   }
 
-  createNewTask(args) {
-    return this.http.post(`/tasks`, args);
+  createNewTask() {
+    return this.http.post(`/tasks`);
   }
 
-  getTaskDetails(taskId, uid) {
-    return this.http.get(`/tasks/${taskId}?uid=${uid}`, {});
+  getTaskDetails(taskId) {
+    return this.http.get(`/tasks/${taskId}`, {});
   }
 
-  submitTask(taskId, uid, data) {
-    return this.http.post(`/tasks/${taskId}?uid=${uid}`, data);
+  submitTask(taskId, data) {
+    return this.http.post(`/tasks/${taskId}`, data);
   }
 
-  getAllTaskHistory(uid) {
-    return this.http.get(`/tasks/history?uid=${uid}`, {});
+  getAllTaskHistory() {
+    return this.http.get(`/tasks/history`, {});
   }
-
-  // startProcess(args) {
-  //   return this.http.post(`/tasks/new`, args);
-  // }
 }
