@@ -9,12 +9,12 @@ class Input extends Component {
       <div className="App">
         <div className="input-container">
           <label>
-            This is the label
+            {this.props.inputLabel}
           </label>
           <input
             type="text"
-            placeholder="input"
-            className="" />
+            placeholder={this.props.inputPlaceholder}
+            className={this.props.inputClass} />
         </div>
       </div>
     );

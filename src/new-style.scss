@@ -431,7 +431,7 @@ body, html{
     align-items: center;
     margin-left: 5px;
     // box-shadow: 0px 0px 6px #E0E1E2;
-    border: 1px solid $black;
+    // border: 1px solid $black;
     span{
         font-size: 13px;
     }
@@ -466,6 +466,7 @@ body, html{
 }
 .btn-circle{
     @extend .btn;
+    height: 40px;
     width: 40px;
     padding: 0;
     @extend .flex;
@@ -474,6 +475,8 @@ body, html{
     color: $black;
     margin-left: 15px;
     font-weight: bold;
+    border-radius: 50%;
+    border: none;
     &:active{
         transform: scale(.9);
     }
@@ -1351,9 +1354,9 @@ nav{
 }
 .sidebar{
     background-color: rgba($pru-gray,.1);
-    position: fixed;
+    position: absolute;
     height: 100%;
-    padding-top: 90px;
+    // padding-top: 90px;
     padding-left: 0;
     padding-right: 0;
     @include transition();
