@@ -9,7 +9,9 @@ class RoleContainer extends Component {
     super(props);
 
     this.state= {
-      data: []
+      data: [],
+      isInEditMode:false,
+      
       
     }
 
@@ -33,16 +35,16 @@ class RoleContainer extends Component {
     RoleService.createNewRole(role)
       .then((res)=>{
       console.log(res.data); 
+     
+      })
+    .finally(() => {
       const roles = this.state.data;
       roles.push(role);
       this.setState({
-        data: role
+        data: roles,
       
-    }) 
       })
-    .finally(() => {
-    
-  });
+    });
   }
 
   render() {
