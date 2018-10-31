@@ -47,6 +47,9 @@ button{
 ul{
     padding:0;
 }
+label{
+    cursor: pointer;
+}
 ::placeholder, input, label{
     font-size: 1rem;
 }
@@ -444,6 +447,14 @@ body, html{
             box-shadow: 0px 0px 6px #ED1B2E;
         }
     }
+    &.bright-blue{
+        background-color: $bright-blue;
+        color: $white;
+        // box-shadow: 0px 0px 6px #ED1B2E;
+        &:hover{
+            box-shadow: 0px 0px 6px $bright-blue;
+        }
+    }
     &.alt{
         background-color: $white;
         color: $black;
@@ -517,11 +528,13 @@ select { /* Chrome/Opera/Safari */
     }
 }
 // misc
+.container{
+    margin: 10px;
+}
 .margin-container{
     margin:10px;
 }
 .text-with-icon{
-    margin: 10px;
     span{
         font-size: 12px;
     }
@@ -1710,7 +1723,31 @@ div{
     }
   }
   //table
-  $color_1: #232323;
+  .transaction-checkboxes{
+      width: fit-content;
+      min-width: 50%;
+      table{
+          box-shadow: none;
+          background-color: none;
+          tr{
+              td{
+                  input{
+                      cursor: pointer;
+                  }
+              }
+            &:hover {
+                td {
+                    background-color: rgba(0,0,0,0);
+                }
+            }
+        }
+          tr:nth-child(odd){
+              background-color: $light-gray;
+          }
+      }
+  }
+
+$color_1: #232323;
 $color_2: #ED1B2E;
 $color_3: #FFB81D;
 $color_4: #69813C;

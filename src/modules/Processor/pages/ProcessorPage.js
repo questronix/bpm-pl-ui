@@ -120,14 +120,14 @@ export default class Main extends Component {
                     <h3 className="box-header no-margin">
                       Policy Information
                     </h3>
-                    <div className="flex-container flex f-justify-evenly">
+                    <div className="container flex f-justify-evenly">
                       <Input />
                       <Input />
                       <Input />
                       <Input />
                       <Input />
                     </div>
-                    <div className="flex f-end">
+                    <div className="flex f-end container">
                       <a href="#" className="text-with-icon">
                         Show more
                         &nbsp; <span className="fa fa-chevron-down"></span>
@@ -148,7 +148,60 @@ export default class Main extends Component {
                           Transaction Number: 1022020
                         </h4>
                       </div>
-                      <hr/>
+                    </div>
+                    <form className="flex f-justify-evenly container">
+                      <div className="">
+                        <input name="transaction" id="Updating" type="radio" />
+                        <label for="Updating">
+                          Updating
+                         </label>
+                      </div>
+                      <div className="">
+                        <input name="transaction" id="Redating" type="radio" />
+                        <label for="Redating">
+                          Redating
+                        </label>
+                      </div>
+                      <div className="">
+                        <input name="transaction" id="Waiver" type="radio" />
+                        <label for="Waiver">
+                          Waiver
+                        </label>
+                      </div>
+                    </form>
+                    <div class="transaction-checkboxes margin-auto">
+                      <table border="0" cellspacing="0">
+                        <tr>
+                          <td><label for="health">Health Statement Form (HSF)</label></td>
+                          <td><input id="health" type="checkbox" /></td>
+                        </tr>
+                        <tr>
+                          <td><label for="routine">U/W routine requirements</label></td>
+                          <td><input id="routine" type="checkbox" /></td>
+                        </tr>
+                        <tr>
+                          <td><label for="payment">Payment of Premium Arrears</label></td>
+                          <td><input id="payment" type="checkbox" /></td>
+                        </tr>
+                        <tr>
+                          <td><label for="specimen">Specimen Signature Form (if applicable)</label></td>
+                          <td><input id="specimen" type="checkbox" /></td>
+                        </tr>
+                        <tr>
+                          <td><label for="valid">Valid Government Issued ID (if applicable)</label></td>
+                          <td><input id="valid" type="checkbox" /></td>
+                        </tr>
+                        <tr>
+                          <td><label for="non-government">Valid Non-Government Issued ID (if applicable)</label></td>
+                          <td><input id="non-government" type="checkbox" /></td>
+                        </tr>
+                      </table>
+                    </div>
+                    <hr/>
+                    <div className="flex f-end container">
+                      <a href="#" className="btn bright-blue xl-2">
+                        Additional Policy Information
+                      </a>
                     </div>
                   </div>
                 </div>
