@@ -97,11 +97,13 @@ let task = require('./Modules/Task');
 let fileNet = require('./Modules/FileNet');
 let login = require('./Modules/Login');
 let lifeasia = require('./Modules/LifeAsia');
+let role = require('./Modules/Role');
 
 app.use('/api/tasks', task);
 app.use('/api/filenet', fileNet);
 app.use('/api/auth', login);
 app.use('/api/lifeasia', lifeasia);
+app.use('/api/roles', role);
 
 const fileRes = require('./tiff.json');
 
