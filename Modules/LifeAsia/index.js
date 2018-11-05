@@ -6,8 +6,7 @@ const url = process.env.LIFE_ASIA_URL;
 const la = require('./model/LifeAsia');
 const mw = require('../Common/middleware/Authentication');
 
-// router.post('/', mw.isAuthenticated, (req, res) => {
-router.get('/:policyNum/policy', (req, res) => {
+router.post('/', mw.isAuthenticated, (req, res) => {
   const ACTION = '[getPolicy]';
   Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
 

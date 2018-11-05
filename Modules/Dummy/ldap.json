@@ -1,0 +1,22 @@
+{
+  "success": {
+    "status": "success",
+    "statusCode": "0",
+    "message": "Ok",
+    "isSuccess": true,
+    "result": {
+        "authenticated": true,
+        "username": "c68431"
+    }
+  },
+  "failed": {
+    "status": "fail",
+    "statusCode": "1",
+    "message": "Error encountered while processing request.",
+    "isSuccess": false,
+    "result": {
+        "authenticated": false,
+        "exceptionClass": "javax.naming.NamingException"
+    }
+  }
+}
