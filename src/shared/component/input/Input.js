@@ -6,17 +6,16 @@ class Input extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="input-container">
+        <div className={this.props.inputClass}>
           <label>
             {this.props.inputLabel}
           </label>
           <input
-            type="text"
+            disabled
+            type="text" 
             placeholder={this.props.inputPlaceholder}
-            className={this.props.inputClass} />
+            value={this.props.value} />
         </div>
-      </div>
     );
   }
 }

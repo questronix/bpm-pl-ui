@@ -84,6 +84,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 Override.scss
+new-style.scss
 override.css.map
 new-style.scss
 .sass-cache

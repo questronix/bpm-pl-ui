@@ -3,10 +3,8 @@ import CheckBox from '../../../../shared/component/checkbox/CheckBox';
 import CardImg from '../../../../shared/component/Widgets/CardImg';
 import Tab from '../../../../shared/component/tabs/Tab'
 import Input from '../../../../shared/component/input/Input';
-
 class PrescreeningInfo extends Component{
   
-
   constructor(props){
     super(props);
     this.state={
@@ -27,7 +25,6 @@ class PrescreeningInfo extends Component{
       });
     }
   }
-
   decrement(){
     this.setState({
       Tabs:this.state.Tabs - 1
@@ -124,10 +121,8 @@ class PrescreeningInfo extends Component{
                 </a>
               </div>
               <hr />
-
               {/* this is for tab1 */}
               {this.state.Tabs== 0 ? 
-
               <div>
                 <div className="box-header flex f-row f-justify-space-between">
                 <div className="flex-container">
@@ -238,7 +233,6 @@ class PrescreeningInfo extends Component{
                    </a>
                   </div>
                 </div> : ""}
-
             </div>
           </div>
         </div>
@@ -293,7 +287,4 @@ class PrescreeningInfo extends Component{
     );
   }
 }
-
-
-
 export default PrescreeningInfo;

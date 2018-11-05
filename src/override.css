@@ -53,7 +53,7 @@ label {
   background: rgba(237, 27, 46, 0.6);
   color: #fff; }
 
-input:disabled a, input:disabled p {
+input:disabled a, input:disabled p, input:disabled {
   border: solid 1px #bdbdbd !important;
   cursor: not-allowed !important;
   background-color: #eee !important; }
@@ -1528,6 +1528,12 @@ div {
   .modal img {
     width: 100%; }
 
+.modal-footer {
+  background-color: #eee; }
+
+.modal-header {
+  border-bottom: 1px solid #bdbdbd; }
+
 .modal-bg {
   position: absolute;
   top: 0;
@@ -1558,8 +1564,7 @@ div {
   overflow: auto;
   background: #fff;
   border-radius: 5px;
-  padding: 1em 2em;
-  height: 90%; }
+  height: fit-content; }
 
 .modal__close {
   position: absolute;
