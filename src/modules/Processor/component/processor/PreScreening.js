@@ -13,11 +13,24 @@ class PrescreeningInfo extends Component{
       Tabs: 0,
     }
     this.handleTabClick = this.handleTabClick.bind(this);
+    this.decrement = this.decrement.bind(this);
   }
   
   handleTabClick(){
+    if(this.state.Tabs ==3 ){
+      this.setState({
+        Tabs: 3
+      });
+    }else{
+      this.setState({
+        Tabs: this.state.Tabs + 1
+      });
+    }
+  }
+
+  decrement(){
     this.setState({
-      Tabs: this.state.Tabs + 1
+      Tabs:this.state.Tabs - 1
     });
   }
   
@@ -77,7 +90,7 @@ class PrescreeningInfo extends Component{
                         </h4>
                 <h4>
                 <a onClick={() => {this.handleTabClick(3)}}> 
-                Insured Details</a>
+                Owner Details</a>
                         </h4>
               </div>
             </div>
@@ -191,18 +204,39 @@ class PrescreeningInfo extends Component{
                 {/* this is for tab2 */}
                 {this.state.Tabs== 1 ? 
                 <div>
-                  <h1>This is tab2 </h1>
+                  <div className="flex f-end container">
+                  <a href="#" className="btn bright-blue" onClick={this.decrement}>
+                      Transaction Selection
+                   </a>
+                   <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
+                      Insured Details
+                   </a>
+                  </div>
                 </div> : ""}
                   
                   {/* this is for tab3 */}
                 {this.state.Tabs== 2 ? 
                 <div>
-                  <h1>This is tab3 </h1>
+                  <div className="flex f-end container">
+                  <a href="#" className="btn bright-blue" onClick={this.decrement}>
+                      Additional Policy Info
+                   </a>
+                   <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
+                      Owner Details
+                   </a>
+                  </div>
                 </div> : ""}
                   {/* this is for tab4 */}
                 {this.state.Tabs== 3 ? 
                 <div>
-                  <h1>This is tab4 </h1>
+                  <div className="flex f-end container">
+                  <a href="#" className="btn bright-blue" onClick={this.decrement}>
+                      Insured Details
+                   </a>
+                   <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
+                      Submit
+                   </a>
+                  </div>
                 </div> : ""}
 
             </div>
