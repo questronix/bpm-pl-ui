@@ -126,7 +126,7 @@ class TaskContainer extends Component {
               inputPlaceholder="mm/dd/yyyy"
               inputClass="col xl-4 input-container" />
             </div>
-          <div className="xl-12 modal-footer flex-container flex-wrap">
+          <div className="col xl-12 modal-footer flex-container flex-wrap">
             <div className="col xl-11">
             </div>
             <a
