@@ -84,7 +84,7 @@ class InsuredInformation extends Component {
             </div>
             <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
               <label className="label">Mobile Number: </label>
-              <input className="col input disabled" type="text" defaultValue={insured.mobileNumber} disabled />
+              <input className="col input disabled" type="text" defaultValue={insured.mobileNumber} />
             </div>
             <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
               <label className="label">TIN/SSS: </label>
@@ -92,7 +92,7 @@ class InsuredInformation extends Component {
             </div>
             <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
               <label className="label">Email: </label>
-              <input className="col input disabled" type="text" defaultValue={insured.email} disabled />
+              <input className="col input disabled" type="text" defaultValue={insured.email} />
             </div>
             <div className="xl-12">
               <hr />

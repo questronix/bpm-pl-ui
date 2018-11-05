@@ -45,18 +45,19 @@ class EditTaskContainer extends Component {
       },
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+      
   }
 
   componentDidMount() {
+    console.log('sample')
     this.getApplicationDocs("181234567");
 
     const user = JSON.parse(sessionStorage.getItem('user_info'));
     this.getTaskInfo(user.id);
   }
 
-  getQueryStringValue (key) {  
-    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+  getQueryStringValue(key) {
+    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
   }
 
   getTaskInfo(userId) {
@@ -80,7 +81,7 @@ class EditTaskContainer extends Component {
         }
       }
     };
-    
+
     FileNetService.getDocs(d).then((res) => {
       console.log(res);
       this.setState({
@@ -102,8 +103,8 @@ class EditTaskContainer extends Component {
       },
       "hit": true,
       "beyondAuthority": true,
-        "type":"processor",
-        "action": "complete"
+      "type": "processor",
+      "action": "complete"
     }
 
     const user = JSON.parse(sessionStorage.getItem('user_info'));
@@ -111,7 +112,7 @@ class EditTaskContainer extends Component {
       console.log(res.data.error);
       if (!res.data.error) {
         alert('Task Successfully Submitted!');
-        window.location.href="/processor"; 
+        window.location.href = "/processor";
       }
       else {
         alert(res.data.error);
@@ -129,12 +130,33 @@ class EditTaskContainer extends Component {
         <div className="col xl-2 l-2 m-2 s-hide xs-hide invisible">
           made by questronix
         </div>
-        <div className="col xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
+        <div className="col xl-10 l-10 m-10 s-11 xs-11 ">
           <h1 className="font-prulife flex s-f-center xs-f-center">Prescreening Information</h1>
-          {this.state.doc ? (<CardImg class="xl-4" docsId={1} docs={this.state.doc} docLabel="Application Document" docDate="01-01-01"></CardImg>) : 'Getting application documents..'}
-          <PrescreeningInfo insuredInfo={this.state.insuredInfo} />
+          <div className="flex-container flex-wrap">
+            <div className="col">
+              <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
+                <div className="tab-container flex-container no-padding col xl-12">
+                  <div className="tab-title col xl-2 l-2 m-2 s-4 xs-7 tab-active">
+                    Insured Information
+                  </div>
+                  <div className="tab-title col xl-2 l-2 m-2 s-4 xs-7 ">
+                    Owner Information
+                  </div>
+                </div>
+                <div className="">
+                  <div className="header">
+                    <h3 className="font-prulife">
+                      Policy
+                    </h3>
+                  </div>
+                  <PrescreeningInfo insuredInfo={this.state.insuredInfo} />
+                  {this.state.doc ? (<CardImg class="xl-4" docsId={1} docs={this.state.doc} docLabel="Application Document" docDate="01-01-01"/>) :'Getting application documents..'}
+                </div>
+              </div>
+            </div>
+          </div>
           <h1 className="font-prulife flex s-f-center xs-f-center">Processor Information</h1>
-          <CsaClient processInfo={this.state.processInfo}/>
+          <CsaClient processInfo={this.state.processInfo} />
           <div className="col xl-12 flex f-end">
             <button className="btn prulife" onClick={this.handleSubmit}>
               Send

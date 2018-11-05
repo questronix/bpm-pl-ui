@@ -18,7 +18,7 @@ class ProcessorContainer extends Component {
         <div className="col xl-2 l-2 m-2 s-hide xs-hide invisible">
           made by questronix
         </div>
-        <div className="col no-paddding xl-10 l-10 m-10 s-11 xs-11 margin-top-90">
+        <div className="col no-paddding xl-10 l-10 m-10 s-11 xs-11">
           <h1 className="font-prulife flex s-f-center xs-f-center">Task List</h1>
           {/* <TaskCounter
           overallTask="400"

@@ -5,10 +5,14 @@ const navLinks = [
   {
     label: 'Dashboard',
     path: '/dashboard',
+    icon: 'fa fa-tachometer-alt font-prulife',
+    
   },
   {
     label: 'Tasks',
     path: '/tasks',
+    icon: 'fa fa-clipboard-list font-bright-blue',
+    active: 'true'
   },
 ]
 
