@@ -340,7 +340,6 @@ body, html {
   display: flex;
   align-items: center;
   margin-left: 5px;
-  border: 1px solid #2b2b2b;
   -webkit-transition: all .3s ease-out;
   -moz-transition: all .3s ease-out;
   -ms-transition: all .3s ease-out;
@@ -367,6 +366,7 @@ body, html {
       box-shadow: 0px 0px 6px #eee; }
 
 .btn-circle {
+  height: 40px;
   width: 40px;
   padding: 0;
   -webkit-transition: all .3s ease-out;
@@ -376,7 +376,9 @@ body, html {
   transition: all 0.3s ease-out;
   color: #2b2b2b;
   margin-left: 15px;
-  font-weight: bold; }
+  font-weight: bold;
+  border-radius: 50%;
+  border: none; }
   .btn-circle:active {
     transform: scale(0.9); }
   .btn-circle:hover {
@@ -1237,9 +1239,8 @@ nav.navbar .navmenu {
 
 .sidebar {
   background-color: rgba(104, 115, 122, 0.1);
-  position: fixed;
+  position: absolute;
   height: 100%;
-  padding-top: 90px;
   padding-left: 0;
   padding-right: 0;
   -webkit-transition: all .3s ease-out;
@@ -1527,6 +1528,9 @@ div {
   .modal img {
     width: 100%; }
 
+.modal-footer {
+  background-color: #eee; }
+
 .modal-bg {
   position: absolute;
   top: 0;
@@ -1557,8 +1561,7 @@ div {
   overflow: auto;
   background: #fff;
   border-radius: 5px;
-  padding: 1em 2em;
-  height: 90%; }
+  height: fit-content; }
 
 .modal__close {
   position: absolute;

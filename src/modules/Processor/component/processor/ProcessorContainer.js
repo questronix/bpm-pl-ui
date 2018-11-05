@@ -37,9 +37,9 @@ class ProcessorContainer extends Component {
           made by questronix
         </div>
         <div className="col xl-10 l-10 m-10 s-11 xs-11 ">
-          <h1 className="font-prulife flex s-f-center xs-f-center">Prescreening Information</h1>
-          <CardImg class="xl-4" docsId={1} docs={this.state.doc} docLabel="Application Document" docDate="01-01-01"></CardImg>
-          <div className="flex-container flex-wrap">
+          <h1 className="font-prulife flex s-f-center xs-f-center">New Task Transaction</h1>
+          {/* <CardImg class="xl-4" docsId={1} docs={this.state.doc} docLabel="Application Document" docDate="01-01-01"></CardImg> */}
+          {/* <div className="flex-container flex-wrap">
             <div className="col">
               <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
                 <div className="tab-container flex-container no-padding col xl-12">
@@ -57,12 +57,12 @@ class ProcessorContainer extends Component {
                     </h3>
                   </div>
                   <div className="test">
-                  <PrescreeningInfo />
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
+          <PrescreeningInfo />
         </div>
         <h1 className="font-prulife flex s-f-center xs-f-center">Processor Information</h1>
         <CsaClient />
