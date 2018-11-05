@@ -85,5 +85,6 @@ yarn-debug.log*
 yarn-error.log*
 Override.scss
 override.css.map
+new-style.scss
 .sass-cache
 temp

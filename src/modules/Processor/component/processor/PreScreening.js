@@ -15,9 +15,9 @@ class PrescreeningInfo extends Component{
     this.handleTabClick = this.handleTabClick.bind(this);
   }
   
-  handleTabClick(e){
+  handleTabClick(){
     this.setState({
-      Tabs: e
+      Tabs: this.state.Tabs + 1
     });
   }
   
@@ -181,7 +181,7 @@ class PrescreeningInfo extends Component{
               </div>
               <hr />
               <div className="flex f-end container">
-                <a href="#" className="btn bright-blue">
+                <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
                   Additional Policy Information
                 </a>
               </div>
