@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 class Tab extends Component {
   constructor(props) {
     super(props);
@@ -12,21 +11,29 @@ class Tab extends Component {
   }
 
   handleTabClick(e) {
+    // console.log(e.target.attributes)
     this.setState({ activeTab: e.target.attributes['name'].value });
   }
 
   render() {
     return (
       <div className="tab">
-        <div className="tab-list">
+        <div className="tab-title-container">
           {this.props.children.map((child, key) => (
             <div
-              className="tab-list-item active"
+              className="tab-title active"
               name={child.props.label}
               key={key}
               onClick={this.handleTabClick}
             >
-              {child.props.label}
+              <h4 className="circle">
+                {child.props.num}
+              </h4>
+              <a>
+                <h4>
+                  {child.props.label}
+                </h4>
+              </a>
             </div>
           ))}
         </div>

@@ -1528,6 +1528,9 @@ div {
   .modal img {
     width: 100%; }
 
+.modal-footer {
+  background-color: #eee; }
+
 .modal-bg {
   position: absolute;
   top: 0;
@@ -1558,8 +1561,7 @@ div {
   overflow: auto;
   background: #fff;
   border-radius: 5px;
-  padding: 1em 2em;
-  height: 90%; }
+  height: fit-content; }
 
 .modal__close {
   position: absolute;

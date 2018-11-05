@@ -341,7 +341,6 @@ class Policy extends Component {
           {this.state.isSearching ?
             (<Fragment>
               <PageLoading />
-
             </Fragment>) :
             (<Fragment>
               <PolicyInformation policy={this.state.policy} />

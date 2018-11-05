@@ -1,69 +1,74 @@
-import React, {Component}from 'react';
+import React, { Component } from 'react';
 import CheckBox from '../../../../shared/component/checkbox/CheckBox';
 import CardImg from '../../../../shared/component/Widgets/CardImg';
 import Input from '../../../../shared/component/input/Input';
+import Tab from '../../../../shared/component/tabs/Tab';
 
-class PrescreeningInfo extends Component{
-  
+class PrescreeningInfo extends Component {
 
-  constructor(props){
+
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       Tabs: 0,
     }
     this.handleTabClick = this.handleTabClick.bind(this);
   }
-  
-  handleTabClick(e){
+
+  handleTabClick(e) {
     this.setState({
       Tabs: e
     });
   }
-  
-  render(){
+
+  render() {
     return (
       <div>
         <div className="xl-12">
           <div className="box">
             <div className="tab-title-container">
-              <div className={this.state.Tabs== 0 ? "tab-title active" : "tab-title"}>
-                <h4 className="circle"> 
+              <div className={this.state.Tabs == 0 ? "tab-title active" : "tab-title"}>
+                <h4 className="circle">
                   1
                 </h4>
-                <h4>
-                 <a onClick={() => {this.handleTabClick(0)}}> 
-                 Transaction Selection</a>
-                </h4>
+                <a onClick={() => { this.handleTabClick(0) }}>
+                  <h4>
+                    Transaction Selection
+                  </h4>
+                </a>
                 <span class="white"></span><span class="gray"></span>
               </div>
-              <div className={this.state.Tabs== 1 ? "tab-title active" : "tab-title"}>
+              <div className={this.state.Tabs == 1 ? "tab-title active" : "tab-title"}>
                 <h4 className="circle">
                   2
                 </h4>
-                <h4>
-                <a onClick={() => {this.handleTabClick(1)}}> 
-                Additional Prolicy info</a>
-                </h4>
+                <a onClick={() => { this.handleTabClick(1) }}>
+                  <h4>
+                    Additional Prolicy info
+                  </h4>
+                </a>
                 <span class="white"></span><span class="gray"></span>
               </div>
-              <div className={this.state.Tabs== 2 ? "tab-title active" : "tab-title"}>
+              <div className={this.state.Tabs == 2 ? "tab-title active" : "tab-title"}>
                 <h4 className="circle">
                   3
                 </h4>
-                <h4>
-                <a onClick={() => {this.handleTabClick(2)}}> 
-                Insured Details</a>
-                </h4>
+                <a onClick={() => { this.handleTabClick(2) }}>
+                  <h4>
+                    Insured Details
+                  </h4>
+                </a>
                 <span class="white"></span><span class="gray"></span>
               </div>
-              <div className={this.state.Tabs== 3 ? "tab-title active" : "tab-title"}>
+              <div className={this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
                 <h4 className="circle">
                   4
                         </h4>
-                <h4>
-                <a onClick={() => {this.handleTabClick(3)}}> 
-                Insured Details</a>
-                        </h4>
+                <a onClick={() => { this.handleTabClick(3) }}>
+                  <h4>
+                    Insured Details
+                          </h4>
+                </a>
               </div>
             </div>
             <div className="box-body">
@@ -73,21 +78,25 @@ class PrescreeningInfo extends Component{
               <div className="container flex f-justify-evenly">
                 <Input
                   inputLabel="transaction type"
-                  inputPlaceholder="transaction type" />
+                  inputPlaceholder="transaction type"
+                  inputClass="input-container" />
                 <Input
                   inputLabel="Policy Number"
-                   inputPlaceholder={this.props.insuredInfo.policy.number}
-                   />
+                  inputPlaceholder={this.props.insuredInfo.policy.number}
+                  inputClass="input-container"
+                />
                 <Input
                   inputLabel="Transaction Number"
-                  inputPlaceholder="Transaction Number" />
+                  inputPlaceholder="Transaction Number"
+                  inputClass="input-container"/>
                 <Input
                   inputLabel="Sum Assured"
                   inputPlaceholder={this.props.insuredInfo.policy.productType}
-                   />
+                  inputClass="input-container"/>
                 <Input
                   inputLabel="Created Date"
-                  inputPlaceholder="Created Date" />
+                  inputPlaceholder="Created Date"
+                  inputClass="input-container"/>
               </div>
               <div className="flex f-end container">11
                 <a href="#" className="text-with-icon">
@@ -168,14 +177,29 @@ class PrescreeningInfo extends Component{
             </div>
           </div>
         </div>
+        
+         <Tab>
+           <div label="transaction 1" num="1">
+            Test
+           </div>
+           <div label="transaction 2" num="2">
+            Test2
+           </div>
+           <div label="transaction 3" num="3">
+            Test32
+           </div>
+           <div label="transaction 4 " num="4">
+            Test2151
+           </div>
+         </Tab>
         {/* Please Bind the appropriate data to the top ^^^^^^
         Raference VVVV */}
-          {/* <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap tab-body">
+        {/* <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap tab-body">
             <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
               <label className="label">Policy Number :</label>
               <input value={this.props.insuredInfo.policy.number} className="col input disabled" type="text" disabled />
             </div> */}
-            {/* <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
+        {/* <div className="s-f-column xs-f-column col xl-6 l-6 m-6 s-12 xs-12 flex f-column">
               <label className="label">Product Type :</label>
               <input value={insuredInfo.policy.sumAssured} className="col input disabled" type="text" disabled />
             </div>
@@ -214,7 +238,7 @@ class PrescreeningInfo extends Component{
             <CheckBox value={insuredInfo.client.dowJones} class=" col" label="Dow Jones Hit :" cName="dowJonesHit" />
             <div className="col xl-6 l-6 m-6 s-12 xs-12 flex f-center  m-f-center s-f-center xs-f-center f-justify-space-between">
             </div> */}
-          {/* </div> */}
+        {/* </div> */}
       </div>
     );
   }
