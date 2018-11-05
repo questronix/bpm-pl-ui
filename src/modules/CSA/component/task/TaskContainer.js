@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { TaskService } from '../../services';
 import TaskList from './TaskList';
-import CardWidget from '../../../../shared/component/Widgets/CardWidget';
-import FilterButton from '../../../../shared/component/filterbutton/FilterButton';
 
 class TaskContainer extends Component {
   constructor(props) {
