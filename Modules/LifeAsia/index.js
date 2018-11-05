@@ -7,11 +7,11 @@ const la = require('./model/LifeAsia');
 const mw = require('../Common/middleware/Authentication');
 
 // router.post('/', mw.isAuthenticated, (req, res) => {
-router.post('/', (req, res) => {
+router.get('/:policyNum/policy', (req, res) => {
   const ACTION = '[getPolicy]';
-  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
 
-  la.getPolicy(req.body.policyNo)
+  la.getPolicy(req.params.policyNum)
     .then(data => {
       const p = data.result.policyDetails;
       const i = data.result.insuredDetails;
@@ -64,6 +64,21 @@ router.post('/', (req, res) => {
       };
       res.send({
         data: { policy, insured }
+      });
+    })
+    .catch(error => {
+      res.error(error);
+    });
+});
+
+router.get('/:clientNum/client', (req, res) => {
+  const ACTION = '[getClient]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+
+  la.getClientDetails(req.params.clientNum)
+    .then(data => {
+      res.send({
+        data
       });
     })
     .catch(error => {
