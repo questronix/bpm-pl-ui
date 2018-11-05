@@ -1,6 +1,7 @@
 import React, {Component}from 'react';
 import CheckBox from '../../../../shared/component/checkbox/CheckBox';
 import CardImg from '../../../../shared/component/Widgets/CardImg';
+import Tab from '../../../../shared/component/tabs/Tab'
 import Input from '../../../../shared/component/input/Input';
 
 class PrescreeningInfo extends Component{
@@ -25,6 +26,20 @@ class PrescreeningInfo extends Component{
       <div>
         <div className="xl-12">
           <div className="box">
+          {/* <Tab>
+              <div label="Step 1">
+                Content Step 1
+              </div>
+              <div label="Step 2">
+                Content Step 2
+              </div>
+              <div label="Step 3">
+                Content Step 3
+              </div>
+              <div label="Step 4">
+                Content Step 4
+              </div>
+            </Tab> */}
             <div className="tab-title-container">
               <div className={this.state.Tabs== 0 ? "tab-title active" : "tab-title"}>
                 <h4 className="circle"> 
@@ -96,7 +111,12 @@ class PrescreeningInfo extends Component{
                 </a>
               </div>
               <hr />
-              <div className="box-header flex f-row f-justify-space-between">
+
+              {/* this is for tab1 */}
+              {this.state.Tabs== 0 ? 
+
+              <div>
+                <div className="box-header flex f-row f-justify-space-between">
                 <div className="flex-container">
                   <h4 className="no-margin">
                     Transaction type:
@@ -165,6 +185,26 @@ class PrescreeningInfo extends Component{
                   Additional Policy Information
                 </a>
               </div>
+              </div>
+              
+              : ""}
+                {/* this is for tab2 */}
+                {this.state.Tabs== 1 ? 
+                <div>
+                  <h1>This is tab2 </h1>
+                </div> : ""}
+                  
+                  {/* this is for tab3 */}
+                {this.state.Tabs== 2 ? 
+                <div>
+                  <h1>This is tab3 </h1>
+                </div> : ""}
+                  {/* this is for tab4 */}
+                {this.state.Tabs== 3 ? 
+                <div>
+                  <h1>This is tab4 </h1>
+                </div> : ""}
+
             </div>
           </div>
         </div>
