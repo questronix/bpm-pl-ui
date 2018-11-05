@@ -5,6 +5,7 @@ import MyModal from '../../../../shared/component/modal/Modal';
 import ModalTrigger from '../../../../shared/component/modal/ModalTrigger';
 import PolicyInformation from '../policy/PolicyInformation';
 import Input from '../../../../shared/component/input/Input';
+import PolicyInformationNew from '../policy/PolicyInformationNew';
 
 class TaskContainer extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class TaskContainer extends Component {
         <MyModal
           modalId="1"
           modalLabel="New Transaction">
-          <div className="col xl-12">
+          <div className="col xl-12 modal-header">
             <div className="xl-4 l-4 flex f-justify-space-between">
               <div className="search-container">
                 <input className="search" placeholder="Search..." />
@@ -64,74 +65,25 @@ class TaskContainer extends Component {
               </a>
             </div>
           </div>
-            <div className=" col xl-12 flex-container flex-wrap">
-            <Input
-              inputLabel="Agent Code"
-              inputPlaceholder="007115122"
-              inputClass="col xl-3 input-container" />
-            <Input
-              inputLabel="Agent Name"
-              inputPlaceholder="First name Last name"
-              inputClass="col xl-6 input-container" />
-            <Input
-              inputLabel="Agent Status"
-              inputPlaceholder="Status"
-              inputClass="col xl-3 input-container" />
-            <Input
-              inputLabel="Branch"
-              inputPlaceholder="Branch Name"
-              inputClass="col xl-8 input-container" />
-            <Input
-              inputLabel="NMA"
-              inputPlaceholder="NMA"
-              inputClass="col xl-4 input-container" />
-            <Input
-              inputLabel="Plan Description"
-              inputPlaceholder="Plan Description"
-              inputClass="col xl-8 input-container" />
-            <Input
-              inputLabel="Plan Currency"
-              inputPlaceholder="NMA"
-              inputClass="col xl-4 input-container" />
-            <Input
-              inputLabel="Current Premium"
-              inputPlaceholder="Current Premium"
-              inputClass="col xl-4 input-container" />
-            <Input
-              inputLabel="Required Premium"
-              inputPlaceholder="Required Premium"
-              inputClass="col xl-4 input-container" />
-            <Input
-              inputLabel="Premium Status"
-              inputPlaceholder="Status"
-              inputClass="col xl-4 input-container" />
-            <Input
-              inputLabel="Sum Assured:"
-              inputPlaceholder="100,000"
-              inputClass="col xl-8 input-container" />
-            <Input
-              inputLabel="Risk Commencement Date:              "
-              inputPlaceholder="mm/dd/yyyy"
-              inputClass="col xl-4 input-container" />
-            <Input
-              inputLabel="First Issue Date:"
-              inputPlaceholder="mm/dd/yyyy"
-              inputClass="col xl-4 input-container" />
-            <Input
-              inputLabel="Paid to Date:"
-              inputPlaceholder="mm/dd/yyyy"
-              inputClass="col xl-4 input-container" />
-            <Input
-              inputLabel="Date of Signing:              "
-              inputPlaceholder="mm/dd/yyyy"
-              inputClass="col xl-4 input-container" />
+          <div className=" col xl-12 flex-container flex-wrap modal-body">
+            <div className="xl-12 modal-header">
+              <h2 className="font-prulife container">
+                Policy Information
+              </h2>
             </div>
+            <div className="xl-12">
+              <h2 className=" container">
+                Policy Information: 001011111
+              </h2>
+            </div>
+            <PolicyInformationNew/>
+          </div>
           <div className="col xl-12 modal-footer flex-container flex-wrap">
             <div className="col xl-11">
             </div>
             <a
               href="#"
-              className ="btn prulife"
+              className="btn prulife"
               onClick={this.createTask}>
               Proceed
             </a>
