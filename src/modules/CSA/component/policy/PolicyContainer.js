@@ -6,6 +6,7 @@ import Transaction from './Transaction';
 import ErrorAlert from '../../../../shared/component/alerts/Error';
 import PageLoading from '../../../../shared/component/loadings/PageLoading';
 import { PolicyService, TaskService } from '../../services';
+import Footer from '../../../../shared/component/footer/Footer';
 
 class Policy extends Component {
   constructor(props) {
@@ -356,6 +357,7 @@ class Policy extends Component {
                 </div>
               </div>
             </Fragment>)}
+        <Footer/>
         </div>
       </div>
     );

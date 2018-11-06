@@ -4,6 +4,7 @@ import PrescreeningInfo from '../processor/PreScreening';
 import CardImg from '../../../../shared/component/Widgets/CardImg';
 import { FileNetService } from '../../services/';
 import { TaskService } from '../../../../services/index';
+import Footer from '../../../../shared/component/footer/Footer';
 
 class EditTaskContainer extends Component {
   constructor(props) {
@@ -163,6 +164,7 @@ class EditTaskContainer extends Component {
             </button>
           </div>
         </div>
+        <Footer/>
       </div>
     );
   }
