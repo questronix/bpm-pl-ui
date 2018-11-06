@@ -91,6 +91,21 @@ router.put('/:clientNum/client', (req, res) => {
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 
   client.updateClientDetails(req.body)
+  .then(data => {
+    res.send({
+      data
+    });
+  })
+  .catch(error => {
+    res.error(error);
+  });
+});
+
+router.get('/:policyNum/policy', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[getPolicy]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+
+  la.getPolicy(req.params.policyNum)
     .then(data => {
       res.send({
         data

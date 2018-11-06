@@ -53,7 +53,7 @@ label {
   background: rgba(237, 27, 46, 0.6);
   color: #fff; }
 
-input:disabled a, input:disabled p {
+input:disabled a, input:disabled p, input:disabled {
   border: solid 1px #bdbdbd !important;
   cursor: not-allowed !important;
   background-color: #eee !important; }
@@ -1530,6 +1530,9 @@ div {
 
 .modal-footer {
   background-color: #eee; }
+
+.modal-header {
+  border-bottom: 1px solid #bdbdbd; }
 
 .modal-bg {
   position: absolute;
