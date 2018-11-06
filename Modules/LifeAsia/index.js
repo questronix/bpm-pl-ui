@@ -4,6 +4,7 @@ const router = express.Router();
 const Logger = require('../Common/services/Logger');
 const url = process.env.LIFE_ASIA_URL;
 const la = require('./model/LifeAsia');
+const client = require('./model/Client');
 const mw = require('../Common/middleware/Authentication');
 
 router.post('/', mw.isAuthenticated, (req, res) => {
@@ -82,6 +83,21 @@ router.get('/:clientNum/client', mw.isAuthenticated, (req, res) => {
     })
     .catch(error => {
       res.error(error);
+    });
+});
+
+router.put('/:clientNum/client', (req, res) => {
+  const ACTION = '[getClient]';
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+
+  client.updateClientDetails(req.body)
+    .then(data => {
+      res.send({
+        data
+      });
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
     });
 });
 
