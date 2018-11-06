@@ -20,6 +20,7 @@ $prulife:#ED1B2E;
 $grass-green:#007953;
 $bright-blue:#0064B9;
 $sun-yellow:#FFB81D;
+$purple:#722382;
 body, html, h1, h3, h4, h5, h6, a, p, b{
     // font-family: 'Roboto', sans-serif;
     color: $pru-gray;
@@ -36,7 +37,11 @@ a{
 }
 body{
     background-color: #f0f0f0;
+    // min-height: 100%;
 }
+// html{
+//     height: 100%;
+// }
 button{
     border:none;
 }
@@ -294,6 +299,9 @@ body, html{
 .bg-prulife{
     background-color: $prulife !important;
 }
+.bg-purple{
+    background-color: $purple !important;
+}
 .bg-gray{
     background-color: $gray !important;
 }
@@ -351,6 +359,9 @@ body, html{
 }
 .font-bright-blue{
     color: $bright-blue !important;
+}
+.font-purple{
+    color: $purple !important;
 }
 .font-sun-yellow{
     color: $sun-yellow !important;
@@ -445,6 +456,22 @@ body, html{
         // box-shadow: 0px 0px 6px #ED1B2E;
         &:hover{
             box-shadow: 0px 0px 6px #ED1B2E;
+        }
+    }
+    &.purple{
+        background-color: $purple;
+        color: $white;
+        // box-shadow: 0px 0px 6px #ED1B2E;
+        &:hover{
+            box-shadow: 0px 0px 6px $purple;
+        }
+    }
+    &.grass-green{
+        background-color: $grass-green;
+        color: $white;
+        // box-shadow: 0px 0px 6px #ED1B2E;
+        &:hover{
+            box-shadow: 0px 0px 6px $grass-green;
         }
     }
     &.bright-blue{
@@ -575,6 +602,9 @@ ul,li,ol{
     border-right:none !important;
     border-bottom: solid 1px $prulife !important;
     margin: 5px;
+    &.gray{
+        border-bottom: solid 1px $gray !important;
+    }
 }
 .inline{
     display: inline;
@@ -637,6 +667,22 @@ hr{
 }
 .header{
     padding:0px 20px;
+}
+.footer{
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    // @extend .flex;
+    // @extend .f-end;
+    margin-top: 20px;
+    width: 100%;
+    background-color: $white;
+    @include container-shadow();
+    img{
+        height: 20px;
+        margin: 10px;
+    }
 }
 .margin-auto{
     margin: auto;
@@ -1813,7 +1859,7 @@ table {
             .icon {
                 position: absolute;
                 top: 50%;
-                left: 50%;
+                left: 0;
                 color: $color_2;
                 font-size: 22px;
                 border-radius: 100%;
@@ -1991,4 +2037,59 @@ input[type="search"] {
         border-radius: 6px;
         outline: none;
     }
+}
+// addional info
+
+.transaction-container {
+	.additional-policy-info {
+		display: none;
+		.additional-content {
+			padding: 10px;
+			h2 {
+				font-size: 20px;
+				text-align: center;
+			}
+			table {
+				width: 50%;
+                margin: auto;
+                box-shadow: none !important;
+                background-color: none;
+				td {
+					vertical-align: middle;
+					font-size: 13px;
+					font-weight: bold;
+					padding: 5px;
+					.textbox {
+						width: 100%;
+					}
+					.icon {
+						color: $purple;
+						font-size: 20px;
+						cursor: pointer;
+					}
+				}
+				td.no-padding {
+					padding: 0px;
+				}
+			}
+		}
+		.additional-buttons {
+			display: -webkit-flex;
+			display: flex;
+			padding: 10px;
+			border-top: 1px solid #CECECE;
+			.prev-button {
+				background-color: $bright-blue;
+				border: 1px solid #005DB9;
+			}
+			.divider {
+				-webkit-flex: 1;
+				flex: 1;
+			}
+			.next-button {
+				background-color: $grass-green;
+				border: 1px solid #007953;
+			}
+		}
+	}
 }

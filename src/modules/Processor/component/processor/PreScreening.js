@@ -13,21 +13,22 @@ class PrescreeningInfo extends Component{
     this.handleTabClick = this.handleTabClick.bind(this);
     this.decrement = this.decrement.bind(this);
   }
-  
-  handleTabClick(){
-    if(this.state.Tabs ==3 ){
+
+  handleTabClick() {
+    if (this.state.Tabs == 3) {
       this.setState({
         Tabs: 3
       });
-    }else{
+    } else {
       this.setState({
         Tabs: this.state.Tabs + 1
       });
     }
   }
-  decrement(){
+
+  decrement() {
     this.setState({
-      Tabs:this.state.Tabs - 1
+      Tabs: this.state.Tabs - 1
     });
   }
   
@@ -36,7 +37,7 @@ class PrescreeningInfo extends Component{
       <div>
         <div className="xl-12">
           <div className="box">
-          {/* <Tab>
+            {/* <Tab>
               <div label="Step 1">
                 Content Step 1
               </div>
@@ -105,14 +106,16 @@ class PrescreeningInfo extends Component{
                    />
                 <Input
                   inputLabel="Transaction Number"
-                  inputPlaceholder="Transaction Number" />
+                  inputPlaceholder="Transaction Number"
+                  inputClass="input-container" />
                 <Input
                   inputLabel="Sum Assured"
                   inputPlaceholder={this.props.insuredInfo.policy.productType}
-                   />
+                  inputClass="input-container" />
                 <Input
                   inputLabel="Created Date"
-                  inputPlaceholder="Created Date" />
+                  inputPlaceholder="Created Date"
+                  inputClass="input-container" />
               </div>
               <div className="flex f-end container">11
                 <a href="#" className="text-with-icon">
@@ -121,121 +124,144 @@ class PrescreeningInfo extends Component{
                 </a>
               </div>
               <hr />
+            </div>
+            <div className="box-body">
+
               {/* this is for tab1 */}
-              {this.state.Tabs== 0 ? 
-              <div>
-                <div className="box-header flex f-row f-justify-space-between">
-                <div className="flex-container">
-                  <h4 className="no-margin">
-                    Transaction type:
-                  </h4>
-                  <select>
-                    <option>Reinstatement</option>
-                  </select>
-                </div>
-                <div className="">
-                  <h4 className="no-margin">
-                    Transaction Number: 1022020
-                  </h4>
-                </div>
-              </div>
-              <form className="flex f-justify-evenly container">
-                <div className="">
-                  <input name="transaction" id="Updating" type="radio" />
-                  <label for="Updating">
-                    Updating
-                  </label>
-                </div>
-                <div className="">
-                  <input name="transaction" id="Redating" type="radio" />
-                  <label for="Redating">
-                    Redating
-                </label>
-                </div>
-                <div className="">
-                  <input name="transaction" id="Waiver" type="radio" />
-                  <label for="Waiver">
-                    Waiver
-                </label>
-                </div>
-              </form>
-              <div class="transaction-checkboxes margin-auto">
-                <table border="0" cellspacing="0">
-                  <tr>
-                    <td><label for="health">Health Statement Form (HSF)</label></td>
-                    <td><input id="health" type="checkbox" /></td>
-                  </tr>
-                  <tr>
-                    <td><label for="routine">U/W routine requirements</label></td>
-                    <td><input id="routine" type="checkbox" /></td>
-                  </tr>
-                  <tr>
-                    <td><label for="payment">Payment of Premium Arrears</label></td>
-                    <td><input id="payment" type="checkbox" /></td>
-                  </tr>
-                  <tr>
-                    <td><label for="specimen">Specimen Signature Form (if applicable)</label></td>
-                    <td><input id="specimen" type="checkbox" /></td>
-                  </tr>
-                  <tr>
-                    <td><label for="valid">Valid Government Issued ID (if applicable)</label></td>
-                    <td><input id="valid" type="checkbox" /></td>
-                  </tr>
-                  <tr>
-                    <td><label for="non-government">Valid Non-Government Issued ID (if applicable)</label></td>
-                    <td><input id="non-government" type="checkbox" /></td>
-                  </tr>
-                </table>
-              </div>
-              <hr />
-              <div className="flex f-end container">
-                <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
-                  Additional Policy Information
-                </a>
-              </div>
-              </div>
-              
-              : ""}
-                {/* this is for tab2 */}
-                {this.state.Tabs== 1 ? 
+              {this.state.Tabs == 0 ?
+
                 <div>
+                  <div className="box-header flex f-row f-justify-space-between">
+                    <div className="flex-container">
+                      <h4 className="no-margin">
+                        Transaction type:
+                  </h4>
+                      <select>
+                        <option>Reinstatement</option>
+                      </select>
+                    </div>
+                    <div className="">
+                      <h4 className="no-margin">
+                        Transaction Number: 1022020
+                  </h4>
+                    </div>
+                  </div>
+                  <form className="flex f-justify-evenly container">
+                    <div className="">
+                      <input name="transaction" id="Updating" type="radio" />
+                      <label for="Updating">
+                        Updating
+                  </label>
+                    </div>
+                    <div className="">
+                      <input name="transaction" id="Redating" type="radio" />
+                      <label for="Redating">
+                        Redating
+                </label>
+                    </div>
+                    <div className="">
+                      <input name="transaction" id="Waiver" type="radio" />
+                      <label for="Waiver">
+                        Waiver
+                </label>
+                    </div>
+                  </form>
+                  <div class="transaction-checkboxes margin-auto">
+                    <table border="0" cellspacing="0">
+                      <tr>
+                        <td><label for="health">Health Statement Form (HSF)</label></td>
+                        <td><input id="health" type="checkbox" /></td>
+                      </tr>
+                      <tr>
+                        <td><label for="routine">U/W routine requirements</label></td>
+                        <td><input id="routine" type="checkbox" /></td>
+                      </tr>
+                      <tr>
+                        <td><label for="payment">Payment of Premium Arrears</label></td>
+                        <td><input id="payment" type="checkbox" /></td>
+                      </tr>
+                      <tr>
+                        <td><label for="specimen">Specimen Signature Form (if applicable)</label></td>
+                        <td><input id="specimen" type="checkbox" /></td>
+                      </tr>
+                      <tr>
+                        <td><label for="valid">Valid Government Issued ID (if applicable)</label></td>
+                        <td><input id="valid" type="checkbox" /></td>
+                      </tr>
+                      <tr>
+                        <td><label for="non-government">Valid Non-Government Issued ID (if applicable)</label></td>
+                        <td><input id="non-government" type="checkbox" /></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <hr />
                   <div className="flex f-end container">
-                  <a href="#" className="btn bright-blue" onClick={this.decrement}>
+                    <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
+                      Additional Policy Information
+                </a>
+                  </div>
+                </div>
+
+                : ""}
+              {/* this is for tab2 */}
+              {this.state.Tabs == 1 ?
+                <div>
+                  <div className="flex f-center">
+
+                  </div>
+                  <div className="flex f-justify-space-between container">
+                    <a href="#" className="btn bright-blue" onClick={this.decrement}>
                       Transaction Selection
                    </a>
-                   <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
+                    <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
                       Insured Details
                    </a>
                   </div>
                 </div> : ""}
-                  
-                  {/* this is for tab3 */}
-                {this.state.Tabs== 2 ? 
+
+              {/* this is for tab3 */}
+              {this.state.Tabs == 2 ?
                 <div>
-                  <div className="flex f-end container">
-                  <a href="#" className="btn bright-blue" onClick={this.decrement}>
+                  <div className="flex f-justify-space-between container">
+                    <a href="#" className="btn bright-blue" onClick={this.decrement}>
                       Additional Policy Info
                    </a>
-                   <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
+                    <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
                       Owner Details
                    </a>
                   </div>
                 </div> : ""}
-                  {/* this is for tab4 */}
-                {this.state.Tabs== 3 ? 
+              {/* this is for tab4 */}
+              {this.state.Tabs == 3 ?
                 <div>
-                  <div className="flex f-end container">
-                  <a href="#" className="btn bright-blue" onClick={this.decrement}>
+                  <div className="flex f-justify-space-between container">
+                    <a href="#" className="btn bright-blue" onClick={this.decrement}>
                       Insured Details
                    </a>
-                   <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
+                    <a href="#" className="btn bright-blue" onClick={this.handleTabClick}>
                       Submit
                    </a>
                   </div>
                 </div> : ""}
+
             </div>
           </div>
         </div>
+
+        <Tab>
+          <div label="transaction 1" num="1">
+            Test
+           </div>
+          <div label="transaction 2" num="2">
+            Test2
+           </div>
+          <div label="transaction 3" num="3">
+            Test32
+           </div>
+          <div label="transaction 4 " num="4">
+            Test2151
+           </div>
+        </Tab>
         {/* Please Bind the appropriate data to the top ^^^^^^
         Raference VVVV */}
           {/* <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap tab-body">

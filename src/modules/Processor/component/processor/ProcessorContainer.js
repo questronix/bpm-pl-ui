@@ -5,6 +5,7 @@ import CardTable from '../../../../shared/component/table/Table';
 import TaskCounter from '../../../../shared/component/Widgets/TaskCounter';
 import CardImg from '../../../../shared/component/Widgets/CardImg';
 import { FileNetService } from '../../services/';
+import Footer from '../../../../shared/component/footer/Footer';
 
 class ProcessorContainer extends Component {
   constructor(props) {
@@ -72,6 +73,7 @@ class ProcessorContainer extends Component {
         {/* <CProcessorClient /> */}
         {/* <CardTable/> */}
         {/* <TaskCounter/> */}
+        <Footer/>
       </div>
     );
   }
