@@ -86,7 +86,7 @@ router.get('/:clientNum/client', mw.isAuthenticated, (req, res) => {
     });
 });
 
-router.put('/:clientNum/client', (req, res) => {
+router.put('/client/update', (req, res) => {
   const ACTION = '[getClient]';
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 

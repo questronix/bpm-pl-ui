@@ -7,9 +7,9 @@ const isFakeEndpoint = process.env.FAKE_ENDPOINTS;
 
 module.exports.updateClientDetails = args => {
   const ACTION = '[updateClientDetails]';
-  const uri = `${url}/requestDetailstoLifeAsia`;
+  const uri = `${url}/insertCIUChangeRequestDetails`;
   Logger.log('info', `${TAG}${ACTION} - args `, { args });
-  Logger.log('info', `${TAG}${ACTION} - url`, `${uri}/insertCIUChangeRequestDetails`);
+  Logger.log('info', `${TAG}${ACTION} - url`, uri);
 
   if (isFakeEndpoint) {
     return new Promise((resolve, reject) => {
@@ -39,16 +39,17 @@ module.exports.updateClientDetails = args => {
         })
         .post(args)
         .then(res => {
+          Logger.log('info', `${TAG}${ACTION} - res `, { res });
           if (res.body) {
             resolve(res.body);
           } else {
-            resolve({
+            reject({
+              status: 400,
               error: {
                 msg: 'Failed to update client details'
               }
             });
           }
-          Logger.log('info', `${TAG}${ACTION} - result`, res.body);
         })
         .catch(err => {
           Logger.log('error', TAG + ACTION, err);
