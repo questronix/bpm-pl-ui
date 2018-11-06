@@ -184,7 +184,7 @@ class TaskContainer extends Component {
                 </h4>
               <a onClick={() => { this.handleTabClick(1) }}>
                 <h4>
-                  Additional Prolicy info
+                  Insured Details
                   </h4>
               </a>
               <span class="white"></span><span class="gray"></span>
@@ -195,7 +195,7 @@ class TaskContainer extends Component {
                 </h4>
               <a onClick={() => { this.handleTabClick(2) }}>
                 <h4>
-                  Insured Details
+                  Additional Prolicy info
                   </h4>
               </a>
               <span class="white"></span><span class="gray"></span>
@@ -225,8 +225,8 @@ class TaskContainer extends Component {
                 </div>
               </div>
               : ""}
-            {/* this is for tab2 */}
-            {this.state.Tabs == 1 ?
+            {/* this is for tab3 */}
+            {this.state.Tabs == 2 ?
               <div>
                 <div className="flex f-center">
                   {/* <FatcaNew/> */}
@@ -241,8 +241,8 @@ class TaskContainer extends Component {
                 </div>
               </div> : ""}
 
-            {/* this is for tab3 */}
-            {this.state.Tabs == 2 ?
+            {/* this is for tab2 */}
+            {this.state.Tabs == 1 ?
               <div>
                 <InsuredinformationNew/>
                 <div className="flex f-justify-space-between container">
