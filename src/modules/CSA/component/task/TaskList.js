@@ -82,7 +82,7 @@ class TaskList extends Component {
         <div className="flex f-row f-justify-space-between margin-container">
           <div className="flex f-row">
             <h4>Total Count:&nbsp;</h4>
-            <h4 className="font-prulife">12,3456</h4>
+            <h4 className="font-prulife">{this.props.tasks.length}</h4>
           </div>
           <div className=" flex f-row">
             <a href="#" className="btn-circle ">

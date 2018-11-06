@@ -1,0 +1,57 @@
+{
+  "status": "success",
+  "statusCode": 0,
+  "message": "getting data from Life Asia is successful",
+  "isSuccess": true,
+  "result": {
+    "policyNo": "72940355",
+    "template": "BPM",
+    "id": "GETPLCY",
+    "data": {
+      "guid": "ec049f24-281f-4e5c-aaf2-fd54eeef7002",
+      "action": "GETPLCY",
+      "user": "DUMMY1",
+      "status": "1",
+      "policyNo": "72940355",
+      "agentNumber": "70017148",
+      "agentLastName": "TEST AGENT",
+      "agentFirstName": "DAN",
+      "agentMiddleName": "",
+      "agentBranch": "0023",
+      "agentBranchDesc": "AMBER BRANCH",
+      "nmaCode": "N",
+      "nmaDesc": "NO NMA",
+      "planCode": "T90",
+      "planDescription": "PRUlife your term",
+      "currency": "PHP",
+      "policyStatus": "IF",
+      "premiumStatus": "PP",
+      "riskCommencementDate": "20181025",
+      "firstIssueDate": "20181026",
+      "addressType": "D",
+      "countryCode": "RP",
+      "address1": "AWRE",
+      "address2": "",
+      "address3": "",
+      "address4": "",
+      "address5": "",
+      "zipCode": "1110"
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

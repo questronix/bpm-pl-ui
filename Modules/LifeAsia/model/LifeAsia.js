@@ -12,56 +12,8 @@ module.exports.getPolicy = num => {
   Logger.log('info', `${TAG}${ACTION} - url`, uri);
 
   if (isFakeEndpoint) {
-    console.log('FAKEEEEEE', isFakeEndpoint);
     return new Promise((resolve, reject) => {
-      const data = {
-        result: {
-          policyDetails: {
-            policyNo: num + '',
-            agentCode: '70000007',
-            agentFirstName: 'ROMEO',
-            agentMiddleName: 'CAMILLE',
-            agentLastName: 'ABION',
-            agentBranch: 'China Gold',
-            nmaCode: 'EXCLUSIVE',
-            planDescription: 'PLPP - PRULINK ASSURANCE ACCOUNT PLUS',
-            currency: 'PHP',
-            policyStatus: 'IN FORCE',
-            premiumStatus: 'PREMIUM PAYING',
-            sumAssured: '1,000,000.00',
-            riskCommencementDate: '05-OCT-2012',
-            firstIssueDate: '05-OCT-2012',
-            currentPremium: 'CP',
-            mpt: 'MPT',
-            dateOfSigning: '05-OCT-2012'
-          },
-
-          insuredDetails: {
-            salutation: 'MR',
-            firstName: 'RAMIREZ',
-            lastName: 'DANIVIC JESUS',
-            gender: 'MALE',
-            occupation1: 'OTHER OCCUPATION',
-            hrcTag: 'X',
-            vipTag: '',
-            strTag: 'X',
-            nationality: 'PHILIPPINES',
-            dateOfBirth: '19-SEP-1973',
-            attainedAge: '45',
-            civilStatus: 'SINGLE',
-            telephoneNum: '09171234567',
-            mobileNum: '09291234567',
-            tinNum: '111-111-111',
-            email: 'sample@email.com',
-            address: {
-              street: '12th St.',
-              city: 'San Pedro City',
-              zipCode: '4023',
-              coutry: 'Philippines'
-            }
-          }
-        }
-      };
+      const data = require('../../Dummy/policy.json');  
       Logger.log('info', `${TAG}${ACTION} - result`, data);
       resolve(data);
     });

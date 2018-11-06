@@ -85,4 +85,19 @@ router.get('/:clientNum/client', (req, res) => {
     });
 });
 
+router.get('/:policyNum/policy', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[getPolicy]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+
+  la.getPolicy(req.params.policyNum)
+    .then(data => {
+      res.send({
+        data
+      });
+    })
+    .catch(error => {
+      res.error(error);
+    });
+});
+
 module.exports = router;
