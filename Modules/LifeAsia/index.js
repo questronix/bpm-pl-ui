@@ -66,11 +66,11 @@ router.post('/', mw.isAuthenticated, (req, res) => {
       });
     })
     .catch(error => {
-      res.error(error);
+      res.error.send(error);
     });
 });
 
-router.get('/:clientNum/client', (req, res) => {
+router.get('/:clientNum/client', mw.isAuthenticated, (req, res) => {
   const ACTION = '[getClient]';
   Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
 
