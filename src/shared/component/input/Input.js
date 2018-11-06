@@ -11,8 +11,10 @@ class Input extends Component {
             {this.props.inputLabel}
           </label>
           <input
-            type="text"
-            placeholder={this.props.inputPlaceholder} />
+            disabled
+            type="text" 
+            placeholder={this.props.inputPlaceholder}
+            value={this.props.value} />
         </div>
     );
   }

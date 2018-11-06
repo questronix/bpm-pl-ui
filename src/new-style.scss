@@ -78,7 +78,7 @@ label{
     color: $white;
   }
 
-input:disabled a,input:disabled p{
+input:disabled a,input:disabled p, input:disabled{
     border: solid 1px $gray !important;
     cursor: not-allowed !important;
     background-color:$light-gray !important;
@@ -1648,6 +1648,9 @@ div{
 }
 .modal-footer{
     background-color: $light-gray;
+}
+.modal-header{
+    border-bottom: 1px solid $gray;
 }
 
   .modal-bg {
