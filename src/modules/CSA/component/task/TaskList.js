@@ -32,6 +32,7 @@ class TaskList extends Component {
                   onClick={() => this.handleItemClick(`/tasks/edit?id=${task.id}`)}
                 >
                   <td>
+                  <div class="cursor"></div>
                     {task.variables.policy.number
                       ? task.variables.policy.number
                       : '-'}
@@ -79,7 +80,7 @@ class TaskList extends Component {
             <h1>No Data Available</h1>
           </div>
         )}
-        <div className="flex f-row f-justify-space-between margin-container">
+        <div className="table-footer flex f-row f-justify-space-between margin-container">
           <div className="flex f-row">
             <h4>Total Count:&nbsp;</h4>
             <h4 className="font-prulife">{this.props.tasks.length}</h4>
