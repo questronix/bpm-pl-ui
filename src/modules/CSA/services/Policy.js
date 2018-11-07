@@ -5,9 +5,11 @@ export default class Policy {
     this.http = client;
   }
 
-  getPolicyInformationByID(args) {
-    // return this.http.post('/lifeasia', args);
-    return this.http.post('/lifeasia', args);
+  getPolicyInformationByID(policyNum) {
+    return this.http.get(`/lifeasia/${policyNum}/policy`);
+  }
+  getClientIformationByid(id){
+    return this.http.get(`/lifeasia/${id}/client`);
   }
 
   createNewTask(args) {

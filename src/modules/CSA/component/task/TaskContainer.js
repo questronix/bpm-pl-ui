@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { TaskService } from '../../services';
 import TaskList from './TaskList';
 import MyModal from '../../../../shared/component/modal/Modal';
 import ModalTrigger from '../../../../shared/component/modal/ModalTrigger';
@@ -13,6 +12,9 @@ import FatcaNew from '../policy/FatcaNew';
 import InsuredinformationNew from '../policy/InsuredinformationNew';
 import OwnerinformationNew from '../policy/OwnerinformationNew';
 import Footer from '../../../../shared/component/footer/Footer';
+import { PolicyService, TaskService } from '../../services';
+import AgentinformationNew from '../policy/AgentinformationNew';
+
 
 class TaskContainer extends Component {
   constructor(props) {
@@ -20,13 +22,79 @@ class TaskContainer extends Component {
     this.state = {
       tasks: [],
       taskHistory: [],
-      // Test
+      policyNumber: '',
+      policy: {},
+      client:{},
+      
+      
+
       Tabs: 0,
+      
+
     }
+    this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this)
     this.createTask = this.createTask.bind(this);
-    // Test
-    this.handleTabClick = this.handleTabClick.bind(this);
-    this.decrement = this.decrement.bind(this);
+        // Test
+        this.handleTabClick = this.handleTabClick.bind(this);
+        this.decrement = this.decrement.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.handlePolicySearchSubmit(this.state.policyNumber);
+  }
+
+  handleInputChange(event) {
+    const value = event.target.value;
+
+    this.setState({
+      policyNumber: value
+    })
+  }
+
+
+  handlePolicySearchSubmit(policyNumber) {
+
+    this.setState({
+      policyNumberSearch: policyNumber,
+      isSearching: true,
+      isError: false,
+    });
+    PolicyService.getPolicyInformationByID(policyNumber).then((res) => {
+      console.log(res.data.data.result.data);
+      if (res.data.data.result.data) {
+        this.setState({
+          policy: res.data.data.result.data
+        })
+      } 
+
+    }).catch((err) => {
+      this.setState({
+        isSearching: false,
+        isError: true,
+      });
+      console.log('Error: ', err);
+    });
+
+  }
+  // Test
+  handleTabClick() {
+    
+    if (this.state.Tabs == 3) {
+      this.setState({
+        Tabs: 3
+      });
+    } else {
+      this.setState({
+        Tabs: this.state.Tabs + 1
+      });
+    }
+    if(this.state.Tabs==0){
+      this.getClientInfo(12345);
+    }
   }
   // Test
   handleTabClick() {
@@ -40,6 +108,28 @@ class TaskContainer extends Component {
       });
     }
   }
+
+  decrement() {
+    this.setState({
+      Tabs: this.state.Tabs - 1
+    });
+  }
+  // End of test
+
+
+  getClientInfo(id){
+    PolicyService.getClientIformationByid(id).then((res) => {
+      if (res.data.data.result.data) {
+        this.setState({
+          client: res.data.data.result.data
+        })
+      } 
+      console.log(res.data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+  
 
   decrement() {
     this.setState({
@@ -87,9 +177,11 @@ class TaskContainer extends Component {
           <div className="col xl-12 modal-header">
             <div className="xl-4 l-4 flex f-justify-space-between">
               <div className="search-container">
-                <input className="search" placeholder="Search..." />
+                <input className="search" type="text" placeholder="Search..."  value={this.state.policyNumber}
+                onChange={this.handleInputChange}
+                />
               </div>
-              <a href="#" className="btn prulife flex f-center">
+              <a href="#" className="btn prulife flex f-center" onClick ={this.handleSubmit}>
                 <span className="fa fa-search font-white"></span> &nbsp;
                 <span>
                   SEARCH
@@ -98,17 +190,28 @@ class TaskContainer extends Component {
             </div>
           </div>
           <div className=" col xl-12 flex-container flex-wrap modal-body">
-            <div className="xl-12 modal-header">
-              <h2 className="font-prulife container">
+            <div className="xl-12">
+              <h2 className="font-prulife no-margin">
                 Policy Information
               </h2>
             </div>
             <div className="xl-12">
-              <h2 className=" container">
-                Policy Number: 001011111
+              <h3 className=" container">
+                Policy Number: {this.state.policyNumber}
+              </h3>
+            </div>
+            <PolicyInformationNew  policy={this.state.policy} />
+            <div className="xl-12">
+              <h2 className="font-prulife no-margin">
+                Agent Information
               </h2>
             </div>
-            <PolicyInformationNew />
+            <div className="xl-12">
+              <h3 className=" container">
+                Agent Code: {this.state.policyNumber}
+              </h3>
+            </div>
+            <AgentinformationNew  policy={this.state.policy}/>
           </div>
           <div className="col xl-12 modal-footer flex-container flex-wrap">
             <div className="col xl-11">
@@ -195,10 +298,9 @@ class TaskContainer extends Component {
                 </h4>
               <a onClick={() => { this.handleTabClick(2) }}>
                 <h4>
-                  Additional Prolicy info
+                  Owner Details
                   </h4>
               </a>
-              <span class="white"></span><span class="gray"></span>
             </div>
             <div className={this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
               <h4 className="circle">
@@ -206,10 +308,12 @@ class TaskContainer extends Component {
                 </h4>
               <a onClick={() => { this.handleTabClick(3) }}>
                 <h4>
-                  Owner Details
+                  Additional Prolicy info
                   </h4>
               </a>
+              <span class="white"></span><span class="gray"></span>
             </div>
+            
           </div>
           <TabHeader />
           <div className="box-body">
@@ -220,23 +324,22 @@ class TaskContainer extends Component {
                 <TransactionNew />
                 <div className="flex f-end container">
                   <a href="#" className="btn purple" onClick={this.handleTabClick}>
-                    Additional Policy Information
+                    Insured Details
                       </a>
                 </div>
               </div>
               : ""}
             {/* this is for tab3 */}
-            {this.state.Tabs == 2 ?
+            {this.state.Tabs == 3 ?
               <div>
                 <div className="flex f-center">
                   {/* <FatcaNew/> */}
                 </div>
                 <div className="flex f-justify-space-between container">
                   <a href="#" className="btn bright-blue" onClick={this.decrement}>
-                    Transaction Selection
-                   </a>
-                  <a href="#" className="btn grass-green" onClick={this.handleTabClick}>
-                    Insured Details
+                  Insured Details                   </a>
+                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
+                    Submit
                    </a>
                 </div>
               </div> : ""}
@@ -244,10 +347,10 @@ class TaskContainer extends Component {
             {/* this is for tab2 */}
             {this.state.Tabs == 1 ?
               <div>
-                <InsuredinformationNew/>
+                <InsuredinformationNew client={this.state.client}/>
                 <div className="flex f-justify-space-between container">
                   <a href="#" className="btn purple" onClick={this.decrement}>
-                    Additional Policy Info
+                    Transaction Selection
                    </a>
                   <a href="#" className="btn prulife" onClick={this.handleTabClick}>
                     Owner Details
@@ -255,7 +358,7 @@ class TaskContainer extends Component {
                 </div>
               </div> : ""}
             {/* this is for tab4 */}
-            {this.state.Tabs == 3 ?
+            {this.state.Tabs == 2 ?
               <div>
                 <OwnerinformationNew/>
                 <div className="flex f-justify-space-between container">
@@ -263,7 +366,7 @@ class TaskContainer extends Component {
                     Insured Details
                    </a>
                   <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    Submit
+                    Additional Policy info
                    </a>
                 </div>
               </div> : ""}

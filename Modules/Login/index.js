@@ -16,18 +16,19 @@ router.post('/login', async (req, res) => {
     bpm = await lm.bpm(username);
     if (bpm) {
       ldap = await lm.ldap(bpm.username, password);
-    }
+      if (ldap.authenticated) {
+        req.session.user = bpm;
+        res.send(req.session.user);
+      }
+      else {
+        res.status(404).send(ldap);
+      }
+    } 
   } catch (error) {
     res.error(error);
   }
 
-  if (ldap.authenticated) {
-    req.session.user = bpm;
-    res.send(req.session.user);
-  }
-  else {
-    res.send(ldap);
-  }
+  
 });
 
 router.post('/logout', sm.destroy, (req, res) => {

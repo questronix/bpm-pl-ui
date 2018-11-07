@@ -3,26 +3,22 @@ import CheckBox from '../../../../shared/component/checkbox/CheckBox';
 import Input from '../../../../shared/component/input/Input';
 
 class PolicyInformationNew extends Component {
-
   render() {
-
     return (
       <div className="xl-12 flex-container flex-wrap">
-        <Input inputLabel="Agent Code:" inputPlaceholder="0000000000" inputClass="col xl-3 input-container" />
-        <Input inputLabel="Agent Name:" inputPlaceholder="First name Last name" inputClass="col xl-6 input-container" />
-        <Input inputLabel="Agent Status:" inputPlaceholder="Status" inputClass="col xl-3 input-container" />
-        <Input inputLabel="Branch:" inputPlaceholder="Branch Name" inputClass="col xl-8 input-container" />
-        <Input inputLabel="NMA:" inputPlaceholder="NMA" inputClass="col xl-4 input-container" />
-        <Input inputLabel="Plan Description:" inputPlaceholder="Plan Description" inputClass="col xl-8 input-container" />
-        <Input inputLabel="Plan Currency:" inputPlaceholder="NMA" inputClass="col xl-4 input-container" />
-        <Input inputLabel="Current Premium:" inputPlaceholder="Current Premium" inputClass="col xl-4 input-container" />
-        <Input inputLabel="Required Premium:" inputPlaceholder="Required Premium" inputClass="col xl-4 input-container" />
-        <Input inputLabel="Premium Status:" inputPlaceholder="Status" inputClass="col xl-4 input-container" />
-        <Input inputLabel="Sum Assured:" inputPlaceholder="000,000" inputClass="col xl-8 input-container" />
-        <Input inputLabel="Risk Commencement Date:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" />
-        <Input inputLabel="First Issue Date:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" />
-        <Input inputLabel="Paid to Date:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" />
-        <Input inputLabel="Date of Signing:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" />
+        <Input inputLabel="Plan Description:" inputPlaceholder="Plan Name" inputClass="col xl-6 input-container" value={this.props.policy.planDescription}/>
+        <Input inputLabel="Plan Status:" inputPlaceholder="Lapsed" inputClass="col xl-3 input-container" value={this.props.policy.planStatus}/>
+        <Input inputLabel="Premium Status:" inputPlaceholder="Premium Paying" inputClass="col xl-3 input-container" value={this.props.policy.premiumStatus}/>
+        <Input inputLabel="First Issue Date:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" value={this.props.policy.firstIssueDate}/>
+        <Input inputLabel="Risk Commencement Date:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" value={this.props.policy.riskCommencementDate} />
+        <Input inputLabel="Sum Assured:" inputPlaceholder="100,000" inputClass="col xl-4 input-container" value=""/>
+        <Input inputLabel="Currency:" inputPlaceholder="PHP" inputClass="col xl-4 input-container" value=""/>
+        <Input inputLabel="Current Premium:" inputPlaceholder="Current Premium" inputClass="col xl-4 input-container" value="" />
+        <Input inputLabel="Mode of Payment:" inputPlaceholder="Monthly" inputClass="col xl-4 input-container" value="" />
+        <Input inputLabel="Insured Name:" inputPlaceholder="LastN, FirstN, MName" inputClass="col xl-8 input-container" value={this.props.policy.insuredName}/>
+        <Input inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" value=""/>
+        <Input inputLabel="Owner Name:" inputPlaceholder="LastN, FirstN, MName" inputClass="col xl-8 input-container" value="" />
+        <Input inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" value=""/>
       </div>
 
     );

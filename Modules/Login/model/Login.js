@@ -53,6 +53,7 @@ module.exports.ldap = (username, password) => {
           }
         })
         .then(res => {
+          Logger.log('info', `${TAG}${ACTION} - result from ldap `, res.body);
           if (res.body.result.authenticated) {
             resolve({ authenticated: true });
           } else {
@@ -64,4 +65,4 @@ module.exports.ldap = (username, password) => {
         });
     });
   }
-};
+};  

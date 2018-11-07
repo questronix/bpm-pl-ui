@@ -1,0 +1,70 @@
+{
+  "status": "success",
+  "statusCode": 0,
+  "message": "getting data from Life Asia is successful",
+  "isSuccess": true,
+  "result": {
+    "policyNo": "",
+    "template": "BPM",
+    "id": "GETCLNTB",
+    "data": {
+      "guid": "56962f17-9561-4b36-b33b-eb47f6ebd7cd",
+      "action": "GETCLNTB",
+      "user": "DUMMY1",
+      "status": "1",
+      "clientId": "80940513",
+      "clientType": "P",
+      "salutation": "ATTY.",
+      "lastName": "ZEU FSCAA",
+      "firstName": "NWEAYF DEJFAAY XUWX OFGHUJKLAMNPQRESTVWXIYZBCD",
+      "middleName": "",
+      "gender": "F",
+      "occupation1": "Other Occupation",
+      "occupation2": "",
+      "vipTag": "Very Important Person",
+      "hrcTag": "Material Premium",
+      "strTag": "No suspicion",
+      "nationality": "Philippines",
+      "dateOfBirth": "19770131",
+      "attainedAge": "041",
+      "civilStatus": "Divorced",
+      "telephoneNum": "8141600",
+      "mobileNum": "9995179065",
+      "tinNum": "820449339",
+      "sssNum": "",
+      "emailAdd": "krisettejanella.d.rivera@prulifeuk.com.ph",
+      "address": [
+        {
+          "addressType": "B",
+          "countryCode": "RP",
+          "address1": "422 N Z ROAGUCCU DF",
+          "address2": "MCRK DFU WONEU DF",
+          "address3": "DUY TOUY NEFK",
+          "address4": "*",
+          "address5": "",
+          "zipCode": "1110"
+        },
+        {
+          "addressType": "",
+          "countryCode": "",
+          "address1": "",
+          "address2": "",
+          "address3": "",
+          "address4": "",
+          "address5": "",
+          "zipCode": ""
+        },
+        {
+          "addressType": "",
+          "countryCode": "",
+          "address1": "",
+          "address2": "",
+          "address3": "",
+          "address4": "",
+          "address5": "",
+          "zipCode": ""
+        }
+      ]
+    }
+  }
+}
