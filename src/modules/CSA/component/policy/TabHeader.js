@@ -18,8 +18,9 @@ class TabHeader extends Component {
               inputPlaceholder="transaction type"
               inputClass="input-container" />
             <Input
-              inputLabel="Policy Number"
+              inputLabel="Policy Number1"
               inputPlaceholder=" Policy Number"
+              value={this.props.policy.policyNo}
               inputClass="input-container"
             />
             <Input

@@ -9,7 +9,6 @@ import PolicyInformationNew from '../policy/PolicyInformationNew';
 import { PolicyService, TaskService } from '../../services';
 
 
-
 import TabHeader from '../policy/TabHeader';
 import TransactionNew from '../policy/TransactionNew';
 import Fatca from '../policy/Fatca';
@@ -48,6 +47,10 @@ class TaskContainer extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.handlePolicySearchSubmit(this.state.policyNumber);
+  }
+
+  handleItemClick(url) {
+    window.location.href = url;
   }
 
   handleInputChange(event) {
@@ -120,10 +123,13 @@ class TaskContainer extends Component {
     });
   }
   // End of test
+createredirect(){
+  this.createTask()
+  this.handleItemClick(`/tasks/edit?id=${tasks.id}`)
+}
 
-
-  createTask() {
-    TaskService.createNewTask().then((res) => {
+  createTask(id) {
+    TaskService.createNewTask(id).then((res) => {
       window.location.href = `/tasks`;
       console.log(res.data);
     }).catch((err) => {
@@ -191,7 +197,9 @@ class TaskContainer extends Component {
             <a
               href="#"
               className="btn prulife"
-              onClick={this.createTask}>
+              onClick={() => { if (window.confirm('Are you sure you want to Proceed')) this.createredirect() }}
+              // onClick={this.createTask}
+              >
               Proceed
             </a>
           </div>
@@ -237,112 +245,6 @@ class TaskContainer extends Component {
             <TaskList tasks={this.state.tasks} />
             <h1>Task History</h1>
             {/* <TaskList tasks={this.state.taskHistory} /> */}
-          </div>
-        </div>
-        <div className="box">
-
-          <div className="tab-title-container">
-            <div className={this.state.Tabs == 0 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-                1
-                </h4>
-              <a onClick={() => { this.handleTabClick(0) }}>
-                <h4>
-                  Transaction Selection
-                  </h4>
-              </a>
-              <span class="white"></span><span class="gray"></span>
-            </div>
-            <div className={this.state.Tabs == 1 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-                2
-                </h4>
-              <a onClick={() => { this.handleTabClick(1) }}>
-                <h4>
-                  Insured Details
-                  </h4>
-              </a>
-              <span class="white"></span><span class="gray"></span>
-            </div>
-            <div className={this.state.Tabs == 2 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-                3
-                </h4>
-              <a onClick={() => { this.handleTabClick(2) }}>
-                <h4>
-                  Owner Details
-                  </h4>
-              </a>
-            </div>
-            <div className={this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-                4
-                </h4>
-              <a onClick={() => { this.handleTabClick(3) }}>
-                <h4>
-                  Additional Prolicy info
-                  </h4>
-              </a>
-              <span class="white"></span><span class="gray"></span>
-            </div>
-            
-          </div>
-          <TabHeader />
-          <div className="box-body">
-
-            {/* this is for tab1 */}
-            {this.state.Tabs == 0 ?
-              <div>
-                <TransactionNew />
-                <div className="flex f-end container">
-                  <a href="#" className="btn purple" onClick={this.handleTabClick}>
-                    Insured Details
-                      </a>
-                </div>
-              </div>
-              : ""}
-            {/* this is for tab3 */}
-            {this.state.Tabs == 3 ?
-              <div>
-                <div className="flex f-center">
-                  {/* <FatcaNew/> */}
-                </div>
-                <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn bright-blue" onClick={this.decrement}>
-                  Insured Details                   </a>
-                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    Submit
-                   </a>
-                </div>
-              </div> : ""}
-
-            {/* this is for tab2 */}
-            {this.state.Tabs == 1 ?
-              <div>
-                <InsuredinformationNew client={this.state.client}/>
-                <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn purple" onClick={this.decrement}>
-                    Transaction Selection
-                   </a>
-                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    Owner Details
-                   </a>
-                </div>
-              </div> : ""}
-            {/* this is for tab4 */}
-            {this.state.Tabs == 2 ?
-              <div>
-                <OwnerinformationNew/>
-                <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn grass-green" onClick={this.decrement}>
-                    Insured Details
-                   </a>
-                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    Additional Policy info
-                   </a>
-                </div>
-              </div> : ""}
-
           </div>
         </div>
         <Footer/>

@@ -6,7 +6,7 @@
     "message": "getting data from Life Asia is successful",
     "isSuccess": true,
     "result": {
-        "policyNo": "",
+        "policyNo": "00123",
         "template": "BPM",
         "id": "GETCLNTB",
         "data": {
