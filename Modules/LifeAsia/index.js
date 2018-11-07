@@ -4,6 +4,7 @@ const router = express.Router();
 const Logger = require('../Common/services/Logger');
 const la = require('./model/LifeAsia');
 const client = require('./model/Client');
+const doc = require('./model/Document');
 const mw = require('../Common/middleware/Authentication');
 
 router.get('/:clientNum/client', mw.isAuthenticated, (req, res) => {
@@ -56,7 +57,22 @@ router.get('/documents/:transactionId/:subTransactionId', mw.isAuthenticated, (r
   const { transactionId, subTransactionId } = req.params;
   Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
 
-  la.getPolicy(transactionId, subTransactionId)
+  doc.getDocList(transactionId, subTransactionId)
+    .then(data => {
+      res.send({
+        data
+      });
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
+});
+
+router.post('/documents', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[getDocument]';
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+
+  doc.create(req.body)
     .then(data => {
       res.send({
         data
