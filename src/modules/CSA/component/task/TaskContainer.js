@@ -5,11 +5,6 @@ import ModalTrigger from '../../../../shared/component/modal/ModalTrigger';
 import PolicyInformation from '../policy/PolicyInformation';
 import Input from '../../../../shared/component/input/Input';
 import PolicyInformationNew from '../policy/PolicyInformationNew';
-
-import { PolicyService, TaskService } from '../../services';
-
-
-
 import TabHeader from '../policy/TabHeader';
 import TransactionNew from '../policy/TransactionNew';
 import Fatca from '../policy/Fatca';
@@ -17,6 +12,8 @@ import FatcaNew from '../policy/FatcaNew';
 import InsuredinformationNew from '../policy/InsuredinformationNew';
 import OwnerinformationNew from '../policy/OwnerinformationNew';
 import Footer from '../../../../shared/component/footer/Footer';
+import { PolicyService, TaskService } from '../../services';
+import AgentinformationNew from '../policy/AgentinformationNew';
 
 
 class TaskContainer extends Component {
@@ -48,6 +45,10 @@ class TaskContainer extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.handlePolicySearchSubmit(this.state.policyNumber);
+  }
+
+  handleItemClick(url) {
+    window.location.href = url;
   }
 
   handleInputChange(event) {
@@ -99,6 +100,26 @@ class TaskContainer extends Component {
       this.getClientInfo(12345);
     }
   }
+  // Test
+  handleTabClick() {
+    if (this.state.Tabs == 3) {
+      this.setState({
+        Tabs: 3
+      });
+    } else {
+      this.setState({
+        Tabs: this.state.Tabs + 1
+      });
+    }
+  }
+
+  decrement() {
+    this.setState({
+      Tabs: this.state.Tabs - 1
+    });
+  }
+  // End of test
+
 
   getClientInfo(id){
     PolicyService.getClientIformationByid(id).then((res) => {
@@ -120,10 +141,13 @@ class TaskContainer extends Component {
     });
   }
   // End of test
+createredirect(){
+  this.createTask()
+  this.handleItemClick(`/tasks/edit?id=${tasks.id}`)
+}
 
-
-  createTask() {
-    TaskService.createNewTask().then((res) => {
+  createTask(id) {
+    TaskService.createNewTask(id).then((res) => {
       window.location.href = `/tasks`;
       console.log(res.data);
     }).catch((err) => {
@@ -153,7 +177,8 @@ class TaskContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="flex-container flex-wrap">
+        <div className="col xl-2 l-2 m-3 s-3 xs-4"></div>
         <MyModal
           modalId="1"
           modalLabel="New Transaction">
@@ -173,17 +198,28 @@ class TaskContainer extends Component {
             </div>
           </div>
           <div className=" col xl-12 flex-container flex-wrap modal-body">
-            <div className="xl-12 modal-header">
-              <h2 className="font-prulife container">
+            <div className="xl-12">
+              <h2 className="font-prulife no-margin">
                 Policy Information
               </h2>
             </div>
             <div className="xl-12">
-              <h2 className=" container">
+              <h3 className=" container">
                 Policy Number: {this.state.policyNumber}
-              </h2>
+              </h3>
             </div>
             <PolicyInformationNew  policy={this.state.policy} />
+            <div className="xl-12">
+              <h2 className="font-prulife no-margin">
+                Agent Information
+              </h2>
+            </div>
+            <div className="xl-12">
+              <h3 className=" container">
+                Agent Code: {this.state.policyNumber}
+              </h3>
+            </div>
+            <AgentinformationNew  policy={this.state.policy}/>
           </div>
           <div className="col xl-12 modal-footer flex-container flex-wrap">
             <div className="col xl-11">
@@ -191,14 +227,16 @@ class TaskContainer extends Component {
             <a
               href="#"
               className="btn prulife"
-              onClick={this.createTask}>
+              onClick={() => { if (window.confirm('Are you sure you want to Proceed')) this.createredirect() }}
+              // onClick={this.createTask}
+              >
               Proceed
             </a>
           </div>
         </MyModal>
         
-        <div className="flex-container flex-wrap flex f-center">
-          <div className="col xl-10 l-10 m-10 s-11 xs-11">
+        <div className="col xl-10 l-10 m-9 s-9 xs-8">
+          <div className="">
             <h1 className="flex s-f-center xs-f-center">My tasks</h1>
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
               <div className=" xl-5 flex f-justify-space-between">
@@ -239,113 +277,6 @@ class TaskContainer extends Component {
             {/* <TaskList tasks={this.state.taskHistory} /> */}
           </div>
         </div>
-        <div className="box">
-
-          <div className="tab-title-container">
-            <div className={this.state.Tabs == 0 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-                1
-                </h4>
-              <a onClick={() => { this.handleTabClick(0) }}>
-                <h4>
-                  Transaction Selection
-                  </h4>
-              </a>
-              <span class="white"></span><span class="gray"></span>
-            </div>
-            <div className={this.state.Tabs == 1 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-                2
-                </h4>
-              <a onClick={() => { this.handleTabClick(1) }}>
-                <h4>
-                  Insured Details
-                  </h4>
-              </a>
-              <span class="white"></span><span class="gray"></span>
-            </div>
-            <div className={this.state.Tabs == 2 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-                3
-                </h4>
-              <a onClick={() => { this.handleTabClick(2) }}>
-                <h4>
-                  Owner Details
-                  </h4>
-              </a>
-            </div>
-            <div className={this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-                4
-                </h4>
-              <a onClick={() => { this.handleTabClick(3) }}>
-                <h4>
-                  Additional Prolicy info
-                  </h4>
-              </a>
-              <span class="white"></span><span class="gray"></span>
-            </div>
-            
-          </div>
-          <TabHeader />
-          <div className="box-body">
-
-            {/* this is for tab1 */}
-            {this.state.Tabs == 0 ?
-              <div>
-                <TransactionNew />
-                <div className="flex f-end container">
-                  <a href="#" className="btn purple" onClick={this.handleTabClick}>
-                    Insured Details
-                      </a>
-                </div>
-              </div>
-              : ""}
-            {/* this is for tab3 */}
-            {this.state.Tabs == 3 ?
-              <div>
-                <div className="flex f-center">
-                  {/* <FatcaNew/> */}
-                </div>
-                <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn bright-blue" onClick={this.decrement}>
-                  Insured Details                   </a>
-                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    Submit
-                   </a>
-                </div>
-              </div> : ""}
-
-            {/* this is for tab2 */}
-            {this.state.Tabs == 1 ?
-              <div>
-                <InsuredinformationNew client={this.state.client}/>
-                <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn purple" onClick={this.decrement}>
-                    Transaction Selection
-                   </a>
-                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    Owner Details
-                   </a>
-                </div>
-              </div> : ""}
-            {/* this is for tab4 */}
-            {this.state.Tabs == 2 ?
-              <div>
-                <OwnerinformationNew/>
-                <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn grass-green" onClick={this.decrement}>
-                    Insured Details
-                   </a>
-                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    Additional Policy info
-                   </a>
-                </div>
-              </div> : ""}
-
-          </div>
-        </div>
-        <Footer/>
       </div>
     );
   }

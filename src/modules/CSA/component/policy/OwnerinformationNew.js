@@ -10,7 +10,7 @@ class OwnerinformationNew extends Component {
         <div className="flex-container flex-wrap">
           <div className="col xl-12 box-header">
             <h3 className="no-margin">
-              Insured Details
+              Owner Details
             </h3>
           </div>
           <div className="col xl-12 flex f-center f-start">
@@ -23,70 +23,104 @@ class OwnerinformationNew extends Component {
           <div className="col xl-12 flex-container flex-wrap">
             <Input
               inputLabel="Cleint ID:"
+              value={this.props.client.clientId}
               inputClass="col xl-4 input-container" />
             <Input
               inputLabel="Salutation:"
+              valuevalue={this.props.client.salutation}
               inputClass="col xl-4 input-container" />
             <Input
               inputLabel="Gender:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.gender}
+              />
           </div>
           <div className="col xl-12 flex-container flex-wrap">
             <Input
               inputLabel="First Name:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.firstName}
+              />
             <Input
               inputLabel="Middle Name:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.middleName}
+              />
             <Input
               inputLabel="Last Name:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.lastName}
+              />
           </div>
           <div className="col xl-12 flex-container flex-wrap">
             <Input
               inputLabel="Occupation:"
-              inputClass="col xl-12 input-container" />
+              inputClass="col xl-12 input-container"
+              value={this.props.client.occupation1}
+              />
           </div>
           <div className="col xl-12 flex-container flex-wrap">
             <Input
               inputLabel="VIP:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.vipTag}
+              />
             <Input
               inputLabel="HRC:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.hrcTag}
+              />
             <Input
               inputLabel="STR:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.strTag}
+              />
           </div>
           <div className="col xl-12 flex-container flex-wrap">
             <Input
               inputLabel="Date of Birth:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.dateOfBirth}
+              />
             <Input
               inputLabel="Attained Age:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.attainedAge}
+              />
             <Input
               inputLabel="Nationality:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.nationality}
+              />
           </div>
           <div className="col xl-12 flex-container flex-wrap">
             <Input
               inputLabel="Civil Status:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.civilStatus}
+              />
             <Input
               inputLabel="Telephone:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.telephoneNum}
+              />
             <Input
               inputLabel="Mobile Number:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.mobileNum}
+              />
           </div>
           <div className="col xl-12 flex-container flex-wrap">
             <Input
               inputLabel="Email Addtess:"
-              inputClass="col xl-8 input-container" />
+              inputClass="col xl-8 input-container" 
+              value={this.props.client.emailAdd}
+              />
             <Input
               inputLabel="TIN:"
-              inputClass="col xl-4 input-container" />
+              inputClass="col xl-4 input-container" 
+              value={this.props.client.tinNum}
+              />
           </div>
           <div className="col xl-12 flex f-center f-start">
             <span className="fa fa-map-marker-alt font-grass-green">
@@ -98,16 +132,24 @@ class OwnerinformationNew extends Component {
           <div className="col xl-12 flex-container flex-wrap">
             <Input
               inputLabel="Building/Street:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.address1}
+              />
             <Input
               inputLabel="City/Provinces:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.address2}
+              />
             <Input
               inputLabel="Zip Code:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.zipCode}
+              />
             <Input
               inputLabel="Country:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.address5}
+              />
           </div>
           <div className="col xl-12 flex f-center f-start">
             <span className="fa fa-map-marker-alt font-grass-green">
@@ -119,16 +161,24 @@ class OwnerinformationNew extends Component {
           <div className="col xl-12 flex-container flex-wrap">
             <Input
               inputLabel="Building/Street:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.address1}
+              />
             <Input
               inputLabel="City/Provinces:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.address2}
+              />
             <Input
               inputLabel="Zip Code:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.zipCode}
+              />
             <Input
               inputLabel="Country:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.address5}
+              />
           </div>
           <div className="col xl-12 flex f-center f-start">
             <span className="fa fa-map-marker-alt font-grass-green">
@@ -138,18 +188,26 @@ class OwnerinformationNew extends Component {
             </h3>
           </div>
           <div className="col xl-12 flex-container flex-wrap">
-            <Input
+          <Input
               inputLabel="Building/Street:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.address1}
+              />
             <Input
               inputLabel="City/Provinces:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.address2}
+              />
             <Input
               inputLabel="Zip Code:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.zipCode}
+              />
             <Input
               inputLabel="Country:"
-              inputClass="col xl-6 input-container" />
+              inputClass="col xl-6 input-container" 
+              value={this.props.client.address5}
+              />
           </div>
         </div>
       </div >

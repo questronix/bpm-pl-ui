@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
+import SidebarNew from '../sidebar/SidebarNew';
 
 class Nav extends Component {
 
@@ -22,13 +23,14 @@ class Nav extends Component {
     return (
       <div className="App header-container">
         <Header/>
-        <nav className="navbar">
+        {/* <nav className="navbar">
           <div className="navmenu m-hide s-hide xs-hide">
             <ul>
               {links}
             </ul>
           </div>
-        </nav>
+        </nav> */}
+        <SidebarNew/>
       </div>
     );
   }

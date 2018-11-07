@@ -122,7 +122,7 @@ class InsuredinformationNew extends Component {
               value={this.props.client.tinNum}
               />
           </div>
-          {/* <div className="col xl-12 flex f-center f-start">
+          <div className="col xl-12 flex f-center f-start">
             <span className="fa fa-map-marker-alt font-grass-green">
             </span> &nbsp;
             <h3 className="no-margin">
@@ -133,22 +133,22 @@ class InsuredinformationNew extends Component {
             <Input
               inputLabel="Building/Street:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.address1}
               />
             <Input
               inputLabel="City/Provinces:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.address2}
               />
             <Input
               inputLabel="Zip Code:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.zipCode}
               />
             <Input
               inputLabel="Country:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.address5}
               />
           </div>
           <div className="col xl-12 flex f-center f-start">
@@ -162,22 +162,22 @@ class InsuredinformationNew extends Component {
             <Input
               inputLabel="Building/Street:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.address1}
               />
             <Input
               inputLabel="City/Provinces:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.address2}
               />
             <Input
               inputLabel="Zip Code:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.zipCode}
               />
             <Input
               inputLabel="Country:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.address5}
               />
           </div>
           <div className="col xl-12 flex f-center f-start">
@@ -188,27 +188,27 @@ class InsuredinformationNew extends Component {
             </h3>
           </div>
           <div className="col xl-12 flex-container flex-wrap">
-            <Input
+          <Input
               inputLabel="Building/Street:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.address1}
               />
             <Input
               inputLabel="City/Provinces:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.address2}
               />
             <Input
               inputLabel="Zip Code:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.zipCode}
               />
             <Input
               inputLabel="Country:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.clientId}
+              value={this.props.client.address5}
               />
-          </div> */}
+          </div>
         </div>
       </div >
     );
