@@ -1,0 +1,50 @@
+{  
+  "status": "success",
+  "statusCode": 0,
+  "isSuccess": true,
+  "message": "getting data is successful.",
+  "result": [
+      {
+          "Docs_ID": 1,
+          "Transaction_ID": 1,
+          "SubTransaction_ID": 1,
+          "Description": "Health Statement Form (HSF)",
+          "Date_Created": "2018-11-07T10:28:12.990Z"
+      },
+      {
+          "Docs_ID": 2,
+          "Transaction_ID": 1,
+          "SubTransaction_ID": 1,
+          "Description": "U/W Routine Requirements",
+          "Date_Created": "2018-11-07T10:29:01.707Z"
+      },
+      {
+          "Docs_ID": 3,
+          "Transaction_ID": 1,
+          "SubTransaction_ID": 1,
+          "Description": "Payment of Premium Arrears",
+          "Date_Created": "2018-11-07T10:30:35.633Z"
+      },
+      {
+          "Docs_ID": 4,
+          "Transaction_ID": 1,
+          "SubTransaction_ID": 1,
+          "Description": "Specimen Signature Form",
+          "Date_Created": "2018-11-07T10:33:51.187Z"
+      },
+      {
+          "Docs_ID": 5,
+          "Transaction_ID": 1,
+          "SubTransaction_ID": 1,
+          "Description": "Valid Government Issued ID ",
+          "Date_Created": "2018-11-07T10:33:37.510Z"
+      },
+      {
+          "Docs_ID": 6,
+          "Transaction_ID": 1,
+          "SubTransaction_ID": 1,
+          "Description": "Valid Non-Government Issued ID",
+          "Date_Created": "2018-11-07T10:34:13.803Z"
+      }
+  ]
+}
