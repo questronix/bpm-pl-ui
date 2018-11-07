@@ -8,7 +8,7 @@ class Header extends Component {
     this.state = {
       isOpen: false
     }
-  } 
+  }
 
   toggleMenu() {
     this.setState({
@@ -19,7 +19,7 @@ class Header extends Component {
   render() {
 
     return (
-      <div className="header header-container flex f-justify-space-between bg-white f-center">
+      <div className="header-container flex f-justify-space-between bg-white f-center">
         <div className="header-brand flex">
           <h3 className="font-prulife">
             BPM
@@ -30,11 +30,15 @@ class Header extends Component {
         </div>
         <div className="header-action dropdown" onClick={() => this.toggleMenu()}>
           <a href="#" className="flex f-row f-center">
-            <span className="fa fa-user"></span> &nbsp;&nbsp;
-            <p>
-              Welcome, Admin
-            </p>
-            &nbsp;&nbsp;<span className="fa fa-chevron-down"></span>
+            <div className="text-right">
+              <p className="no-margin">
+                Welcome, Admin
+              </p>
+              <p className="no-margin">
+                CSA / Processor / Approver
+              </p>
+            </div>
+            <span className="fa fa-user font-prulife"></span>
           </a>
           <div className={this.state.isOpen ? 'dropdown-menu active' : 'dropdown-menu'}>
             <ul>
