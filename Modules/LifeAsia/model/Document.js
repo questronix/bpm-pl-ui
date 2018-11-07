@@ -1,34 +1,28 @@
-const TAG = '[LifeAsia]';
+const TAG = '[Document]';
 const ajax = require('../../Common/services/Ajax');
 const Logger = require('../../Common/services/Logger');
 const Error = require('../../Common/services/Errors');
-const url = process.env.LIFE_ASIA_URL;
+const url = process.env.LIFE_ASIA_CLIENT_URL;
 const isFakeEndpoint = process.env.FAKE_ENDPOINTS;
 
-module.exports.getPolicy = num => {
-  const ACTION = '[getPolicy]';
-  const uri = `${url}/requestDetailstoLifeAsia`;
-  Logger.log('info', `${TAG}${ACTION} - policy number `, { num });
+module.exports.getDocList = (transactionId, subTransactionId) => {
+  const ACTION = '[getDocList]';
+  const uri = `${url}/getListDocs`;
+  Logger.log('info', `${TAG}${ACTION} - args `, { transactionId, subTransactionId });
   Logger.log('info', `${TAG}${ACTION} - url`, uri);
 
   if (isFakeEndpoint) {
     return new Promise((resolve) => {
-      const data = require('../../Dummy/policy.json');  
-      Logger.log('info', `${TAG}${ACTION} - result`, data);
-      resolve(data);
+      resolve({
+        status: 200,
+        msg: require('../../Dummy/docs.json')
+      });
     });
   } else {
     return new Promise((resolve, reject) => {
-      // "policyNo": "72940355",
       const args = {
-        status: 'success',
-        statusCode: 0,
-        isSuccess: true,
-        message: 'successful',
-        result: {
-          policyNo: num,
-          action: 'GETPLCY',
-        }
+        "transactionID": transactionId,
+        "subTransactionID": subTransactionId
       };
 
       ajax
@@ -37,17 +31,17 @@ module.exports.getPolicy = num => {
         })
         .post(args)
         .then(res => {
+          Logger.log('info', `${TAG}${ACTION} - res `, { res });
           if (res.body) {
             resolve(res.body);
           } else {
             reject({
               status: 400,
               error: {
-                msg: 'Policy not found.'
+                msg: 'No documents found'
               }
             });
           }
-          Logger.log('info', `${TAG}${ACTION} - result`, res.body);
         })
         .catch(err => {
           Logger.log('error', TAG + ACTION, err);
