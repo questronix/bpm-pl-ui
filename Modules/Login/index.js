@@ -15,9 +15,9 @@ router.post('/login', async (req, res) => {
   try {
     bpm = await lm.bpm(username);
     if (bpm) {
-      ldap = await lm.ldap(bpm.username, password);
-      if (ldap.authenticated) {
-        req.session.user = bpm;
+      ldap = await lm.ldap(bpm.username, password, req.connection.remoteAddress);
+      if (ldap.isSuccess) {
+        req.session.user = {id: bpm.id, role: bpm.role, ...ldap.result};
         res.send(req.session.user);
       }
       else {

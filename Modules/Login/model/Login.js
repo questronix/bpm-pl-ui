@@ -30,15 +30,15 @@ module.exports.bpm = username => {
   });
 };
 
-module.exports.ldap = (username, password) => {
+module.exports.ldap = (username, password, networkAddress) => {
   const ACTION = '[ldap]';
-  Logger.log('info', `${TAG}${ACTION} - args `, { username });
+  Logger.log('info', `${TAG}${ACTION} - args `, { username, password , networkAddress});
   const fakeLdap = require('../../Dummy/ldap');
 
   if (isFakeEndpoint) {
     return new Promise((resolve, reject) => {
       const res = fakeLdap.success;
-      resolve({ authenticated: res.result.authenticated});
+      resolve(res);
     });
   } else {
     return new Promise((resolve, reject) => {
@@ -49,15 +49,16 @@ module.exports.ldap = (username, password) => {
         .post({
           result: {
             username,
-            password
+            password,
+            networkAddress
           }
         })
         .then(res => {
           Logger.log('info', `${TAG}${ACTION} - result from ldap `, res.body);
           if (res.body.result.authenticated) {
-            resolve({ authenticated: true });
+            resolve(res);
           } else {
-            resolve({ authenticated: false });
+            resolve(res);
           }
         })
         .catch(err => {
