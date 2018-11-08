@@ -1485,6 +1485,8 @@ $background_color_1: #ED1B2E;
                 &:hover{
                     background-color: rgba($white, .1)
                 }
+            }
+            a{
                 &.active{
                     border-left: 4px solid $prulife;
                     background-color: white;

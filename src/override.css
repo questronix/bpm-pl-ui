@@ -1331,10 +1331,10 @@ nav.navbar .navmenu {
       margin-right: 6px; }
     .sidebar .sidebar-body ul li:hover {
       background-color: rgba(255, 255, 255, 0.1); }
-    .sidebar .sidebar-body ul li.active {
-      border-left: 4px solid #ED1B2E;
-      background-color: white;
-      color: #68737A; }
+  .sidebar .sidebar-body ul a.active {
+    border-left: 4px solid #ED1B2E;
+    background-color: white;
+    color: #68737A; }
 
 .compact-list {
   margin: 0; }
