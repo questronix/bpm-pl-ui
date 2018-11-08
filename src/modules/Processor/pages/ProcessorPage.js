@@ -63,9 +63,9 @@ export default class Main extends Component {
     return (
       <div>
         <Nav />
-        <SideBar tasks={this.state.tasks} onTabClick={this.handleSidebarTabClick} />
+        {/* <SideBar tasks={this.state.tasks} onTabClick={this.handleSidebarTabClick} /> */}
         {/* <Processor/> */}
-        <div className="">
+        <div className="margin-top-70">
           <div className="flex-container flex-wrap">
             <div className="xl-2 col"></div>
             <div className="xl-10 col">

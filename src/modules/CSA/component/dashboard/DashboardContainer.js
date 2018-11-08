@@ -24,7 +24,7 @@ class DashboardContainer extends Component {
   render() {
     console.log(this.props);
     return (
-      <div className="flex-container flex-wrap f-center flex">
+      <div className="flex-container flex-wrap f-center flex margin-top-70">
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4">
           made by questronix
         </div>
