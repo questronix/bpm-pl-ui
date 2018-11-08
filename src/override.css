@@ -337,6 +337,9 @@ body, html {
 .text-right {
   text-align: right; }
 
+.text-bold {
+  font-weight: bold; }
+
 .btn, .btn-circle, .card-img-container .card-btn {
   height: 35px;
   border-radius: 6px;
@@ -381,6 +384,54 @@ body, html {
     background-color: #fff;
     color: #2b2b2b; }
     .btn.alt:hover, .alt.btn-circle:hover, .card-img-container .alt.card-btn:hover {
+      box-shadow: 0px 0px 6px #eee; }
+
+.btn-sm {
+  height: 30px;
+  font-size: 13px;
+  padding: 0px 15px;
+  border: 0px;
+  border-radius: 6px;
+  color: #fff;
+  background-color: #E0E1E2;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -ms-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all 0.3s ease-out; }
+  .btn-sm span {
+    font-size: 13px; }
+  .btn-sm:active {
+    transform: scale(0.9); }
+  .btn-sm.prulife {
+    background-color: #ED1B2E;
+    color: #fff; }
+    .btn-sm.prulife:hover {
+      box-shadow: 0px 0px 6px #ED1B2E; }
+  .btn-sm.purple {
+    background-color: #722382;
+    color: #fff; }
+    .btn-sm.purple:hover {
+      box-shadow: 0px 0px 6px #722382; }
+  .btn-sm.grass-green {
+    background-color: #007953;
+    color: #fff; }
+    .btn-sm.grass-green:hover {
+      box-shadow: 0px 0px 6px #007953; }
+  .btn-sm.bright-blue {
+    background-color: #0064B9;
+    color: #fff; }
+    .btn-sm.bright-blue:hover {
+      box-shadow: 0px 0px 6px #0064B9; }
+  .btn-sm.alt {
+    background-color: transparent;
+    color: #2b2b2b;
+    border: 1px solid rgba(189, 189, 189, 0); }
+    .btn-sm.alt:hover {
+      border: 1px solid #bdbdbd;
       box-shadow: 0px 0px 6px #eee; }
 
 .btn-circle {

@@ -177,7 +177,7 @@ createredirect(){
 
   render() {
     return (
-      <div className="flex-container flex-wrap margin-top-70">
+      <div className="flex-container flex-wrap margin-top-70 ">
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4"></div>
         <MyModal
           modalId="1"
@@ -275,6 +275,17 @@ createredirect(){
                   </ModalTrigger>
                 </a>
               </div>
+            </div>
+            <div className="col container no-padding xl-12 flex f-center f-start">
+              <p className="text-bold">
+                FILTER :
+              </p>
+              <a className="btn-sm bright-blue">
+                All Task
+              </a>
+              <a className="btn-sm alt">
+                Recently Updated
+              </a>
             </div>
             <TaskList tasks={this.state.tasks} policy={this.state.policy} />
             {/* <h1>Task History</h1> */}
