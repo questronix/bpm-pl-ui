@@ -183,7 +183,7 @@ createredirect(){
           modalId="1"
           modalLabel="New Transaction">
           <div className="col xl-12">
-            <div className="xl-12 flex f-justify-space-between ">
+            <div className="xl-12 flex f-justify-space-between">
               <div className="xl-11 search-container">
                 <input className="search" type="text" placeholder="Search..."  value={this.state.policyNumber}
                 onChange={this.handleInputChange}

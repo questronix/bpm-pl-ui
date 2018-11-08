@@ -346,6 +346,8 @@ body, html {
   display: flex;
   align-items: center;
   margin-left: 5px;
+  font-size: 14px;
+  font-weight: bold;
   -webkit-transition: all .3s ease-out;
   -moz-transition: all .3s ease-out;
   -ms-transition: all .3s ease-out;
