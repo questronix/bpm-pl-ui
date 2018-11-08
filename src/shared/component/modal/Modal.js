@@ -7,7 +7,7 @@ class MyModal extends Component {
         <input class="modal-state" id={this.props.modalId} type="checkbox" />
         <div class="modal">
           <label class="modal-bg" for={this.props.modalId}></label>
-          <div class="modal-inner">
+          <div class="modal-inner col">
             <label class="modal__close" for={this.props.modalId}></label>
             <h2 className="container">{this.props.modalLabel}</h2>
             <div class="flex-container flex-wrap">

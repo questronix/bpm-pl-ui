@@ -8,6 +8,7 @@ const DashboardPage = (props) => {
   return (
     <div>
       <Nav /> 
+      
       <DashboardContainer />
     </div>
   );
