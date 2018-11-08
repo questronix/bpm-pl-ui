@@ -18,7 +18,7 @@ class TabHeader extends Component {
               inputPlaceholder="transaction type"
               inputClass="input-container" />
             <Input
-              inputLabel="Policy Number1"
+              inputLabel="Policy Number"
               inputPlaceholder=" Policy Number"
               value={this.props.policy.policyNo}
               inputClass="input-container"
@@ -30,9 +30,11 @@ class TabHeader extends Component {
             <Input
               inputLabel="Sum Assured"
               inputPlaceholder="Sum Assured"
+              value = {this.props.policy.sumAssured}
               inputClass="input-container" />
             <Input
               inputLabel="Created Date"
+              // value = {this.props.variables.policy.createdAt}
               inputPlaceholder="Created Date"
               inputClass="input-container" />
           </div>

@@ -1,6 +1,7 @@
 // TODO: FIX import
 
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'
 
 class SidebarNew extends Component {
   constructor(props){
@@ -33,18 +34,33 @@ class SidebarNew extends Component {
         </div>
         <div className="sidebar-body">
           <ul>
-            <a href="/tasks" onClick={() =>{this.handleSideTabs(0)}}>
-              <li className={this.state.sideTabs == 0 ? "active flex f-start f-center" : "flex f-start f-center"}>
+            <li>
+            <NavLink to="/tasks" className="flex f-start f-center" activeClassName="active flex f-start f-center">
                 <span className="fa fa-clipboard-list font-bright-blue"></span>
-                TASKS
-              </li>
-            </a>
-            <a href="/dashboard"  onClick={() =>{this.handleSideTabs(1)}}>
+                  TASKS
+              </NavLink>
+            </li>
+
+                        <li>
+                        <NavLink to="/dashboard" className="flex f-start f-center" activeClassName="active flex f-start f-center">
+                        <span className="fa fa-check font-grass-green"></span>
+                  Dashboard
+              </NavLink>
+                        </li>
+              
+
+            {/* <a href="/tasks" onClick={() =>{this.handleSideTabs(0)}}> */}
+              
+              {/* <li className={this.state.sideTabs == 0 ? "active flex f-start f-center" : "flex f-start f-center"}>
+                
+              </li> */}
+            {/* </a> */}
+            {/* <a href="/dashboard"  onClick={() =>{this.handleSideTabs(1)}}>
               <li className={this.state.sideTabs == 1 ? "active flex f-start f-center" : "flex f-start f-center"}>
                 <span className="fa fa-check font-grass-green"></span>
                 MENU 1
               </li>
-            </a>
+            </a> */}
           </ul>
         </div>
         <div className="sidebar-header">

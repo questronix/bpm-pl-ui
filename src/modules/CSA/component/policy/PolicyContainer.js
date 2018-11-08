@@ -504,7 +504,7 @@ class Policy extends Component {
             </div>
 
           </div>
-          <TabHeader policy={this.state.policy} />
+          <TabHeader policy={this.state.policy} tasks={this.state.tasks}/>
           <div className="box-body">
 
             {/* this is for tab1 */}

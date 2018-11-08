@@ -11,7 +11,7 @@ class TaskList extends Component {
 
   render() {
     return (
-      <div className="card-table">
+      <div className="card-table margin-top-70">
         {this.props.tasks ? (
           <table id="table" cellPadding="0" cellSpacing="0">
             <thead>
