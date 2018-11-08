@@ -11,18 +11,18 @@ class TaskList extends Component {
 
   render() {
     return (
-      <div className="card-table">
+      <div className="card-table margin-top-70">
         {this.props.tasks ? (
           <table id="table" cellPadding="0" cellSpacing="0">
             <thead>
               <tr>
-                <th>Policy Number</th>
-                <th>Application Number</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Status</th>
+                <th>Policy No.</th>
+                <th>Transaction No.</th>
+                <th>Transaction Type</th>
+                <th>Policy Owner</th>
+                <th>Insured Owner</th>
                 <th>Date Created</th>
-                <th>Action</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -31,30 +31,43 @@ class TaskList extends Component {
                   key={index}
                   onClick={() => this.handleItemClick(`/tasks/edit?id=${task.id}`)}
                 >
-                  <td>
+                  <td> 
+                    {/* Policy no */}
                   <div class="cursor"></div>
                     {task.variables.policy.number
                       ? task.variables.policy.number
                       : '-'}
                   </td>
+                  {/* Transaction No */}
                   <td>{task.variables.appno}</td>
+                  
                   <td>
+                    {/* Transation type */}
                     {task.variables.policy.info != null
                       ? JSON.parse(task.variables.policy.info).insured.firstName
                       : '-'}
                   </td>
                   <td>
+                    {/* Policy owner */}
                     {task.variables.policy.info != null
-                      ? JSON.parse(task.variables.policy.info).insured.lastName
+                      ? JSON.parse(task.variables.policy.info).insured.firstName
                       : '-'}
                   </td>
                   <td>
+                    {/* Insured owner */}
+                    {task.variables.policy.info != null
+                      ? JSON.parse(task.variables.policy.info).insured.firstName
+                      : '-'}
+                  </td>
+                  <td>
+                    {/* Date created */}
+                    {new Date(task.variables.policy.createdAt).toDateString()}
+                  </td>
+                  <td>
+                    {/* Status */}
                     {task.variables.status
                       ? task.variables.status.toUpperCase()
                       : 'Draft'}
-                  </td>
-                  <td>
-                    {new Date(task.variables.policy.createdAt).toDateString()}
                   </td>
                   <td>
                     {/* {!task.completed ? (

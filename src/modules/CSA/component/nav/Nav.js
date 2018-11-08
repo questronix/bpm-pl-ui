@@ -18,6 +18,7 @@ const navLinks = [
 
 const Nav = () => {
   return <NavBar links={navLinks} />
+  
 }
 
 export default Nav;

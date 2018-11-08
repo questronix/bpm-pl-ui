@@ -30,7 +30,7 @@ class Nav extends Component {
             </ul>
           </div>
         </nav> */}
-        <SidebarNew/>
+        <SidebarNew links={links}/>
       </div>
     );
   }
