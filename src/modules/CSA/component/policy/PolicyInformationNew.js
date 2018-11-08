@@ -15,7 +15,7 @@ class PolicyInformationNew extends Component {
         <Input inputLabel="Currency:" inputPlaceholder="PHP" inputClass="col xl-4 input-container" value=""/>
         <Input inputLabel="Current Premium:" inputPlaceholder="Current Premium" inputClass="col xl-4 input-container" value="" />
         <Input inputLabel="Mode of Payment:" inputPlaceholder="Monthly" inputClass="col xl-4 input-container" value="" />
-        <Input inputLabel="Insured Name:" inputPlaceholder="LastN, FirstN, MName" inputClass="col xl-8 input-container" value={this.props.policy.insuredName}/>
+        <Input inputLabel="Insured Name:" inputPlaceholder="LastN, FirstN, MName" inputClass="col xl-8 input-container" value={this.props.policy.firstName}/>
         <Input inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" value=""/>
         <Input inputLabel="Owner Name:" inputPlaceholder="LastN, FirstN, MName" inputClass="col xl-8 input-container" value="" />
         <Input inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" value=""/>

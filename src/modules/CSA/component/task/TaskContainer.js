@@ -47,6 +47,10 @@ class TaskContainer extends Component {
     this.handlePolicySearchSubmit(this.state.policyNumber);
   }
 
+  handleItemClick(url) {
+    window.location.href = url;
+  }
+
   handleInputChange(event) {
     const value = event.target.value;
 
@@ -137,10 +141,13 @@ class TaskContainer extends Component {
     });
   }
   // End of test
+createredirect(){
+  this.createTask()
+  this.handleItemClick(`/tasks/edit?id=${tasks.id}`)
+}
 
-
-  createTask() {
-    TaskService.createNewTask().then((res) => {
+  createTask(id) {
+    TaskService.createNewTask(id).then((res) => {
       window.location.href = `/tasks`;
       console.log(res.data);
     }).catch((err) => {
@@ -222,7 +229,9 @@ class TaskContainer extends Component {
             <a
               href="#"
               className="btn prulife"
-              onClick={this.createTask}>
+              onClick={() => { if (window.confirm('Are you sure you want to Proceed')) this.createredirect() }}
+              // onClick={this.createTask}
+              >
               Proceed
               &nbsp;&nbsp;&nbsp;
               <span className="fa fa-chevron-right font-white"></span>
@@ -267,7 +276,7 @@ class TaskContainer extends Component {
                 </a>
               </div>
             </div>
-            <TaskList tasks={this.state.tasks} />
+            <TaskList tasks={this.state.tasks} policy={this.state.policy} />
             <h1>Task History</h1>
             {/* <TaskList tasks={this.state.taskHistory} /> */}
           </div>

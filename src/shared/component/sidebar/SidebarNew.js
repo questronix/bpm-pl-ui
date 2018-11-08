@@ -3,6 +3,21 @@
 import React, { Component } from 'react';
 
 class SidebarNew extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      sideTabs: 0
+    }
+    this.handleSideTabs = this.handleSideTabs.bind(this);
+  }
+
+    handleSideTabs(e){
+      this.setState({
+        sideTabs: e
+      })
+
+    }
+
   render() {
 
     return (
@@ -18,14 +33,14 @@ class SidebarNew extends Component {
         </div>
         <div className="sidebar-body">
           <ul>
-            <a href="#">
-              <li className="active flex f-start f-center">
+            <a href="/tasks" onClick={() =>{this.handleSideTabs(0)}}>
+              <li className={this.state.sideTabs == 0 ? "active flex f-start f-center" : "flex f-start f-center"}>
                 <span className="fa fa-clipboard-list font-bright-blue"></span>
                 TASKS
               </li>
             </a>
-            <a href="#">
-              <li className="flex f-start f-center">
+            <a href="/dashboard"  onClick={() =>{this.handleSideTabs(1)}}>
+              <li className={this.state.sideTabs == 1 ? "active flex f-start f-center" : "flex f-start f-center"}>
                 <span className="fa fa-check font-grass-green"></span>
                 MENU 1
               </li>
