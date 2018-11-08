@@ -1550,17 +1550,21 @@ div {
   bottom: 0;
   left: 0;
   text-align: left;
-  background: rgba(0, 0, 0, 0.9);
-  transition: opacity .25s ease;
+  background: rgba(0, 0, 0, 0.75);
+  transition: opacity 400ms ease-in-out;
   z-index: 20; }
   .modal img {
     width: 100%; }
 
-.modal-footer {
-  background-color: #eee; }
+.modal-footer .btn, .modal-footer .btn-circle, .modal-footer .card-img-container .card-btn, .card-img-container .modal-footer .card-btn {
+  font-size: 14px;
+  font-weight: bold; }
 
 .modal-header {
   border-bottom: 1px solid #bdbdbd; }
+
+.modal-body .input-container {
+  padding: 5px; }
 
 .modal-bg {
   position: absolute;
@@ -1578,21 +1582,20 @@ div {
   visibility: visible; }
 
 .modal-state:checked + .modal .modal-inner {
-  top: 0; }
+  transform: translate(0, 0); }
 
 .modal-inner {
-  transition: top .25s ease;
+  transition: .25s ease;
   position: absolute;
-  top: -20%;
+  transform: translate(100%, 0);
   right: 0;
+  top: 0;
   bottom: 0;
-  left: 0;
-  width: 80%;
+  width: 50%;
   margin: auto;
   overflow: auto;
   background: #fff;
-  border-radius: 5px;
-  height: fit-content; }
+  height: 100%; }
 
 .modal__close {
   position: absolute;

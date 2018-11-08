@@ -171,13 +171,13 @@ class TaskContainer extends Component {
   render() {
     return (
       <div className="flex-container flex-wrap">
-        <div className="col xl-2 l-2 m-3 s-3 xs-4"></div>
+        <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4"></div>
         <MyModal
           modalId="1"
           modalLabel="New Transaction">
-          <div className="col xl-12 modal-header">
-            <div className="xl-4 l-4 flex f-justify-space-between">
-              <div className="search-container">
+          <div className="col xl-12">
+            <div className="xl-12 flex f-justify-space-between ">
+              <div className="xl-11 search-container">
                 <input className="search" type="text" placeholder="Search..."  value={this.state.policyNumber}
                 onChange={this.handleInputChange}
                 />
@@ -189,9 +189,11 @@ class TaskContainer extends Component {
                 </span>
               </a>
             </div>
+            <br/>
+            <hr/>
           </div>
-          <div className=" col xl-12 flex-container flex-wrap modal-body">
-            <div className="xl-12">
+          <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
+            <div className="col xl-12">
               <h2 className="font-prulife no-margin">
                 Policy Information
               </h2>
@@ -202,7 +204,7 @@ class TaskContainer extends Component {
               </h3>
             </div>
             <PolicyInformationNew  policy={this.state.policy} />
-            <div className="xl-12">
+            <div className="col xl-12">
               <h2 className="font-prulife no-margin">
                 Agent Information
               </h2>
@@ -215,13 +217,15 @@ class TaskContainer extends Component {
             <AgentinformationNew  policy={this.state.policy}/>
           </div>
           <div className="col xl-12 modal-footer flex-container flex-wrap">
-            <div className="col xl-11">
+            <div className="col xl-10">
             </div>
             <a
               href="#"
               className="btn prulife"
               onClick={this.createTask}>
               Proceed
+              &nbsp;&nbsp;&nbsp;
+              <span className="fa fa-chevron-right font-white"></span>
             </a>
           </div>
         </MyModal>
