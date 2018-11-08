@@ -68,7 +68,7 @@ class SidebarNew extends Component {
         </div>
         <div className="sidebar-body logout">
           <ul>
-            <a href="#">
+            <a href="/login">
               <li className="flex f-start f-center">
                 <span className="fa fa-sign-out-alt font-prulife"></span>
                 LOGOUT

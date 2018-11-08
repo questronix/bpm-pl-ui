@@ -68,7 +68,7 @@ class Policy extends Component {
       taskHistory: [],
       policyNumber: '',
       policy: {},
-      client:{},
+      client: {},
       Tabs: 0,
     }
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
@@ -77,9 +77,9 @@ class Policy extends Component {
     this.handleNewTaskSubmit = this.handleNewTaskSubmit.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this)
     this.createTask = this.createTask.bind(this);
-        // Test
-        this.handleTabClick = this.handleTabClick.bind(this);
-        this.decrement = this.decrement.bind(this);
+    // Test
+    this.handleTabClick = this.handleTabClick.bind(this);
+    this.decrement = this.decrement.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -112,7 +112,7 @@ class Policy extends Component {
         this.setState({
           policy: res.data.data.result.data
         })
-      } 
+      }
 
     }).catch((err) => {
       this.setState({
@@ -125,7 +125,7 @@ class Policy extends Component {
   }
   // Test
   handleTabClick() {
-    
+
     if (this.state.Tabs == 3) {
       this.setState({
         Tabs: 3
@@ -135,24 +135,24 @@ class Policy extends Component {
         Tabs: this.state.Tabs + 1
       });
     }
-    if(this.state.Tabs==0){
+    if (this.state.Tabs == 0) {
       this.getClientInfo(12345);
     }
   }
 
-  getClientInfo(id){
+  getClientInfo(id) {
     PolicyService.getClientIformationByid(id).then((res) => {
       if (res.data.data.result.data) {
         this.setState({
           client: res.data.data.result.data
         })
-      } 
+      }
       console.log(res.data);
     }).catch((err) => {
       console.log(err);
     });
   }
-  
+
 
   decrement() {
     this.setState({
@@ -194,20 +194,20 @@ class Policy extends Component {
 
   componentDidMount() {
     // Init default values to Transaction on page load.
-    
+
     this.setState({
       taskId: this.getQueryStringValue("id")
     });
 
     TaskService.getTaskDetails(this.getQueryStringValue("id")).then((res) => {
-        console.log(res.data);
-        console.log(variables);
-        const variables = res.data.variables;
-        this.setState({
-          policy : res.data.variables,
-          polId: variables.policy.id,
-          polNumber: variables.policy.number,
-        });
+      console.log(res.data);
+      console.log(variables);
+      const variables = res.data.variables;
+      this.setState({
+        policy: res.data.variables,
+        polId: variables.policy.id,
+        polNumber: variables.policy.number,
+      });
     }).catch((err) => {
       console.log('CREATE TASK ERROR:', err);
     });
@@ -250,9 +250,9 @@ class Policy extends Component {
     });
   }
 
-  getQueryStringValue (key) {  
-    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
-  }  
+  getQueryStringValue(key) {
+    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+  }
 
   handleNewTaskSubmit() {
 
@@ -268,7 +268,7 @@ class Policy extends Component {
       isCompleteAndValid: true,
       type: 'csa',
       action: 'complete',
-      
+
     }
 
     console.log('formData', formData);
@@ -277,7 +277,7 @@ class Policy extends Component {
       console.log(res.data.error);
       if (!res.data.error) {
         alert('Task Submitted!');
-        window.location.href="/tasks"; 
+        window.location.href = "/tasks";
       }
       else {
         alert(res.data.error);
@@ -296,13 +296,13 @@ class Policy extends Component {
       isError: false,
     });
     PolicyService.getPolicyInformationByID({ policyNumber }).then((res) => {
-      
+
       let policy = this.state.policy;
       console.log('before', policy);
       let rp = res.data.data.policy;
       let toupdate = Object.keys(rp);
-      toupdate.forEach(elem=>{
-        if(typeof rp[elem] != "undefined"){
+      toupdate.forEach(elem => {
+        if (typeof rp[elem] != "undefined") {
           policy[elem] = rp[elem];
         }
       });
@@ -454,119 +454,117 @@ class Policy extends Component {
 
   render() {
     return (
-      <div>
-      <div className="box">
-
-      <div className="tab-title-container">
-        <div className={this.state.Tabs == 0 ? "tab-title active" : "tab-title"}>
-          <h4 className="circle">
-            1
+      <div className="flex-container flex-wrap">
+        <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4"></div>
+        <div className="box margin-top-70 col xl-9 l-9 m-8 s-8 xs-7 no-padding margin-auto">
+          <div className="tab-title-container">
+            <div className={this.state.Tabs == 0 ? "tab-title active" : "tab-title"}>
+              <h4 className="circle">
+                1
             </h4>
-          <a onClick={() => { this.handleTabClick(0) }}>
-            <h4>
-              Transaction Selection
+              <a onClick={() => { this.handleTabClick(0) }}>
+                <h4>
+                  Transaction Selection
               </h4>
-          </a>
-          <span class="white"></span><span class="gray"></span>
-        </div>
-        <div className={this.state.Tabs == 1 ? "tab-title active" : "tab-title"}>
-        
-          <h4 className="circle">
-            2
-            </h4>
-          <a onClick={() => { this.handleTabClick(1) }}>
-            <h4>
-              Insured Details
-              </h4>
-          </a>
-          <span class="white"></span><span class="gray"></span>
-        </div>
-        <div className={this.state.Tabs == 2 ? "tab-title active" : "tab-title"}>
-          <h4 className="circle">
-            3
-            </h4>
-          <a onClick={() => { this.handleTabClick(2) }}>
-          <span class="white"></span><span class="gray"></span>
-            <h4>
-              Owner Details
-              </h4>
-          </a>
-        </div>
-        <div className={this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
-          <h4 className="circle">
-            4
-            </h4>
-          <a onClick={() => { this.handleTabClick(3) }}>
-            <h4>
-              Additional Prolicy info
-              </h4>
-          </a>
-          <span class="white"></span><span class="gray"></span>
-        </div>
-        
-      </div>
-      <TabHeader policy={this.state.policy}/>
-      <div className="box-body">
-
-        {/* this is for tab1 */}
-        {this.state.Tabs == 0 ?
-          <div>
-            <TransactionNew />
-            <div className="flex f-end container">
-              <a href="#" className="btn purple" onClick={this.handleTabClick}>
-                Insured Details
-                  </a>
+              </a>
+              <span class="white"></span><span class="gray"></span>
             </div>
+            <div className={this.state.Tabs == 1 ? "tab-title active" : "tab-title"}>
+
+              <h4 className="circle">
+                2
+            </h4>
+              <a onClick={() => { this.handleTabClick(1) }}>
+                <h4>
+                  Insured Details
+              </h4>
+              </a>
+              <span class="white"></span><span class="gray"></span>
+            </div>
+            <div className={this.state.Tabs == 2 ? "tab-title active" : "tab-title"}>
+              <h4 className="circle">
+                3
+            </h4>
+              <a onClick={() => { this.handleTabClick(2) }}>
+                <span class="white"></span><span class="gray"></span>
+                <h4>
+                  Owner Details
+              </h4>
+              </a>
+            </div>
+            <div className={this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+              <h4 className="circle">
+                4
+            </h4>
+              <a onClick={() => { this.handleTabClick(3) }}>
+                <h4>
+                  Additional Prolicy info
+              </h4>
+              </a>
+            </div>
+
           </div>
-          : ""}
-        {/* this is for tab3 */}
-        {this.state.Tabs == 3 ?
-          <div>
-            <div className="flex f-center">
-              {/* <FatcaNew/> */}
-            </div>
-            <div className="flex f-justify-space-between container">
-              <a href="#" className="btn bright-blue" onClick={this.decrement}>
-              Insured Details                   </a>
-              <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                Submit
-               </a>
-            </div>
-          </div> : ""}
+          <TabHeader policy={this.state.policy} />
+          <div className="box-body">
 
-        {/* this is for tab2 */}
-        {this.state.Tabs == 1 ?
-          <div>
-            <InsuredinformationNew client={this.state.client}/>
-            <div className="flex f-justify-space-between container">
-              <a href="#" className="btn purple" onClick={this.decrement}>
-                Transaction Selection
+            {/* this is for tab1 */}
+            {this.state.Tabs == 0 ?
+              <div>
+                <TransactionNew />
+                <div className="flex f-end container">
+                  <a href="#" className="btn purple" onClick={this.handleTabClick}>
+                    Insured Details
+                  </a>
+                </div>
+              </div>
+              : ""}
+            {/* this is for tab3 */}
+            {this.state.Tabs == 3 ?
+              <div>
+                <div className="flex f-center">
+                  {/* <FatcaNew/> */}
+                </div>
+                <div className="flex f-justify-space-between container">
+                  <a href="#" className="btn bright-blue" onClick={this.decrement}>
+                    Insured Details                   </a>
+                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
+                    Submit
                </a>
-              <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                Owner Details
+                </div>
+              </div> : ""}
+
+            {/* this is for tab2 */}
+            {this.state.Tabs == 1 ?
+              <div>
+                <InsuredinformationNew client={this.state.client} />
+                <div className="flex f-justify-space-between container">
+                  <a href="#" className="btn purple" onClick={this.decrement}>
+                    Transaction Selection
                </a>
-            </div>
-          </div> : ""}
-        {/* this is for tab4 */}
-        {this.state.Tabs == 2 ?
-          <div>
-            <OwnerinformationNew client={this.state.client}/>
-            <div className="flex f-justify-space-between container">
-              <a href="#" className="btn grass-green" onClick={this.decrement}>
-                Insured Details
+                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
+                    Owner Details
                </a>
-              <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                Additional Policy info
+                </div>
+              </div> : ""}
+            {/* this is for tab4 */}
+            {this.state.Tabs == 2 ?
+              <div>
+                <OwnerinformationNew client={this.state.client} />
+                <div className="flex f-justify-space-between container">
+                  <a href="#" className="btn grass-green" onClick={this.decrement}>
+                    Insured Details
                </a>
-            </div>
-          </div> : ""}
+                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
+                    Additional Policy info
+               </a>
+                </div>
+              </div> : ""}
+
+          </div>
+        </div>
 
       </div>
-    </div>
-  
-        <Footer/>
-        </div>
-        
+
     );
   }
 }

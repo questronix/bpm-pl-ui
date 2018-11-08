@@ -177,13 +177,13 @@ createredirect(){
 
   render() {
     return (
-      <div className="flex-container flex-wrap">
+      <div className="flex-container flex-wrap margin-top-70">
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4"></div>
         <MyModal
           modalId="1"
           modalLabel="New Transaction">
           <div className="col xl-12">
-            <div className="xl-12 flex f-justify-space-between ">
+            <div className="xl-12 flex f-justify-space-between">
               <div className="xl-11 search-container">
                 <input className="search" type="text" placeholder="Search..."  value={this.state.policyNumber}
                 onChange={this.handleInputChange}
@@ -277,7 +277,7 @@ createredirect(){
               </div>
             </div>
             <TaskList tasks={this.state.tasks} policy={this.state.policy} />
-            <h1>Task History</h1>
+            {/* <h1>Task History</h1> */}
             {/* <TaskList tasks={this.state.taskHistory} /> */}
           </div>
         </div>
