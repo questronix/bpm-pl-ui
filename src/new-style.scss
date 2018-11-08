@@ -23,7 +23,7 @@ $sun-yellow:#FFB81D;
 $purple:#722382;
 body, html, h1, h3, h4, h5, h6, a, p, b{
     // font-family: 'Roboto', sans-serif;
-    color: $pru-gray;
+    color: $black;
     font-family: 'Century Gothic',  sans-serif;
 }
 body, html, a, p{
@@ -1529,17 +1529,38 @@ $background_color_1: #ED1B2E;
             position: absolute;
             bottom: 0;
             width: 100%;
+            @include transition();
+            li{
+                span{
+                    margin-left: 20px;
+                }
+                @extend .no-padding;
+                border: none;
+                &:hover{
+                    background-color: $prulife;
+                    color: $white;
+                    span{
+                        color: $white !important;
+                    }
+                }
+            }
             ul{
                 @extend .no-margin;
             }
         }
         ul{
+            .active{
+                border-left: 4px solid $prulife;
+                background-color: white;
+                color: $pru-gray;
+            }
             li{
                 line-height: 40px;
                 color: white;
                 font-size: 13px;
                 font-weight: bold;
                 padding: 0px 15px;
+                width: 100%;
                 border-left: 4px solid rgba(black,0);
                 span{
                     width: 20px;
@@ -1554,9 +1575,11 @@ $background_color_1: #ED1B2E;
             }
             a{
                 &.active{
-                    border-left: 4px solid $prulife;
-                    background-color: white;
-                    color: $pru-gray;
+                    li{
+                        border-left: 4px solid $prulife;
+                        background-color: white;
+                        color: $pru-gray;
+                    }
                 }
             }
         }
