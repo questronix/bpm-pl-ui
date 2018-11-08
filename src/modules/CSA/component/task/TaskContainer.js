@@ -272,7 +272,7 @@ createredirect(){
                 </a>
               </div>
             </div>
-            <TaskList tasks={this.state.tasks} />
+            <TaskList tasks={this.state.tasks} policy={this.state.policy} />
             <h1>Task History</h1>
             {/* <TaskList tasks={this.state.taskHistory} /> */}
           </div>
