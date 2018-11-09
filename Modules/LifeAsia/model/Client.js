@@ -23,7 +23,7 @@ module.exports.getClientDetails = clientNum => {
         isSuccess: true,
         message: 'successful',
         result: {
-          clientNum: clientNum,
+          clientId: clientNum,
           action: 'GETCLNTB'
         }
       };
@@ -34,16 +34,17 @@ module.exports.getClientDetails = clientNum => {
         })
         .post(args)
         .then(res => {
+          Logger.log('info', `${TAG}${ACTION} - result`, res.body);
           if (res.body) {
             resolve(res.body);
           } else {
             resolve({
               error: {
+                status: 404,
                 msg: 'Client details not found.'
               }
             });
           }
-          Logger.log('info', `${TAG}${ACTION} - result`, res.body);
         })
         .catch(err => {
           Logger.log('error', TAG + ACTION, err);

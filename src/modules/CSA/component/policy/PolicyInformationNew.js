@@ -4,6 +4,19 @@ import Input from '../../../../shared/component/input/Input';
 
 class PolicyInformationNew extends Component {
   render() {
+    const { clients } = this.props;
+    let insured;
+    let owner;
+    // const owner = [...clients].find(client => client.role === 'OW');
+    // const insured = [...clients].find(client => client.role === 'LF');
+    if (clients) {
+      owner = clients.forEach(client => {
+        return client.role === 'OW';
+      });
+      insured = clients.forEach(client => {
+        return client.role === 'LF';
+      });
+    }
     return (
       <div className="xl-12 flex-container flex-wrap">
         <Input inputLabel="Plan Description:" inputPlaceholder="Plan Name" inputClass="col xl-6 input-container" value={this.props.policy.planDescription}/>
@@ -13,12 +26,12 @@ class PolicyInformationNew extends Component {
         <Input inputLabel="Risk Commencement Date:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" value={this.props.policy.riskCommencementDate} />
         <Input inputLabel="Sum Assured:" inputPlaceholder="100,000" inputClass="col xl-4 input-container" value=""/>
         <Input inputLabel="Currency:" inputPlaceholder="PHP" inputClass="col xl-4 input-container" value=""/>
-        <Input inputLabel="Current Premium:" inputPlaceholder="Current Premium" inputClass="col xl-4 input-container" value="" />
+        <Input inputLabel="Current Premium:" inputPlaceholder="Current Premium" inputClass="col xl-4 input-container" value={this.props.policy.currentPremium} />
         <Input inputLabel="Mode of Payment:" inputPlaceholder="Monthly" inputClass="col xl-4 input-container" value="" />
-        <Input inputLabel="Insured Name:" inputPlaceholder="LastN, FirstN, MName" inputClass="col xl-8 input-container" value={this.props.policy.firstName}/>
-        <Input inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" value=""/>
-        <Input inputLabel="Owner Name:" inputPlaceholder="LastN, FirstN, MName" inputClass="col xl-8 input-container" value="" />
-        <Input inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" value=""/>
+        <Input inputLabel="Insured Name:" inputPlaceholder="LastN, FirstN, MName" inputClass="col xl-8 input-container" value={insured && `${insured.clientLastName}, ${insured.clientFirstName}, ${insured.middleName}`}/>
+        <Input inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" value={insured && insured.dateOfBirth}/>
+        <Input inputLabel="Owner Name:" inputPlaceholder="LastN, FirstN, MName" inputClass="col xl-8 input-container" value={insured && `${owner.clientLastName}, ${owner.clientFirstName}, ${owner.middleName}`} />
+        <Input inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" inputClass="col xl-4 input-container" value={insured && insured.dateOfBirth}/>
       </div>
 
     );

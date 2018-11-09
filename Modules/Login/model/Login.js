@@ -3,6 +3,7 @@ const ajax = require('../../Common/services/Ajax');
 const Logger = require('../../Common/services/Logger');
 const isFakeEndpoint = process.env.FAKE_ENDPOINTS;
 const url = process.env.LDAP_URL;
+const Error = require('../../Common/services/Errors');
 
 module.exports.bpm = username => {
   const ACTION = '[authenticate]';
@@ -55,10 +56,10 @@ module.exports.ldap = (username, password, networkAddress) => {
         })
         .then(res => {
           Logger.log('info', `${TAG}${ACTION} - result from ldap `, res.body);
-          if (res.body.result.authenticated) {
-            resolve(res);
+          if (res.body.result) {
+            resolve(res.body);
           } else {
-            resolve(res);
+            reject(Error.raise('INVALID_CREDENTIALS', res.body));
           }
         })
         .catch(err => {

@@ -33,9 +33,10 @@ class LoginForm extends Component {
         this.setState({ isError: false });
         console.log('RESULT', res);
         sessionStorage.setItem('username', this.state.username);
-        sessionStorage.setItem('user_info', JSON.stringify(res.data));
+        sessionStorage.setItem('user_info', JSON.stringify(res.data.result));
         sessionStorage.setItem('is_authenticated', true);
-        this.redirect(res.data.role.name);
+        // this.redirect(res.data.role.name);
+        this.redirect(res.data.result.Role_Description);
       }
       else {
         this.setState({ isError: true });

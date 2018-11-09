@@ -142,13 +142,14 @@ class TaskContainer extends Component {
   }
   // End of test
 createredirect(){
-  this.createTask()
-  this.handleItemClick(`/tasks/edit?id=${tasks.id}`)
+  this.createTask();
+  // window.location.href = '/tasks/edit';
+  // this.handleItemClick(`/tasks/edit?id=${tasks.id}`)
 }
 
   createTask(id) {
     TaskService.createNewTask(id).then((res) => {
-      window.location.href = `/tasks`;
+      window.location.href = `/tasks/edit?id=${res.data.id}`;
       console.log(res.data);
     }).catch((err) => {
       console.log(err);

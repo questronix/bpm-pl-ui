@@ -2,7 +2,7 @@ const TAG = '[Document]';
 const ajax = require('../../Common/services/Ajax');
 const Logger = require('../../Common/services/Logger');
 const Error = require('../../Common/services/Errors');
-const url = process.env.LIFE_ASIA_CLIENT_URL;
+const url = process.env.LIFE_ASIA_CLIENT_URL_2;
 const isFakeEndpoint = process.env.FAKE_ENDPOINTS;
 
 module.exports.getDocList = (transactionId, subTransactionId) => {
