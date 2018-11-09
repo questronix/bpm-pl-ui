@@ -1761,6 +1761,16 @@ table td {
   background-color: #fff;
   border-radius: 5px; }
 
+.table-footer .btn, .table-footer .btn-circle, .table-footer .card-img-container .card-btn, .card-img-container .table-footer .card-btn {
+  padding: 0 15px;
+  background-color: transparent;
+  color: #686868; }
+  .table-footer .btn:hover, .table-footer .btn-circle:hover, .table-footer .card-img-container .card-btn:hover, .card-img-container .table-footer .card-btn:hover {
+    background-color: rgba(237, 27, 46, 0.5); }
+  .table-footer .btn.active, .table-footer .active.btn-circle, .table-footer .card-img-container .active.card-btn, .card-img-container .table-footer .active.card-btn {
+    color: white;
+    background-color: #ED1B2E; }
+
 input[type=search]::-ms-clear {
   display: none;
   width: 0;

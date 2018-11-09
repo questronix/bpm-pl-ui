@@ -99,28 +99,28 @@ class TaskList extends Component {
             <h4 className="font-prulife">{this.props.tasks.length}</h4>
           </div>
           <div className=" flex f-row">
-            <a href="#" className="btn-circle ">
+            <a href="#" className="btn">
               <span className="fa fa-angle-double-left" />
             </a>
-            <a href="#" className="btn-circle ">
+            <a href="#" className="btn ">
               <span className="fa fa-chevron-left" />
             </a>
-            <a href="#" className="btn-circle active">
+            <a href="#" className="btn active">
               <span className=""> 1 </span>
             </a>
-            <a href="#" className="btn-circle ">
+            <a href="#" className="btn ">
               <span className=""> 2 </span>
             </a>
-            <a href="#" className="btn-circle ">
+            <a href="#" className="btn ">
               <span className=""> 3 </span>
             </a>
-            <a href="#" className="btn-circle ">
+            <a href="#" className="btn ">
               <span className=""> 4 </span>
             </a>
-            <a href="#" className="btn-circle ">
+            <a href="#" className="btn ">
               <span className="fa fa-chevron-right" />
             </a>
-            <a href="#" className="btn-circle ">
+            <a href="#" className="btn ">
               <span className="fa fa-angle-double-right" />
             </a>
           </div>

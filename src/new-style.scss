@@ -2104,6 +2104,20 @@ table {
     background-color: $white;
     border-radius: 5px;
 }
+.table-footer{
+    .btn{
+        padding: 0 15px;
+        background-color: transparent;
+        color: #686868;
+        &:hover{
+            background-color: rgba($prulife, .5)
+        }
+        &.active{
+            color: white;
+            background-color: $prulife;
+        }
+    }
+}
 // search
     $color_1: #232323;
     $background_color_1: white;
