@@ -25,6 +25,7 @@ class TaskContainer extends Component {
       policyNumber: '',
       policy: {},
       client: {},
+      showComponent:false,
 
 
 
@@ -39,13 +40,22 @@ class TaskContainer extends Component {
     this.decrement = this.decrement.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderReturn = this.renderReturn.bind(this);
 
+  }
+
+  renderReturn(){
+    this.setState({
+      showComponent: true
+    })
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.handlePolicySearchSubmit(this.state.policyNumber);
   }
+
+  
 
   handleItemClick(url) {
     window.location.href = url;
@@ -175,6 +185,8 @@ class TaskContainer extends Component {
     });
   }
 
+  
+
   render() {
     return (
       <div className="flex-container flex-wrap margin-top-70">
@@ -189,7 +201,7 @@ class TaskContainer extends Component {
                 onChange={this.handleInputChange}
                 />
               </div>
-              <a href="#" className="btn prulife flex f-center" onClick ={this.handleSubmit}>
+              <a href="#" className="btn prulife flex f-center" onClick ={this.handleSubmit} onClick={this.renderReturn}>
                 <span className="fa fa-search font-white"></span> &nbsp;
                 <span>
                   SEARCH
@@ -199,6 +211,48 @@ class TaskContainer extends Component {
             <br/>
             <hr/>
           </div>
+          {this.state.showComponent ? 
+          <div>
+            <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
+            <div className="col xl-12">
+              <h2 className="font-prulife no-margin">
+                Policy Information
+              </h2>
+            </div>
+            <div className="xl-12">
+              <h3 className=" container">
+                Policy Number: {this.state.policyNumber}
+              </h3>
+            </div>
+            <PolicyInformationNew  policy={this.state.policy} />
+            <div className="col xl-12">
+              <h2 className="font-prulife no-margin">
+                Agent Information
+              </h2>
+            </div>
+            <div className="xl-12">
+              <h3 className=" container">
+                Agent Code: {this.state.policy.agentCode}
+              </h3>
+            </div>
+            <AgentinformationNew  policy={this.state.policy}/>
+          </div>
+          <div className="col xl-12 modal-footer flex-container flex-wrap">
+            <div className="col xl-10">
+            </div>
+            <a
+              href="#"
+              className="btn prulife"
+              onClick={() => { if (window.confirm('Are you sure you want to Proceed')) this.createredirect() }}
+              // onClick={this.createTask}
+              >
+              Proceed
+              &nbsp;&nbsp;&nbsp;
+              <span className="fa fa-chevron-right font-white"></span>
+            </a>
+          </div>   
+          </div> :
+          ""} 
           {/* <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
             <div className="col xl-12">
               <h2 className="font-prulife no-margin">
