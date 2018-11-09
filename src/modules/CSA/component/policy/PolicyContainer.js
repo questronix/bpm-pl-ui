@@ -23,37 +23,15 @@ class Policy extends Component {
       type: 'csa',
       action: 'complete',
       info: {},
-      policy: {
-        "id": '',
-        "number": '',
-        "status": '',
-        "agentCode": '',
-        "agentName": '',
-        "branch": '',
-        "nma": '',
-        "planDesc": '',
-        "planCurrency": '',
-        "contractStatus": '',
-        "premiumStatus": '',
-        "sumAssured": 0,
-        "rcd": '',
-        "firstIssueDate": '',
-        "salutation": '',
-        "firstName": '',
-        "lastName": '',
-        "gender": '',
-        "occupation": '',
-        "hrc": '',
-        "vip": '',
-        "str": '',
-        "nationality": '',
-        "dateOfBirth": '',
-        "attainedAge": '',
-        "civilStatus": '',
-        "telNumber": '',
-        "mobileNumber": '',
-        "tinOrSss": '',
-        "email": '',
+      policyInfo: {
+        "transType": 'Reinstatement',
+        "policyNumber": '0000123',
+        "transNumber": '123000',
+        "sumAssured": '000001111',
+        "createdDate": '10-12-18',
+        
+    
+     
       },
       insured: {},
       selectedTransaction: '',
@@ -136,8 +114,9 @@ class Policy extends Component {
       });
     }
     if (this.state.Tabs == 0) {
-      this.getClientInfo(12345);
+      this.getClientInfo();
     }
+    
   }
 
   getClientInfo(id) {
@@ -458,7 +437,7 @@ class Policy extends Component {
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4"></div>
         <div className="box margin-top-70 col xl-9 l-9 m-8 s-8 xs-7 no-padding margin-auto">
           <div className="tab-title-container">
-            <div className={this.state.Tabs == 0 ? "tab-title active" : "tab-title"}>
+            <div className={this.state.Tabs == 0 || this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
               <h4 className="circle">
                 1
             </h4>
@@ -469,7 +448,7 @@ class Policy extends Component {
               </a>
               <span class="white"></span><span class="gray"></span>
             </div>
-            <div className={this.state.Tabs == 1 ? "tab-title active" : "tab-title"}>
+            <div className={this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
 
               <h4 className="circle">
                 2
@@ -481,7 +460,7 @@ class Policy extends Component {
               </a>
               <span class="white"></span><span class="gray"></span>
             </div>
-            <div className={this.state.Tabs == 2 ? "tab-title active" : "tab-title"}>
+            <div className={this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
               <h4 className="circle">
                 3
             </h4>
@@ -504,7 +483,7 @@ class Policy extends Component {
             </div>
 
           </div>
-          <TabHeader policy={this.state.policy} tasks={this.state.tasks}/>
+          <TabHeader policy={this.state.policy} policies={this.state.policyInfo} />
           <div className="box-body">
 
             {/* this is for tab1 */}
