@@ -2413,3 +2413,19 @@ $background_color_3: $bright-blue;
 }
 
 
+//search modal
+.no-search-result{
+    color: $gray;
+    @extend .margin-auto;
+    display: flex;
+    flex-direction: column;
+    span{
+        font-size:120px;
+        color: $gray;
+    }
+    p{
+        font-size: 16px;
+        font-weight: bold;
+        color: $gray;
+    }
+}

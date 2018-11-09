@@ -24,19 +24,19 @@ class TaskContainer extends Component {
       taskHistory: [],
       policyNumber: '',
       policy: {},
-      client:{},
-      
-      
+      client: {},
+
+
 
       Tabs: 0,
-      
+
 
     }
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this)
     this.createTask = this.createTask.bind(this);
-        // Test
-        this.handleTabClick = this.handleTabClick.bind(this);
-        this.decrement = this.decrement.bind(this);
+    // Test
+    this.handleTabClick = this.handleTabClick.bind(this);
+    this.decrement = this.decrement.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -73,7 +73,7 @@ class TaskContainer extends Component {
         this.setState({
           policy: res.data.data.result.data
         })
-      } 
+      }
 
     }).catch((err) => {
       this.setState({
@@ -86,7 +86,7 @@ class TaskContainer extends Component {
   }
   // Test
   handleTabClick() {
-    
+
     if (this.state.Tabs == 3) {
       this.setState({
         Tabs: 3
@@ -96,7 +96,7 @@ class TaskContainer extends Component {
         Tabs: this.state.Tabs + 1
       });
     }
-    if(this.state.Tabs==0){
+    if (this.state.Tabs == 0) {
       this.getClientInfo(12345);
     }
   }
@@ -121,19 +121,19 @@ class TaskContainer extends Component {
   // End of test
 
 
-  getClientInfo(id){
+  getClientInfo(id) {
     PolicyService.getClientIformationByid(id).then((res) => {
       if (res.data.data.result.data) {
         this.setState({
           client: res.data.data.result.data
         })
-      } 
+      }
       console.log(res.data);
     }).catch((err) => {
       console.log(err);
     });
   }
-  
+
 
   decrement() {
     this.setState({
@@ -141,10 +141,10 @@ class TaskContainer extends Component {
     });
   }
   // End of test
-createredirect(){
-  this.createTask()
-  this.handleItemClick(`/tasks/edit?id=${tasks.id}`)
-}
+  createredirect() {
+    this.createTask()
+    this.handleItemClick(`/tasks/edit?id=${tasks.id}`)
+  }
 
   createTask(id) {
     TaskService.createNewTask(id).then((res) => {
@@ -199,7 +199,7 @@ createredirect(){
             <br/>
             <hr/>
           </div>
-          <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
+          {/* <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
             <div className="col xl-12">
               <h2 className="font-prulife no-margin">
                 Policy Information
@@ -236,9 +236,17 @@ createredirect(){
               &nbsp;&nbsp;&nbsp;
               <span className="fa fa-chevron-right font-white"></span>
             </a>
+          </div> */}
+          <div className="no-search-result flex f-center">
+            <span className="fa fa-search"></span>
+            <br/>
+            <p>
+              No record/s found
+            </p>
+            
           </div>
         </MyModal>
-        
+
         <div className="col xl-10 l-10 m-9 s-9 xs-8">
           <div className="">
             <h1 className="flex s-f-center xs-f-center">Tasks</h1>
@@ -289,7 +297,7 @@ createredirect(){
             </div>
             <TaskList tasks={this.state.tasks} policy={this.state.policy} />
             {/* <h1>Task History</h1>  */}
-             {/* <TaskList tasks={this.state.taskHistory}/> */}
+            {/* <TaskList tasks={this.state.taskHistory}/> */}
           </div>
         </div>
       </div>

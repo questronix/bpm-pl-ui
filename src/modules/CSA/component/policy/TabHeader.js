@@ -17,7 +17,7 @@ class TabHeader extends Component {
     return (
       <div className="App">
         <div className="box-body">
-          <div className="policyinfo-container active">
+          <div className="policyinfo-container">
             <h3 className="box-header no-margin">
               Policy Information
               </h3>
