@@ -15,8 +15,10 @@ router.post('/login', async (req, res) => {
   try {
     ldap = await lm.ldap(username, password, req.connection.remoteAddress);
     if (ldap.isSuccess) {
-      req.session.user = ldap;
-      res.send(req.session.user);
+      const uid = parseInt(ldap.result['User_ID']);
+      ldap.result.id = uid;
+      req.session.user = ldap.result;
+      res.send(ldap);
     }
     else {
       res.status(404).send(ldap);
@@ -60,7 +62,7 @@ router.post('/ldap', (req, res) => {
   const ACTION = '[postLogin]';
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 
-  lm.ldap(req.body.usernamem, req.body.password)
+  lm.ldap(req.body.username, req.body.password)
     .then(data => {
       res.send(data);
     })

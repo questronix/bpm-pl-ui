@@ -10,6 +10,7 @@ class EditTaskContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      tabPage: 0,
       // taskId: null,
       sample: 'sample',
       doc: '',
@@ -45,8 +46,16 @@ class EditTaskContainer extends Component {
         }
       },
     };
+    this.handleClick = this.handleClick.bind(this);
 
       
+  }
+
+  handleClick(e){
+    this.setState({
+      tabPage: e
+    });
+    this.props.onTabClick(e);
   }
 
   componentDidMount() {
@@ -137,12 +146,19 @@ class EditTaskContainer extends Component {
             <div className="col">
               <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
                 <div className="tab-container flex-container no-padding col xl-12">
-                  <div className="tab-title col xl-2 l-2 m-2 s-4 xs-7 tab-active">
-                    Insured Information
-                  </div>
-                  <div className="tab-title col xl-2 l-2 m-2 s-4 xs-7 ">
-                    Owner Information
-                  </div>
+                
+                <div className={this.state.tabPage == 0 ? "tab-title col xl-2 l-2 m-2 s-4 xs-7 tab-active" : "tab-title col xl-2 l-2 m-2 s-4 xs-7"}>
+                      <a name = "insured info" onClick={()=>{this.handleClick(0)}}>
+                      Insured Information</a>
+                    </div>
+                    <div className={this.state.tabPage == 1 ? "tab-title col xl-2 l-2 m-2 s-4 xs-7 tab-active" :"tab-title col xl-2 l-2 m-2 s-4 xs-7 "}>
+                      <a name = "owner info" onClick={()=>{this.handleClick(1)}}>
+                      Owner Information</a>
+                    </div>
+                    <div className={this.state.tabPage == 2 ? "tab-title col xl-2 l-2 m-2 s-4 xs-7 tab-active" : "tab-title col xl-2 l-2 m-2 s-4 xs-7"}>
+                      <a name = "owner info" onClick={()=>{this.handleClick(2)}}>
+                      Document</a>
+                    </div>
                 </div>
                 <div className="">
                   <div className="header">

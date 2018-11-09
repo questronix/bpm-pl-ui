@@ -26,4 +26,8 @@ export default class Task {
   getAllTaskHistory() {
     return this.http.get(`/tasks/history`, {});
   }
+
+  generateTransactionId() {
+    return this.http.post(`/lifeasia/transaction`);
+  }
 }

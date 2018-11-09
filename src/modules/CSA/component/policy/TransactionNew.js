@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Radio from '../../../../shared/component/radio/Radio';
 
 class TransactionNew extends Component {
   constructor(props) {
@@ -38,7 +39,10 @@ class TransactionNew extends Component {
           </div>
         </div>
         <form className="flex f-justify-evenly container">
-          <div className="">
+          <Radio rName="transaction" rId="1" rLabel="Updating" />
+          <Radio rName="transaction" rId="2" rLabel="Redating" />
+          <Radio rName="transaction" rId="3" rLabel="Waiver" />
+          {/* <div className="">
             <input name="transaction" id="Updating" type="radio" />
             <label for="Updating">
               Updating
@@ -55,11 +59,29 @@ class TransactionNew extends Component {
             <label for="Waiver">
               Waiver
                 </label>
-          </div>
+          </div> */}
         </form>
         <div class="transaction-checkboxes margin-auto">
           <table border="0" cellspacing="0">
             <tr>
+              <td class="flex align-center"> <label for="Reinstatement">Reinstatement Form </label> </td>
+              <td>
+                <label class="checkbox">
+                  <input id="Reinstatement" type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td class="flex align-center"> <label for="routine">U/W routine requirements </label> </td>
+              <td>
+                <label class="checkbox">
+                  <input id="routine" type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+            </tr>
+            {/* <tr>
               <td><label for="health">Health Statement Form (HSF)</label></td>
               <td><input id="health" type="checkbox" /></td>
             </tr>
@@ -82,7 +104,7 @@ class TransactionNew extends Component {
             <tr>
               <td><label for="non-government">Valid Non-Government Issued ID (if applicable)</label></td>
               <td><input id="non-government" type="checkbox" /></td>
-            </tr>
+            </tr> */}
           </table>
         </div>
         <hr />

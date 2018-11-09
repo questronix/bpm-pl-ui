@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import InsuredInformation from './InsuredInformation';
 import CheckBoxAddon from '../../../../shared/component/checkbox/CheckBoxAddon';
 import CheckBox from '../../../../shared/component/checkbox/CheckBox';
@@ -17,7 +17,7 @@ class Fatca extends Component {
       withHypertension: false,
       withPregnancy: false,
       flightSSP: '',
-      tabPage: 1,
+      tabPage: 0,
       hazardousHobbies: [
         {
           id: 1,
@@ -67,11 +67,19 @@ class Fatca extends Component {
       ],
     };
 
+    this.handleClick = this.handleClick.bind(this);
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleRadioChange = this.handleRadioChange.bind(this);
     this.handleMultiSelectChange = this.handleMultiSelectChange.bind(this);
     this.handleToggleChange = this.handleToggleChange.bind(this);
+  }
+  handleClick(e){
+    this.setState({
+      tabPage: e
+    });
+    this.props.onTabClick(e);
   }
 
   handleSubmit(event) {
@@ -168,19 +176,21 @@ class Fatca extends Component {
               <div className="col">
                 <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
                   <div className="tab-container flex-container no-padding col xl-12">
-                    <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active">
-                      Insured Information
+                    <div className={this.state.tabPage == 0 ? "tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active" : "tab-title col xl-2 l-2 m-2 s-2 xs-2"}>
+                      <a name = "insured" onClick={()=>{this.handleClick(0)}}>Insured Information</a>
                     </div>
-                    {/* <div className="tab-title col xl-2 l-2 m-2 s-2 xs-2 ">
-                      Owner Information
-                    </div> */}
+                     <div className={this.state.tabPage == 1 ? "tab-title col xl-2 l-2 m-2 s-2 xs-2 tab-active":"tab-title col xl-2 l-2 m-2 s-2 xs-2"}>
+                     <a name="owner" onClick={()=>{this.handleClick(1)}}>Owner Information</a> 
+                    </div> 
                   </div>
                   <div className="tab-body">
-                    <InsuredInformation insured={this.props.insured} />
-                    <hr />
+                  {this.state.tabPage == 0 ? (
+                    <Fragment>
+                      <InsuredInformation insured={this.props.insured} />
+                    <hr />  
                     <div className="flex-container flex-wrap">
                       <div className="col flex-container flex-wrap">
-                        {/* <CheckBox label="DowJones:" cName="dowJones " /> */}
+                        {/* <CheckBox label="DowJones:" cName="dowJones" /> */}
                         <CheckBox label="With Diabetes:" cName="withDiabetes" />
                         <CheckBox label="With Hypertension:" cName="withHypertension" />
                         <CheckBox label="With Pregnancy:" cName="withPregnancy" />
@@ -207,69 +217,52 @@ class Fatca extends Component {
                         <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
                         </div>
                       </div>
-
-                      {/* TODO: Tentative display. Will confirm this to sir mic */}
-                      {/* <hr/> */}
-                      {/* <div className="col xl-12 flex-container flex-wrap">
-                      <h4 className="col xl-12">Hazardous Hobbies:</h4><br />
-                      <div className="col xl-6 flex">
-                        <label className="checkbox">Bungee Jumping
-                    <input className="" name="hazardousHobbies" type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
+                    </div>
+                    </Fragment>
+                  ) :  (
+                  <Fragment>
+                  <InsuredInformation insured={this.props.insured} />
+                  <hr />  
+                  tab 2
+                  <div className="flex-container flex-wrap">
+                    <div className="col flex-container flex-wrap">
+                      {/* <CheckBox label="DowJones:" cName="dowJones" /> */}
+                      <CheckBox label="With Diabetes:" cName="withDiabetes" />
+                      <CheckBox label="With Hypertension:" cName="withHypertension" />
+                      <CheckBox label="With Pregnancy:" cName="withPregnancy" />
+                      <CheckBox label="MID:" cName="mid" />
+                      <CheckBox label="FATCA Tagging:" cName="fatcaTagging" />
+                      <CheckBoxAddon label="Statement of Insurability Declarations:" cVal={this.state.soi} cName="soi" onToggleChange={this.handleToggleChange}>
+                        <div className="col xl-12">
+                          <input type="text" className="col input" name="soiText" value={this.state.soiText} onChange={this.handleInputChange} />
+                        </div>
+                      </CheckBoxAddon>
+                      <CheckBox label="Beyond MPT:" cName="beyondMPT" />
+                      <CheckBox label="With Existing Policies:" cName="withExistingPolicies" />
+                      <CheckBox label="With Pending Policies:" cName="withPendingPolicies" />
+                      <CheckBox label="Signature verified:" cName="signatureVerified" />
+                      <CheckBoxAddon label="With Reinstating Agent:" cVal={this.state.differentAgent} cName="differentAgent" onToggleChange={this.handleToggleChange}>
+                        <div className="col xl-12">
+                          <input type="number" className="col input" name="differentAgentText" value={this.state.differentAgentText} onChange={this.handleInputChange} />
+                        </div>
+                      </CheckBoxAddon>
+                      <CheckBox label="With claim records:" cName="withClaimRecords" />
+                      <CheckBox label="With Reinsurance:" cName="withReinsurance" />
+                      <CheckBox label="With substandard rating:" cName="withSubstandardRating" />
+                      <CheckBox label="Relative of Agent:" cName="relativeOfAgent" />
+                      <div className="can-toggle col xl-6 l-6 m-6 s-12 xs-12 can-toggle--size-small">
                       </div>
-                      <div className="col xl-6 flex">
-                        <label className="checkbox">Hang Gliding
-                    <input className="" name="hazardousHobbies" type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                      </div>
-                      <div className="col xl-6 flex">
-                        <label className="checkbox">Horse Racing
-                    <input className="" name="hazardousHobbies" type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                      </div>
-                      <div className="col xl-6 flex">
-                        <label className="checkbox">Motor Racing
-                    <input className="" name="hazardousHobbies" type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                      </div>
-                      <div className="col xl-6 flex">
-                        <label className="checkbox">Mountain Climbing
-                    <input className="" name="hazardousHobbies" type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                      </div>
-                      <div className="col xl-6 flex">
-                        <label className="checkbox">Parachuting
-                    <input className="" name="hazardousHobbies" type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                      </div>
-                      <div className="col xl-6 flex">
-                        <label className="checkbox">Private Pilot (includig Gliding)
-                    <input className="" name="hazardousHobbies" type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                      </div>
-                      <div className="col xl-6 flex">
-                        <label className="checkbox">Scuba Diving
-                    <input className="" name="hazardousHobbies" type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                      </div>
-                      <div className="col xl-6 flex">
-                        <label className="checkbox">Sky Diving
-                    <input className="" name="hazardousHobbies" type="checkbox" />
-                          <span className="checkmark"></span>
-                        </label>
-                      </div>
-                    </div> */}
                     </div>
                   </div>
+                  </Fragment>
+
+                  )
+                }
+                    
+                    
+                  </div>
                 </div>
+                 
               </div>
             </div>
           </div>

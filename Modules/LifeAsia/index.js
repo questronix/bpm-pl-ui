@@ -2,9 +2,10 @@ const TAG = '[Task]';
 const express = require('express');
 const router = express.Router();
 const Logger = require('../Common/services/Logger');
-const la = require('./model/LifeAsia');
+const la = require('./model/Policy');
 const client = require('./model/Client');
 const doc = require('./model/Document');
+const trans = require('./model/Transaction');
 const mw = require('../Common/middleware/Authentication');
 
 router.get('/:clientNum/client', mw.isAuthenticated, (req, res) => {
@@ -73,6 +74,22 @@ router.post('/documents', mw.isAuthenticated, (req, res) => {
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 
   doc.create(req.body)
+    .then(data => {
+      res.send({
+        data
+      });
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
+});
+
+
+router.post('/transaction', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[postTransaction]';
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+
+  trans.generateTransactionId()
     .then(data => {
       res.send({
         data

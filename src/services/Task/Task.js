@@ -30,6 +30,10 @@ export default class Task {
   claim(taskId, uid) {
     return this.http.post(`/tasks/${taskId}/claim?uid=${uid}`, { action: "claim" });
   }
+
+  generateTransactionId() {
+    return this.http.post(`/lifeasia/transaction`);
+  }
   // startProcess(args) {
   //   return this.http.post(`/tasks/new`, args);
   // }
