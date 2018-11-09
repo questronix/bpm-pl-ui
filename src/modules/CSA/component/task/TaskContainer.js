@@ -241,7 +241,7 @@ createredirect(){
         
         <div className="col xl-10 l-10 m-9 s-9 xs-8">
           <div className="">
-            <h1 className="flex s-f-center xs-f-center">My tasks</h1>
+            <h1 className="flex s-f-center xs-f-center">Tasks</h1>
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
               <div className=" xl-5 flex f-justify-space-between">
                 <div className="search-container">
@@ -276,8 +276,19 @@ createredirect(){
                 </a>
               </div>
             </div>
+            <div className="col no-padding xl-12 f-center f-start flex ">
+              <p className="text-bold">
+                FILTERS :
+              </p>
+              <a className="btn-sm  bright-blue">
+                All task
+              </a>
+              <a className="btn-sm alt">
+                Recently Updated
+              </a>
+            </div>
             <TaskList tasks={this.state.tasks} policy={this.state.policy} />
-            <h1>Task History</h1> 
+            {/* <h1>Task History</h1>  */}
              {/* <TaskList tasks={this.state.taskHistory}/> */}
           </div>
         </div>
