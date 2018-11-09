@@ -1868,6 +1868,9 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 100px;
   padding-bottom: 50px;
   overflow: hidden; }
+  .policyinfo-container.active {
+    height: auto !important;
+    overflow-y: auto !important; }
 
 .showmore {
   height: 50px; }
