@@ -184,8 +184,8 @@ createredirect(){
           modalLabel="New Transaction">
           <div className="col xl-12">
             <div className="xl-12 flex f-justify-space-between">
-              <div className="xl-11 search-container">
-                <input className="search" type="text" placeholder="Search..."  value={this.state.policyNumber}
+              <div className="xl-11 search-container bg-lightgray no-border">
+                <input className="search bg-lightgray no-border" type="text" placeholder="Search..."  value={this.state.policyNumber}
                 onChange={this.handleInputChange}
                 />
               </div>
@@ -268,7 +268,7 @@ createredirect(){
                 // onClick={this.createTask}
                 >
                   <ModalTrigger>
-                    <label for="1">
+                    <label for="1" accesskey="s">
                       <span className="fa fa-plus"></span> &nbsp;
                       CREATE NEW TRANSACTION
                   </label>
