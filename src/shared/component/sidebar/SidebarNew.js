@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 
 class SidebarNew extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       sideTabs: 0
@@ -12,12 +12,12 @@ class SidebarNew extends Component {
     this.handleSideTabs = this.handleSideTabs.bind(this);
   }
 
-    handleSideTabs(e){
-      this.setState({
-        sideTabs: e
-      })
+  handleSideTabs(e) {
+    this.setState({
+      sideTabs: e
+    })
 
-    }
+  }
 
   render() {
 
@@ -34,24 +34,24 @@ class SidebarNew extends Component {
         </div>
         <div className="sidebar-body">
           <ul>
-            <li>
             <NavLink to="/tasks" className="flex f-start f-center" activeClassName="active flex f-start f-center">
+              <li>
                 <span className="fa fa-clipboard-list font-bright-blue"></span>
-                  TASKS
-              </NavLink>
+                TASKS
             </li>
+            </NavLink>
 
-                        <li>
-                        <NavLink to="/dashboard" className="flex f-start f-center" activeClassName="active flex f-start f-center">
-                        <span className="fa fa-check font-grass-green"></span>
-                  Dashboard
-              </NavLink>
-                        </li>
-              
+            <NavLink to="/dashboard" className="flex f-start f-center" activeClassName="active flex f-start f-center">
+              <li>
+                <span className="fa fa-check font-grass-green"></span>
+                Dashboard
+              </li>
+            </NavLink>
+
 
             {/* <a href="/tasks" onClick={() =>{this.handleSideTabs(0)}}> */}
-              
-              {/* <li className={this.state.sideTabs == 0 ? "active flex f-start f-center" : "flex f-start f-center"}>
+
+            {/* <li className={this.state.sideTabs == 0 ? "active flex f-start f-center" : "flex f-start f-center"}>
                 
               </li> */}
             {/* </a> */}

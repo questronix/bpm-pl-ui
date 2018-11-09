@@ -133,22 +133,23 @@ class OwnerinformationNew extends Component {
             <Input
               inputLabel="Building/Street:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.address1}
+             
+              value={this.props.client.address && this.props.client.address[0].address1}
               />
             <Input
               inputLabel="City/Provinces:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.address2}
+              value={this.props.client.address && this.props.client.address[0].address2}
               />
             <Input
               inputLabel="Zip Code:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.zipCode}
+              value={this.props.client.address && this.props.client.address[0].zipCode}
               />
             <Input
               inputLabel="Country:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.address5}
+              value={this.props.client.address && this.props.client.address[0].address5}
               />
           </div>
           <div className="col xl-12 flex f-center f-start">
@@ -159,27 +160,28 @@ class OwnerinformationNew extends Component {
             </h3>
           </div>
           <div className="col xl-12 flex-container flex-wrap">
-            <Input
+          <Input
               inputLabel="Building/Street:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.address1}
+             
+              value={this.props.client.address && this.props.client.address[1].address1}
               />
             <Input
               inputLabel="City/Provinces:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.address2}
+              value={this.props.client.address && this.props.client.address[1].address2}
               />
             <Input
               inputLabel="Zip Code:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.zipCode}
+              value={this.props.client.address && this.props.client.address[1].zipCode}
               />
             <Input
               inputLabel="Country:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.address5}
+              value={this.props.client.address && this.props.client.address[1].address5}
               />
-          </div>
+            </div>
           <div className="col xl-12 flex f-center f-start">
             <span className="fa fa-map-marker-alt font-grass-green">
             </span> &nbsp;
@@ -191,23 +193,25 @@ class OwnerinformationNew extends Component {
           <Input
               inputLabel="Building/Street:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.address1}
+             
+              value={this.props.client.address && this.props.client.address[2].address1}
               />
             <Input
               inputLabel="City/Provinces:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.address2}
+              value={this.props.client.address && this.props.client.address[2].address2}
               />
             <Input
               inputLabel="Zip Code:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.zipCode}
+              value={this.props.client.address && this.props.client.address[2].zipCode}
               />
             <Input
               inputLabel="Country:"
               inputClass="col xl-6 input-container" 
-              value={this.props.client.address5}
+              value={this.props.client.address && this.props.client.address[2].address5}
               />
+         
           </div>
         </div>
       </div >

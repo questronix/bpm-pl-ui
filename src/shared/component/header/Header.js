@@ -32,10 +32,11 @@ class Header extends Component {
           <a href="#" className="flex f-row f-center">
             <div className="text-right">
               <p className="no-margin">
-                Welcome, Admin
+                Welcome, {JSON.parse(sessionStorage.getItem('user_info')).firstName}
               </p>
               <p className="no-margin">
-                CSA / Processor / Approver
+              {JSON.parse(sessionStorage.getItem('user_info')).role.name}
+                {/* CSA / Processor / Approver */}
               </p>
             </div>
             <span className="fa fa-user font-prulife"></span>

@@ -14,7 +14,8 @@ class Input extends Component {
             disabled
             type="text" 
             placeholder={this.props.inputPlaceholder}
-            value={this.props.value} />
+            value={this.props.value}
+            className={this.props.txtboxClass} />
         </div>
     );
   }
