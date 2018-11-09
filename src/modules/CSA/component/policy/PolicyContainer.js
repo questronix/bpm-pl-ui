@@ -29,9 +29,9 @@ class Policy extends Component {
         "transNumber": '123000',
         "sumAssured": '000001111',
         "createdDate": '10-12-18',
-        
-    
-     
+
+
+
       },
       insured: {},
       selectedTransaction: '',
@@ -116,7 +116,7 @@ class Policy extends Component {
     if (this.state.Tabs == 0) {
       this.getClientInfo();
     }
-    
+
   }
 
   getClientInfo(id) {
@@ -462,8 +462,9 @@ class Policy extends Component {
             </div>
             <div className={this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
               <h4 className="circle">
-                3
-            </h4>
+                {/* 3 */}
+              <span className="fa fa-check"></span>
+              </h4>
               <a onClick={() => { this.handleTabClick(2) }}>
                 <span class="white"></span><span class="gray"></span>
                 <h4>
