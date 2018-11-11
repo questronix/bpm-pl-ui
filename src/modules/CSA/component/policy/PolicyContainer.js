@@ -437,9 +437,11 @@ class Policy extends Component {
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4"></div>
         <div className="box margin-top-70 col xl-9 l-9 m-8 s-8 xs-7 no-padding margin-auto">
           <div className="tab-title-container">
+          {this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ?
             <div className={this.state.Tabs == 0 || this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
               <h4 className="circle">
-                1
+                
+                <span className="fa fa-check"></span>
             </h4>
               <a onClick={() => { this.handleTabClick(0) }}>
                 <h4>
@@ -448,10 +450,22 @@ class Policy extends Component {
               </a>
               <span class="white"></span><span class="gray"></span>
             </div>
+          : <div className={this.state.Tabs == 0 || this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+          <h4 className="circle">
+            1
+        </h4>
+          <a onClick={() => { this.handleTabClick(0) }}>
+            <h4>
+              Transaction Selection
+          </h4>
+          </a>
+          <span class="white"></span><span class="gray"></span>
+        </div>
+        }
+          {this.state.Tabs == 2 || this.state.Tabs == 3 ?
             <div className={this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
-
               <h4 className="circle">
-                2
+              <span className="fa fa-check"></span>
             </h4>
               <a onClick={() => { this.handleTabClick(1) }}>
                 <h4>
@@ -460,10 +474,24 @@ class Policy extends Component {
               </a>
               <span class="white"></span><span class="gray"></span>
             </div>
+            : <div className={this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+            <h4 className="circle">
+              2
+          </h4>
+            <a onClick={() => { this.handleTabClick(1) }}>
+              <h4>
+                Insured Details
+            </h4>
+            </a>
+            <span class="white"></span><span class="gray"></span>
+          </div>}
+
+            {this.state.Tabs == 3 ?  
             <div className={this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
               <h4 className="circle">
-                {/* 3 */}
+                
                 <span className="fa fa-check"></span>
+                {/* <span className="fa fa-check"></span> */}
               </h4>
               <a onClick={() => { this.handleTabClick(2) }}>
                 <span class="white"></span><span class="gray"></span>
@@ -472,6 +500,21 @@ class Policy extends Component {
               </h4>
               </a>
             </div>
+            :<div className={this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+            <h4 className="circle">
+              3
+              {/* <span className="fa fa-check"></span> */}
+              {/* <span className="fa fa-check"></span> */}
+            </h4>
+            <a onClick={() => { this.handleTabClick(2) }}>
+              <span class="white"></span><span class="gray"></span>
+              <h4>
+                Owner Details
+            </h4>
+            </a>
+          </div>
+          }
+
             <div className={this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
               <h4 className="circle">
                 4
