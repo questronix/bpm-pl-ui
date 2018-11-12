@@ -8,7 +8,7 @@ const task = require('./model/Task');
 router.post('/', mw.isAuthenticated, (req, res) => {
   const ACTION = '[postNewTask]';
   Logger.log('debug', `${TAG}${ACTION} - request paramaters`, req.params);
-  task.new(req.session.user.username).then((data) => {
+  task.new(req.session.user.Username).then((data) => {
     res.send(data);
   }).catch((err) => {
     res.error(err);
