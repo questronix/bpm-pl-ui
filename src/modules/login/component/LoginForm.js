@@ -116,12 +116,10 @@ class LoginForm extends Component {
               </div>
               {this.state.isSubmitting ? (<span className="spinner atom"></span>) :
                 <div className="login-button ">
-                  <a href="#" className="btn prulife flex f-center">
-                    <button type="submit">
+                    <button className="btn prulife flex f-center" type="submit">
                       LOGIN
                       <span className="fa fa-arrow-right"></span>
                     </button>
-                  </a>
                 </div>}
             </div>
 

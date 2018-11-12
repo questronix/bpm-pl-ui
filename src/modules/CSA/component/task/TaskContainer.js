@@ -26,12 +26,7 @@ class TaskContainer extends Component {
       policy: {},
       client:{},
       transactionId: '',
-      
-      
-
       Tabs: 0,
-
-
     }
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this)
     this.createTask = this.createTask.bind(this);
@@ -84,6 +79,8 @@ class TaskContainer extends Component {
           policy: res.data.data.result,
           showComponent: true
         });
+      } else {
+        alert(res.data.data.message);
       }
 
     }).catch((err) => {
