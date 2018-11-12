@@ -24,9 +24,9 @@ class SidebarNew extends Component {
     return (
       <div className="sidebar col no-padding xl-2 l-2 m-3 s-3 xs-4 ">
         <div className="sidebar-title">
-          <div class="logo">
-            <div class="wrapper"><i class="icon fa fa-file-signature"></i></div>
-            <div class="title white"><span>BPM</span> Aftersales</div>
+          <div className="logo">
+            <div className="wrapper"><i className="icon fa fa-file-signature"></i></div>
+            <div className="title white"><span>BPM</span> Aftersales</div>
           </div>
         </div>
         <div className="sidebar-header">

@@ -5,7 +5,7 @@ class ModalTrigger extends Component {
     return (
       <div>
         {/* MODAL TRIGGER */}
-      <label for={this.props.modalId}>
+      <label htmlFor={this.props.modalId}>
         {this.props.children}
       </label>
       </div>
