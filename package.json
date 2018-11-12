@@ -17,7 +17,8 @@
     "winston": "^2.4.3"
   },
   "scripts": {
-    "build": "webpack --watch",
+    "build": "webpack --watch --mode development --hot",
+    "build-prod": "webpack --mode production",
     "wstart": "webpack && webpack-dev-server",
     "wbuild-prod": "webpack --mode production",
     "cli-start": "react-scripts start",
@@ -41,6 +42,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "sass-loader": "^7.1.0",
+    "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.20.2",
