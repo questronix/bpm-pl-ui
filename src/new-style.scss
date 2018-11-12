@@ -626,8 +626,14 @@ select { /* Chrome/Opera/Safari */
     }
 }
 // misc
+.container-left-border{
+    border-left:solid 1px $gray;
+}
 .container{
     margin: 10px;
+}
+.big-container{
+    padding: 30px;
 }
 .margin-container{
     margin:10px;
@@ -867,10 +873,13 @@ hr{
         margin-top: 15px;
         width: 100%;
         button{
-            background-color: transparent;
+            // background-color: transparent;
             font-size: 13px;
             font-weight: bold;
             color: white;
+        }
+        .btn{
+            width: 100%;
         }
         span{
             margin-left:15px;
@@ -2045,8 +2054,8 @@ div{
   }
   //table
   .transaction-checkboxes{
-      width: fit-content;
-      min-width: 50%;
+    //   width: fit-content;
+    //   min-width: 50%;
       table{
           box-shadow: none;
           background-color: none;
@@ -2405,7 +2414,7 @@ $background_color_2: $gray;
 $background_color_3: $bright-blue;
 
 .checkbox {
-	display: block;
+	// display: block;
 	position: relative;
 	font-size: 14px;
 	min-height: 20px;
@@ -2419,6 +2428,7 @@ $background_color_3: $bright-blue;
 	input {
 		position: absolute;
         opacity: 0;
+        display: none;
 		&:checked {
 			&~.checkmark {
 				background-color: $bright-blue !important;

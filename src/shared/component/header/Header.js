@@ -35,7 +35,7 @@ class Header extends Component {
                 Welcome, {JSON.parse(sessionStorage.getItem('user_info')).firstName}
               </p>
               <p className="no-margin">
-              {JSON.parse(sessionStorage.getItem('user_info')).role.name}
+              {JSON.parse(sessionStorage.getItem('user_info')).Role_Description}
                 {/* CSA / Processor / Approver */}
               </p>
             </div>

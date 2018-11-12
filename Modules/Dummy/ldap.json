@@ -1,22 +1,27 @@
 {
   "success": {
     "status": "success",
-    "statusCode": "0",
-    "message": "Ok",
+    "statusCode": 0,
     "isSuccess": true,
+    "message": "Successful",
     "result": {
-        "authenticated": true,
-        "username": "c68431"
+      "User_ID": 3,
+      "Username": "c68431",
+      "Active": 1,
+      "Last_Login": "2018-11-07 16:46:41",
+      "LA_User_ID": "DUMMY1",
+      "ROLE_ID": 2,
+      "Role_Description": "CSA",
+      "User_Head_ID": 2,
+      "Start_Index": "0",
+      "End_Index": "1999.99",
+      "Modules": "[1,2]"
     }
   },
   "failed": {
-    "status": "fail",
-    "statusCode": "1",
-    "message": "Error encountered while processing request.",
+    "status": "failed",
+    "statusCode": 1,
     "isSuccess": false,
-    "result": {
-        "authenticated": false,
-        "exceptionClass": "javax.naming.NamingException"
-    }
+    "exceptionClass": "javax.naming.NamingException"
   }
 }

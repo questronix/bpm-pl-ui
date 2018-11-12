@@ -4,6 +4,19 @@ import Input from '../../../../shared/component/input/Input';
 
 class PolicyInformationNew extends Component {
   render() {
+    const { clients } = this.props;
+    let insured;
+    let owner;
+    // const owner = [...clients].find(client => client.role === 'OW');
+    // const insured = [...clients].find(client => client.role === 'LF');
+    if (clients) {
+      owner = clients.forEach(client => {
+        return client.role === 'OW';
+      });
+      insured = clients.forEach(client => {
+        return client.role === 'LF';
+      });
+    }
     return (
       <div className="xl-12 flex-container flex-wrap">
         <Input inputLabel="Plan Description:" inputPlaceholder="Plan Name" txtboxClass="no-border" inputClass="col xl-6 input-container" value={this.props.policy.planDescription}/>

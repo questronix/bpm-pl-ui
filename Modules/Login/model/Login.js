@@ -3,6 +3,7 @@ const ajax = require('../../Common/services/Ajax');
 const Logger = require('../../Common/services/Logger');
 const isFakeEndpoint = process.env.FAKE_ENDPOINTS;
 const url = process.env.LDAP_URL;
+const Error = require('../../Common/services/Errors');
 
 module.exports.bpm = username => {
   const ACTION = '[authenticate]';
@@ -30,15 +31,15 @@ module.exports.bpm = username => {
   });
 };
 
-module.exports.ldap = (username, password) => {
+module.exports.ldap = (username, password, networkAddress) => {
   const ACTION = '[ldap]';
-  Logger.log('info', `${TAG}${ACTION} - args `, { username });
+  Logger.log('info', `${TAG}${ACTION} - args `, { username, password , networkAddress});
   const fakeLdap = require('../../Dummy/ldap');
 
   if (isFakeEndpoint) {
     return new Promise((resolve, reject) => {
       const res = fakeLdap.success;
-      resolve({ authenticated: res.result.authenticated});
+      resolve(res);
     });
   } else {
     return new Promise((resolve, reject) => {
@@ -49,15 +50,16 @@ module.exports.ldap = (username, password) => {
         .post({
           result: {
             username,
-            password
+            password,
+            networkAddress
           }
         })
         .then(res => {
           Logger.log('info', `${TAG}${ACTION} - result from ldap `, res.body);
-          if (res.body.result.authenticated) {
-            resolve({ authenticated: true });
+          if (res.body.result) {
+            resolve(res.body);
           } else {
-            resolve({ authenticated: false });
+            reject(Error.raise('INVALID_CREDENTIALS', res.body));
           }
         })
         .catch(err => {

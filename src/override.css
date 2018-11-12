@@ -500,8 +500,14 @@ select {
     color: #2b2b2b;
     box-shadow: none; }
 
+.container-left-border {
+  border-left: solid 1px #bdbdbd; }
+
 .container {
   margin: 10px; }
+
+.big-container {
+  padding: 30px; }
 
 .margin-container {
   margin: 10px; }
@@ -726,10 +732,11 @@ hr {
     margin-top: 15px;
     width: 100%; }
     .login .login-button button {
-      background-color: transparent;
       font-size: 13px;
       font-weight: bold;
       color: white; }
+    .login .login-button .btn, .login .login-button .btn-circle, .login .login-button .card-img-container .card-btn, .card-img-container .login .login-button .card-btn {
+      width: 100%; }
     .login .login-button span {
       margin-left: 15px; }
 
@@ -1691,18 +1698,15 @@ div {
     width: 90%;
     height: 100%;
     box-sizing: border-box; } }
-.transaction-checkboxes {
-  width: fit-content;
-  min-width: 50%; }
-  .transaction-checkboxes table {
-    box-shadow: none;
-    background-color: none; }
-    .transaction-checkboxes table tr td input {
-      cursor: pointer; }
-    .transaction-checkboxes table tr:hover td {
-      background-color: rgba(0, 0, 0, 0); }
-    .transaction-checkboxes table tr:nth-child(odd) {
-      background-color: #eee; }
+.transaction-checkboxes table {
+  box-shadow: none;
+  background-color: none; }
+  .transaction-checkboxes table tr td input {
+    cursor: pointer; }
+  .transaction-checkboxes table tr:hover td {
+    background-color: rgba(0, 0, 0, 0); }
+  .transaction-checkboxes table tr:nth-child(odd) {
+    background-color: #eee; }
 
 table {
   margin-top: 15px;
@@ -1937,7 +1941,6 @@ input[type="search"]::-webkit-search-results-decoration {
       border: 1px solid #007953; }
 
 .checkbox {
-  display: block;
   position: relative;
   font-size: 14px;
   min-height: 20px;
@@ -1950,7 +1953,8 @@ input[type="search"]::-webkit-search-results-decoration {
   cursor: pointer; }
   .checkbox input {
     position: absolute;
-    opacity: 0; }
+    opacity: 0;
+    display: none; }
     .checkbox input:checked ~ .checkmark {
       background-color: #0064B9 !important; }
       .checkbox input:checked ~ .checkmark:after {

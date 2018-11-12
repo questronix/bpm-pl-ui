@@ -24,14 +24,9 @@ class TaskContainer extends Component {
       taskHistory: [],
       policyNumber: '',
       policy: {},
-      client: {},
-      showComponent:false,
-
-
-
+      client:{},
+      transactionId: '',
       Tabs: 0,
-
-
     }
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this)
     this.createTask = this.createTask.bind(this);
@@ -42,6 +37,12 @@ class TaskContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderReturn = this.renderReturn.bind(this);
 
+  }
+
+  renderReturn(){
+    this.setState({
+      showComponent: true
+    })
   }
 
   renderReturn(){
@@ -78,11 +79,14 @@ class TaskContainer extends Component {
       isError: false,
     });
     PolicyService.getPolicyInformationByID(policyNumber).then((res) => {
-      console.log(res.data.data.result.data);
-      if (res.data.data.result.data) {
+      console.log(res.data.data.result);
+      if (res.data.data.result) {
         this.setState({
-          policy: res.data.data.result.data
-        })
+          policy: res.data.data.result,
+          showComponent: true
+        });
+      } else {
+        alert(res.data.data.message);
       }
 
     }).catch((err) => {
@@ -151,14 +155,27 @@ class TaskContainer extends Component {
     });
   }
   // End of test
-  createredirect() {
-    this.createTask()
-    this.handleItemClick(`/tasks/edit?id=${tasks.id}`)
-  }
+createredirect(){
+  alert('asdw')
+  this.createTask(1);
+  
+  // window.location.href = '/tasks/edit';
+  // this.handleItemClick(`/tasks/edit?id=${tasks.id}`)
+}
 
   createTask(id) {
+    TaskService.generateTransactionId().then((res) => {
+      alert('a');
+      console.log(res.data);
+      this.setState({
+        transactionId: res.data.data.result.transactionNumber
+      })
+    }).catch((err) => {
+      console.log(err);
+    });
+
     TaskService.createNewTask(id).then((res) => {
-      window.location.href = `/tasks`;
+      window.location.href = `/tasks/edit?id=${res.data.id}`;
       console.log(res.data);
     }).catch((err) => {
       console.log(err);
@@ -201,7 +218,7 @@ class TaskContainer extends Component {
                 onChange={this.handleInputChange}
                 />
               </div>
-              <a href="#" className="btn prulife flex f-center" onClick ={this.handleSubmit} onClick={this.renderReturn}>
+              <a className="btn prulife flex f-center" onClick ={this.handleSubmit} >
                 <span className="fa fa-search font-white"></span> &nbsp;
                 <span>
                   SEARCH
@@ -283,7 +300,7 @@ class TaskContainer extends Component {
             <a
               href="#"
               className="btn prulife"
-              onClick={() => { if (window.confirm('Are you sure you want to Proceed')) this.createredirect() }}
+              onClick={() => { if (window.confirm('Are you sure you want to Proceed')) this.createredirect(); }}
               // onClick={this.createTask}
               >
               Proceed
