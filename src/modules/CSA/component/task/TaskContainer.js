@@ -30,23 +30,32 @@ class TaskContainer extends Component {
       
 
       Tabs: 0,
-      
+
 
     }
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this)
     this.createTask = this.createTask.bind(this);
-        // Test
-        this.handleTabClick = this.handleTabClick.bind(this);
-        this.decrement = this.decrement.bind(this);
+    // Test
+    this.handleTabClick = this.handleTabClick.bind(this);
+    this.decrement = this.decrement.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderReturn = this.renderReturn.bind(this);
 
+  }
+
+  renderReturn(){
+    this.setState({
+      showComponent: true
+    })
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.handlePolicySearchSubmit(this.state.policyNumber);
   }
+
+  
 
   handleItemClick(url) {
     window.location.href = url;
@@ -72,9 +81,10 @@ class TaskContainer extends Component {
       console.log(res.data.data.result);
       if (res.data.data.result) {
         this.setState({
-          policy: res.data.data.result
-        })
-      } 
+          policy: res.data.data.result,
+          showComponent: true
+        });
+      }
 
     }).catch((err) => {
       this.setState({
@@ -87,7 +97,7 @@ class TaskContainer extends Component {
   }
   // Test
   handleTabClick() {
-    
+
     if (this.state.Tabs == 3) {
       this.setState({
         Tabs: 3
@@ -97,7 +107,7 @@ class TaskContainer extends Component {
         Tabs: this.state.Tabs + 1
       });
     }
-    if(this.state.Tabs==0){
+    if (this.state.Tabs == 0) {
       this.getClientInfo(12345);
     }
   }
@@ -122,19 +132,19 @@ class TaskContainer extends Component {
   // End of test
 
 
-  getClientInfo(id){
+  getClientInfo(id) {
     PolicyService.getClientIformationByid(id).then((res) => {
       if (res.data.data.result.data) {
         this.setState({
           client: res.data.data.result.data
         })
-      } 
+      }
       console.log(res.data);
     }).catch((err) => {
       console.log(err);
     });
   }
-  
+
 
   decrement() {
     this.setState({
@@ -189,6 +199,8 @@ createredirect(){
     });
   }
 
+  
+
   render() {
     return (
       <div className="flex-container flex-wrap margin-top-70">
@@ -203,7 +215,7 @@ createredirect(){
                 onChange={this.handleInputChange}
                 />
               </div>
-              <a href="#" className="btn prulife flex f-center" onClick ={this.handleSubmit}>
+              <a className="btn prulife flex f-center" onClick ={this.handleSubmit} >
                 <span className="fa fa-search font-white"></span> &nbsp;
                 <span>
                   SEARCH
@@ -213,7 +225,49 @@ createredirect(){
             <br/>
             <hr/>
           </div>
-          <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
+          {this.state.showComponent ? 
+          <div>
+            <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
+            <div className="col xl-12">
+              <h2 className="font-prulife no-margin">
+                Policy Information
+              </h2>
+            </div>
+            <div className="xl-12">
+              <h3 className=" container">
+                Policy Number: {this.state.policyNumber}
+              </h3>
+            </div>
+            <PolicyInformationNew  policy={this.state.policy} />
+            <div className="col xl-12">
+              <h2 className="font-prulife no-margin">
+                Agent Information
+              </h2>
+            </div>
+            <div className="xl-12">
+              <h3 className=" container">
+                Agent Code: {this.state.policy.agentCode}
+              </h3>
+            </div>
+            <AgentinformationNew  policy={this.state.policy}/>
+          </div>
+          <div className="col xl-12 modal-footer flex-container flex-wrap">
+            <div className="col xl-10">
+            </div>
+            <a
+              href="#"
+              className="btn prulife"
+              onClick={() => { if (window.confirm('Are you sure you want to Proceed')) this.createredirect() }}
+              // onClick={this.createTask}
+              >
+              Proceed
+              &nbsp;&nbsp;&nbsp;
+              <span className="fa fa-chevron-right font-white"></span>
+            </a>
+          </div>   
+          </div> :
+          ""} 
+          {/* <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
             <div className="col xl-12">
               <h2 className="font-prulife no-margin">
                 Policy Information
@@ -250,9 +304,17 @@ createredirect(){
               &nbsp;&nbsp;&nbsp;
               <span className="fa fa-chevron-right font-white"></span>
             </a>
+          </div> */}
+          <div className="no-search-result flex f-center">
+            <span className="fa fa-search"></span>
+            <br/>
+            <p>
+              No record/s found
+            </p>
+            
           </div>
         </MyModal>
-        
+
         <div className="col xl-10 l-10 m-9 s-9 xs-8">
           <div className="">
             <h1 className="flex s-f-center xs-f-center">Tasks</h1>

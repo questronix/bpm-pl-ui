@@ -439,7 +439,8 @@ class Policy extends Component {
           <div className="tab-title-container">
             <div className={this.state.Tabs == 0 || this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
               <h4 className="circle">
-                1
+                
+                <span className="fa fa-check"></span>
             </h4>
               <a onClick={() => { this.handleTabClick(0) }}>
                 <h4>
@@ -451,7 +452,7 @@ class Policy extends Component {
             <div className={this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
 
               <h4 className="circle">
-                2
+              <span className="fa fa-check"></span>
             </h4>
               <a onClick={() => { this.handleTabClick(1) }}>
                 <h4>
@@ -472,6 +473,21 @@ class Policy extends Component {
               </h4>
               </a>
             </div>
+            :<div className={this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+            <h4 className="circle">
+              3
+              {/* <span className="fa fa-check"></span> */}
+              {/* <span className="fa fa-check"></span> */}
+            </h4>
+            <a onClick={() => { this.handleTabClick(2) }}>
+              <span class="white"></span><span class="gray"></span>
+              <h4>
+                Owner Details
+            </h4>
+            </a>
+          </div>
+          }
+
             <div className={this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
               <h4 className="circle">
                 4
@@ -492,8 +508,9 @@ class Policy extends Component {
               <div>
                 <TransactionNew />
                 <div className="flex f-end container">
-                  <a href="#" className="btn purple" onClick={this.handleTabClick}>
-                    Insured Details
+                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
+                    PROCEED
+                  &nbsp; <span className="fa fa-chevron-right"></span>
                   </a>
                 </div>
               </div>
@@ -505,11 +522,14 @@ class Policy extends Component {
                   {/* <FatcaNew/> */}
                 </div>
                 <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn bright-blue" onClick={this.decrement}>
-                    Insured Details                   </a>
+                  <a href="#" className="btn prulife" onClick={this.decrement}>
+                    <span className="fa fa-chevron-left"></span>&nbsp;
+                    BACK
+                  </a>
                   <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    Submit
-               </a>
+                    PROCEED
+                  &nbsp; <span className="fa fa-chevron-right"></span>
+                  </a>
                 </div>
               </div> : ""}
 
@@ -518,12 +538,14 @@ class Policy extends Component {
               <div>
                 <InsuredinformationNew client={this.state.client} />
                 <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn purple" onClick={this.decrement}>
-                    Transaction Selection
-               </a>
+                  <a href="#" className="btn prulife" onClick={this.decrement}>
+                    <span className="fa fa-chevron-left"></span>&nbsp;
+                    BACK
+                  </a>
                   <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    Owner Details
-               </a>
+                    PROCEED
+                  &nbsp; <span className="fa fa-chevron-right"></span>
+                  </a>
                 </div>
               </div> : ""}
             {/* this is for tab4 */}
@@ -531,12 +553,14 @@ class Policy extends Component {
               <div>
                 <OwnerinformationNew client={this.state.client} />
                 <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn grass-green" onClick={this.decrement}>
-                    Insured Details
-               </a>
+                  <a href="#" className="btn prulife" onClick={this.decrement}>
+                    <span className="fa fa-chevron-left"></span>&nbsp;
+                    BACK
+                  </a>
                   <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    Additional Policy info
-               </a>
+                    PROCEED
+                  &nbsp; <span className="fa fa-chevron-right"></span>
+                  </a>
                 </div>
               </div> : ""}
 
