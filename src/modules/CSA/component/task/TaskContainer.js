@@ -69,10 +69,10 @@ class TaskContainer extends Component {
       isError: false,
     });
     PolicyService.getPolicyInformationByID(policyNumber).then((res) => {
-      console.log(res.data.data.result.data);
-      if (res.data.data.result.data) {
+      console.log(res.data.data.result);
+      if (res.data.data.result) {
         this.setState({
-          policy: res.data.data.result.data
+          policy: res.data.data.result
         })
       } 
 
