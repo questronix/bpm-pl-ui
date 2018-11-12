@@ -49,9 +49,10 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
+        use: ["source-map-loader", {
           loader: "babel-loader"
-        }
+        }],
+        enforce: "pre"
       },
       {
         test: /\.(png|jpg|gif|svg|ico)$/,
