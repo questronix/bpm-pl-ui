@@ -122,6 +122,7 @@ class LoginForm extends Component {
                     </button>
                 </div>}
             </div>
+            <span className="spinner atom"></span>
           </div>
         </form >
       </div>
