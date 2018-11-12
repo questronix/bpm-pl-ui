@@ -56,10 +56,10 @@ class LoginForm extends Component {
       if (role === 'CSA') {
         window.location.href = "/tasks";
       }
-      else if(role === 'PROCESSOR') {
+      else if (role === 'PROCESSOR') {
         window.location.href = "/processor";
-      }else if (role === "ADMIN"){
-        window.location.href = "/admin";  
+      } else if (role === "ADMIN") {
+        window.location.href = "/admin";
       }
     }
     else {
@@ -74,62 +74,112 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="login col no-padding">
-          <div className="login-bg-filter">
-            {/* <img src="https://i.imgur.com/DkX0ZtJ.jpg"></img> */}
-            <div className="login-form no-padding m-4 s-12 xs-12">
-              <div className="login-banner">
-                <div className="login-banner-filter flex f-center">
-                  <div className="login-header">
-                    <h3 className="font-white text-center margin-auto">
-                      Prulife login
-                  </h3>
-                  </div>
+      <div className="login-container">
+        <div class="login-circle"></div>
+        <form onSubmit={this.handleSubmit}>
+          <div className="login col no-padding">
+            <div class="logo">
+              <div class="wrapper"><i class="icon fa fa-file-signature"></i></div>
+              <div class="title"><span>BPM</span> After-sales</div>
+            </div>
+            <div className="">
+              <div className="input-container flex f-row">
+                <div className="text-label">
+                  <label>Username</label>
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    name="username"
+                    // disabled={this.state.isSubmitting}
+                    value={this.state.username}
+                    onChange={this.handleInputChange} />
+                </div>
+                <div className="icon flex f-center">
+                  <span className="fa fa-user"></span>
                 </div>
               </div>
-              <div>
-                <div className="login-body flex f-center f-column">
-                  <div className="input-container xl-11">
-                    <label className="col xl-3 l-3 m-12 s-12 xs-12 text-center">User ID:</label>
-                    <input className="input-with-icon col xl-11 l-11 m-11 s-11 xs-11"
-                      name="username"
-                      type="text"
-                      disabled={this.state.isSubmitting}
-                      value={this.state.username}
-                      onChange={this.handleInputChange}
-                      placeholder="Ldap id" />
-                      <span className="fa fa-user font-white"></span>
-                  </div>
-                  <div className="input-container xl-11">
-                    <label className="col xl-3 l-3 m-12 s-12 xs-12 text-center">Password:</label>
-                    <input className="input-with-icon col xl-11 l-11 m-11 s-11 xs-11"
-                      name="password"
-                      type="password"
-                      disabled={this.state.isSubmitting}
-                      value={this.state.password}
-                      onChange={this.handleInputChange}
-                      placeholder="Password" />
-                      <span className="fa fa-lock font-white"></span>
+              <div className="input-container flex f-row">
+                <div className="text-label">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    // disabled={this.state.isSubmitting}
+                    value={this.state.password}
+                    onChange={this.handleInputChange} />
+                </div>
+                <div className="icon flex f-center">
+                  <span className="fa fa-eye-slash"></span>
+                </div>
+              </div>
+              {this.state.isSubmitting ? (<span className="spinner atom"></span>) :
+                <div className="login-button ">
+                  <a href="#" className="btn prulife flex f-center">
+                    <button type="submit">
+                      LOGIN
+                      <span className="fa fa-arrow-right"></span>
+                    </button>
+                  </a>
+                </div>}
+            </div>
+
+            {/* <div className="login-bg-filter"> */}
+            {/* <img src="https://i.imgur.com/DkX0ZtJ.jpg"></img> */}
+            {/* <div className="login-form no-padding m-4 s-12 xs-12">
+                <div className="login-banner">
+                  <div className="login-banner-filter flex f-center">
+                    <div className="login-header">
+                      <h3 className="font-white text-center margin-auto">
+                        Prulife login
+                  </h3>
+                    </div>
                   </div>
                 </div>
-                <div className="f-row f-center flex-container flex-wrap xl-12 flex">
-                  {/* <button className="btn col xl-10 prulife"
+                <div>
+                  <div className="login-body flex f-center f-column">
+                    <div className="input-container xl-11">
+                      <label className="col xl-3 l-3 m-12 s-12 xs-12 text-center">User ID:</label>
+                      <input className="input-with-icon col xl-11 l-11 m-11 s-11 xs-11"
+                        name="username"
+                        type="text"
+                        disabled={this.state.isSubmitting}
+                        value={this.state.username}
+                        onChange={this.handleInputChange}
+                        placeholder="Ldap id" />
+                      <span className="fa fa-user font-white"></span>
+                    </div>
+                    <div className="input-container xl-11">
+                      <label className="col xl-3 l-3 m-12 s-12 xs-12 text-center">Password:</label>
+                      <input className="input-with-icon col xl-11 l-11 m-11 s-11 xs-11"
+                        name="password"
+                        type="password"
+                        disabled={this.state.isSubmitting}
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        placeholder="Password" />
+                      <span className="fa fa-lock font-white"></span>
+                    </div>
+                  </div>
+                  <div className="f-row f-center flex-container flex-wrap xl-12 flex"> */}
+            {/* <button className="btn col xl-10 prulife"
                 type="submit" 
                 disabled={this.state.isSubmitting}>
-                  {this.state.isSubmitting ? 'Please wait..' : 'Login'} 
-                </button> */}
-                  {this.state.isSubmitting ? (<span className="spinner atom"></span>) :
-                    <button className="btn xl-10 prulife login-btn flex f-center"
-                      type="submit" >
-                      Login
+                {this.state.isSubmitting ? 'Please wait..' : 'Login'} 
+              </button> */}
+            {/* {this.state.isSubmitting ? (<span className="spinner atom"></span>) :
+                      <button className="btn xl-10 prulife login-btn flex f-center"
+                        type="submit" >
+                        Login
                   </button>}
+                  </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
-        </div>
-      </form >
+
+        </form >
+      </div>
     );
   }
 }
