@@ -9,7 +9,13 @@ class TabHeader extends Component {
     super(props);
     this.state = {
       policy: {},
+      visible: false
     }
+    this.isVisible = this.isVisible.bind(this);
+  }
+  isVisible(){
+    this.setState({
+      visible: !this.state.visible})
   }
 
   render() {
@@ -17,7 +23,7 @@ class TabHeader extends Component {
     return (
       <div className="App">
         <div className="box-body">
-          <div className="policyinfo-container">
+          <div className={this.state.visible ? "policyinfo-container active" : "policyinfo-container"}>
             <h3 className="box-header no-margin">
               Policy Information
               </h3>
@@ -35,7 +41,7 @@ class TabHeader extends Component {
             <AgentinformationNew policy={this.state.policy} />
           </div>
           <div className="flex f-end showmore">
-            <a href="#" className="text-with-icon">
+            <a href="#" className="text-with-icon" onClick={this.isVisible}>
               Show more
               &nbsp; <span className="fa fa-chevron-down"></span>
             </a>
