@@ -10,7 +10,7 @@ class OwnerinformationNew extends Component {
     return (
       <div className="App">
         <div className=" insured-details">
-        {/* THIS WILL BE ADDED IF THE CONTENT IS THE SAME AS THE INSURED DETAILS */}
+          {/* THIS WILL BE ADDED IF THE CONTENT IS THE SAME AS THE INSURED DETAILS */}
           {/* <div className="content-disabled">
             <div className="box">
               <div className="box-body container flex f-center">
@@ -303,6 +303,72 @@ class OwnerinformationNew extends Component {
                 <label className="checkbox container" htmlFor="no1">No
                   <input type="radio" id="no1" name="ChangeAddress" />
                   <span className="checkmark"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="col xl-12 flex f-center f-start no-padding">
+            <span className="fa fa-info-circle font-prulife">
+            </span> &nbsp;
+            <h3 className="no-margin">
+              Additional Information
+            </h3>
+          </div>
+          <div className="xl-12 flex-container flex-wrap">
+            <div className="xl-12">
+              <p className="label flex required">
+                Statement of Insurability Declarations:
+              </p>
+              <div className="col xl-12">
+                <label className="checkbox container" htmlFor="yes2">Yes
+                    <input type="radio" id="yes2" name="Insurability" />
+                  <span className="checkmark"></span>
+                </label>
+                <label className="checkbox container" htmlFor="no2">No
+                  <input type="radio" id="no2" name="Insurability" />
+                  <span className="checkmark"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="xl-12 flex-container flex-wrap">
+            <div className="xl-12">
+              <p className="label flex no-margin required">
+                Are you pregnant?:
+              </p>
+              <div className="col xl-12">
+                <label className="checkbox container" htmlFor="yes3">Yes
+                    <input type="radio" id="yes3" name="pregnant" />
+                  <span className="checkmark"></span>
+                </label>
+                <label className="checkbox container" htmlFor="no3">No
+                  <input type="radio" id="no3" name="pregnant" />
+                  <span className="checkmark"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="xl-12 flex-container flex-wrap">
+            <div className="xl-12">
+              <p className="label flex no-margin required">
+                Additional requirements:
+              </p>
+              <div className="col xl-12 flex f-row-reverse f-end">
+                <label htmlFor="fma">
+                  FMA
+                </label>
+                <label className="checkbox">
+                  <input id="fma" type="checkbox" />
+                  <span className="checkmark" />
+                </label>
+              </div>
+              <div className="col xl-12 flex f-row-reverse f-end">
+                <label htmlFor="mur">
+                  MUR
+                </label>
+                <label className="checkbox">
+                  <input id="mur" type="checkbox" />
+                  <span className="checkmark" />
                 </label>
               </div>
             </div>

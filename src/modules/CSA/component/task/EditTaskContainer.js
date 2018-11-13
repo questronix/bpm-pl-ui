@@ -453,8 +453,8 @@ class EditTaskContainer extends Component {
       window.location.search.replace(
         new RegExp(
           '^(?:.*[&\\?]' +
-            encodeURIComponent(key).replace(/[\.\+\*]/g, '\\$&') +
-            '(?:\\=([^&]*))?)?.*$',
+          encodeURIComponent(key).replace(/[\.\+\*]/g, '\\$&') +
+          '(?:\\=([^&]*))?)?.*$',
           'i'
         ),
         '$1'
@@ -466,108 +466,94 @@ class EditTaskContainer extends Component {
     return (
       <div className="flex-container flex-wrap">
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
-        <div className="box margin-top-70 col xl-9 l-9 m-8 s-8 xs-7 no-padding margin-auto">
-          <div className="tab-title-container">
-            <div
-              onClick={() => this.handleSkipTab(1)}
-              className={
-                this.state.currentTab === 1 ||
-                this.state.isVisitedTransaction & (this.state.currentTab > 1)
-                  ? 'tab-title active'
-                  : 'tab-title'
-              }
-            >
-              <h4 className="circle">
-                {this.state.isVisitedTransaction ? (
-                  <span className="fa fa-check" />
-                ) : (
-                  1
-                )}
-              </h4>
-              <h4>Transaction Selection</h4>
-              <span className="white" />
-              <span className="gray" />
-            </div>
-            <div
-              onClick={() => this.handleSkipTab(2)}
-              className={
-                this.state.currentTab === 2 ||
-                this.state.isVisitedInsured & (this.state.currentTab > 2)
-                  ? 'tab-title active'
-                  : 'tab-title'
-              }
-            >
-              <h4 className="circle">
-                {this.state.isVisitedInsured ? (
-                  <span className="fa fa-check" />
-                ) : (
-                  2
-                )}
-              </h4>
-              <h4>Insured Details</h4>
-              <span className="white" />
-              <span className="gray" />
-            </div>
-            <div
-              onClick={() => this.handleSkipTab(3)}
-              className={
-                this.state.currentTab === 3 ||
-                this.state.isVisitedOwner & (this.state.currentTab > 3)
-                  ? 'tab-title active'
-                  : 'tab-title'
-              }
-            >
-              <h4 className="circle">
-                {this.state.isVisitedOwner ? (
-                  <span className="fa fa-check" />
-                ) : (
-                  3
-                )}
-              </h4>
-              <h4>Owner Details</h4>
-              <span className="white" />
-              <span className="gray" />
-            </div>
-            <div
-              onClick={() => this.handleSkipTab(4)}
-              className={
-                this.state.currentTab === 4 ||
-                this.state.isVisitedAdditional & (this.state.currentTab > 4)
-                  ? 'tab-title active'
-                  : 'tab-title'
-              }
-            >
-              <h4 className="circle">
-                {this.state.isVisitedAdditional ? (
-                  <span className="fa fa-check" />
-                ) : (
-                  4
-                )}
-              </h4>
-              <h4>Additional Details</h4>
+        <div className="margin-top-70 col xl-9 l-9 m-8 s-8 xs-7 no-padding margin-auto">
+          <div className="">
+            <h1 className="text-normal">
+              New Transaction
+          </h1>
+            <div className="flex-container flex-wrap col no-padding flex f-justify-space-between">
+              <div className="flex f-column transaction-header">
+                <div className="flex">
+                  <p className="">
+                    Transaction Number  :
+                  </p>
+                  <p className="font-prulife ">
+                    {this.state.transactionNumber}
+                  </p>
+                </div>
+                <div className="flex">
+                  <p className="">
+                    Transaction Type	:
+                  </p>
+                  <p className="font-prulife ">
+                    Reinstatement - Updating
+                </p>
+                </div>
+              </div>
+              <div className="flex f-column transaction-header">
+                <div className="flex">
+                  <p className="">
+                    Created Date	:	
+                  </p>
+                  <p className="font-prulife ">
+                  11/13/2018
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <TabHeader policy={this.state.policy} clients={this.state.clients} />
-          <div className="box-body">
-            {this.state.currentTab === 1 && (
-              <TransactionNew transactionNumber={this.state.transactionNumber}/>
-            )}
-            {this.state.currentTab === 2 && (
-              <InsuredinformationNew client={this.state.client} />
-            )}
-            {this.state.currentTab === 3 && (
-              <OwnerinformationNew client={this.state.client} />
-            )}
-            {this.state.currentTab === 4 && <Additional />}
+          <div className="box">
+            <div className="tab-title-container">
+              <div
+                onClick={() => this.handleSkipTab(1)}
+                className={this.state.currentTab === 1 || (this.state.isVisitedTransaction & this.state.currentTab > 1) ? "tab-title active" : "tab-title"}>
+                <h4 className="circle">
+                  {this.state.isVisitedTransaction ? <span className="fa fa-check" /> : 1}
+                </h4>
+                <h4>Transaction Selection</h4><span className="white" /><span className="gray" />
+              </div>
+              <div
+                onClick={() => this.handleSkipTab(2)}
+                className={this.state.currentTab === 2 || (this.state.isVisitedInsured & this.state.currentTab > 2) ? "tab-title active" : "tab-title"}>
+                <h4 className="circle">
+                  {this.state.isVisitedInsured ? <span className="fa fa-check" /> : 2}
+                </h4>
+                <h4>Insured Details</h4><span className="white" /><span className="gray" />
+              </div>
+              <div
+                onClick={() => this.handleSkipTab(3)}
+                className={this.state.currentTab === 3 || (this.state.isVisitedOwner & this.state.currentTab > 3) ? "tab-title active" : "tab-title"}>
+                <h4 className="circle">
+                  {this.state.isVisitedOwner ? <span className="fa fa-check" /> : 3}
+                </h4>
+                <h4>Owner Details</h4><span className="white" /><span className="gray" />
+              </div>
+              <div
+                onClick={() => this.handleSkipTab(4)}
+                className={this.state.currentTab === 4 || (this.state.isVisitedAdditional & this.state.currentTab > 4) ? "tab-title active" : "tab-title"}>
+                <h4 className="circle">
+                  {this.state.isVisitedAdditional ? <span className="fa fa-check" /> : 4}
+                </h4>
+                <h4>Additional Details</h4>
+              </div>
+            </div>
+            <TabHeader policy={this.state.policy} clients={this.state.clients} />
+            <div className="box-body">
 
-            <div className="flex f-justify-space-between container">
-              <button className="btn prulife" onClick={this.handlePrevTab}>
-                <span className="fa fa-chevron-left" />
-                &nbsp; BACK
+              {this.state.currentTab === 1 && <TransactionNew transactionNumber={this.state.transactionNumber} />}
+              {this.state.currentTab === 2 && <InsuredinformationNew client={this.state.client} />}
+              {this.state.currentTab === 3 && <OwnerinformationNew client={this.state.client} />}
+              {this.state.currentTab === 4 && <Additional />}
+
+              <div className="flex f-justify-space-between container">
+                <button className="btn prulife" accessKey="," onClick={this.handlePrevTab}>
+                  <span className="fa fa-chevron-left" />&nbsp; BACK
               </button>
-              <button className="btn prulife" onClick={this.handleNextTab}>
-                PROCEED &nbsp; <span className="fa fa-chevron-right" />
-              </button>
+                <button className="btn prulife" accessKey="." onClick={this.handleNextTab}>
+                  PROCEED &nbsp; <span className="fa fa-chevron-right" />
+                </button>
+              </div>
+
             </div>
           </div>
         </div>
