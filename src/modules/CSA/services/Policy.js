@@ -9,6 +9,7 @@ export default class Policy {
     return this.http.get(`/lifeasia/${policyNum}/policy`);
   }
   getClientIformationByid(id){
+    console.log
     return this.http.get(`/lifeasia/${id}/client`);
   }
 

@@ -17,7 +17,7 @@ class TabTitles extends Component {
                 Transaction Selection
                   </h4>
             </a>
-            <span class="white"></span><span class="gray"></span>
+            <span className="white"></span><span className="gray"></span>
           </div>
           <div className={this.state.Tabs == 1 ? "tab-title active" : "tab-title"}>
             <h4 className="circle">
@@ -28,7 +28,7 @@ class TabTitles extends Component {
                 Additional Prolicy info
                   </h4>
             </a>
-            <span class="white"></span><span class="gray"></span>
+            <span className="white"></span><span className="gray"></span>
           </div>
           <div className={this.state.Tabs == 2 ? "tab-title active" : "tab-title"}>
             <h4 className="circle">
@@ -39,7 +39,7 @@ class TabTitles extends Component {
                 Insured Details
                   </h4>
             </a>
-            <span class="white"></span><span class="gray"></span>
+            <span className="white"></span><span className="gray"></span>
           </div>
           <div className={this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
             <h4 className="circle">

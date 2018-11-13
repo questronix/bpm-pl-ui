@@ -12,7 +12,7 @@ import InsuredinformationNew from './InsuredinformationNew';
 import TransactionNew from './TransactionNew';
 import OwnerinformationNew from './OwnerinformationNew';
 
-class Policy extends Component {
+class   Policy extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -447,7 +447,7 @@ class Policy extends Component {
                   Transaction Selection
               </h4>
               </a>
-              <span class="white"></span><span class="gray"></span>
+              <span className="white"></span><span className="gray"></span>
             </div>
             <div className={this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
 
@@ -459,7 +459,7 @@ class Policy extends Component {
                   Insured Details
               </h4>
               </a>
-              <span class="white"></span><span class="gray"></span>
+              <span className="white"></span><span className="gray"></span>
             </div>
             <div className={this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
               <h4 className="circle">
@@ -467,7 +467,7 @@ class Policy extends Component {
               <span className="fa fa-check"></span>
               </h4>
               <a onClick={() => { this.handleTabClick(2) }}>
-                <span class="white"></span><span class="gray"></span>
+                <span className="white"></span><span className="gray"></span>
                 <h4>
                   Owner Details
               </h4>
@@ -480,7 +480,7 @@ class Policy extends Component {
               {/* <span className="fa fa-check"></span> */}
             </h4>
             <a onClick={() => { this.handleTabClick(2) }}>
-              <span class="white"></span><span class="gray"></span>
+              <span className="white"></span><span className="gray"></span>
               <h4>
                 Owner Details
             </h4>

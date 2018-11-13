@@ -35,7 +35,7 @@ class TransactionNew extends Component {
           <div className="">
             <h4 className="no-margin">
               Transaction Number: 1022020
-                  </h4>
+            </h4>
           </div>
         </div>
         <form className="flex f-justify-evenly container">
@@ -44,65 +44,65 @@ class TransactionNew extends Component {
           <Radio rName="transaction" rId="3" rLabel="Waiver" />
           {/* <div className="">
             <input name="transaction" id="Updating" type="radio" />
-            <label for="Updating">
+            <label htmlFor="Updating">
               Updating
                   </label>
           </div>
           <div className="">
             <input name="transaction" id="Redating" type="radio" />
-            <label for="Redating">
+            <label htmlFor="Redating">
               Redating
                 </label>
           </div>
           <div className="">
             <input name="transaction" id="Waiver" type="radio" />
-            <label for="Waiver">
+            <label htmlFor="Waiver">
               Waiver
                 </label>
           </div> */}
         </form>
-        <div class="transaction-checkboxes margin-auto">
+        <div className="transaction-checkboxes margin-auto">
           <table border="0" cellspacing="0">
             <tr>
-              <td class="flex align-center"> <label for="Reinstatement">Reinstatement Form </label> </td>
+              <td className="flex align-center"> <label htmlFor="Reinstatement">Reinstatement Form </label> </td>
               <td>
-                <label class="checkbox">
+                <label className="checkbox">
                   <input id="Reinstatement" type="checkbox" />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                 </label>
               </td>
             </tr>
             <tr>
-              <td class="flex align-center"> <label for="routine">U/W routine requirements </label> </td>
+              <td className="flex align-center"> <label htmlFor="routine">U/W routine requirements </label> </td>
               <td>
-                <label class="checkbox">
+                <label className="checkbox">
                   <input id="routine" type="checkbox" />
-                  <span class="checkmark"></span>
+                  <span className="checkmark"></span>
                 </label>
               </td>
             </tr>
             {/* <tr>
-              <td><label for="health">Health Statement Form (HSF)</label></td>
+              <td><label htmlFor="health">Health Statement Form (HSF)</label></td>
               <td><input id="health" type="checkbox" /></td>
             </tr>
             <tr>
-              <td><label for="routine">U/W routine requirements</label></td>
+              <td><label htmlFor="routine">U/W routine requirements</label></td>
               <td><input id="routine" type="checkbox" /></td>
             </tr>
             <tr>
-              <td><label for="payment">Payment of Premium Arrears</label></td>
+              <td><label htmlFor="payment">Payment of Premium Arrears</label></td>
               <td><input id="payment" type="checkbox" /></td>
             </tr>
             <tr>
-              <td><label for="specimen">Specimen Signature Form (if applicable)</label></td>
+              <td><label htmlFor="specimen">Specimen Signature Form (if applicable)</label></td>
               <td><input id="specimen" type="checkbox" /></td>
             </tr>
             <tr>
-              <td><label for="valid">Valid Government Issued ID (if applicable)</label></td>
+              <td><label htmlFor="valid">Valid Government Issued ID (if applicable)</label></td>
               <td><input id="valid" type="checkbox" /></td>
             </tr>
             <tr>
-              <td><label for="non-government">Valid Non-Government Issued ID (if applicable)</label></td>
+              <td><label htmlFor="non-government">Valid Non-Government Issued ID (if applicable)</label></td>
               <td><input id="non-government" type="checkbox" /></td>
             </tr> */}
           </table>
