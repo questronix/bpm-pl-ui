@@ -4,15 +4,24 @@ const express = require('express');
 const router = express.Router();
 const mw = require('../Common/middleware/Authentication');
 const task = require('./model/Task');
+const transaction = require('./model/Transaction');
 
-router.post('/', mw.isAuthenticated, (req, res) => {
+router.post('/', mw.isAuthenticated, async(req, res) => {
   const ACTION = '[postNewTask]';
   Logger.log('debug', `${TAG}${ACTION} - request paramaters`, req.params);
-  task.new(req.session.user.Username).then((data) => {
-    res.send(data);
-  }).catch((err) => {
+
+  try {
+    const trans = await transaction.generateTransactionId()
+      .catch((err) => res.send(err));
+  
+    task.new(req.session.user.Username, trans.result.transactionNumber).then((data) => {
+      res.send(data);
+    }).catch((err) => {
+      res.error(err);
+    });
+  } catch (err) {
     res.error(err);
-  });
+  }
 });
 
 router.get('/', mw.isAuthenticated, (req, res) => {

@@ -5,10 +5,10 @@ const Error = require('../../Common/services/Errors');
 const url = process.env.BPM_URL;
 
 
-module.exports.new = (username) => {
+module.exports.new = (username, transactionNo) => {
   const ACTION = '[getDetails]';
   const uri = `${url}/process/start`;
-  Logger.log('info', `${TAG}${ACTION} - args `, { username });
+  Logger.log('info', `${TAG}${ACTION} - args `, { username, transactionNo });
   Logger.log('info', `${TAG}${ACTION} - url`, uri);
 
   return new Promise((resolve, reject) => {
@@ -16,7 +16,7 @@ module.exports.new = (username) => {
       .setOptions({
         uri
       })
-      .post({ username })
+      .post({ username, transactionNo })
       .then(res => {
         Logger.log('info', `${TAG}${ACTION} - result`, res.body);
         const body = res.body;

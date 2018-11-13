@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Consumer } from 'react';
 import { LoginService } from '../services';
+import { AppContext } from '../../../context/app-context';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -129,7 +130,7 @@ class LoginForm extends Component {
                 </div>
                 <div className="icon flex f-center">
                   <span
-                    className={maskPassword ? "fa fa-eye-slash" : "fa fa-eye"}
+                    className={maskPassword ? 'fa fa-eye-slash' : 'fa fa-eye'}
                     onClick={this.handleMaskPassword}
                   />
                 </div>
@@ -144,6 +145,9 @@ class LoginForm extends Component {
               )}
             </div>
             {isSubmitting && <span className="spinner atom" />}
+            {/* <AppContext.Consumer>
+              {(updateContext) => <h1>{updateContext('hey', 'new Val')}</h1>}
+            </AppContext.Consumer> */}
           </div>
         </form>
       </div>

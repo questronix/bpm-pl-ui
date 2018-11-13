@@ -1,10 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component, createContext } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import './override.css';
 import routes from './routes';
+import { AppContext } from './context/app-context';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      policy: {
+        hey: 'sample'
+      },
+    }
+
+    this.handleContextUpdate = this.handleContextUpdate.bind(this);
+  }
+
+  handleContextUpdate(state, val) {
+    this.setState({
+      [state]: val,
+    });
+  }
 
   // componentDidMount() {
   //   window.addEventListener('beforeunload', this.handleLeavePage);
@@ -23,13 +41,15 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-            {routes.map((route, index) => 
-              <Route key={index} {...route} />
-            )}  
-        </Switch>
-      </Router>
+      <AppContext.Provider value={this.state}>
+        <Router>
+          <Switch>
+              {routes.map((route, index) => 
+                <Route key={index} {...route} />
+              )}  
+          </Switch>
+        </Router>
+      </AppContext.Provider>
     );
   }
 }

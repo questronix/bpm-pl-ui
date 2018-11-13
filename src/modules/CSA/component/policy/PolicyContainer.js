@@ -1,12 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import SearchPolicyForm from './SearchPolicyForm';
-import PolicyInformation from './PolicyInformation';
-import Fatca from './Fatca';
-import Transaction from './Transaction';
-import ErrorAlert from '../../../../shared/component/alerts/Error';
-import PageLoading from '../../../../shared/component/loadings/PageLoading';
+import React, { Component } from 'react'
 import { PolicyService, TaskService } from '../../services';
-import Footer from '../../../../shared/component/footer/Footer';
 import TabHeader from './TabHeader';
 import InsuredinformationNew from './InsuredinformationNew';
 import TransactionNew from './TransactionNew';
@@ -29,9 +22,6 @@ class Policy extends Component {
         "transNumber": '123000',
         "sumAssured": '000001111',
         "createdDate": '10-12-18',
-
-
-
       },
       insured: {},
       selectedTransaction: '',

@@ -15,7 +15,10 @@ module.exports.getPolicy = num => {
     return new Promise((resolve) => {
       const data = require('../../Dummy/policy.json');  
       Logger.log('info', `${TAG}${ACTION} - result`, data);
-      resolve(data);
+      
+      setTimeout(() => {
+        resolve(data);
+      }, 2000);
     });
   } else {
     return new Promise((resolve, reject) => {

@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 
 class MyModal extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+
+  toggleModal() {
+    this.props.onToggle();
+  }
+
   render() {
     return (
       <div>
-        <input className="modal-state" id={this.props.modalId} type="checkbox" />
+        <input className="modal-state" id={this.props.modalId} type="checkbox" checked={this.props.isOpen} onChange={this.toggleModal} />
         <div className="modal">
           <label className="modal-bg" htmlFor={this.props.modalId}></label>
           <div className="modal-inner col">

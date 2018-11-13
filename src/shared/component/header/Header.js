@@ -32,7 +32,7 @@ class Header extends Component {
           <a href="#" className="flex f-row f-center">
             <div className="text-right">
               <p className="no-margin">
-                Welcome, {JSON.parse(sessionStorage.getItem('user_info')).firstName}
+                Welcome, {JSON.parse(sessionStorage.getItem('user_info')).Firstname}
               </p>
               <p className="no-margin">
               {JSON.parse(sessionStorage.getItem('user_info')).Role_Description}

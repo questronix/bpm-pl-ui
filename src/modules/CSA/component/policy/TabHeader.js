@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import CheckBox from '../../../../shared/component/checkbox/CheckBox';
-import Input from '../../../../shared/component/input/Input';
 import PolicyInformationNew from './PolicyInformationNew';
 import AgentinformationNew from './AgentinformationNew';
 

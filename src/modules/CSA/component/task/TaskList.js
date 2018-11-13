@@ -21,6 +21,7 @@ class TaskList extends Component {
                 <th>Transaction Type</th>
                 <th>Policy Owner</th>
                 <th>Insured Owner</th>
+                <th>Created By</th>
                 <th>Date Created</th>
                 <th>Status</th>
               </tr>
@@ -29,18 +30,20 @@ class TaskList extends Component {
               {this.props.tasks.map((task, index) => (
                 <tr
                   key={index}
-                  onClick={() => this.handleItemClick(`/tasks/edit?id=${task.id}`)}
+                  onClick={() =>
+                    this.handleItemClick(`/tasks/edit?id=${task.id}`)
+                  }
                 >
-                  <td> 
+                  <td>
                     {/* Policy no */}
-                  <div class="cursor"></div>
+                    <div className="cursor" />
                     {task.variables.policy.number
                       ? task.variables.policy.number
                       : '-'}
                   </td>
                   {/* Transaction No */}
                   <td>{task.variables.appno}</td>
-                  
+
                   <td>
                     {/* Transation type */}
                     {task.variables.policy.info != null
@@ -57,6 +60,11 @@ class TaskList extends Component {
                     {/* Insured owner */}
                     {task.variables.policy.info != null
                       ? JSON.parse(task.variables.policy.info).insured.firstName
+                      : '-'}
+                  </td>
+                  <td>
+                    {task.variables.user != null
+                      ? `${task.variables.user.firstName} ${task.variables.user.lastName}`
                       : '-'}
                   </td>
                   <td>

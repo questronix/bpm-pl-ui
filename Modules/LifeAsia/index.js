@@ -44,9 +44,7 @@ router.get('/:policyNum/policy', mw.isAuthenticated, (req, res) => {
 
   la.getPolicy(req.params.policyNum)
     .then(data => {
-      res.send({
-        data
-      });
+      res.send(data);
     })
     .catch(err => {
       res.status(err.status).send(err);

@@ -1,6 +1,4 @@
-import React, { Component, Fragment } from 'react';
-import CheckBox from '../checkbox/CheckBox';
-import { TaskService } from '../../../services';
+import React, { Component } from 'react';
 
 class Input extends Component {
 

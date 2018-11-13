@@ -3,13 +3,12 @@ import Nav from '../../component/nav/Nav';
 import TaskContainer from '../../component/task/TaskContainer';
 import SidebarNew from '../../../../shared/component/sidebar/SidebarNew';
 
-const TaskPage = (props) => {
-  console.log(props);
+const TaskPage = ({history}) => {
   return (
     <div>
       <Nav /> 
       {/* <SidebarNew/> */}
-      <TaskContainer/>
+      <TaskContainer history={history}/>
     </div>
   );
 };
