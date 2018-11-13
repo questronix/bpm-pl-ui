@@ -216,7 +216,7 @@ createredirect(){
               <div className="xl-11 search-container bg-lightgray no-border">
                 <input 
                 className="search bg-lightgray no-border" 
-                type="text" placeholder="Search..."  
+                type="text" placeholder="Search Policy Number"  
                 value={this.state.policyNumber}
                 onChange={this.handleInputChange}
                 autoFocus="true"
@@ -327,7 +327,7 @@ createredirect(){
             <h1 className="flex s-f-center xs-f-center">Tasks</h1>
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
               <div className=" xl-5 flex f-justify-space-between">
-                <div className="search-container">
+                <div className="search-container no-border">
                   {/* <FilterButton/> */}
                   <select>
                     <option value="Policy Number">Policy Number</option>
@@ -335,7 +335,7 @@ createredirect(){
                     <option value="Insured Name">Insured Name</option>
                     <option value="Policy">Policy</option>
                   </select>
-                  <input className="search" placeholder="Search..."/>
+                  <input className="search" placeholder="Search Policy Number"/>
                 </div>
                 <a href="#" className="btn prulife flex f-center">
                   <span className="fa fa-search font-white"></span> &nbsp;

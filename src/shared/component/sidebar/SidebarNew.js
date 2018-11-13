@@ -34,14 +34,14 @@ class SidebarNew extends Component {
         </div>
         <div className="sidebar-body">
           <ul>
-            <NavLink to="/tasks" className="flex f-start f-center" activeClassName="active flex f-start f-center">
+            <NavLink to="/tasks" className="flex f-start f-center" activeClassName="active flex f-start f-center" accessKey="1">
               <li>
                 <span className="fa fa-clipboard-list font-bright-blue"></span>
                 TASKS
             </li>
             </NavLink>
 
-            <NavLink to="/dashboard" className="flex f-start f-center" activeClassName="active flex f-start f-center">
+            <NavLink to="/dashboard" className="flex f-start f-center" activeClassName="active flex f-start f-center" accessKey="2">
               <li>
                 <span className="fa fa-check font-grass-green"></span>
                 Dashboard

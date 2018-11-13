@@ -1839,7 +1839,7 @@ input[type="search"]::-webkit-search-results-decoration {
     padding-left: 15px;
     border: none;
     outline: none;
-    border-left: 1px solid #bdbdbd; }
+    border-left: 1px solid #eee; }
   .search-container .search-icon {
     margin: 0 10px; }
     .search-container .search-icon span {
