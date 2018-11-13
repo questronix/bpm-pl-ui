@@ -434,6 +434,9 @@ body, html{
 .text-bold{
     font-weight: bold;
 }
+.text-normal{
+    font-weight: 400;
+}
 //buttons
 .btn{
     cursor: pointer;
@@ -681,6 +684,9 @@ ul,li,ol{
 .margin-top-70{
     margin-top: 70px !important;
 }
+.margin-top-10{
+    margin-top: 10px;
+}
 .padding-10{
     padding: 10px;
 }
@@ -821,6 +827,9 @@ hr{
     }
     &.f-justify-evenly, .f-justify-evenly{
         justify-content: space-evenly;
+    }
+    &.f-row-reverse, .f-row-reverse{
+        flex-direction: row-reverse;
     }
 }
 .box{
@@ -2398,6 +2407,13 @@ input[type="search"] {
         @extend .font-prugray;
         font-weight: 300;
         font-size: 28px;
+    }
+}
+.transaction-header{
+    p{
+        margin: 0;
+        margin-bottom: 5px;
+        font-weight: bold;
     }
 }
 .showmore{

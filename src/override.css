@@ -339,6 +339,9 @@ body, html {
 .text-bold {
   font-weight: bold; }
 
+.text-normal {
+  font-weight: 400; }
+
 .btn, .btn-circle, .card-img-container .card-btn {
   cursor: pointer;
   height: 35px;
@@ -552,6 +555,9 @@ ul, li, ol {
 .margin-top-70 {
   margin-top: 70px !important; }
 
+.margin-top-10 {
+  margin-top: 10px; }
+
 .padding-10 {
   padding: 10px; }
 
@@ -684,6 +690,8 @@ hr {
     justify-content: space-around; }
   .flex.f-justify-evenly, .f-justify-evenly.btn-circle, nav.navbar .navmenu ul.f-justify-evenly, nav.navbar .navmenu ul li.f-justify-evenly, .box .tab-title-container .f-justify-evenly.circle, .dropdown .dropdown-menu ul li.f-justify-evenly, .f-justify-evenly.input-container, .flex .f-justify-evenly, .btn-circle .f-justify-evenly, nav.navbar .navmenu ul .f-justify-evenly, .box .tab-title-container .circle .f-justify-evenly, .dropdown .dropdown-menu ul li .f-justify-evenly, .input-container .f-justify-evenly {
     justify-content: space-evenly; }
+  .flex.f-row-reverse, .f-row-reverse.btn-circle, nav.navbar .navmenu ul.f-row-reverse, nav.navbar .navmenu ul li.f-row-reverse, .box .tab-title-container .f-row-reverse.circle, .dropdown .dropdown-menu ul li.f-row-reverse, .f-row-reverse.input-container, .flex .f-row-reverse, .btn-circle .f-row-reverse, nav.navbar .navmenu ul .f-row-reverse, .box .tab-title-container .circle .f-row-reverse, .dropdown .dropdown-menu ul li .f-row-reverse, .input-container .f-row-reverse {
+    flex-direction: row-reverse; }
 
 .box {
   background-color: white;
@@ -1947,6 +1955,11 @@ input[type="search"]::-webkit-search-results-decoration {
   .policy-header .policy-title {
     font-weight: 300;
     font-size: 28px; }
+
+.transaction-header p {
+  margin: 0;
+  margin-bottom: 5px;
+  font-weight: bold; }
 
 .showmore {
   height: 50px; }

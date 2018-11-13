@@ -74,6 +74,21 @@ class FatcaNew extends Component {
                   </label>
                 </div>
               </div>
+              <div className="xl-6">
+                <p className="label container">
+                Complete FATCA Requirements?:
+                </p>
+                <div className="xl-6">
+                  <label className="checkbox container" htmlFor="yes3">Yes
+                    <input type="radio" id="yes3" name="completeFATCA" />
+                    <span className="checkmark"></span>
+                  </label>
+                  <label className="checkbox container" htmlFor="no3">No
+                  <input type="radio" id="no3" name="completeFATCA" />
+                    <span className="checkmark"></span>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
