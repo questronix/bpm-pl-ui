@@ -458,10 +458,10 @@ class EditTaskContainer extends Component {
             {this.state.currentTab === 4 && <Additional />}
 
             <div className="flex f-justify-space-between container">
-              <button className="btn prulife" onClick={this.handlePrevTab}>
+              <button className="btn prulife" accessKey="," onClick={this.handlePrevTab}>
                 <span className="fa fa-chevron-left" />&nbsp; BACK
               </button>
-              <button className="btn prulife" onClick={this.handleNextTab}>
+              <button className="btn prulife" accessKey="." onClick={this.handleNextTab}>
                 PROCEED &nbsp; <span className="fa fa-chevron-right" />
               </button>
             </div>

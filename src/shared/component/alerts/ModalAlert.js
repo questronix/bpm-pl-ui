@@ -6,7 +6,7 @@ class ModalAlert extends Component {
       <div className="App">
         <div className="flex-container modal-alert">
           <div className="col xl-12 modal-content no-padding">
-            <div>
+            <div className="container">
               <h2>
                 {this.props.mHeader}
               </h2>

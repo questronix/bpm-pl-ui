@@ -155,17 +155,18 @@ class TaskContainer extends Component {
   }
 
   createTask() {
-    TaskService.createNewTask({"info": JSON.stringify(this.state.policy)})
-      .then(res => {
-        console.log(res.data);
-        const t = JSON.parse(JSON.stringify(res.data.variables.policy));
-        localStorage.setItem("transactionNumber", t.transactionNo);
-        localStorage.setItem("policy", JSON.stringify(this.state.policy));
-        this.props.history.push(`/tasks/edit?id=${res.data.id}`);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // TaskService.createNewTask({"info": JSON.stringify(this.state.policy)})
+    //   .then(res => {
+    //     console.log(res.data);
+    //     const t = JSON.parse(JSON.stringify(res.data.variables.policy));
+    //     localStorage.setItem("transactionNumber", t.transactionNo);
+    //     localStorage.setItem("policy", JSON.stringify(this.state.policy));
+        // this.props.history.push(`/tasks/edit?id=${res.data.id}`);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+    window.location.href = "/tasks/edit"
   }
 
   render() {
@@ -183,6 +184,14 @@ class TaskContainer extends Component {
             </p>
           </div>
       </ModalAlert> */}
+      <ModalAlert mHeader="Confirmation">
+          <div className="flex f-center f-column">
+
+            <h3 className="text-center">
+              Are you sure you want to Proceed?
+            </h3>
+          </div>
+      </ModalAlert> 
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
         <MyModal modalId="1" modalLabel="New Transaction" isOpen={this.state.openSearchModal} onToggle={this.handleModalToggle}>
           <div className="col xl-12">
