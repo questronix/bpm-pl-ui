@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../../../../shared/component/input/Input';
+import ModalAlert from '../../../../shared/component/alerts/ModalAlert';
+import ModalDisable from '../../../../shared/component/alerts/ModalDisable';
 
 class OwnerinformationNew extends Component {
 
@@ -7,10 +9,21 @@ class OwnerinformationNew extends Component {
 
     return (
       <div className="App">
-        <div className="container insured-details">
+        <div className=" insured-details">
+        {/* THIS WILL BE ADDED IF THE CONTENT IS THE SAME AS THE INSURED DETAILS */}
+          {/* <div className="content-disabled">
+            <div className="box">
+              <div className="box-body container flex f-center">
+                <span className="fa fa-user-edit font-prulife"></span> &nbsp;
+              <h3>
+                  Same as Insured Details.
+              </h3>
+              </div>
+            </div>
+          </div> */}
           <div className="col no-padding xl-12 flex f-justify-space-between">
             <h2 className="no-margin">
-              Insured Details
+              Owner Details
             </h2>
             <p>
               <span className="fa fa-pencil-alt font-prulife"></span> - Editable field

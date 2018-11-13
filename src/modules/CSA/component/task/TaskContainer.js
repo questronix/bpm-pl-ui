@@ -25,7 +25,7 @@ class TaskContainer extends Component {
       taskHistory: [],
       policyNumber: '',
       policy: {},
-      client:{},
+      client: {},
       transactionId: '',
       Tabs: 0,
     }
@@ -40,13 +40,13 @@ class TaskContainer extends Component {
 
   }
 
-  renderReturn(){
+  renderReturn() {
     this.setState({
       showComponent: true
     })
   }
 
-  renderReturn(){
+  renderReturn() {
     this.setState({
       showComponent: true
     })
@@ -57,7 +57,7 @@ class TaskContainer extends Component {
     this.handlePolicySearchSubmit(this.state.policyNumber);
   }
 
-  
+
 
   handleItemClick(url) {
     window.location.href = url;
@@ -156,13 +156,13 @@ class TaskContainer extends Component {
     });
   }
   // End of test
-createredirect(){
-  alert('asdw')
-  this.createTask(1);
-  
-  // window.location.href = '/tasks/edit';
-  // this.handleItemClick(`/tasks/edit?id=${tasks.id}`)
-}
+  createredirect() {
+    alert('asdw')
+    this.createTask(1);
+
+    // window.location.href = '/tasks/edit';
+    // this.handleItemClick(`/tasks/edit?id=${tasks.id}`)
+  }
 
   createTask(id) {
     TaskService.generateTransactionId().then((res) => {
@@ -203,83 +203,88 @@ createredirect(){
     });
   }
 
-  
+
 
   render() {
     return (
       <div className="flex-container flex-wrap margin-top-70">
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4"></div>
-        <ModalAlert mHeader="This is the Header">
-          <div className="">
-            Are you sure you want to continue?
+        {/* THIS WILL BE ADDED IF THE AUTHORITY CAN APPROVE */}
+        {/* <ModalAlert>
+          <div className="flex f-center f-column big-container">
+            <span className="fa fa-users-cog big-font font-gray big-container"></span>
+            <p className="text-center">
+            This transaction fall into your limitation.
+              Want to proceed to approved this transaction?
+            </p>
           </div>
-        </ModalAlert>
+      </ModalAlert> */}
         <MyModal
           modalId="1"
           modalLabel="New Transaction">
           <div className="col xl-12">
             <div className="xl-12 flex f-justify-space-between">
               <div className="xl-11 search-container bg-lightgray no-border">
-                <input 
-                className="search bg-lightgray no-border" 
-                type="text" placeholder="Search Policy Number"  
-                value={this.state.policyNumber}
-                onChange={this.handleInputChange}
-                autoFocus="true"
+                <input
+                  className="search bg-lightgray no-border"
+                  type="text" placeholder="Search Policy Number"
+                  value={this.state.policyNumber}
+                  onChange={this.handleInputChange}
+                  autoFocus="true"
                 />
               </div>
-              <a className="btn prulife flex f-center" onClick ={this.handleSubmit} >
+              <a className="btn prulife flex f-center" onClick={this.handleSubmit} >
                 <span className="fa fa-search font-white"></span> &nbsp;
                 <span>
                   SEARCH
                 </span>
               </a>
             </div>
-            <br/>
-            <hr/>
+            <br />
+            <hr />
           </div>
-          {this.state.showComponent ? 
-          <div>
-            <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
-            <div className="col xl-12">
-              <h2 className="font-prulife no-margin">
-                Policy Information
+          {this.state.showComponent ?
+            <div>
+              <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
+                <div className="col xl-12">
+                  <h2 className="font-prulife no-margin">
+                    Policy Information
               </h2>
-            </div>
-            <div className="xl-12">
-              <h3 className=" container">
-                Policy Number: {this.state.policyNumber}
-              </h3>
-            </div>
-            <PolicyInformationNew  policy={this.state.policy} />
-            <div className="col xl-12">
-              <h2 className="font-prulife no-margin">
-                Agent Information
+                </div>
+                <div className="xl-12">
+                  <h3 className=" container">
+                    Policy Number: {this.state.policyNumber}
+                  </h3>
+                </div>
+                <PolicyInformationNew policy={this.state.policy} />
+                <div className="col xl-12">
+                  <h2 className="font-prulife no-margin">
+                    Agent Information
               </h2>
-            </div>
-            <div className="xl-12">
-              <h3 className=" container">
-                Agent Code: {this.state.policy.agentCode}
-              </h3>
-            </div>
-            <AgentinformationNew  policy={this.state.policy}/>
-          </div>
-          <div className="col xl-12 modal-footer flex-container flex-wrap">
-            <div className="col xl-10">
-            </div>
-            <a
-              href="#"
-              className="btn prulife"
-              onClick={() => { if (window.confirm('Are you sure you want to Proceed')) this.createredirect() }}
-              // onClick={this.createTask}
-              >
-              Proceed
-              &nbsp;&nbsp;&nbsp;
+                </div>
+                <div className="xl-12">
+                  <h3 className=" container">
+                    Agent Code: {this.state.policy.agentCode}
+                  </h3>
+                </div>
+                <AgentinformationNew policy={this.state.policy} />
+              </div>
+              <div className="col xl-12 modal-footer flex-container flex-wrap">
+                <div className="col xl-10">
+                </div>
+                <a
+                  href="#"
+                  className="btn prulife"
+                  onClick={() => { if (window.confirm('Are you sure you want to Proceed')) this.createredirect() }}
+                // onClick={this.createTask}
+                >
+                  Proceed
+                  &nbsp;&nbsp;&nbsp;
               <span className="fa fa-chevron-right font-white"></span>
-            </a>
-          </div>   
-          </div> :
-          ""} 
+                </a>
+              </div>
+            </div> :
+            ""}
           {/* <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
             <div className="col xl-12">
               <h2 className="font-prulife no-margin">
@@ -320,11 +325,11 @@ createredirect(){
           </div> */}
           <div className="no-search-result flex f-center">
             <span className="fa fa-search"></span>
-            <br/>
+            <br />
             <p>
               No record/s found
             </p>
-            
+
           </div>
         </MyModal>
 
@@ -341,7 +346,7 @@ createredirect(){
                     <option value="Insured Name">Insured Name</option>
                     <option value="Policy">Policy</option>
                   </select>
-                  <input className="search" placeholder="Search Policy Number"/>
+                  <input className="search" placeholder="Search Policy Number" />
                 </div>
                 <a href="#" className="btn prulife flex f-center">
                   <span className="fa fa-search font-white"></span> &nbsp;

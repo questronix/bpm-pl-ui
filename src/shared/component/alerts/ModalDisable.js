@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class ModalAlert extends Component {
+class ModalDisable extends Component {
   render() {
     return (
       <div className="App">
-        <div className="flex-container modal-alert">
+        <div className="flex-container modal-disable">
           <div className="col xl-12 modal-content no-padding">
             <div>
               <h2>
@@ -29,4 +29,4 @@ class ModalAlert extends Component {
    }
 }
 
-export default ModalAlert;
+export default ModalDisable;
