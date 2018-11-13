@@ -14,6 +14,7 @@ import OwnerinformationNew from '../policy/OwnerinformationNew';
 import Footer from '../../../../shared/component/footer/Footer';
 import { PolicyService, TaskService } from '../../services';
 import AgentinformationNew from '../policy/AgentinformationNew';
+import ModalAlert from '../../../../shared/component/alerts/ModalAlert';
 
 
 class TaskContainer extends Component {
@@ -208,6 +209,11 @@ createredirect(){
     return (
       <div className="flex-container flex-wrap margin-top-70">
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4"></div>
+        <ModalAlert mHeader="This is the Header">
+          <div className="">
+            Are you sure you want to continue?
+          </div>
+        </ModalAlert>
         <MyModal
           modalId="1"
           modalLabel="New Transaction">

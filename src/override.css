@@ -1536,7 +1536,7 @@ nav.navbar .navmenu {
   -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: infinite; }
 
-.fade-in, div {
+.fade-in, div, .modal-alert {
   animation-name: fade-in;
   animation-duration: .5s;
   -webkit-animation-name: fade-in;
@@ -2008,6 +2008,38 @@ input[type="search"]::-webkit-search-results-decoration {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
+
+.modal-alert {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: rgba(43, 43, 43, 0.5);
+  height: 100%;
+  width: 100%; }
+  .modal-alert .modal-content {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 30%;
+    height: fit-content;
+    background-color: white;
+    margin: auto; }
+    .modal-alert .modal-content .modal-header {
+      border-bottom: 1px solid #eee;
+      padding: 10px; }
+    .modal-alert .modal-content .modal-body {
+      padding: 20px; }
+    .modal-alert .modal-content .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eee;
+      padding: 10px; }
 
 .no-search-result {
   color: #bdbdbd;
