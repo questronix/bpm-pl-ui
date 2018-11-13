@@ -6,10 +6,22 @@ class TransactionNew extends Component {
   constructor(props) {
     super(props);
     this.handleRadioChange = this.handleRadioChange.bind(this);
+
+    this.state = {
+      docs: []
+    }
+  }
+
+  componentDidMount() {
+    // const docList = this.props.docs.filter(docs => docs.SubTransaction_ID == 1);
+    // this.setState({ docs: docList });
   }
 
   handleRadioChange(event) {
+    const docList = this.props.docs.filter(docs => docs.SubTransaction_ID == event.target.value);
+    this.setState({ docs: docList });
     console.log(event.target.value);
+    console.log(docList);
     // this.props.onTransactionChange(event.target.value);
   }
 
@@ -65,34 +77,21 @@ class TransactionNew extends Component {
               <div className="transaction-checkboxes margin-auto">
                 <table border="0" cellSpacing="0">
                   <tbody>
-                    <tr>
+                    {this.state.docs.map(doc => (
+                      <tr key={doc.Docs_ID}>
                       <td className="flex align-center">
-                        {' '}
-                        <label htmlFor="Reinstatement">
-                          Reinstatement Form{' '}
-                        </label>{' '}
+                        <label htmlFor={`doc${doc.Docs_ID}`}>
+                          {doc.Description}
+                        </label>
                       </td>
                       <td align="right">
                         <label className="checkbox">
-                          <input id="Reinstatement" type="checkbox" />
+                          <input id={`doc${doc.Docs_ID}`} type="checkbox" />
                           <span className="checkmark" />
                         </label>
                       </td>
                     </tr>
-                    <tr>
-                      <td className="flex align-center">
-                        {' '}
-                        <label htmlFor="routine">
-                          U/W routine requirements{' '}
-                        </label>{' '}
-                      </td>
-                      <td align="right">
-                        <label className="checkbox">
-                          <input id="routine" type="checkbox" />
-                          <span className="checkmark" />
-                        </label>
-                      </td>
-                    </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>

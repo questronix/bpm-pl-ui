@@ -1,6 +1,7 @@
 import { ApiClient } from '../../../lib/api/ApiClient';
 import Policy from './Policy';
 import Task from './Task';
+import Document from './Document';
 
 let client = new ApiClient();
 let axios = client.getClient();
@@ -13,8 +14,10 @@ axios.interceptors.response.use(function(response) {
 
 const PolicyService = new Policy(client);
 const TaskService = new Task(client);
+const DocumentService = new Document(client);
 
 export {
   PolicyService,
-  TaskService
+  TaskService,
+  DocumentService
 }

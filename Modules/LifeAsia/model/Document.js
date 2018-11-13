@@ -60,10 +60,7 @@ module.exports.create = (args) => {
 
   if (isFakeEndpoint) {
     return new Promise((resolve, reject) => {
-      resolve({
-        status: 200,
-        msg: require('../../Dummy/docsCreate.json')
-      });
+      resolve(require('../../Dummy/docsCreate.json'));
     });
   } else {
     return new Promise((resolve, reject) => {

@@ -58,9 +58,22 @@ router.get('/documents/:transactionId/:subTransactionId', mw.isAuthenticated, (r
 
   doc.getDocList(transactionId, subTransactionId)
     .then(data => {
-      res.send({
-        data
-      });
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
+});
+
+
+router.get('/documents/:transactionId', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[getDocument]';
+  const { transactionId, subTransactionId } = req.params;
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+
+  doc.getDocList(transactionId)
+    .then(data => {
+      res.send(data);
     })
     .catch(err => {
       res.status(err.status).send(err);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PolicyService, TaskService } from '../../services';
+import { PolicyService, TaskService, DocumentService } from '../../services';
 import TabHeader from '../policy/TabHeader';
 import InsuredinformationNew from '../policy/InsuredinformationNew';
 import TransactionNew from '../policy/TransactionNew';
@@ -52,7 +52,9 @@ class EditTaskContainer extends Component {
       },
       clients: [],
       transactionNumber: localStorage.getItem('transactionNumber') || null,
+      transactionType: 1,
       currentTab: 1,
+      docs: [],
       visitedTabStatus: 1,
       isVisitedTransaction: false,
       isVisitedInsured: false,
@@ -110,6 +112,16 @@ class EditTaskContainer extends Component {
       taskId: this.getQueryStringValue('id')
     });
 
+    DocumentService.getDocumentByTransactionType(this.state.transactionType)
+      .then((res) => {
+        // TODO: FIX RESPONSE
+        console.log('DOCSSSS', res.data.msg.result);
+        const d = res.data.msg.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
+        this.setState({ docs: d });
+      }).catch((err) => {
+        console.log(err);
+      });
+
     // TODO: Validation to prevent Update of localstorage
     // if (!this.state.policy) {
     TaskService.getTaskDetails(this.getQueryStringValue('id'))
@@ -128,6 +140,14 @@ class EditTaskContainer extends Component {
       })
       .finally(() => {});
     // }
+
+    PolicyService.getClientIformationByid("81789377")
+      .then((res) => {
+        console.log('CLIENT INFO: ', res.data);
+        this.setState({ client: res.data.data.result.data});
+      }).finally(() => {
+        
+      });
 
     // TODO: REST call here
     this.setState({
@@ -540,7 +560,7 @@ class EditTaskContainer extends Component {
             <TabHeader policy={this.state.policy} clients={this.state.clients} />
             <div className="box-body">
 
-              {this.state.currentTab === 1 && <TransactionNew transactionNumber={this.state.transactionNumber} />}
+              {this.state.currentTab === 1 && <TransactionNew transactionNumber={this.state.transactionNumber} docs={this.state.docs}/>}
               {this.state.currentTab === 2 && <InsuredinformationNew client={this.state.client} />}
               {this.state.currentTab === 3 && <OwnerinformationNew client={this.state.client} />}
               {this.state.currentTab === 4 && <Additional />}
