@@ -7,7 +7,7 @@ class Input extends Component {
   render() {
     return (
         <div className={this.props.inputClass}>
-          <label>
+          <label className={this.props.classRequired}>
             {this.props.inputLabel}
           </label>
           <input

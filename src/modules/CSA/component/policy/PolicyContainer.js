@@ -11,6 +11,7 @@ import TabHeader from './TabHeader';
 import InsuredinformationNew from './InsuredinformationNew';
 import TransactionNew from './TransactionNew';
 import OwnerinformationNew from './OwnerinformationNew';
+import FatcaNew from './FatcaNew';
 
 class Policy extends Component {
   constructor(props) {
@@ -435,165 +436,193 @@ class Policy extends Component {
     return (
       <div className="flex-container flex-wrap">
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4"></div>
-        <div className="box margin-top-70 col xl-9 l-9 m-8 s-8 xs-7 no-padding margin-auto">
-          <div className="tab-title-container">
-          {this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ?
-            <div className={this.state.Tabs == 0 || this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-                
-                <span className="fa fa-check"></span>
-            </h4>
-              <a onClick={() => { this.handleTabClick(0) }}>
-                <h4>
-                  Transaction Selection
-              </h4>
-              </a>
-              <span class="white"></span><span class="gray"></span>
-            </div>
-          : <div className={this.state.Tabs == 0 || this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
-          <h4 className="circle">
-            1
-        </h4>
-          <a onClick={() => { this.handleTabClick(0) }}>
-            <h4>
-              Transaction Selection
-          </h4>
-          </a>
-          <span class="white"></span><span class="gray"></span>
-        </div>
-        }
-          {this.state.Tabs == 2 || this.state.Tabs == 3 ?
-            <div className={this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-              <span className="fa fa-check"></span>
-            </h4>
-              <a onClick={() => { this.handleTabClick(1) }}>
-                <h4>
-                  Insured Details
-              </h4>
-              </a>
-              <span class="white"></span><span class="gray"></span>
-            </div>
-            : <div className={this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
-            <h4 className="circle">
-              2
-          </h4>
-            <a onClick={() => { this.handleTabClick(1) }}>
-              <h4>
-                Insured Details
-            </h4>
-            </a>
-            <span class="white"></span><span class="gray"></span>
-          </div>}
-
-            {this.state.Tabs == 3 ?  
-            <div className={this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-                
-                <span className="fa fa-check"></span>
-                {/* <span className="fa fa-check"></span> */}
-              </h4>
-              <a onClick={() => { this.handleTabClick(2) }}>
-                <span class="white"></span><span class="gray"></span>
-                <h4>
-                  Owner Details
-              </h4>
-              </a>
-            </div>
-            :<div className={this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
-            <h4 className="circle">
-              3
-              {/* <span className="fa fa-check"></span> */}
-              {/* <span className="fa fa-check"></span> */}
-            </h4>
-            <a onClick={() => { this.handleTabClick(2) }}>
-              <span class="white"></span><span class="gray"></span>
-              <h4>
-                Owner Details
-            </h4>
-            </a>
-          </div>
-          }
-
-            <div className={this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
-              <h4 className="circle">
-                4
-            </h4>
-              <a onClick={() => { this.handleTabClick(3) }}>
-                <h4>
-                  Additional Prolicy info
-              </h4>
-              </a>
-            </div>
-
-          </div>
-          <TabHeader policy={this.state.policy} policies={this.state.policyInfo} />
-          <div className="box-body">
-
-            {/* this is for tab1 */}
-            {this.state.Tabs == 0 ?
-              <div>
-                <TransactionNew />
-                <div className="flex f-end container">
-                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    PROCEED
-                  &nbsp; <span className="fa fa-chevron-right"></span>
-                  </a>
-                </div>
+        <div className="col xl-9 l-9 m-8 s-8 xs-7 margin-top-70 no-padding margin-auto">
+          <div className="policy-header">
+            <p className="policy-title">
+              New Transaction
+            </p>
+            <div className="policy-info-header flex f-center f-justify-space-between">
+              <div className="flex f-center f-justify-space-between">
+                <p>
+                  Transaction Number: &nbsp;&nbsp;
+              </p>
+                <p className="font-prulife">
+                  18-xxxxxxxxx
+              </p>
               </div>
-              : ""}
-            {/* this is for tab3 */}
-            {this.state.Tabs == 3 ?
-              <div>
-                <div className="flex f-center">
-                  {/* <FatcaNew/> */}
-                </div>
-                <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn prulife" onClick={this.decrement}>
-                    <span className="fa fa-chevron-left"></span>&nbsp;
-                    BACK
-                  </a>
-                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    PROCEED
-                  &nbsp; <span className="fa fa-chevron-right"></span>
-                  </a>
-                </div>
-              </div> : ""}
+              <div className="flex f-center f-justify-space-between">
+                <p>
+                  Transaction Type: &nbsp;&nbsp;
+              </p>
+                <p className="font-prulife">
+                  Reinstatement
+              </p>
+              </div>
+              <div className="flex f-center f-justify-space-between">
+                <p>
+                  Created Date: &nbsp;&nbsp;
+              </p>
+                <p className="font-prulife">
+                  mm/dd/yyyy
+              </p>
+              </div>
+            </div>
+          </div>
+          <div className="box margin-auto">
+            <div className="tab-title-container">
+              {this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ?
+                <div className={this.state.Tabs == 0 || this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+                  <h4 className="circle">
 
-            {/* this is for tab2 */}
-            {this.state.Tabs == 1 ?
-              <div>
-                <InsuredinformationNew client={this.state.client} />
-                <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn prulife" onClick={this.decrement}>
-                    <span className="fa fa-chevron-left"></span>&nbsp;
-                    BACK
+                    <span className="fa fa-check"></span>
+                  </h4>
+                  <a onClick={() => { this.handleTabClick(0) }}>
+                    <h4>
+                      Transaction Selection
+                    </h4>
                   </a>
-                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    PROCEED
-                  &nbsp; <span className="fa fa-chevron-right"></span>
-                  </a>
+                  <span class="white"></span><span class="gray"></span>
                 </div>
-              </div> : ""}
-            {/* this is for tab4 */}
-            {this.state.Tabs == 2 ?
-              <div>
-                <OwnerinformationNew client={this.state.client} />
-                <div className="flex f-justify-space-between container">
-                  <a href="#" className="btn prulife" onClick={this.decrement}>
-                    <span className="fa fa-chevron-left"></span>&nbsp;
-                    BACK
+                : <div className={this.state.Tabs == 0 || this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+                  <h4 className="circle">
+                    1
+                  </h4>
+                  <a onClick={() => { this.handleTabClick(0) }}>
+                    <h4>
+                      Transaction Selection
+                    </h4>
                   </a>
-                  <a href="#" className="btn prulife" onClick={this.handleTabClick}>
-                    PROCEED
-                  &nbsp; <span className="fa fa-chevron-right"></span>
-                  </a>
+                  <span class="white"></span><span class="gray"></span>
                 </div>
-              </div> : ""}
+              }
+              {this.state.Tabs == 2 || this.state.Tabs == 3 ?
+                <div className={this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+                  <h4 className="circle">
+                    <span className="fa fa-check"></span>
+                  </h4>
+                  <a onClick={() => { this.handleTabClick(1) }}>
+                    <h4>
+                      Insured Details
+                    </h4>
+                  </a>
+                  <span class="white"></span><span class="gray"></span>
+                </div>
+                : <div className={this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+                  <h4 className="circle">
+                    2
+                  </h4>
+                  <a onClick={() => { this.handleTabClick(1) }}>
+                    <h4>
+                      Insured Details
+                    </h4>
+                  </a>
+                  <span class="white"></span><span class="gray"></span>
+                </div>}
 
+              {this.state.Tabs == 3 ?
+                <div className={this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+                  <h4 className="circle">
+                    <span className="fa fa-check"></span>
+                    {/* <span className="fa fa-check"></span> */}
+                  </h4>
+                  <a onClick={() => { this.handleTabClick(2) }}>
+                    <span class="white"></span><span class="gray"></span>
+                    <h4>
+                      Owner Details
+                    </h4>
+                  </a>
+                </div>
+                : <div className={this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+                  <h4 className="circle">
+                    3
+                  </h4>
+                  <a onClick={() => { this.handleTabClick(2) }}>
+                    <span class="white"></span><span class="gray"></span>
+                    <h4>
+                      Owner Details
+                  </h4>
+                  </a>
+                </div>
+              }
+
+              <div className={this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
+                <h4 className="circle">
+                  4
+                </h4>
+                <a onClick={() => { this.handleTabClick(3) }}>
+                  <h4>
+                    Additional Details
+                  </h4>
+                </a>
+              </div>
+            </div>
+            <TabHeader policy={this.state.policy} policies={this.state.policyInfo} />
+            <div className="box-body">
+
+              {/* this is for tab1 */}
+              {this.state.Tabs == 0 ?
+                <div>
+                  <TransactionNew />
+                  <div className="flex f-end container">
+                    <a accessKey="n" href="#" className="btn prulife" onClick={this.handleTabClick}>
+                      PROCEED
+                  &nbsp; <span className="fa fa-chevron-right"></span>
+                    </a>
+                  </div>
+                </div>
+                : ""}
+              {/* this is for tab3 */}
+              {this.state.Tabs == 3 ?
+                <div>
+                  <div className="">
+                    <FatcaNew/>
+                  </div>
+                  <div className="flex f-justify-space-between container">
+                    <a href="#" className="btn prulife" onClick={this.decrement}>
+                      <span className="fa fa-chevron-left"></span>&nbsp;
+                      BACK
+                  </a>
+                    <a accessKey="n" href="#" className="btn prulife" onClick={this.handleTabClick}>
+                      PROCEED
+                  &nbsp; <span className="fa fa-chevron-right"></span>
+                    </a>
+                  </div>
+                </div> : ""}
+
+              {/* this is for tab2 */}
+              {this.state.Tabs == 1 ?
+                <div>
+                  <InsuredinformationNew client={this.state.client} />
+                  <div className="flex f-justify-space-between container">
+                    <a href="#" className="btn prulife" onClick={this.decrement}>
+                      <span className="fa fa-chevron-left"></span>&nbsp;
+                      BACK
+                  </a>
+                    <a accessKey="n" href="#" className="btn prulife" onClick={this.handleTabClick}>
+                      PROCEED
+                  &nbsp; <span className="fa fa-chevron-right"></span>
+                    </a>
+                  </div>
+                </div> : ""}
+              {/* this is for tab4 */}
+              {this.state.Tabs == 2 ?
+                <div>
+                  <OwnerinformationNew client={this.state.client} />
+                  <div className="flex f-justify-space-between container">
+                    <a href="#" className="btn prulife" onClick={this.decrement}>
+                      <span className="fa fa-chevron-left"></span>&nbsp;
+                      BACK
+                  </a>
+                    <a accessKey="n" href="#" className="btn prulife" onClick={this.handleTabClick}>
+                      PROCEED
+                  &nbsp; <span className="fa fa-chevron-right"></span>
+                    </a>
+                  </div>
+                </div> : ""}
+
+            </div>
           </div>
         </div>
-
       </div>
 
     );

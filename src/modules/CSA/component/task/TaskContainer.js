@@ -214,8 +214,12 @@ createredirect(){
           <div className="col xl-12">
             <div className="xl-12 flex f-justify-space-between">
               <div className="xl-11 search-container bg-lightgray no-border">
-                <input className="search bg-lightgray no-border" type="text" placeholder="Search..."  value={this.state.policyNumber}
+                <input 
+                className="search bg-lightgray no-border" 
+                type="text" placeholder="Search..."  
+                value={this.state.policyNumber}
                 onChange={this.handleInputChange}
+                autoFocus="true"
                 />
               </div>
               <a className="btn prulife flex f-center" onClick ={this.handleSubmit} >
@@ -331,7 +335,7 @@ createredirect(){
                     <option value="Insured Name">Insured Name</option>
                     <option value="Policy">Policy</option>
                   </select>
-                  <input className="search" placeholder="Search..." />
+                  <input className="search" placeholder="Search..."/>
                 </div>
                 <a href="#" className="btn prulife flex f-center">
                   <span className="fa fa-search font-white"></span> &nbsp;

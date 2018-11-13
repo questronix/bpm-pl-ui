@@ -26,7 +26,7 @@ class SidebarNew extends Component {
         <div className="sidebar-title">
           <div class="logo">
             <div class="wrapper"><i class="icon fa fa-file-signature"></i></div>
-            <div class="title white"><span>BPM</span> Aftersales</div>
+            <div class="title white"><span>BPM</span> After-sales</div>
           </div>
         </div>
         <div className="sidebar-header">

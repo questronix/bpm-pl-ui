@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Input from '../../../../shared/component/input/Input';
 
 class FatcaNew extends Component {
   constructor(props) {
@@ -22,125 +23,62 @@ class FatcaNew extends Component {
   render() {
     return (
       <div>
-        <div class="additional-content">
-          <h2>Additional Policy Information</h2>
-          <table border="0" cellspacing="0" >
-            <tbody><tr>
-              <td>
-                <div class="display-flex flex-column">
-                  <span>Sum Assured: </span>
-                  <input type="text" class="textbox" />
+        <div class="additional-content container">
+          <h2>Additional Details</h2>
+          <div className="flex-container flex-wrap">
+            <div className="xl-7 margin-auto flex-container flex-wrap">
+              <Input
+                inputPlaceholder="mm/dd/yyyy"
+                inputClass="input-container xl-6"
+                inputLabel="Date of Signing:"
+                txtboxClass="no-border" />
+              <div className="xl-6">
+                <p className="label container">
+                  Relative of Agent:
+                </p>
+                <div className="xl-6">
+                  <label class="checkbox container" for="yes">Yes
+                    <input type="radio" id="yes" name="Relative" />
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox container" for="no">No
+                  <input type="radio" id="no" name="Relative" />
+                    <span class="checkmark"></span>
+                  </label>
                 </div>
-              </td>
-              <td>
-                <div class="display-flex flex-column">
-                  <span>MPT: </span>
-                  <input type="text" class="textbox" />
+              </div>
+              <div className="xl-6">
+                <p className="label container">
+                  FATCA Tagging:
+                </p>
+                <div className="xl-6">
+                  <label class="checkbox container" for="yes">Yes
+                    <input type="radio" id="yes" name="FATCA" />
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox container" for="no">No
+                  <input type="radio" id="no" name="FATCA" />
+                    <span class="checkmark"></span>
+                  </label>
                 </div>
-              </td>
-            </tr><tr>
-              </tr></tbody></table>
-          <table border="0" cellspacing="0">
-
-            <tbody><tr><td>Beyond MPT: </td>
-              <td>
-                <span class="icon fa fa-square add-1"></span> Yes
-              </td>
-              <td>
-                <span class="icon fa fa-square add-1"></span> No
-              </td>
-            </tr>
-              <tr>
-                <td>FATCA Tagging: </td>
-                <td>
-                  <span class="icon fa fa-square add-2"></span> Yes
-              </td>
-                <td>
-                  <span class="icon fa fa-square add-2"></span> No
-              </td>
-              </tr><tr>
-              </tr>
-              <tr><td>With Pending Policies: </td>
-                <td>
-                  <span class="icon fa fa-square add-3"></span> Yes
-              </td>
-                <td>
-                  <span class="icon fa fa-square add-3"></span> No
-              </td>
-              </tr>
-              <tr>
-                <td>With Reinstating Agent: </td>
-                <td>
-                  <span class="icon fa fa-square add-4"></span> Yes
-              </td>
-                <td>
-                  <span class="icon fa fa-square add-4"></span> No
-              </td>
-              </tr>
-              <tr>
-                <td>With Reinsurance: </td>
-                <td>
-                  <span class="icon fa fa-square add-5"></span> Yes
-              </td>
-                <td>
-                  <span class="icon fa fa-square add-5"></span> No
-              </td>
-              </tr>
-              <tr>
-                <td>Relative of Agent: </td>
-                <td>
-                  <span class="icon fa fa-square add-6"></span> Yes
-              </td>
-                <td>
-                  <span class="icon fa fa-square add-6"></span> No
-              </td>
-              </tr>
-              <tr>
-                <td>Statement of Insurability Declarations: </td>
-                <td>
-                  <span class="icon fa fa-square add-7"></span> Yes
-              </td>
-                <td>
-                  <span class="icon fa fa-square add-7"></span> No
-              </td>
-              </tr>
-              <tr>
-                <td>With Existing Policies: </td>
-                <td>
-                  <span class="icon fa fa-square add-8"></span> Yes
-              </td>
-                <td>
-                  <span class="icon fa fa-square add-8"></span> No
-              </td>
-              </tr>
-              <tr>
-                <td>Signature verified: </td>
-                <td>
-                  <span class="icon fa fa-square add-9"></span> Yes
-              </td>
-                <td>
-                  <span class="icon fa fa-square add-9"></span> No
-              </td>
-              </tr>
-              <tr>
-                <td>With claim records: </td>
-                <td>
-                  <span class="icon fa fa-square add-10"></span> Yes
-              </td>
-                <td>
-                  <span class="icon fa fa-square add-10"></span> No
-              </td>
-              </tr>
-              <tr>
-                <td>With substandard rating: </td>
-                <td>
-                  <span class="icon fa fa-square add-11"></span> Yes
-              </td>
-                <td>
-                  <span class="icon fa fa-square add-11"></span> No
-              </td>
-              </tr>
-            </tbody></table>
+              </div>
+              <div className="xl-6">
+                <p className="label container">
+                  With Reinstating Agent:
+                </p>
+                <div className="xl-6">
+                  <label class="checkbox container" for="yes">Yes
+                    <input type="radio" id="yes" name="Reinstating" />
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="checkbox container" for="no">No
+                  <input type="radio" id="no" name="Reinstating" />
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

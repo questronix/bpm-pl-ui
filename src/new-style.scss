@@ -436,6 +436,7 @@ body, html{
 }
 //buttons
 .btn{
+    cursor: pointer;
     height: 35px;
     border-radius: 6px;
     padding: 0px 20px;
@@ -626,8 +627,24 @@ select { /* Chrome/Opera/Safari */
     }
 }
 // misc
+.required::after{
+    content: " *";
+    color: $prulife;
+    font-size: 13px;
+}
+.label{
+    // font-size: 13;   
+    font-weight: bold;
+}
+.transaction-type{
+    padding: 10px;
+    background-color: $light-gray;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
 .container-left-border{
-    border-left:solid 1px $gray;
+    border-left:solid 1px $light-gray;
 }
 .container{
     margin: 10px;
@@ -737,7 +754,7 @@ ul,li,ol{
 }
 hr{
     border: none;
-    border-bottom: solid 1px $gray;
+    border-bottom: solid 1px $light-gray;
 }
 .no-border{
     border: none !important;
@@ -1510,7 +1527,7 @@ nav{
             .box-header{
                 line-height: 2;
                 width: auto;
-                border-bottom: 1px solid #bdbddb;
+                border-bottom: 1px solid $light-gray;
                 padding: 15px;
             }
         }
@@ -1546,7 +1563,7 @@ $background_color_1: #ED1B2E;
         flex: 1;
         height: 30px;
         color: #232323;
-        font: bold 30px 'Century Gothic';
+        font: bold 19px 'Century Gothic';
         line-height: 30px;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -1554,7 +1571,7 @@ $background_color_1: #ED1B2E;
         margin-bottom: 30px;
         padding: 0px 10px;
 		span {
-            font-size: 30px;
+            font-size: 19px;
 			color: $color_3;
 		}
 	}
@@ -2332,12 +2349,24 @@ input[type="search"] {
 }
 // policy-information
 .policyinfo-container{
-    height: 100px;
-    padding-bottom: 50px;
+    max-height: 110px;
+    // padding-bottom: 50px;
     overflow: hidden;
+    transition: max-height .3s ease-in;
     &.active{
-        height: auto !important;
-        overflow-y: auto !important;
+        max-height: 580px !important;
+        transition: max-height .3s ease-out;
+        overflow: hidden !important;
+        padding-bottom: 0px;
+    }
+}
+.policy-header{
+    font-weight: bold;
+    .policy-title{
+        @extend .no-margin;
+        @extend .font-prugray;
+        font-weight: 300;
+        font-size: 28px;
     }
 }
 .showmore{
@@ -2362,30 +2391,6 @@ input[type="search"] {
 			padding: 10px;
 			h2 {
 				font-size: 20px;
-				text-align: center;
-			}
-			table {
-				width: 50%;
-                margin: auto;
-                box-shadow: none !important;
-                background-color: none;
-				td {
-					vertical-align: middle;
-					font-size: 13px;
-					font-weight: bold;
-					padding: 5px;
-					.textbox {
-						width: 100%;
-					}
-					.icon {
-						color: $purple;
-						font-size: 20px;
-						cursor: pointer;
-					}
-				}
-				td.no-padding {
-					padding: 0px;
-				}
 			}
 		}
 		.additional-buttons {
