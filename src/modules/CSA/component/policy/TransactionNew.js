@@ -9,7 +9,8 @@ class TransactionNew extends Component {
   }
 
   handleRadioChange(event) {
-    this.props.onTransactionChange(event.target.value);
+    console.log(event.target.value);
+    // this.props.onTransactionChange(event.target.value);
   }
 
   handleMultiSelectChange(i) {
@@ -39,9 +40,27 @@ class TransactionNew extends Component {
           <div className="col no-padding xl-12 flex-container flex-wrap">
             <div className="xl-9 big-container">
               <form className="flex f-justify-evenly container">
-                <Radio rName="transaction" rId="1" rLabel="Updating" />
+                {/* <Radio rName="transaction" rId="1" rLabel="Updating"/>
                 <Radio rName="transaction" rId="2" rLabel="Redating" />
-                <Radio rName="transaction" rId="3" rLabel="Waiver" />
+                <Radio rName="transaction" rId="3" rLabel="Waiver" /> */}
+                <div className="flex f-center">
+                  <label className="checkbox" htmlFor="1" >Updating
+                    <input type="radio" id="1" name="transaction" value="1" onChange={this.handleRadioChange}/>
+                    <span className="checkmark"></span>
+                  </label>
+                </div>
+                <div className="flex f-center">
+                  <label className="checkbox" htmlFor="2" >Redating
+                    <input type="radio" id="2" name="transaction"  value="2" onChange={this.handleRadioChange}/>
+                    <span className="checkmark"></span>
+                  </label>
+                </div>
+                <div className="flex f-center">
+                  <label className="checkbox" htmlFor="3" >Waiver
+                    <input type="radio" id="3" name="transaction" value="3" onChange={this.handleRadioChange}/>
+                    <span className="checkmark"></span>
+                  </label>
+                </div>
               </form>
               <div className="transaction-checkboxes margin-auto">
                 <table border="0" cellSpacing="0">

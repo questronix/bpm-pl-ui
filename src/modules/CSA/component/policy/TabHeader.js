@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PolicyInformationNew from './PolicyInformationNew';
-import AgentinformationNew from './AgentinformationNew';
 import PolicyInfoHeader from './PolicyInfoHeader';
 import AgentInfoHeader from './AgentInfoHeader';
 
@@ -14,8 +12,7 @@ class TabHeader extends Component {
     this.isVisible = this.isVisible.bind(this);
   }
   isVisible(){
-    this.setState({
-      visible: !this.state.visible})
+    this.setState({ visible: !this.state.visible})
   }
 
   render() {
@@ -29,19 +26,19 @@ class TabHeader extends Component {
                 Policy Information
             </h2>
             </div>
-            <PolicyInfoHeader  policy={this.state.policy} />
+            <PolicyInfoHeader  policy={this.props.policy} clients={this.props.clients}/>
             <div className="col xl-12">
               <h2 className="font-prulife no-margin">
                 Agent Information
             </h2>
             </div>
-            <AgentInfoHeader policy={this.state.policy} />
+            <AgentInfoHeader policy={this.props.policy} />
           </div>
           <div className="flex f-end showmore">
-            <a href="#" className="text-with-icon container flex f-center" onClick={this.isVisible} accessKey="s">
+            <button className="btn alt text-with-icon container flex f-center" onClick={this.isVisible} accessKey="s">
               Show more
               &nbsp; <span className="fa fa-chevron-down"></span>
-            </a>
+            </button>
           </div>
           <hr />
         </div>
