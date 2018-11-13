@@ -10,6 +10,15 @@ class EditTaskContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      policy: localStorage.getItem('policy') || null,
+      transactionNumber: localStorage.getItem('transactionNumber') || '',
+      currentTab: 1,
+      visitedTabStatus: 1,
+      isVisitedTransaction: false,
+      isVisitedInsured: false,
+      isVisitedOwner: false,
+      isVisitedAdditional: false,
+
       policyNumberSearch: '',
       polId: '',
       polNumber: '',
@@ -36,18 +45,9 @@ class EditTaskContainer extends Component {
       tasks: [],
       taskHistory: [],
       policyNumber: '',
-      policy: {},
       client: {},
       Tabs: 0,
 
-      transactionNumber: localStorage.getItem('transactionNumber') || '',
-
-      currentTab: 1,
-      visitedTabStatus: 1,
-      isVisitedTransaction: false,
-      isVisitedInsured: false,
-      isVisitedOwner: false,
-      isVisitedAdditional: false
     };
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
@@ -67,26 +67,27 @@ class EditTaskContainer extends Component {
   }
 
   componentDidMount() {
-    // Init default values to Transaction on page load.
-
     this.setState({
       taskId: this.getQueryStringValue('id')
     });
 
-    TaskService.getTaskDetails(this.getQueryStringValue('id'))
+    if (!this.state.policy) {
+      TaskService.getTaskDetails(this.getQueryStringValue('id'))
       .then(res => {
         console.log(res.data);
-        console.log(variables);
         const variables = res.data.variables;
+        console.log(variables);
         this.setState({
-          policy: res.data.variables,
+          policy: variables.policy,
           polId: variables.policy.id,
           polNumber: variables.policy.number
         });
+        localStorage.setItem('policy', JSON.stringify(this.state.policy));
       })
-      .catch(err => {
-        console.log('CREATE TASK ERROR:', err);
+      .finally(()=> {
+        
       });
+    }
 
     // TODO: REST call here
     this.setState({

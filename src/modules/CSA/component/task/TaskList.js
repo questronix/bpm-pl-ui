@@ -46,26 +46,26 @@ class TaskList extends Component {
 
                   <td>
                     {/* Transation type */}
-                    {task.variables.policy.info != null
+                    {/* {task.variables.policy.info != null
                       ? JSON.parse(task.variables.policy.info).insured.firstName
-                      : '-'}
+                      : '-'} */}
                   </td>
                   <td>
                     {/* Policy owner */}
-                    {task.variables.policy.info != null
+                    {/* {task.variables.policy.info != null
                       ? JSON.parse(task.variables.policy.info).insured.firstName
-                      : '-'}
+                      : '-'} */}
                   </td>
                   <td>
                     {/* Insured owner */}
-                    {task.variables.policy.info != null
+                    {/* {task.variables.policy.info != null
                       ? JSON.parse(task.variables.policy.info).insured.firstName
-                      : '-'}
+                      : '-'} */}
                   </td>
                   <td>
-                    {task.variables.user != null
+                    {/* {task.variables.user != null
                       ? `${task.variables.user.firstName} ${task.variables.user.lastName}`
-                      : '-'}
+                      : '-'} */}
                   </td>
                   <td>
                     {/* Date created */}
@@ -78,19 +78,6 @@ class TaskList extends Component {
                       : 'Draft'}
                   </td>
                   <td>
-                    {/* {!task.completed ? (
-                      <Link
-                        to={{
-                          pathname: `/tasks/edit`,
-                          search: `?id=${task.id}`,
-                          state: { fromTaskList: true }
-                        }}
-                      >
-                        Edit
-                      </Link>
-                    ) : (
-                      <Link to={`/tasks/edit?id=${task.id}`}>View</Link>
-                    )} */}
                   </td>
                 </tr>
               ))}

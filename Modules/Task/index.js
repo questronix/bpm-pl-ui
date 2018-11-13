@@ -8,13 +8,13 @@ const transaction = require('./model/Transaction');
 
 router.post('/', mw.isAuthenticated, async(req, res) => {
   const ACTION = '[postNewTask]';
-  Logger.log('debug', `${TAG}${ACTION} - request paramaters`, req.params);
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 
   try {
     const trans = await transaction.generateTransactionId()
       .catch((err) => res.send(err));
   
-    task.new(req.session.user.Username, trans.result.transactionNumber).then((data) => {
+    task.new(req.session.user.Username, req.body.info, trans.result.transactionNumber).then((data) => {
       res.send(data);
     }).catch((err) => {
       res.error(err);

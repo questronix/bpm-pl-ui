@@ -32,18 +32,22 @@ class TaskContainer extends Component {
     TaskService.getAllTasks()
       .then(res => {
         console.log(res.data);
-        this.setState({
-          tasks: res.data
-        });
+        if (!res.data.error) {
+          this.setState({
+            tasks: res.data
+          });
+        }
       })
       .finally(() => {});
 
     TaskService.getAllTaskHistory()
       .then(res => {
         console.log(res.data);
-        this.setState({
-          taskHistory: res.data
-        });
+        if (!res.data.error) {
+          this.setState({
+            taskHistory: res.data
+          });
+        }
       })
       .finally(() => {});
   }
@@ -93,10 +97,10 @@ class TaskContainer extends Component {
     });
     PolicyService.getPolicyInformationByID(policyNumber)
       .then(res => {
-        console.log(res.data.result.data);
-        if (res.data.result.data) {
+        console.log(res.data.result);
+        if (res.data.result) {
           this.setState({
-            policy: res.data.result.data,
+            policy: res.data.result,
             showComponent: true
           });
         } else {
@@ -150,11 +154,12 @@ class TaskContainer extends Component {
   }
 
   createTask() {
-    TaskService.createNewTask()
+    TaskService.createNewTask({"info": JSON.stringify(this.state.policy)})
       .then(res => {
         console.log(res.data);
         const t = JSON.parse(JSON.stringify(res.data.variables.policy));
         localStorage.setItem("transactionNumber", t.transactionNo);
+        localStorage.setItem("policy", JSON.stringify(this.state.policy));
         this.props.history.push(`/tasks/edit?id=${res.data.id}`);
       })
       .catch(err => {
@@ -202,7 +207,7 @@ class TaskContainer extends Component {
                 </div>
                 <div className="xl-12">
                   <h3 className=" container">
-                    Policy Number: {this.state.policyNumber}
+                    Policy Number: {this.state.policy.policyNo}
                   </h3>
                 </div>
                 <PolicyInformationNew policy={this.state.policy} />

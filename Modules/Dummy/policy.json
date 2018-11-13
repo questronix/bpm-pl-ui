@@ -4,67 +4,205 @@
     "message": "getting data from Life Asia is successful",
     "isSuccess": true,
     "result": {
-        "policyNo": "00123",
-        "template": "BPM",
-        "id": "GETCLNTB",
-        "data": {
-            "guid": "56962f17-9561-4b36-b33b-eb47f6ebd7cd",
-            "action": "GETCLNTB",
-            "user": "DUMMY1",
-            "status": "1",
-            "clientId": "80940513",
-            "clientType": "P",
-            "salutation": "ATTY.",
-            "lastName": "ZEU FSCAA",
-            "firstName": "NWEAYF DEJFAAY XUWX OFGHUJKLAMNPQRESTVWXIYZBCD",
-            "middleName": "",
-            "gender": "F",
-            "occupation1": "Other Occupation",
-            "occupation2": "",
-            "vipTag": "Very Important Person",
-            "hrcTag": "Material Premium",
-            "strTag": "No suspicion",
-            "nationality": "Philippines",
-            "dateOfBirth": "19770131",
-            "attainedAge": "041",
-            "civilStatus": "Divorced",
-            "telephoneNum": "8141600",
-            "mobileNum": "9995179065",
-            "tinNum": "820449339",
-            "sssNum": "",
-            "emailAdd": "krisettejanella.d.rivera@prulifeuk.com.ph",
-            "address": [
-                {
-                    "addressType": "B",
-                    "countryCode": "RP",
-                    "address1": "422 N Z ROAGUCCU DF",	
-                    "address2": "MCRK DFU WONEU DF",
-                    "address3": "DUY TOUY NEFK",
-                    "address4": "*",
-                    "address5": "",
-                    "zipCode": "1110"
-                },
-                {
-                    "addressType": "",
-                    "countryCode": "",
-                    "address1": "",
-                    "address2": "",
-                    "address3": "",
-                    "address4": "",
-                    "address5": "",
-                    "zipCode": ""
-                },
-                {
-                    "addressType": "",
-                    "countryCode": "",
-                    "address1": "",
-                    "address2": "",
-                    "address3": "",
-                    "address4": "",
-                    "address5": "",
-                    "zipCode": ""
-                }
-            ]
-        }
+        "guid": "faae9489-c659-4e99-86da-cebd558c4373",
+        "action": "GETPLCY",
+        "user": "DUMMY1",
+        "status": "1",
+        "policyNo": "00030861",
+        "agentNumber": "70007328",
+        "agentLastName": "FVH",
+        "agentFirstName": "OKURX ERU",
+        "agentMiddleName": "",
+        "agentBranch": "00073",
+        "agentBranchDesc": "LIFE OPERATIONS BRANCH",
+        "agentStatus": "ACTIVE",
+        "nmaCode": "G",
+        "nmaDesc": "General",
+        "planCode": "PPP",
+        "planDescription": "Pru Protector Plan",
+        "policyStatus": "LA",
+        "policyStatusDesc": "Contract Lapsed",
+        "premiumStatus": "LA",
+        "premiumStatusDesc": "Lapsed",
+        "riskCommencementDate": "2002/03/19",
+        "firstIssueDate": "2002/03/19",
+        "paidToDate": "2002/06/19",
+        "billFrequency": "04",
+        "billFrequencyDesc": "Quarterly",
+        "currency": "PHP",
+        "sumInsured": "360,000.00",
+        "currentPremium": "2,705.93",
+        "payorWaiver": "Y",
+        "payorTerm": "N",
+        "addressType": "R",
+        "countryCode": "RP",
+        "address1": "YEQEP BUDV PUTIZ",
+        "address2": "JSUKR 8 SUB 9",
+        "address3": "SEWA-SEWA KOBG, KIJA",
+        "address4": "6015",
+        "address5": "",
+        "zipCode": "",
+        "clients": [
+            {
+                "clntNum": "80080741",
+                "role": "OW",
+                "clientLastName": "RCERR",
+                "clientFirstName": "TOGK MAAC",
+                "clientMiddleName": "",
+                "dateOfBirth": "1972/06/06"
+            },
+            {
+                "clntNum": "80080741",
+                "role": "LF",
+                "clientLastName": "RCERR",
+                "clientFirstName": "TOGK MAAC",
+                "clientMiddleName": "",
+                "dateOfBirth": "1972/06/06"
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            },
+            {
+                "clntNum": "",
+                "role": "",
+                "clientLastName": "",
+                "clientFirstName": "",
+                "clientMiddleName": "",
+                "dateOfBirth": ""
+            }
+        ]
     }
 }

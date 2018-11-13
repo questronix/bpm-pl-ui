@@ -11,8 +11,8 @@ export default class Task {
     return this.http.get(`/tasks/${instanceId}`);
   }
 
-  createNewTask() {
-    return this.http.post(`/tasks`);
+  createNewTask(args) {
+    return this.http.post(`/tasks`, args);
   }
 
   getTaskDetails(taskId) {
