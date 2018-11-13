@@ -4,6 +4,7 @@ import MyModal from '../../../../shared/component/modal/Modal';
 import PolicyInformationNew from '../policy/PolicyInformationNew';
 import { PolicyService, TaskService } from '../../services';
 import AgentinformationNew from '../policy/AgentinformationNew';
+import ModalAlert from '../../../../shared/component/alerts/ModalAlert';
 
 class TaskContainer extends Component {
   constructor(props) {
@@ -172,6 +173,16 @@ class TaskContainer extends Component {
 
     return (
       <div className="flex-container flex-wrap margin-top-70">
+        {/* THIS WILL BE ADDED IF THE AUTHORITY CAN APPROVE */}
+        {/* <ModalAlert>
+          <div className="flex f-center f-column big-container">
+            <span className="fa fa-users-cog big-font font-gray big-container"></span>
+            <p className="text-center">
+            This transaction fall into your limitation.
+              Want to proceed to approved this transaction?
+            </p>
+          </div>
+      </ModalAlert> */}
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
         <MyModal modalId="1" modalLabel="New Transaction" isOpen={this.state.openSearchModal} onToggle={this.handleModalToggle}>
           <div className="col xl-12">
@@ -250,7 +261,7 @@ class TaskContainer extends Component {
             <h1 className="flex s-f-center xs-f-center">Tasks</h1>
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
               <div className=" xl-5 flex f-justify-space-between">
-                <div className="search-container">
+                <div className="search-container no-border">
                   {/* <FilterButton/> */}
                   <select>
                     <option value="Policy Number">Policy Number</option>
@@ -258,7 +269,7 @@ class TaskContainer extends Component {
                     <option value="Insured Name">Insured Name</option>
                     <option value="Policy">Policy</option>
                   </select>
-                  <input className="search" placeholder="Search..." />
+                  <input className="search" placeholder="Search Policy Number" />
                 </div>
                 <a href="#" className="btn prulife flex f-center">
                   <span className="fa fa-search font-white" /> &nbsp;
@@ -266,7 +277,7 @@ class TaskContainer extends Component {
                 </a>
               </div>
               <div className="flex f-row">
-                <button className="btn prulife" onClick={this.handleModalToggle}>
+                <button className="btn prulife" onClick={this.handleModalToggle} accessKey="s">
                   <span className="fa fa-plus"></span> &nbsp; CREATE NEW TRANSACTION 
                 </button>
               </div>

@@ -255,7 +255,7 @@ body, html {
 .font-gray {
   color: #bdbdbd !important; }
 
-.font-prugray {
+.font-prugray, .policy-header .policy-title {
   color: #68737A !important; }
 
 .font-prulife, .pusle h4 {
@@ -340,6 +340,7 @@ body, html {
   font-weight: bold; }
 
 .btn, .btn-circle, .card-img-container .card-btn {
+  cursor: pointer;
   height: 35px;
   border-radius: 6px;
   padding: 0px 20px;
@@ -500,8 +501,26 @@ select {
     color: #2b2b2b;
     box-shadow: none; }
 
+.big-font {
+  font-size: 120px; }
+
+.required::after {
+  content: " *";
+  color: #ED1B2E;
+  font-size: 13px; }
+
+.label {
+  font-weight: bold; }
+
+.transaction-type {
+  padding: 10px;
+  background-color: #eee;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px; }
+
 .container-left-border {
-  border-left: solid 1px #bdbdbd; }
+  border-left: solid 1px #eee; }
 
 .container {
   margin: 10px; }
@@ -566,7 +585,7 @@ ul, li, ol {
 .inline-grid {
   display: inline-grid; }
 
-.no-margin, .sidebar .sidebar-body.logout ul, .card-img-container .card-btn {
+.no-margin, .sidebar .sidebar-body.logout ul, .card-img-container .card-btn, .policy-header .policy-title {
   margin: 0 !important; }
 
 .no-padding, .sidebar .sidebar-body.logout li {
@@ -615,7 +634,7 @@ ul, li, ol {
 
 hr {
   border: none;
-  border-bottom: solid 1px #bdbdbd; }
+  border-bottom: solid 1px #eee; }
 
 .no-border {
   border: none !important; }
@@ -1322,7 +1341,7 @@ nav.navbar .navmenu {
 .box .box-body .box-header {
   line-height: 2;
   width: auto;
-  border-bottom: 1px solid #bdbddb;
+  border-bottom: 1px solid #eee;
   padding: 15px; }
 
 .logo {
@@ -1348,15 +1367,14 @@ nav.navbar .navmenu {
     flex: 1;
     height: 30px;
     color: #232323;
-    font: bold 30px 'Century Gothic';
+    font: bold 19px 'Century Gothic';
     line-height: 30px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    margin-bottom: 30px;
     padding: 0px 10px; }
     .logo .title span {
-      font-size: 30px;
+      font-size: 19px;
       color: #ED1B2E; }
   .logo .title.white {
     color: white; }
@@ -1521,7 +1539,7 @@ nav.navbar .navmenu {
   -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: infinite; }
 
-.fade-in, div {
+.fade-in, div, .modal-alert {
   animation-name: fade-in;
   animation-duration: .5s;
   -webkit-animation-name: fade-in;
@@ -1824,7 +1842,7 @@ input[type="search"]::-webkit-search-results-decoration {
     padding-left: 15px;
     border: none;
     outline: none;
-    border-left: 1px solid #bdbdbd; }
+    border-left: 1px solid #eee; }
   .search-container .search-icon {
     margin: 0 10px; }
     .search-container .search-icon span {
@@ -1889,13 +1907,44 @@ input[type="search"]::-webkit-search-results-decoration {
   border-radius: 6px;
   outline: none; }
 
-.policyinfo-container {
-  height: 100px;
-  padding-bottom: 50px;
+.insured-details {
+  overflow: hidden;
+  position: relative;
+  padding: 10px; }
+  .insured-details span {
+    font-size: 14px; }
+  .insured-details .input-container.col {
+    padding: 5px; }
+
+.content-disabled {
+  position: absolute;
+  transform: translate(-10px, -10px);
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
   overflow: hidden; }
+
+.policyinfo-container {
+  max-height: 110px;
+  overflow: hidden;
+  transition: max-height .3s ease-in; }
   .policyinfo-container.active {
-    height: auto !important;
-    overflow-y: auto !important; }
+    max-height: 580px !important;
+    transition: max-height .3s ease-out;
+    overflow: hidden !important;
+    padding-bottom: 0px; }
+
+.policy-header {
+  font-weight: bold; }
+  .policy-header .policy-title {
+    font-weight: 300;
+    font-size: 28px; }
 
 .showmore {
   height: 50px; }
@@ -1905,26 +1954,7 @@ input[type="search"]::-webkit-search-results-decoration {
   .transaction-container .additional-policy-info .additional-content {
     padding: 10px; }
     .transaction-container .additional-policy-info .additional-content h2 {
-      font-size: 20px;
-      text-align: center; }
-    .transaction-container .additional-policy-info .additional-content table {
-      width: 50%;
-      margin: auto;
-      box-shadow: none !important;
-      background-color: none; }
-      .transaction-container .additional-policy-info .additional-content table td {
-        vertical-align: middle;
-        font-size: 13px;
-        font-weight: bold;
-        padding: 5px; }
-        .transaction-container .additional-policy-info .additional-content table td .textbox {
-          width: 100%; }
-        .transaction-container .additional-policy-info .additional-content table td .icon {
-          color: #722382;
-          font-size: 20px;
-          cursor: pointer; }
-      .transaction-container .additional-policy-info .additional-content table td.no-padding {
-        padding: 0px; }
+      font-size: 20px; }
   .transaction-container .additional-policy-info .additional-buttons {
     display: -webkit-flex;
     display: flex;
@@ -1999,6 +2029,39 @@ input[type="search"]::-webkit-search-results-decoration {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
+
+.modal-alert {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%; }
+  .modal-alert .modal-content {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 30%;
+    height: fit-content;
+    background-color: white;
+    margin: auto;
+    border-radius: 5px; }
+    .modal-alert .modal-content .modal-header {
+      border-bottom: 1px solid #eee;
+      padding: 10px; }
+    .modal-alert .modal-content .modal-body {
+      padding: 20px; }
+    .modal-alert .modal-content .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-top: 1px solid #eee;
+      padding: 10px; }
 
 .no-search-result {
   color: #bdbdbd;

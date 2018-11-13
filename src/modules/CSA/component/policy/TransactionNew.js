@@ -21,15 +21,18 @@ class TransactionNew extends Component {
   render() {
     return (
       <div>
-        <div className="box-header flex f-row f-justify-space-between">
-          <div className="flex-container">
-            <h4 className="no-margin">Transaction type:</h4>
-            <select>
+        <div className="box-header flex f-row f-justify-space-between tt-container">
+          <div className="flex-container flex f-center">
+            <h2 className="no-margin">
+              Transaction type:
+                  </h2>
+            <select className="transaction-type">
               <option>Reinstatement</option>
             </select>
           </div>
-          <div className="">
-            <h4 className="no-margin">Transaction Number: {this.props.transactionNumber}</h4>
+          <div className="flex f-center">
+            <span className="fa fa-asterisk font-prulife"></span> &nbsp;&nbsp;
+             - Required field
           </div>
         </div>
         <div className="flex-container flex-wrap">
@@ -76,27 +79,24 @@ class TransactionNew extends Component {
               </div>
             </div>
             <div className="xl-3 container-left-border big-container">
-              <Input
-                inputLabel="Required Premium:"
-                inputPlaceholder="(from LA)"
-                txtboxClass="no-border"
-                inputClass="input-container"
-                value=""
-              />
-              <Input
-                inputLabel="Suspense:"
-                inputPlaceholder="(from LA)"
-                txtboxClass="no-border"
-                inputClass="input-container"
-                value=""
-              />
-              <Input
-                inputLabel="Signature Verified:"
-                inputPlaceholder="Enter OR Number"
-                txtboxClass="no-border"
-                inputClass="input-container"
-                value=""
-              />
+              <Input inputLabel="Required Premium:" inputPlaceholder="(from LA)" txtboxClass="no-border" inputClass="input-container container" value="" />
+              <Input inputLabel="Suspense:" inputPlaceholder="(from LA)" txtboxClass="no-border" inputClass="input-container container" value="" />
+              <Input classRequired="required" inputLabel="Signature Verified:" inputPlaceholder="Enter OR Number" txtboxClass="no-border" inputClass="input-container container" value="" />
+              <div className="">
+                <p className="label container required">
+                  Signature Verified:
+                </p>
+                <div className="">
+                  <label className="checkbox container" htmlFor="yes">Yes
+                    <input type="radio" id="yes" name="Signature" />
+                    <span className="checkmark"></span>
+                  </label>
+                  <label className="checkbox container" htmlFor="no">No
+                  <input type="radio" id="no" name="Signature" />
+                    <span className="checkmark"></span>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>

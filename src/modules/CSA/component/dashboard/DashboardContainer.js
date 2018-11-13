@@ -31,7 +31,7 @@ class DashboardContainer extends Component {
         <div className="col xl-10 l-10 m-9 s-9 xs-8 ">
           <div className="col xl-12 l-12 m-12 s-12 xs-12">
             <h1 className="font-prulife flex s-f-center xs-f-center">Dashboard</h1>
-            <button className="btn prulife" onClick={this.createTask}>Create Task</button>
+            <button className="btn prulife" onClick={this.createTask} accessKey="n">Create Task</button>
             <h3 className="flex s-f-center xs-f-center">Welcome back, {JSON.parse(sessionStorage.getItem('user_info')).firstName}.</h3>
           </div>
          

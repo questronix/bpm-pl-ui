@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PolicyContainer from '../policy/PolicyContainer';
+// import PolicyContainer from '../policy/PolicyContainer';
 
 class NewTaskContainer extends Component {
   constructor(props){
@@ -23,7 +23,7 @@ class NewTaskContainer extends Component {
   render() {
     return(
       <div>
-        <PolicyContainer hasPolicy={true}/> 
+        {/* <PolicyContainer hasPolicy={true}/>  */}
       </div>
     );
   }
