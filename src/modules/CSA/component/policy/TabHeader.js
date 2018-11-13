@@ -40,7 +40,7 @@ class TabHeader extends Component {
             <AgentInfoHeader policy={this.state.policy} />
           </div>
           <div className="flex f-end showmore">
-            <a href="#" className="text-with-icon container flex f-center" onClick={this.isVisible}>
+            <a href="#" className="text-with-icon container flex f-center" onClick={this.isVisible} accessKey="s">
               Show more
               &nbsp; <span className="fa fa-chevron-down"></span>
             </a>

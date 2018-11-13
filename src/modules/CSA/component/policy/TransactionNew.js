@@ -26,9 +26,9 @@ class TransactionNew extends Component {
       <div>
         <div className="box-header flex f-row f-justify-space-between tt-container">
           <div className="flex-container flex f-center">
-            <h4 className="no-margin">
+            <h2 className="no-margin">
               Transaction type:
-                  </h4>
+                  </h2>
             <select className="transaction-type">
               <option>Reinstatement</option>
             </select>

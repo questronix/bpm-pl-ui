@@ -468,7 +468,7 @@ class Policy extends Component {
               </div>
             </div>
           </div>
-          <div className="box margin-auto">
+          <div className="box container margin-auto">
             <div className="tab-title-container">
               {this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ?
                 <div className={this.state.Tabs == 0 || this.state.Tabs == 1 || this.state.Tabs == 2 || this.state.Tabs == 3 ? "tab-title active" : "tab-title"}>
@@ -575,7 +575,7 @@ class Policy extends Component {
               {this.state.Tabs == 3 ?
                 <div>
                   <div className="">
-                    <FatcaNew/>
+                    <FatcaNew />
                   </div>
                   <div className="flex f-justify-space-between container">
                     <a href="#" className="btn prulife" onClick={this.decrement}>
@@ -622,6 +622,7 @@ class Policy extends Component {
 
             </div>
           </div>
+          <div className="container"></div>
         </div>
       </div>
 

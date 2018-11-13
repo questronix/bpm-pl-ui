@@ -31,7 +31,7 @@ class FatcaNew extends Component {
                 inputPlaceholder="mm/dd/yyyy"
                 inputClass="input-container xl-6"
                 inputLabel="Date of Signing:"
-                txtboxClass="no-border" />
+                txtboxClass="bg-lightgray" />
               <div className="xl-6">
                 <p className="label container">
                   Relative of Agent:
@@ -52,12 +52,12 @@ class FatcaNew extends Component {
                   FATCA Tagging:
                 </p>
                 <div className="xl-6">
-                  <label class="checkbox container" for="yes">Yes
-                    <input type="radio" id="yes" name="FATCA" />
+                  <label class="checkbox container" for="yes1">Yes
+                    <input type="radio" id="yes1" name="FATCA" />
                     <span class="checkmark"></span>
                   </label>
-                  <label class="checkbox container" for="no">No
-                  <input type="radio" id="no" name="FATCA" />
+                  <label class="checkbox container" for="no1">No
+                  <input type="radio" id="no1" name="FATCA" />
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -67,12 +67,12 @@ class FatcaNew extends Component {
                   With Reinstating Agent:
                 </p>
                 <div className="xl-6">
-                  <label class="checkbox container" for="yes">Yes
-                    <input type="radio" id="yes" name="Reinstating" />
+                  <label class="checkbox container" for="yes2">Yes
+                    <input type="radio" id="yes2" name="WithReinstating" />
                     <span class="checkmark"></span>
                   </label>
-                  <label class="checkbox container" for="no">No
-                  <input type="radio" id="no" name="Reinstating" />
+                  <label class="checkbox container" for="no2">No
+                  <input type="radio" id="no2" name="WithReinstating" />
                     <span class="checkmark"></span>
                   </label>
                 </div>

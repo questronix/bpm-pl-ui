@@ -1369,7 +1369,6 @@ nav.navbar .navmenu {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    margin-bottom: 30px;
     padding: 0px 10px; }
     .logo .title span {
       font-size: 19px;
@@ -1904,6 +1903,11 @@ input[type="search"]::-webkit-search-results-decoration {
   border: 1px solid #bdbdbd;
   border-radius: 6px;
   outline: none; }
+
+.insured-details span {
+  font-size: 14px; }
+.insured-details .input-container.col {
+  padding: 5px; }
 
 .policyinfo-container {
   max-height: 110px;
