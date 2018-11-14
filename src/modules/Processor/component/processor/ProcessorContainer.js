@@ -8,6 +8,7 @@ import { FileNetService } from '../../services/';
 import Footer from '../../../../shared/component/footer/Footer';
 import Input from '../../../../shared/component/input/Input';
 import ProcessorHeader from './ProcessorHeader';
+import ReviewTransaction from './ReviewTransaction';
 
 class ProcessorContainer extends Component {
   constructor(props) {
@@ -102,19 +103,8 @@ class ProcessorContainer extends Component {
             <ProcessorHeader/>
             {/* <TabHeader policy={this.state.policy} clients={this.state.clients} /> */}
             <div className="box-body">
-
-              {this.state.currentTab === 1}
+              {this.state.currentTab === 1 && <ReviewTransaction/>}
               {this.state.currentTab === 2}
-
-              <div className="flex f-justify-space-between container">
-                <button className="btn prulife" accessKey="," onClick={this.handlePrevTab}>
-                  <span className="fa fa-chevron-left" />&nbsp; BACK
-              </button>
-                <button className="btn prulife" accessKey="." onClick={this.handleNextTab}>
-                  PROCEED &nbsp; <span className="fa fa-chevron-right" />
-                </button>
-              </div>
-
             </div>
           </div>
         </div>
