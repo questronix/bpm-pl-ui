@@ -6,6 +6,8 @@ import TaskCounter from '../../../../shared/component/Widgets/TaskCounter';
 import CardImg from '../../../../shared/component/Widgets/CardImg';
 import { FileNetService } from '../../services/';
 import Footer from '../../../../shared/component/footer/Footer';
+import Input from '../../../../shared/component/input/Input';
+import ProcessorHeader from './ProcessorHeader';
 
 class ProcessorContainer extends Component {
   constructor(props) {
@@ -15,7 +17,7 @@ class ProcessorContainer extends Component {
       sample: 'sample',
       doc: '',
     };
-     this.handlePrevTab = this.handlePrevTab.bind(this);
+    this.handlePrevTab = this.handlePrevTab.bind(this);
     this.handleNextTab = this.handleNextTab.bind(this);
   }
 
@@ -77,11 +79,8 @@ class ProcessorContainer extends Component {
   render() {
     return (
       <div className="flex-container flex-wrap">
-        <div className="col xl-2 l-2 m-2 s-hide xs-hide invisible">
-          made by questronix
-        </div>
-        <div className="col xl-10 l-10 m-10 s-11 xs-11 ">
-        <div className="box">
+        <div className="col xl-12 ">
+          <div className="box">
             <div className="tab-title-container">
               <div
                 onClick={() => this.handleSkipTab(1)}
@@ -89,7 +88,7 @@ class ProcessorContainer extends Component {
                 <h4 className="circle">
                   {this.state.isVisitedTransaction ? <span className="fa fa-check" /> : 1}
                 </h4>
-                <h4>Transaction Selection</h4><span className="white" /><span className="gray" />
+                <h4>Review Transaction</h4><span className="white" /><span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(2)}
@@ -97,32 +96,15 @@ class ProcessorContainer extends Component {
                 <h4 className="circle">
                   {this.state.isVisitedInsured ? <span className="fa fa-check" /> : 2}
                 </h4>
-                <h4>Insured Details</h4><span className="white" /><span className="gray" />
-              </div>
-              <div
-                onClick={() => this.handleSkipTab(3)}
-                className={this.state.currentTab === 3 || (this.state.isVisitedOwner & this.state.currentTab > 3) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
-                  {this.state.isVisitedOwner ? <span className="fa fa-check" /> : 3}
-                </h4>
-                <h4>Owner Details</h4><span className="white" /><span className="gray" />
-              </div>
-              <div
-                onClick={() => this.handleSkipTab(4)}
-                className={this.state.currentTab === 4 || (this.state.isVisitedAdditional & this.state.currentTab > 4) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
-                  {this.state.isVisitedAdditional ? <span className="fa fa-check" /> : 4}
-                </h4>
-                <h4>Additional Details</h4>
+                <h4>Processing Details</h4>
               </div>
             </div>
+            <ProcessorHeader/>
             {/* <TabHeader policy={this.state.policy} clients={this.state.clients} /> */}
             <div className="box-body">
 
-              {this.state.currentTab === 1 }
-              {this.state.currentTab === 2 }
-              {this.state.currentTab === 3 }
-              {this.state.currentTab === 4}
+              {this.state.currentTab === 1}
+              {this.state.currentTab === 2}
 
               <div className="flex f-justify-space-between container">
                 <button className="btn prulife" accessKey="," onClick={this.handlePrevTab}>
@@ -137,8 +119,8 @@ class ProcessorContainer extends Component {
           </div>
         </div>
       </div>
-      
-     
+
+
     );
   }
 }

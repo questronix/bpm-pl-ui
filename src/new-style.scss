@@ -2361,6 +2361,11 @@ input[type="search"] {
         outline: none;
     }
 }
+.processor{
+    .input-container.col{
+        padding: 4px;
+    }
+}
 // policy-information
 .insured-details{
     overflow: hidden;
