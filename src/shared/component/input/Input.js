@@ -21,6 +21,7 @@ class Input extends Component {
             placeholder={this.props.inputPlaceholder}
             defaultValue={this.props.value}
             className={this.props.txtboxClass} />}
+          {this.props.children}
         </div>
     );
   }

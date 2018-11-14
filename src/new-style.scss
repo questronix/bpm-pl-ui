@@ -439,6 +439,7 @@ body, html{
 }
 //buttons
 .btn{
+    outline: none;
     cursor: pointer;
     height: 35px;
     border-radius: 6px;
@@ -2032,6 +2033,7 @@ div{
     // border-radius: 5px;
     // padding: 1em 2em;
     height: 100%;
+    overflow: auto;
   }
   
   .modal__close {
@@ -2369,6 +2371,12 @@ input[type="search"] {
     }
     .input-container.col{
         padding: 5px;
+    }
+    .input-container{
+        span{
+            position: absolute;
+            right: 0;
+        }
     }
 }
 .content-disabled{

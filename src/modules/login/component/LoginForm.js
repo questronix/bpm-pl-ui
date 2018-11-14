@@ -54,6 +54,7 @@ class LoginForm extends Component {
           sessionStorage.setItem('is_authenticated', true);
           // this.redirect(res.data.role.name);
           this.redirect(res.data.result.Role_Description);
+          // alert(res.data.result.Role_Description);
         } else {
           this.setState({ isError: true });
         }
@@ -110,6 +111,7 @@ class LoginForm extends Component {
                     disabled={isSubmitting}
                     value={username}
                     onChange={this.handleInputChange}
+                    autoFocus
                   />
                 </div>
                 <div className="icon flex f-center">
