@@ -7,7 +7,8 @@ class YesNoRadio extends Component {
   }
 
   handleSelectChange(e) {
-    this.props.onSelect(e.target.value);
+    const val = e.target.value == 'true' ? true : false;
+    this.props.onSelect(e.target.name, val);
   }
 
   render() {
@@ -28,7 +29,7 @@ class YesNoRadio extends Component {
             <input
               type="radio"
               id="yes"
-              name="yesNo"
+              name={this.props.name}
               defaultValue={true}
               defaultChecked={this.props.isYesDefault ? true : false}
               onChange={this.handleSelectChange}
@@ -40,7 +41,7 @@ class YesNoRadio extends Component {
             <input
               type="radio"
               id="no"
-              name="yesNo"
+              name={this.props.name}
               defaultValue={false}
               defaultChecked={!this.props.isYesDefault ? true : false}
               onChange={this.handleSelectChange}
