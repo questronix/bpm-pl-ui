@@ -4,7 +4,7 @@ class ModalAlert extends Component {
   render() {
     return (
       <div className="App">
-        <div className="flex-container modal-alert">
+        <div className={this.props.show ? "flex-container modal-alert active" : "flex-container modal-alert"}>
           <div className="col xl-12 modal-content no-padding">
             <div className="container">
               <h2>
