@@ -116,7 +116,7 @@ class EditTaskContainer extends Component {
       .then((res) => {
         // TODO: FIX RESPONSE
         console.log('DOCSSSS', res.data.msg.result);
-        const d = res.data.msg.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
+        const d = res.data.msg.result.reduce((prev, current) => [{ ...current, value: false }, ...prev], [])
         this.setState({ docs: d });
       }).catch((err) => {
         console.log(err);
@@ -138,15 +138,15 @@ class EditTaskContainer extends Component {
         });
         console.log('CLIENTS:  ', this.state.policy.clients);
       })
-      .finally(() => {});
+      .finally(() => { });
     // }
 
     PolicyService.getClientIformationByid("81789377")
       .then((res) => {
         console.log('CLIENT INFO: ', res.data);
-        this.setState({ client: res.data.data.result.data});
+        this.setState({ client: res.data.data.result.data });
       }).finally(() => {
-        
+
       });
 
     // TODO: REST call here
@@ -513,10 +513,10 @@ class EditTaskContainer extends Component {
               <div className="flex f-column transaction-header">
                 <div className="flex">
                   <p className="">
-                    Created Date	:	
+                    Created Date	:
                   </p>
                   <p className="font-prulife ">
-                  11/13/2018
+                    11/13/2018
                   </p>
                 </div>
               </div>
@@ -559,12 +559,46 @@ class EditTaskContainer extends Component {
             </div>
             <TabHeader policy={this.state.policy} clients={this.state.clients} />
             <div className="box-body">
-
-              {this.state.currentTab === 1 && <TransactionNew transactionNumber={this.state.transactionNumber} docs={this.state.docs}/>}
-              {this.state.currentTab === 2 && <InsuredinformationNew client={this.state.client} />}
-              {this.state.currentTab === 3 && <OwnerinformationNew client={this.state.client} />}
+              {this.state.currentTab === 1 && <TransactionNew transactionNumber={this.state.transactionNumber} docs={this.state.docs} />}
+              {this.state.currentTab === 2 &&
+                <div className="container insured-details">
+                  <div className="col no-padding xl-12 flex f-justify-space-between">
+                    <h2 className="no-margin">
+                      Insured Details
+                    </h2>
+                    <p>
+                      <span className="fa fa-pencil-alt font-prulife"></span> - Editable field
+                    </p>
+                  </div>
+                  <div className="col xl-12 flex f-center f-start">
+                    <span className="fa fa-user font-prulife">
+                    </span> &nbsp;
+                    <h3 className="no-margin">
+                      Personal Information
+                    </h3>
+                  </div>
+                  <InsuredinformationNew client={this.state.client} />
+                </div>}
+              {this.state.currentTab === 3 &&
+                <div className="container insured-details">
+                  <div className="col no-padding xl-12 flex f-justify-space-between">
+                    <h2 className="no-margin">
+                      Owner Details
+                    </h2>
+                    <p>
+                      <span className="fa fa-pencil-alt font-prulife"></span> - Editable field
+                    </p>
+                  </div>
+                  <div className="col xl-12 flex f-center f-start">
+                    <span className="fa fa-user font-prulife">
+                    </span> &nbsp;
+                    <h3 className="no-margin">
+                      Personal Information
+                    </h3>
+                  </div>
+                  <OwnerinformationNew client={this.state.client} />
+                </div>}
               {this.state.currentTab === 4 && <Additional />}
-
               <div className="flex f-justify-space-between container">
                 <button className="btn prulife" accessKey="," onClick={this.handlePrevTab}>
                   <span className="fa fa-chevron-left" />&nbsp; BACK

@@ -5,9 +5,10 @@ import CardTable from '../../../../shared/component/table/Table';
 import TaskCounter from '../../../../shared/component/Widgets/TaskCounter';
 import CardImg from '../../../../shared/component/Widgets/CardImg';
 import { FileNetService } from '../../services/';
+import { PolicyService, TaskService, DocumentService } from '../../../CSA/services';
 import Footer from '../../../../shared/component/footer/Footer';
-import Input from '../../../../shared/component/input/Input';
 import ProcessorHeader from './ProcessorHeader';
+import TabHeader from '../../../CSA/component/policy/TabHeader';
 import ReviewTransaction from './ReviewTransaction';
 import ProcessingDetails from './ProcessingDetails';
 
@@ -18,9 +19,110 @@ class ProcessorContainer extends Component {
       currentTab: 1,
       sample: 'sample',
       doc: '',
+      clients: [],
+      client: {},
+      policy:{},
+      transactionNumber: localStorage.getItem('transactionNumber') || null,
+
     };
     this.handlePrevTab = this.handlePrevTab.bind(this);
     this.handleNextTab = this.handleNextTab.bind(this);
+  }
+
+  componentWillMount() {
+    TaskService.getTaskDetails(this.getQueryStringValue('id'))
+      .then(res => {
+        console.log(res.data);
+        const policy = res.data.variables.policy;
+        const transactionNo = policy.transactionNo;
+        // localStorage.setItem('transactionNumber', transactionNo);
+        // localStorage.setItem('policy', policy.info);
+        this.setState({
+          policy: JSON.parse(policy.info),
+          transactionNumber: transactionNo,
+          clients: JSON.parse(policy.info).clients
+        });
+        console.log('CLIENTS:  ', this.state.policy.clients);
+      })
+      .finally(() => {});
+    // }
+
+    PolicyService.getClientIformationByid("81789377")
+      .then((res) => {
+        console.log('CLIENT INFO: ', res.data);
+        this.setState({ client: res.data.data.result.data});
+      }).finally(() => {
+        
+      });
+  }
+
+  handleNextTab() {
+    const { currentTab } = this.state;
+    if (currentTab + 1 > 4) return;
+    this.setState({ currentTab: currentTab + 1 });
+    this.updateVistedTab(currentTab);
+  }
+
+  handlePrevTab() {
+    const { currentTab } = this.state;
+    if (currentTab - 1 < 1) return;
+    this.setState({ currentTab: currentTab - 1 });
+    this.updateVistedTab(currentTab);
+  }
+
+  handleSkipTab(tabPage) {
+    const {
+      isVisitedTransaction,
+      isVisitedOwner,
+      isVisitedInsured,
+      isVisitedAdditional
+    } = this.state;
+    if (
+      tabPage > this.state.visitedTabStatus &&
+      (!isVisitedTransaction ||
+        !isVisitedOwner ||
+        !isVisitedInsured ||
+        !isVisitedAdditional)
+    )
+      return;
+    this.setState({ currentTab: tabPage });
+  }
+
+  updateVistedTab(tabPage) {
+    if (tabPage === 1) this.setState({ isVisitedTransaction: true });
+    if (tabPage === 2) this.setState({ isVisitedInsured: true });
+    if (tabPage === 3) this.setState({ isVisitedOwner: true });
+    if (tabPage === 4) this.setState({ isVisitedAdditional: true });
+    this.setState({ visitedTabStatus: tabPage });
+  }
+
+  componentDidMount() {
+    this.getApplicationDocs("12345678");
+  }
+
+  getQueryStringValue(key) {
+    return decodeURIComponent(
+      window.location.search.replace(
+        new RegExp(
+          '^(?:.*[&\\?]' +
+          encodeURIComponent(key).replace(/[\.\+\*]/g, '\\$&') +
+          '(?:\\=([^&]*))?)?.*$',
+          'i'
+        ),
+        '$1'
+      )
+    );
+  }
+
+  getApplicationDocs(appNo) {
+    FileNetService.getDocs().then((res) => {
+      console.log(res);
+      this.setState({
+        doc: res.data
+      })
+    }).finally(() => {
+
+    });
   }
 
   handleNextTab() {
@@ -102,7 +204,7 @@ class ProcessorContainer extends Component {
               </div>
             </div>
             <ProcessorHeader/>
-            {/* <TabHeader policy={this.state.policy} clients={this.state.clients} /> */}
+            <TabHeader policy={this.state.policy} clients={this.state.clients} />
             <div className="box-body">
               {this.state.currentTab === 1 && <ReviewTransaction/>}
               {this.state.currentTab === 2 && <ProcessingDetails/>}

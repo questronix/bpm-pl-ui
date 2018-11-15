@@ -7,22 +7,6 @@ class InsuredinformationNew extends Component {
 
     return (
       <div className="App">
-        <div className="container insured-details">
-          <div className="col no-padding xl-12 flex f-justify-space-between">
-            <h2 className="no-margin">
-              Insured Details
-            </h2>
-            <p>
-              <span className="fa fa-pencil-alt font-prulife"></span> - Editable field
-            </p>
-          </div>
-          <div className="col xl-12 flex f-center f-start">
-            <span className="fa fa-user font-prulife">
-            </span> &nbsp;
-            <h3 className="no-margin">
-              Personal Information
-            </h3>
-          </div>
           <div className="xl-12 flex-container flex-wrap">
             <Input
               editable="false"
@@ -278,7 +262,7 @@ class InsuredinformationNew extends Component {
               value={this.props.client.address && this.props.client.address[2].address5}
             />
           </div>
-          <div className="xl-12 flex-container flex-wrap">
+          <div className="xl-12 flex-container flex-wrap col">
             <div className="xl-2">
               <p className="label flex no-margin">
                 Change in Address:  &nbsp;<span className="fa fa-pencil-alt font-prulife"></span>
@@ -295,16 +279,16 @@ class InsuredinformationNew extends Component {
               </div>
             </div>
           </div>
-          <div className="col xl-12 flex f-center f-start no-padding">
+          <div className="col xl-12 flex f-center f-start">
             <span className="fa fa-info-circle font-prulife">
             </span> &nbsp;
             <h3 className="no-margin">
               Additional Information
             </h3>
           </div>
-          <div className="xl-12 flex-container flex-wrap">
+          <div className="xl-12 flex-container flex-wrap col">
             <div className="xl-12">
-              <p className="label flex required">
+              <p className="label flex required no-margin">
                 Statement of Insurability Declarations:
               </p>
               <div className="col xl-12">
@@ -319,7 +303,7 @@ class InsuredinformationNew extends Component {
               </div>
             </div>
           </div>
-          <div className="xl-12 flex-container flex-wrap">
+          <div className="xl-12 flex-container flex-wrap col">
             <div className="xl-12">
               <p className="label flex no-margin required">
                 Are you pregnant?:
@@ -336,7 +320,7 @@ class InsuredinformationNew extends Component {
               </div>
             </div>
           </div>
-          <div className="xl-12 flex-container flex-wrap">
+          <div className="xl-12 flex-container flex-wrap col">
             <div className="xl-12">
               <p className="label flex no-margin required">
                 Additional requirements:
@@ -362,8 +346,6 @@ class InsuredinformationNew extends Component {
             </div>
           </div>
         </div>
-
-      </div >
     );
   }
 }
