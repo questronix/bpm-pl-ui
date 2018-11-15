@@ -19,6 +19,7 @@ class TaskContainer extends Component {
       Tabs: 0,
       isSearching: false,
       openSearchModal: false,
+      modalAlert: false,
     };
     this.searchPolicy = this.searchPolicy.bind(this);
     this.createTask = this.createTask.bind(this);
@@ -27,6 +28,7 @@ class TaskContainer extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleModalToggle = this.handleModalToggle.bind(this);
+    this.handlemodalAlert = this.handlemodalAlert.bind(this);
   }
 
   componentDidMount() {
@@ -90,6 +92,12 @@ class TaskContainer extends Component {
     this.setState({ openSearchModal:  !this.state.openSearchModal });
   }
 
+  handlemodalAlert(){
+    this.setState({
+      modalAlert: !this.state.modalAlert
+    });
+  }
+
   searchPolicy(policyNumber) {
     this.setState({
       policyNumberSearch: policyNumber,
@@ -106,7 +114,13 @@ class TaskContainer extends Component {
           });
         } else {
           console.log('Error: ', res.data);
-          alert(res.data.message);
+          {!policy.status && (
+            <div className="no-search-result flex f-center">
+              <span className="fa fa-search" />
+              <br />
+              <p>No record/s found</p>
+            </div>
+          )}
         }
       })
       .finally(() => {
@@ -184,7 +198,7 @@ class TaskContainer extends Component {
             </p>
           </div>
       </ModalAlert> */}
-      <ModalAlert mHeader="Confirmation">
+      <ModalAlert mHeader="Confirmation" modalalert={this.handlemodalAlert} modalState={this.state.modalAlert} confirm={this.createTask}>
           <div className="flex f-center f-column">
 
             <h3 className="text-center">
@@ -245,10 +259,11 @@ class TaskContainer extends Component {
                 <div className="col xl-10" />
                 <a
                   className="btn prulife"
-                  onClick={() => {
-                    if (window.confirm('Are you sure you want to Proceed'))
-                      this.createredirect();
-                  }}
+                  // onClick={() => {
+                  //   if (window.confirm('Are you sure you want to Proceed'))
+                  //     this.createredirect();
+                  // }}
+                  onClick={this.handlemodalAlert}
                 >
                   Proceed &nbsp;&nbsp;&nbsp;
                   <span className="fa fa-chevron-right font-white" />

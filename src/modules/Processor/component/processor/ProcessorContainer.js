@@ -202,7 +202,7 @@ class ProcessorContainer extends Component {
                 <h4>Processing Details</h4>
               </div>
             </div>
-            <ProcessorHeader/>
+            
             <TabHeader policy={this.state.policy} clients={this.state.clients} />
             <div className="box-body">
               {this.state.currentTab === 1 && <ReviewTransaction/>}
