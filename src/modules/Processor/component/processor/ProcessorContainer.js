@@ -6,14 +6,60 @@ import TaskCounter from '../../../../shared/component/Widgets/TaskCounter';
 import CardImg from '../../../../shared/component/Widgets/CardImg';
 import { FileNetService } from '../../services/';
 import Footer from '../../../../shared/component/footer/Footer';
+import Input from '../../../../shared/component/input/Input';
+import ProcessorHeader from './ProcessorHeader';
+import ReviewTransaction from './ReviewTransaction';
 
 class ProcessorContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentTab: 1,
       sample: 'sample',
       doc: '',
     };
+    this.handlePrevTab = this.handlePrevTab.bind(this);
+    this.handleNextTab = this.handleNextTab.bind(this);
+  }
+
+  handleNextTab() {
+    const { currentTab } = this.state;
+    if (currentTab + 1 > 4) return;
+    this.setState({ currentTab: currentTab + 1 });
+    this.updateVistedTab(currentTab);
+  }
+
+  handlePrevTab() {
+    const { currentTab } = this.state;
+    if (currentTab - 1 < 1) return;
+    this.setState({ currentTab: currentTab - 1 });
+    this.updateVistedTab(currentTab);
+  }
+
+  handleSkipTab(tabPage) {
+    const {
+      isVisitedTransaction,
+      isVisitedOwner,
+      isVisitedInsured,
+      isVisitedAdditional
+    } = this.state;
+    if (
+      tabPage > this.state.visitedTabStatus &&
+      (!isVisitedTransaction ||
+        !isVisitedOwner ||
+        !isVisitedInsured ||
+        !isVisitedAdditional)
+    )
+      return;
+    this.setState({ currentTab: tabPage });
+  }
+
+  updateVistedTab(tabPage) {
+    if (tabPage === 1) this.setState({ isVisitedTransaction: true });
+    if (tabPage === 2) this.setState({ isVisitedInsured: true });
+    if (tabPage === 3) this.setState({ isVisitedOwner: true });
+    if (tabPage === 4) this.setState({ isVisitedAdditional: true });
+    this.setState({ visitedTabStatus: tabPage });
   }
 
   componentDidMount() {
@@ -34,47 +80,37 @@ class ProcessorContainer extends Component {
   render() {
     return (
       <div className="flex-container flex-wrap">
-        <div className="col xl-2 l-2 m-2 s-hide xs-hide invisible">
-          made by questronix
-        </div>
-        <div className="col xl-10 l-10 m-10 s-11 xs-11 ">
-          <h1 className="font-prulife flex s-f-center xs-f-center">New Task Transaction</h1>
-          {/* <CardImg class="xl-4" docsId={1} docs={this.state.doc} docLabel="Application Document" docDate="01-01-01"></CardImg> */}
-          {/* <div className="flex-container flex-wrap">
-            <div className="col">
-              <div className="tabs col xl-12 l-12 m-12 s-12 xs-12">
-                <div className="tab-container flex-container no-padding col xl-12">
-                  <div className="tab-title col xl-2 l-2 m-2 s-4 xs-7 tab-active">
-                    Insured Information
-                    </div>
-                  <div className="tab-title col xl-2 l-2 m-2 s-4 xs-7 ">
-                    Owner Information
-                    </div>
-                </div>
-                <div className="">
-                  <div className="header">
-                    <h3 className="font-prulife">
-                      Policy
-                    </h3>
-                  </div>
-                  <div className="test">
-                  </div>
-                </div>
+        <div className="col xl-12 ">
+          <div className="box">
+            <div className="tab-title-container">
+              <div
+                onClick={() => this.handleSkipTab(1)}
+                className={this.state.currentTab === 1 || (this.state.isVisitedTransaction & this.state.currentTab > 1) ? "tab-title active" : "tab-title"}>
+                <h4 className="circle">
+                  {this.state.isVisitedTransaction ? <span className="fa fa-check" /> : 1}
+                </h4>
+                <h4>Review Transaction</h4><span className="white" /><span className="gray" />
+              </div>
+              <div
+                onClick={() => this.handleSkipTab(2)}
+                className={this.state.currentTab === 2 || (this.state.isVisitedInsured & this.state.currentTab > 2) ? "tab-title active" : "tab-title"}>
+                <h4 className="circle">
+                  {this.state.isVisitedInsured ? <span className="fa fa-check" /> : 2}
+                </h4>
+                <h4>Processing Details</h4>
               </div>
             </div>
-          </div> */}
-          <PrescreeningInfo />
+            <ProcessorHeader/>
+            {/* <TabHeader policy={this.state.policy} clients={this.state.clients} /> */}
+            <div className="box-body">
+              {this.state.currentTab === 1 && <ReviewTransaction/>}
+              {this.state.currentTab === 2}
+            </div>
+          </div>
         </div>
-        <h1 className="font-prulife flex s-f-center xs-f-center">Processor Information</h1>
-        <CsaClient />
-        {/* <CsaPolicy /> */}
-        {/* <CsaClient sampleData={this.state.sample}/> */}
-        {/* <CProcessorPolicy /> */}
-        {/* <CProcessorClient /> */}
-        {/* <CardTable/> */}
-        {/* <TaskCounter/> */}
-        <Footer/>
       </div>
+
+
     );
   }
 }

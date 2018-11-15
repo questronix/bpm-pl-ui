@@ -126,8 +126,9 @@ class InsuredinformationNew extends Component {
               txtboxClass="bg-lightgray"
               inputLabel="Email Addtess:"
               inputClass="col xl-4 input-container"
-              value={this.props.client.emailAdd}
-            />
+              value={this.props.client.emailAdd}>
+              <span className="fa fa-pencil-alt font-prulife"></span>
+            </Input>
             <Input
               txtboxClass="bg-lightgray"
               inputLabel="Telephone Number:"
@@ -167,7 +168,7 @@ class InsuredinformationNew extends Component {
               <p className="label flex no-margin">
                 Change in Occupation: &nbsp;<span className="fa fa-pencil-alt font-prulife"></span>
               </p>
-              <div className="col xl-12">
+              <div className="col no-padding xl-12">
                 <label className="checkbox container" htmlFor="yes">Yes
                     <input type="radio" id="yes" name="Relative" />
                   <span className="checkmark"></span>

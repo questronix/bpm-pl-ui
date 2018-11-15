@@ -321,7 +321,7 @@ body, html{
     background-color: $light-gray !important;
 }
 .bg-none{
-    background-color: transparent;
+    background-color: transparent !important;
 }
 // font color
 .font-primary{
@@ -439,6 +439,7 @@ body, html{
 }
 //buttons
 .btn{
+    outline: none;
     cursor: pointer;
     height: 35px;
     border-radius: 6px;
@@ -2032,6 +2033,7 @@ div{
     // border-radius: 5px;
     // padding: 1em 2em;
     height: 100%;
+    overflow: auto;
   }
   
   .modal__close {
@@ -2359,6 +2361,11 @@ input[type="search"] {
         outline: none;
     }
 }
+.processor{
+    .input-container.col{
+        padding: 4px;
+    }
+}
 // policy-information
 .insured-details{
     overflow: hidden;
@@ -2369,6 +2376,12 @@ input[type="search"] {
     }
     .input-container.col{
         padding: 5px;
+    }
+    .input-container{
+        span{
+            position: absolute;
+            right: 0;
+        }
     }
 }
 .content-disabled{
@@ -2388,11 +2401,28 @@ input[type="search"] {
         display: flex;
     }
 }
-.policyinfo-container{
-    max-height: 110px;
-    // padding-bottom: 50px;
-    overflow: hidden;
-    transition: max-height .3s ease-in;
+.processor-container{
+    .showmore{
+        border:none;
+        border-bottom: 1px solid $white;
+    }
+    .processor-dropdown{
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height .3s ease-in-out;
+        &.active{
+            max-height: 1000px !important;
+            transition: max-height .3s ease-in-out;
+            overflow: hidden !important;
+            padding-bottom: 0px;
+        }
+    }
+}
+    .policyinfo-container{
+        max-height: 110px;
+        // padding-bottom: 50px;
+        overflow: hidden;
+        transition: max-height .3s ease-in;
     &.active{
         max-height: 580px !important;
         transition: max-height .3s ease-out;
@@ -2417,6 +2447,10 @@ input[type="search"] {
     }
 }
 .showmore{
+    button{
+        outline: none;
+        cursor: pointer;
+    }
     height: 50px;
     // &:before {
     //     content: "";
