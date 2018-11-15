@@ -1333,7 +1333,8 @@ nav.navbar .navmenu {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 100%; }
+    width: 100%;
+    cursor: pointer; }
     .box .tab-title-container .tab-title.active {
       background-color: #0064B9; }
       .box .tab-title-container .tab-title.active .white {
@@ -1672,8 +1673,21 @@ div {
 .modal-header {
   border-bottom: 1px solid #bdbdbd; }
 
-.modal-body .input-container {
-  padding: 5px; }
+.modal-body {
+  overflow: hidden;
+  position: relative; }
+  .modal-body.loading {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999; }
+  .modal-body .input-container {
+    padding: 5px; }
 
 .modal-bg {
   position: absolute;
@@ -1960,6 +1974,11 @@ input[type="search"]::-webkit-search-results-decoration {
     transition: max-height .3s ease-in-out;
     overflow: hidden !important;
     padding-bottom: 0px; }
+
+.document-container {
+  height: 100%; }
+  .document-container object {
+    position: absolute; }
 
 .policyinfo-container {
   max-height: 110px;

@@ -1515,6 +1515,7 @@ nav{
                 align-items: center;
                 justify-content: center;
                 width: 100%;
+                cursor: pointer;
                 &.active{
                     background-color:$bright-blue; 
                     .white{
@@ -1993,6 +1994,19 @@ div{
     border-bottom: 1px solid $gray;
 }
 .modal-body{
+    overflow: hidden;
+    position: relative;
+        &.loading{
+            background-color: rgba(black,.30);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 999;
+        }
     .input-container{
         padding:5px;
     }
@@ -2416,6 +2430,12 @@ input[type="search"] {
             overflow: hidden !important;
             padding-bottom: 0px;
         }
+    }
+}
+.document-container{
+    height: 100%;
+    object{
+        position: absolute;
     }
 }
     .policyinfo-container{

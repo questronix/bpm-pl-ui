@@ -570,13 +570,6 @@ class EditTaskContainer extends Component {
                       <span className="fa fa-pencil-alt font-prulife"></span> - Editable field
                     </p>
                   </div>
-                  <div className="col xl-12 flex f-center f-start">
-                    <span className="fa fa-user font-prulife">
-                    </span> &nbsp;
-                    <h3 className="no-margin">
-                      Personal Information
-                    </h3>
-                  </div>
                   <InsuredinformationNew client={this.state.client} />
                 </div>}
               {this.state.currentTab === 3 &&
@@ -588,13 +581,6 @@ class EditTaskContainer extends Component {
                     <p>
                       <span className="fa fa-pencil-alt font-prulife"></span> - Editable field
                     </p>
-                  </div>
-                  <div className="col xl-12 flex f-center f-start">
-                    <span className="fa fa-user font-prulife">
-                    </span> &nbsp;
-                    <h3 className="no-margin">
-                      Personal Information
-                    </h3>
                   </div>
                   <OwnerinformationNew client={this.state.client} />
                 </div>}

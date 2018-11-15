@@ -225,18 +225,6 @@ class ReviewTransaction extends Component {
         </div>
         <div className={this.state.insuredVisible ? "processor-dropdown active" : "processor-dropdown"}>
           <div className="insured-details">
-            <div className="col no-padding xl-12">
-              <h2 className="no-margin">
-                Insured Details
-              </h2>
-            </div>
-            <div className="col xl-12 flex f-center f-start">
-              <span className="fa fa-user font-prulife">
-              </span> &nbsp;
-              <h3 className="no-margin">
-                Personal Information
-              </h3>
-            </div>
             <InsuredinformationNew client={this.state.client} />
           </div>
         </div>
@@ -250,18 +238,6 @@ class ReviewTransaction extends Component {
         </div>
         <div className={this.state.ownerVisible ? "processor-dropdown active" : "processor-dropdown"}>
           <div className="insured-details">
-            <div className="col no-padding xl-12">
-              <h2 className="no-margin">
-                Owner Details
-              </h2>
-            </div>
-            <div className="col xl-12 flex f-center f-start">
-              <span className="fa fa-user font-prulife">
-              </span> &nbsp;
-            <h3 className="no-margin">
-              Personal Information
-            </h3>
-            </div>
             <OwnerinformationNew policy={this.state.policy} client={this.state.client} />
           </div>
         </div>
