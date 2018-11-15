@@ -50,11 +50,18 @@ class EditTaskContainer extends Component {
         address5: '',
         zipCode: '',
       },
-      clients: [],
-      transactionNumber: localStorage.getItem('transactionNumber') || null,
+      clients: [], // List of clients in Policy Search
+      transactionNumber: localStorage.getItem('transactionNumber') || '',
+
+      // TRANSACTION SELECTION STATE
       transactionType: 1,
+      subTransactionType: 1,
+      docs: [], // Temporary placeholder for all documentlist
+      selectedDocs: [], // Selected document list that is needed to display
+      isSignatureVerified: false,
+
+      // TAB NAVIGATION STATE //
       currentTab: 1,
-      docs: [],
       visitedTabStatus: 1,
       isVisitedTransaction: false,
       isVisitedInsured: false,
@@ -90,18 +97,26 @@ class EditTaskContainer extends Component {
       client: {},
       Tabs: 0
     };
+
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
-    this.handleTransactionCheckList = this.handleTransactionCheckList.bind(
-      this
-    );
+    this.handleTransactionCheckList = this.handleTransactionCheckList.bind(this);
     this.handleNewTaskSubmit = this.handleNewTaskSubmit.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
     this.createTask = this.createTask.bind(this);
+    
+    // Tab Events
     this.handlePrevTab = this.handlePrevTab.bind(this);
     this.handleNextTab = this.handleNextTab.bind(this);
-    // Test
     this.handleTabClick = this.handleTabClick.bind(this);
+    
+    // Transaction Events
+    this.handleTransactionTypeChange = this.handleTransactionTypeChange.bind(this);
+    this.handleSubTransactionTypeChange = this.handleSubTransactionTypeChange.bind(this);
+    this.handleDocSelect = this.handleDocSelect.bind(this);
+    this.handleYesNoSelect = this.handleYesNoSelect.bind(this);
+    
+    // Test
     this.decrement = this.decrement.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -112,16 +127,6 @@ class EditTaskContainer extends Component {
       taskId: this.getQueryStringValue('id')
     });
 
-    DocumentService.getDocumentByTransactionType(this.state.transactionType)
-      .then((res) => {
-        // TODO: FIX RESPONSE
-        console.log('DOCSSSS', res.data.msg.result);
-        const d = res.data.msg.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
-        this.setState({ docs: d });
-      }).catch((err) => {
-        console.log(err);
-      });
-
     // TODO: Validation to prevent Update of localstorage
     // if (!this.state.policy) {
     TaskService.getTaskDetails(this.getQueryStringValue('id'))
@@ -131,7 +136,7 @@ class EditTaskContainer extends Component {
         const transactionNo = policy.transactionNo;
         // localStorage.setItem('transactionNumber', transactionNo);
         // localStorage.setItem('policy', policy.info);
-        this.setState({
+        this.setState({    
           policy: JSON.parse(policy.info),
           transactionNumber: transactionNo,
           clients: JSON.parse(policy.info).clients
@@ -148,6 +153,18 @@ class EditTaskContainer extends Component {
       }).finally(() => {
         
       });
+    
+    DocumentService.getDocumentByTransactionType(this.state.transactionType)
+    .then((res) => {
+      // TODO: FIX RESPONSE
+      console.log('DOCSSSS', res.data.msg.result);
+      const d = res.data.msg.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
+      this.setState({ docs: d });
+    }).finally(() => {
+      if (this.state.docs) {
+        this.filterSelectedDocs(this.state.subTransactionType);
+      }
+    });
 
     // TODO: REST call here
     this.setState({
@@ -427,6 +444,26 @@ class EditTaskContainer extends Component {
     this.setState({ currentTab: tabPage });
   }
 
+  handleTransactionTypeChange(val) {
+    this.setState({ transactionType: parseInt(val) });
+  }
+
+  handleSubTransactionTypeChange(val) {
+    this.setState({ subTransactionType: parseInt(val) });
+    this.filterSelectedDocs(val);
+  }
+
+  handleDocSelect(index) {
+    const { selectedDocs } = this.state;
+    selectedDocs[index].value = !selectedDocs[index].value;
+    this.setState({ selectedDocs });
+  }
+
+  handleYesNoSelect(name, val) {
+    console.log(name, val);
+    this.setState({ [name]: val })
+  }
+
   updateVistedTab(tabPage) {
     if (tabPage === 1) this.setState({ isVisitedTransaction: true });
     if (tabPage === 2) this.setState({ isVisitedInsured: true });
@@ -448,6 +485,14 @@ class EditTaskContainer extends Component {
       .catch(err => {
         console.log(err);
       });
+  }
+
+  filterSelectedDocs(type) {
+    console.log('updated');
+    const docList = this.state.docs.filter(
+      docs => docs.SubTransaction_ID == type
+    );
+    this.setState({ selectedDocs: docList });
   }
 
   decrement() {
@@ -560,7 +605,17 @@ class EditTaskContainer extends Component {
             <TabHeader policy={this.state.policy} clients={this.state.clients} />
             <div className="box-body">
 
-              {this.state.currentTab === 1 && <TransactionNew transactionNumber={this.state.transactionNumber} docs={this.state.docs}/>}
+              {this.state.currentTab === 1 && <TransactionNew 
+                transactionNumber={this.state.transactionNumber}
+                transactionType={this.state.transactionType}
+                subTransactionType={this.state.subTransactionType}
+                isSignatureVerified={this.state.isSignatureVerified}
+                docs={this.state.selectedDocs}
+                onTransactionTypeChange={this.handleTransactionTypeChange}
+                onSubTransactionTypeChange={this.handleSubTransactionTypeChange}
+                onDocSelect={this.handleDocSelect}
+                onSelectSignatureVerified={this.handleYesNoSelect}
+              />}
               {this.state.currentTab === 2 && <InsuredinformationNew client={this.state.client} />}
               {this.state.currentTab === 3 && <OwnerinformationNew client={this.state.client} />}
               {this.state.currentTab === 4 && <Additional />}

@@ -19,6 +19,7 @@ class TaskContainer extends Component {
       Tabs: 0,
       isSearching: false,
       openSearchModal: false,
+      openTransactionModal: false,
     };
     this.searchPolicy = this.searchPolicy.bind(this);
     this.createTask = this.createTask.bind(this);
@@ -155,18 +156,18 @@ class TaskContainer extends Component {
   }
 
   createTask() {
-    // TaskService.createNewTask({"info": JSON.stringify(this.state.policy)})
-    //   .then(res => {
-    //     console.log(res.data);
-    //     const t = JSON.parse(JSON.stringify(res.data.variables.policy));
-    //     localStorage.setItem("transactionNumber", t.transactionNo);
-    //     localStorage.setItem("policy", JSON.stringify(this.state.policy));
-        // this.props.history.push(`/tasks/edit?id=${res.data.id}`);
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
-    window.location.href = "/tasks/edit"
+    TaskService.createNewTask({"info": JSON.stringify(this.state.policy)})
+      .then(res => {
+        console.log(res.data);
+        const t = JSON.parse(JSON.stringify(res.data.variables.policy));
+        localStorage.setItem("transactionNumber", t.transactionNo);
+        localStorage.setItem("policy", JSON.stringify(this.state.policy));
+        this.props.history.push(`/tasks/edit?id=${res.data.id}`);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    // window.location.href = "/tasks/edit"
   }
 
   render() {
@@ -184,7 +185,7 @@ class TaskContainer extends Component {
             </p>
           </div>
       </ModalAlert> */}
-      <ModalAlert mHeader="Confirmation">
+      <ModalAlert mHeader="Confirmation" show={this.state.openTransactionModal}>
           <div className="flex f-center f-column">
 
             <h3 className="text-center">
