@@ -20,6 +20,7 @@ class SidebarNew extends Component {
   }
 
   render() {
+    const ROLE = JSON.parse(sessionStorage.getItem('user_info')).Role_Description;
 
     return (
       <div className="sidebar col no-padding xl-2 l-2 m-3 s-3 xs-4 ">
@@ -33,35 +34,33 @@ class SidebarNew extends Component {
           Menu
         </div>
         <div className="sidebar-body">
-          <ul>
-            <NavLink to="/tasks" className="flex f-start f-center" activeClassName="active flex f-start f-center" accessKey="1">
-              <li>
-                <span className="fa fa-clipboard-list font-bright-blue"></span>
-                TASKS
-            </li>
-            </NavLink>
-
-            <NavLink to="/dashboard" className="flex f-start f-center" activeClassName="active flex f-start f-center" accessKey="2">
-              <li>
-                <span className="fa fa-check font-grass-green"></span>
-                Dashboard
+            {ROLE == 'CSA' && (
+            <ul>
+              <NavLink to="/tasks" className="flex f-start f-center" activeClassName="active flex f-start f-center" accessKey="1">
+                <li>
+                  <span className="fa fa-clipboard-list font-bright-blue"></span>
+                  TASKS
               </li>
-            </NavLink>
+              </NavLink>
 
-
-            {/* <a href="/tasks" onClick={() =>{this.handleSideTabs(0)}}> */}
-
-            {/* <li className={this.state.sideTabs == 0 ? "active flex f-start f-center" : "flex f-start f-center"}>
-                
-              </li> */}
-            {/* </a> */}
-            {/* <a href="/dashboard"  onClick={() =>{this.handleSideTabs(1)}}>
-              <li className={this.state.sideTabs == 1 ? "active flex f-start f-center" : "flex f-start f-center"}>
-                <span className="fa fa-check font-grass-green"></span>
-                MENU 1
+              <NavLink to="/dashboard" className="flex f-start f-center" activeClassName="active flex f-start f-center" accessKey="2">
+                <li>
+                  <span className="fa fa-check font-grass-green"></span>
+                  Dashboard
+                </li>
+              </NavLink>
+            </ul>
+            )}
+            {ROLE == 'PROCESSOR' && (
+            <ul>
+              <NavLink to="/tasks" className="flex f-start f-center" activeClassName="active flex f-start f-center" accessKey="1">
+                <li>
+                  <span className="fa fa-clipboard-list font-bright-blue"></span>
+                  TASKS
               </li>
-            </a> */}
-          </ul>
+              </NavLink>
+            </ul>
+            )}
         </div>
         <div className="sidebar-header">
           Systems

@@ -75,7 +75,7 @@ class LoginForm extends Component {
       if (role === 'CSA') {
         window.location.href = '/tasks';
       } else if (role === 'PROCESSOR') {
-        window.location.href = '/processor';
+        window.location.href = '/tasks';
       } else if (role === 'ADMIN') {
         window.location.href = '/admin';
       }

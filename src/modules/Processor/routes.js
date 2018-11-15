@@ -3,7 +3,7 @@ import EditTaskPage from './pages/EditTaskPage';
 
 const routes = [
   {
-    path: "/processor",
+    path: "/tasks",
     exact: true,
     component: Processor,
   },
