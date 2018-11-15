@@ -9,7 +9,7 @@ class AgentinformationNew extends Component {
         <Input editable="false" inputLabel="Agent Name:" inputPlaceholder="First name Last name" txtboxClass="no-border" inputClass="col xl-8 input-container"value={this.props.policy.agentFirstName}/>
         <Input editable="false" inputLabel="NMA:" inputPlaceholder="NMA" txtboxClass="no-border" inputClass="col xl-4 input-container" value={this.props.policy.nmaDesc}/>
         <Input editable="false" inputLabel="Branch:" inputPlaceholder="Branch Name" txtboxClass="no-border" inputClass="col xl-8 input-container" value={this.props.policy.agentBranchDesc}/>
-        <Input editable="false" inputLabel="Agent Status:" inputPlaceholder="Status" txtboxClass="no-border" inputClass="col xl-4 input-container" value={this.props.policy.status} />
+        <Input editable="false" inputLabel="Agent Status:" inputPlaceholder="Status" txtboxClass="no-border" inputClass="col xl-4 input-container" value={this.props.policy.agentStatus} />
       </div>
 
     );

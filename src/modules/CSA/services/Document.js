@@ -4,6 +4,6 @@ export default class Policy {
   }
   
   getDocumentByTransactionType(transactionType) {
-    return this.http.get(`/lifeasia/documents/${transactionType}/`);
+    return this.http.get(`/lifeasia/documents/${transactionType}`);
   }
 }

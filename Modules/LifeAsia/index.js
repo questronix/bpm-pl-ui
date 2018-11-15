@@ -14,9 +14,7 @@ router.get('/:clientNum/client', mw.isAuthenticated, (req, res) => {
 
   client.getClientDetails(req.params.clientNum)
     .then(data => {
-      res.send({
-        data
-      });
+      res.send(data);
     })
     .catch(error => {
       res.error(error);
@@ -38,11 +36,47 @@ router.put('/client/update', (req, res) => {
   });
 });
 
-router.get('/:policyNum/policy', mw.isAuthenticated, (req, res) => {
+router.get('/:policyNum/policy', mw.isAuthenticated, async(req, res) => {
   const ACTION = '[getPolicy]';
   Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+  let policy;
+  policy = await la.getPolicy(req.params.policyNum)
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
 
-  la.getPolicy(req.params.policyNum)
+  la.getLarten(req.params.policyNum)
+    .then(data => {
+      // policy.result.push(data);
+      // const d = { }
+      if (data.status == "fail") {
+        res.send(data)
+      } else {
+        res.send({
+          status: "success",
+          result: { number: req.params.policyNum, ...policy.result, ...data.result},
+        });
+      }
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
+  
+  
+  // la.getPolicy(req.params.policyNum)
+  //   .then(data => {
+  //     res.send(data);
+  //   })
+  //   .catch(err => {
+  //     res.status(err.status).send(err);
+  //   });
+});
+
+router.get('/:policyNum/lartenq', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[getLartenq]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+
+  la.getLarten(req.params.policyNum)
     .then(data => {
       res.send(data);
     })
@@ -105,6 +139,19 @@ router.post('/transaction', mw.isAuthenticated, (req, res) => {
       res.send({
         data
       });
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
+});
+
+router.post('/save', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[postSaveTransaction]';
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+
+  trans.saveTransaction(req.body)
+    .then(data => {
+      res.send(data);
     })
     .catch(err => {
       res.status(err.status).send(err);

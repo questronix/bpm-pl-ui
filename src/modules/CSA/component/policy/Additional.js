@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import Input from '../../../../shared/component/input/Input';
+import YesNoRadio from '../../../../shared/component/radio/YesNoRadio';
 
 class FatcaNew extends Component {
   constructor(props) {
     super(props);
     
-    this.handleRadioChange = this.handleRadioChange.bind(this);
+    this.handleYesNoChange = this.handleYesNoChange.bind(this);
   }
 
-  handleRadioChange(event) {
-    this.props.onTransactionChange(event.target.value);
-  }
-
-  handleMultiSelectChange(i, event) {
-    this.props.transactionCheckList[i].isChecked = !this.props.transactionCheckList[i].isChecked;
-    console.log(this.props.transactionCheckList[i]);
+  handleYesNoChange(name, value) {
+    this.props.onYesNoSelect(name, value);
   }
 
   render() {
@@ -30,7 +26,14 @@ class FatcaNew extends Component {
                 inputLabel="Date of Signing:"
                 txtboxClass="bg-lightgray" />
               <div className="xl-6">
-                <p className="label container">
+                <YesNoRadio
+                  name="isRelativeOfAgent"
+                  title="Relative Of Agent"
+                  isRequired={false}
+                  isYesDefault={this.props.isRelativeOfAgent}
+                  onSelect={this.handleYesNoChange}
+                />
+                {/* <p className="label container">
                   Relative of Agent:
                 </p>
                 <div className="xl-6">
@@ -42,10 +45,17 @@ class FatcaNew extends Component {
                   <input type="radio" id="no" name="Relative" />
                     <span className="checkmark"></span>
                   </label>
-                </div>
+                </div> */}
               </div>
               <div className="xl-6">
-                <p className="label container">
+                <YesNoRadio
+                  name="isFatcaTagging"
+                  title="FATCA Tagging"
+                  isRequired={false}
+                  isYesDefault={this.props.isFatcaTagging}
+                  onSelect={this.handleYesNoChange}
+                />
+                {/* <p className="label container">
                   FATCA Tagging:
                 </p>
                 <div className="xl-6">
@@ -57,10 +67,17 @@ class FatcaNew extends Component {
                   <input type="radio" id="no1" name="FATCA" />
                     <span className="checkmark"></span>
                   </label>
-                </div>
+                </div> */}
               </div>
               <div className="xl-6">
-                <p className="label container">
+              <YesNoRadio
+                  name="withReinstatementAgent"
+                  title="With Reinstating Agent"
+                  isRequired={false}
+                  isYesDefault={this.props.withReinstatementAgent}
+                  onSelect={this.handleYesNoChange}
+                />
+                {/* <p className="label container">
                   With Reinstating Agent:
                 </p>
                 <div className="xl-6">
@@ -72,10 +89,17 @@ class FatcaNew extends Component {
                   <input type="radio" id="no2" name="WithReinstating" />
                     <span className="checkmark"></span>
                   </label>
-                </div>
+                </div> */}
               </div>
               <div className="xl-6">
-                <p className="label container">
+              <YesNoRadio
+                  name="completeFatca"
+                  title="Complete FATCA Requirements?"
+                  isRequired={false}
+                  isYesDefault={this.props.completeFatca}
+                  onSelect={this.handleYesNoChange}
+                />
+                {/* <p className="label container">
                 Complete FATCA Requirements?:
                 </p>
                 <div className="xl-6">
@@ -87,7 +111,7 @@ class FatcaNew extends Component {
                   <input type="radio" id="no3" name="completeFATCA" />
                     <span className="checkmark"></span>
                   </label>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

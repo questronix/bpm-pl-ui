@@ -118,16 +118,16 @@ class TransactionNew extends Component {
                     <table border="0" cellSpacing="0">
                       <tbody>
                         {this.props.docs.map((doc, index) => (
-                          <tr key={doc.Docs_ID}>
+                          <tr key={doc.DOCS_Id}>
                             <td className="flex align-center">
-                              <label htmlFor={`doc${doc.Docs_ID}`}>
+                              <label htmlFor={`doc${doc.DOCS_Id}`}>
                                 {doc.Description}
                               </label>
                             </td>
                             <td align="right">
                               <label className="checkbox">
                                 <input
-                                  id={`doc${doc.Docs_ID}`}
+                                  id={`doc${doc.DOCS_Id}`}
                                   index={index}
                                   type="checkbox"
                                   checked={doc.value}
@@ -151,18 +151,18 @@ class TransactionNew extends Component {
                 inputPlaceholder="(from LA)"
                 txtboxClass="no-border"
                 inputClass="input-container container"
-                value=""
+                value={this.props.policy.requiredPremium}
               />
               <Input
                 inputLabel="Suspense:"
                 inputPlaceholder="(from LA)"
                 txtboxClass="no-border"
                 inputClass="input-container container"
-                value=""
+                value={this.props.policy.pdfSuspense}
               />
               <Input
                 classRequired="required"
-                inputLabel="Signature Verified:"
+                inputLabel="OR Number :"
                 inputPlaceholder="Enter OR Number"
                 txtboxClass="no-border"
                 inputClass="input-container container"
@@ -176,7 +176,7 @@ class TransactionNew extends Component {
                 onSelect={this.handleSignatureVerifiedChange}
               />
             </div>
-          </div>
+          </div>  
         </div>
         <hr className="no-margin" />
       </div>

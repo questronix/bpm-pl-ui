@@ -24,11 +24,11 @@ class YesNoRadio extends Component {
           {this.props.title}:
         </p>
         <div className="">
-          <label className="checkbox container" htmlFor="yes">
+          <label className="checkbox container" htmlFor={`${this.props.name}Yes`}>
             Yes
             <input
               type="radio"
-              id="yes"
+              id={`${this.props.name}Yes`}
               name={this.props.name}
               defaultValue={true}
               defaultChecked={this.props.isYesDefault ? true : false}
@@ -36,11 +36,11 @@ class YesNoRadio extends Component {
             />
             <span className="checkmark" />
           </label>
-          <label className="checkbox container" htmlFor="no">
+          <label className="checkbox container" htmlFor={`${this.props.name}No`}>
             No
             <input
               type="radio"
-              id="no"
+              id={`${this.props.name}No`}
               name={this.props.name}
               defaultValue={false}
               defaultChecked={!this.props.isYesDefault ? true : false}

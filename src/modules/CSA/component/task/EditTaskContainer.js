@@ -68,6 +68,34 @@ class EditTaskContainer extends Component {
       isVisitedOwner: false,
       isVisitedAdditional: false,
 
+      // INSURED TAB
+      insured: null,
+      isChangeInOccupation: false,
+      isChangeInAddress: false,
+      isSOI: false,
+      isPregnant: false,
+      additionalFMA: false,
+      additionalMUR: false,
+
+      // OWNER TAB
+      owner: null,
+      isChangeInOccupationOwner: false,
+      isChangeInAddressOwner: false,
+      isSOIOwner: false,
+      isPregnantOwner: false,
+      additionalFMAOwner: false,
+      additionalMUROwner: false,
+
+      // ADDITIONAL TAB
+      isRelativeOfAgent: false,
+      isFatcaTagging: false,
+      withReinstatementAgent: false,
+      completeFatca: false,
+      additionalDateOfSigning: false,
+
+
+      client: {},
+
       policyNumberSearch: '',
       polId: '',
       polNumber: '',
@@ -82,7 +110,7 @@ class EditTaskContainer extends Component {
         sumAssured: '000001111',
         createdDate: '10-12-18'
       },
-      insured: {},
+      
       selectedTransaction: '',
       transactionCheckList: [],
       statementOfInsurability: false,
@@ -94,7 +122,6 @@ class EditTaskContainer extends Component {
       tasks: [],
       taskHistory: [],
       policyNumber: '',
-      client: {},
       Tabs: 0
     };
 
@@ -115,6 +142,9 @@ class EditTaskContainer extends Component {
     this.handleSubTransactionTypeChange = this.handleSubTransactionTypeChange.bind(this);
     this.handleDocSelect = this.handleDocSelect.bind(this);
     this.handleYesNoSelect = this.handleYesNoSelect.bind(this);
+
+    // Insured Tab Events
+    this.handleOnCheckChange = this.handleOnCheckChange.bind(this);
     
     // Test
     this.decrement = this.decrement.bind(this);
@@ -146,19 +176,19 @@ class EditTaskContainer extends Component {
       .finally(() => {});
     // }
 
-    PolicyService.getClientIformationByid("81789377")
-      .then((res) => {
-        console.log('CLIENT INFO: ', res.data);
-        this.setState({ client: res.data.data.result.data});
-      }).finally(() => {
+    // PolicyService.getClientIformationByid("81789377")
+    //   .then((res) => {
+    //     console.log('CLIENT INFO: ', res.data);
+    //     this.setState({ client: res.data.result});
+    //   }).finally(() => {
         
-      });
+    //   });
     
     DocumentService.getDocumentByTransactionType(this.state.transactionType)
     .then((res) => {
       // TODO: FIX RESPONSE
-      console.log('DOCSSSS', res.data.msg.result);
-      const d = res.data.msg.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
+      console.log('DOCSSSS', res.data.result);
+      const d = res.data.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
       this.setState({ docs: d });
     }).finally(() => {
       if (this.state.docs) {
@@ -414,16 +444,16 @@ class EditTaskContainer extends Component {
 
   handleNextTab() {
     const { currentTab } = this.state;
-    if (currentTab + 1 > 4) return;
+    if (currentTab + 1 > 5) return;
     this.setState({ currentTab: currentTab + 1 });
-    this.updateVistedTab(currentTab);
+    this.updateVistedTab(currentTab + 1);
   }
 
   handlePrevTab() {
     const { currentTab } = this.state;
     if (currentTab - 1 < 1) return;
     this.setState({ currentTab: currentTab - 1 });
-    this.updateVistedTab(currentTab);
+    this.updateVistedTab(currentTab - 1);
   }
 
   handleSkipTab(tabPage) {
@@ -459,17 +489,57 @@ class EditTaskContainer extends Component {
     this.setState({ selectedDocs });
   }
 
+  handleOnCheckChange(name, val) {
+    this.setState({ [name] : !val });
+  }
+
   handleYesNoSelect(name, val) {
     console.log(name, val);
-    this.setState({ [name]: val })
+    this.setState({ [name]: val });
   }
 
   updateVistedTab(tabPage) {
     if (tabPage === 1) this.setState({ isVisitedTransaction: true });
-    if (tabPage === 2) this.setState({ isVisitedInsured: true });
-    if (tabPage === 3) this.setState({ isVisitedOwner: true });
+    if (tabPage === 2) {
+      this.setState({ isVisitedInsured: true }); this.getInsuredDetails();
+    }
+    if (tabPage === 3) { 
+      this.setState({ isVisitedOwner: true }); this.getOwnerDetails();
+    }
     if (tabPage === 4) this.setState({ isVisitedAdditional: true });
+    if (tabPage === 5) {
+      if (window.confirm('Are you sure you want to Proceed')) {
+        this.saveTransaction();
+      }
+    }
     this.setState({ visitedTabStatus: tabPage });
+  }
+
+  saveTransaction() {
+    const args = {
+      result: {
+        transactionNumber: this.state.transactionNumber,
+        policyno: this.state.policy.number,
+        transactionType: this.state.transactionType,
+        subTransactionType: this.state.subTransactionType,
+        transDocID: 1,
+        assignee: "PROCESSOR",
+        createdBy: JSON.parse(localStorage.getItem('user_info')).User_ID
+      }
+    }
+    PolicyService.saveTransaction(args)
+    .then((res) => {
+      // TODO: FIX RESPONSE
+      if (res.data.isSuccess) {
+        alert('Transaction saved!');
+        // window.location.href = '/tasks';
+      }
+      else {
+        alert('Failed to save transaction');
+      }
+    }).finally(() => {
+      
+    });
   }
 
   getClientInfo(id) {
@@ -527,6 +597,40 @@ class EditTaskContainer extends Component {
     );
   }
 
+  getInsuredDetails() {
+    if (insured) return;
+    const insured = this.state.clients.find(client => client.role == "LF");
+    PolicyService.getClientIformationByid(insured.clntNum)
+      .then((res) => {
+        console.log('INSURED INFO: ', res.data);
+        if (res.data.result) {
+          this.setState({ insured: res.data.result});
+        }
+        else {
+          alert('Failed getting data to lifeasia');
+        }
+      }).finally(() => {
+        
+      });
+  }
+
+  getOwnerDetails() {
+    if (owner) return;
+    const owner = this.state.clients.find(client => client.role == "OW");
+    PolicyService.getClientIformationByid(owner.clntNum)
+      .then((res) => {
+        console.log('OWNER INFO: ', res.data);
+        if (res.data.result) {
+          this.setState({ owner: res.data.result});
+        }
+        else {
+          alert('Failed getting data to lifeasia');
+        }
+      }).finally(() => {
+        
+      });
+  }
+
   render() {
     return (
       <div className="flex-container flex-wrap">
@@ -543,7 +647,7 @@ class EditTaskContainer extends Component {
                     Transaction Number  :
                   </p>
                   <p className="font-prulife ">
-                    {this.state.transactionNumber}
+                    {`${this.state.transactionNumber.substr(0, 2)}-${this.state.transactionNumber.substr(2, 6)}`}
                   </p>
                 </div>
                 <div className="flex">
@@ -551,7 +655,7 @@ class EditTaskContainer extends Component {
                     Transaction Type	:
                   </p>
                   <p className="font-prulife ">
-                    Reinstatement - Updating
+                    Reinstatement - {this.state.subTransactionType === 1 && `Updating`} {this.state.subTransactionType === 2 && `Redating`} {this.state.subTransactionType === 3 && `Waiver`}
                 </p>
                 </div>
               </div>
@@ -605,7 +709,8 @@ class EditTaskContainer extends Component {
             <TabHeader policy={this.state.policy} clients={this.state.clients} />
             <div className="box-body">
 
-              {this.state.currentTab === 1 && <TransactionNew 
+              {this.state.currentTab === 1 && <TransactionNew
+                policy={this.state.policy} 
                 transactionNumber={this.state.transactionNumber}
                 transactionType={this.state.transactionType}
                 subTransactionType={this.state.subTransactionType}
@@ -616,9 +721,37 @@ class EditTaskContainer extends Component {
                 onDocSelect={this.handleDocSelect}
                 onSelectSignatureVerified={this.handleYesNoSelect}
               />}
-              {this.state.currentTab === 2 && <InsuredinformationNew client={this.state.client} />}
-              {this.state.currentTab === 3 && <OwnerinformationNew client={this.state.client} />}
-              {this.state.currentTab === 4 && <Additional />}
+              {this.state.currentTab === 2 && <InsuredinformationNew 
+                client={this.state.insured} 
+                isChangeInOccupation={this.state.isChangeInOccupation}
+                isChangeInAddress={this.state.isChangeInAddress}
+                isSOI={this.state.isSOI}
+                isPregnant={this.state.isPregnant}
+                onYesNoSelect={this.handleYesNoSelect}
+                fma={this.state.additionalFMA}
+                mur={this.state.additionalMUR}
+                onCheckChange={this.handleOnCheckChange}
+              />}
+              {this.state.currentTab === 3 && <OwnerinformationNew 
+                client={this.state.owner} 
+                isChangeInOccupation={this.state.isChangeInOccupationOwner}
+                isChangeInAddress={this.state.isChangeInAddressOwner}
+                isSOI={this.state.isSOIOwner}
+                isPregnant={this.state.isPregnantOwner}
+                onYesNoSelect={this.handleYesNoSelect}
+                fma={this.state.additionalFMAOwner}
+                mur={this.state.additionalMUROwner}
+                onCheckChange={this.handleOnCheckChange}
+              />}
+              {/* {this.state.currentTab === 3 && <OwnerinformationNew client={this.state.owner} />} */}
+              {this.state.currentTab === 4 && <Additional
+                isRelativeOfAgent={this.state.isRelativeOfAgent}
+                isFatcaTagging={this.state.isFatcaTagging}
+                withReinstatementAgent={this.state.withReinstatementAgent}
+                completeFatca={this.state.completeFatca}
+                additionalDateOfSigning={this.state.additionalDateOfSigning}
+                onYesNoSelect={this.handleYesNoSelect}
+              />}
 
               <div className="flex f-justify-space-between container">
                 <button className="btn prulife" accessKey="," onClick={this.handlePrevTab}>

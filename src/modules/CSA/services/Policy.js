@@ -10,7 +10,15 @@ export default class Policy {
     return this.http.get(`/lifeasia/${id}/client`);
   }
 
+  getLarten(id){
+    return this.http.get(`/lifeasia/${id}/lartenq`);
+  }
+
   createNewTask(args) {
     return this.http.post('/policy', args);
+  }
+
+  saveTransaction(args) {
+    return this.http.post('/lifeasia/save', args);
   }
 }

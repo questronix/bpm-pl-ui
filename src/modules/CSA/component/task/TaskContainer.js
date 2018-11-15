@@ -12,7 +12,7 @@ class TaskContainer extends Component {
     this.state = {
       tasks: [],
       taskHistory: [],
-      policyNumber: '',
+      policyNumber: '', //00043256
       policy: {},
       client: {},
       transactionId: '',
@@ -105,6 +105,9 @@ class TaskContainer extends Component {
             policy: res.data.result,
             showComponent: true
           });
+        }
+        else if (res.data.status == "fail") {
+          alert(res.data.message);
         } else {
           console.log('Error: ', res.data);
           alert(res.data.message);
@@ -113,7 +116,7 @@ class TaskContainer extends Component {
       .finally(() => {
         this.setState({
           isSearching: false,
-          isError: true
+          // isError: true
         });
       });
   }
