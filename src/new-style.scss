@@ -1577,7 +1577,7 @@ $background_color_1: #ED1B2E;
         flex: 1;
         height: 30px;
         color: #232323;
-        font: bold 19px 'Century Gothic';
+        font: bold 19px ;
         line-height: 30px;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -1863,10 +1863,10 @@ $background_color_1: #ED1B2E;
       -webkit-animation-duration: .5s;
   }
 
-div{
-    @extend .fade-in;
-    @include transition();
-}
+// div{
+//     @extend .fade-in;
+//     @include transition();
+// }
 // Widgets
 @mixin max-width ($n) {
     max-width: 100% * ($n / 12) !important;
@@ -2199,7 +2199,7 @@ table {
     }
     th {
         color: $color_1;
-        font: bold 13px 'Century Gothic';
+        font: bold 13px;
         text-align: left;
         padding: 25px 10px 8px 10px;
         font-size: 13px;
@@ -2211,7 +2211,7 @@ table {
     td {
         position: relative;
         color: $color_1;
-        font: normal 12px 'Century Gothic';
+        font: normal 12px;
         padding: 15px 10px;
         cursor: pointer;
     }
