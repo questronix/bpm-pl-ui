@@ -15,6 +15,8 @@ class ReviewTransaction extends Component {
     this.state = {
       policy: {},
       visible: false,
+      insuredVisible: false,
+      ownerVisible: false,
       clients: [],
       client: {},
       policy: {},
@@ -24,6 +26,8 @@ class ReviewTransaction extends Component {
     this.handlePrevTab = this.handlePrevTab.bind(this);
     this.handleNextTab = this.handleNextTab.bind(this);
     this.isVisible = this.isVisible.bind(this);
+    this.isInsuredVisible = this.isInsuredVisible.bind(this);
+    this.isOwnerVisible = this.isOwnerVisible.bind(this)
   }
 
   componentWillMount() {
@@ -182,6 +186,13 @@ class ReviewTransaction extends Component {
   isVisible() {
     this.setState({ visible: !this.state.visible })
   }
+  isInsuredVisible() {
+    this.setState({ insuredVisible: !this.state.insuredVisible })
+  }
+  isOwnerVisible() {
+    this.setState({ ownerVisible: !this.state.ownerVisible })
+  }
+
 
   render() {
     return (
@@ -205,26 +216,54 @@ class ReviewTransaction extends Component {
           <AgentInfoHeader policy={this.state.policy} clients={this.state.clients} />
         </div>
         <div className="showmore bg-bright-blue flex">
-          <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isVisible} accessKey="s">
+          <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isInsuredVisible} accessKey="s">
             <h3 className="font-white no-margin">
               Insured Details
             </h3>
             &nbsp; <span className="fa fa-chevron-down font-white"></span>
           </button>
         </div>
-        <div className={this.state.visible ? "processor-dropdown active" : "processor-dropdown"}>
-          <InsuredinformationNew client={this.state.client} />
+        <div className={this.state.insuredVisible ? "processor-dropdown active" : "processor-dropdown"}>
+          <div className="insured-details">
+            <div className="col no-padding xl-12">
+              <h2 className="no-margin">
+                Insured Details
+              </h2>
+            </div>
+            <div className="col xl-12 flex f-center f-start">
+              <span className="fa fa-user font-prulife">
+              </span> &nbsp;
+              <h3 className="no-margin">
+                Personal Information
+              </h3>
+            </div>
+            <InsuredinformationNew client={this.state.client} />
+          </div>
         </div>
         <div className="showmore bg-bright-blue flex">
-          <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isVisible} accessKey="s">
+          <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isOwnerVisible} accessKey="s">
             <h3 className="font-white no-margin">
-              Insured Details
+              Owner Details
             </h3>
             &nbsp; <span className="fa fa-chevron-down font-white"></span>
           </button>
         </div>
-        <div className={this.state.visible ? "processor-dropdown active" : "processor-dropdown"}>
-          <OwnerinformationNew policy={this.state.policy} client={this.state.client} />
+        <div className={this.state.ownerVisible ? "processor-dropdown active" : "processor-dropdown"}>
+          <div className="insured-details">
+            <div className="col no-padding xl-12">
+              <h2 className="no-margin">
+                Owner Details
+              </h2>
+            </div>
+            <div className="col xl-12 flex f-center f-start">
+              <span className="fa fa-user font-prulife">
+              </span> &nbsp;
+            <h3 className="no-margin">
+              Personal Information
+            </h3>
+            </div>
+            <OwnerinformationNew policy={this.state.policy} client={this.state.client} />
+          </div>
         </div>
       </div >
     );

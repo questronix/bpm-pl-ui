@@ -2411,7 +2411,7 @@ input[type="search"] {
         overflow: hidden;
         transition: max-height .3s ease-in-out;
         &.active{
-            max-height: 1000px !important;
+            max-height: 5000px !important;
             transition: max-height .3s ease-in-out;
             overflow: hidden !important;
             padding-bottom: 0px;

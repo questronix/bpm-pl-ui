@@ -1956,7 +1956,7 @@ input[type="search"]::-webkit-search-results-decoration {
   overflow: hidden;
   transition: max-height .3s ease-in-out; }
   .processor-container .processor-dropdown.active {
-    max-height: 1000px !important;
+    max-height: 5000px !important;
     transition: max-height .3s ease-in-out;
     overflow: hidden !important;
     padding-bottom: 0px; }
@@ -2117,4 +2117,4 @@ input[type="search"]::-webkit-search-results-decoration {
     font-weight: bold;
     color: #bdbdbd; }
 
-/*# sourceMappingURL=Override.css.map */
+/*# sourceMappingURL=override.css.map */
