@@ -229,7 +229,7 @@ body, html {
   background-color: #eee !important; }
 
 .bg-none {
-  background-color: transparent; }
+  background-color: transparent !important; }
 
 .font-primary {
   color: #1e88e5 !important; }
@@ -1917,6 +1917,9 @@ input[type="search"]::-webkit-search-results-decoration {
   border-radius: 6px;
   outline: none; }
 
+.processor .input-container.col {
+  padding: 4px; }
+
 .insured-details {
   overflow: hidden;
   position: relative;
@@ -1945,6 +1948,19 @@ input[type="search"]::-webkit-search-results-decoration {
     display: -ms-flex;
     display: flex; }
 
+.processor-container .showmore {
+  border: none;
+  border-bottom: 1px solid #fff; }
+.processor-container .processor-dropdown {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .3s ease-in-out; }
+  .processor-container .processor-dropdown.active {
+    max-height: 1000px !important;
+    transition: max-height .3s ease-in-out;
+    overflow: hidden !important;
+    padding-bottom: 0px; }
+
 .policyinfo-container {
   max-height: 110px;
   overflow: hidden;
@@ -1968,6 +1984,9 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .showmore {
   height: 50px; }
+  .showmore button {
+    outline: none;
+    cursor: pointer; }
 
 .transaction-container .additional-policy-info {
   display: none; }
