@@ -206,8 +206,13 @@ class ReviewTransaction extends Component {
           </button>
         </div>
         <div className={this.state.visible ? "processor-dropdown active" : "processor-dropdown"}>
-          {/* <TabHeader policy={this.state.policy} clients={this.state.clients} /> */}
+          <h2 className="font-prulife col no-margin">
+            Policy Information
+          </h2>
           <PolicyInfoHeader policy={this.state.policy} clients={this.state.clients} />
+          <h2 className="font-prulife col no-margin">
+            Agent Information
+          </h2>
           <AgentInfoHeader policy={this.state.policy} clients={this.state.clients} />
         </div>
         <div className="showmore bg-bright-blue flex">
@@ -219,7 +224,9 @@ class ReviewTransaction extends Component {
           </button>
         </div>
         <div className={this.state.insuredVisible ? "processor-dropdown active" : "processor-dropdown"}>
-          <InsuredinformationNew  client={this.state.client} />
+          <div className="insured-details">
+            <InsuredinformationNew client={this.state.client} />
+          </div>
         </div>
         <div className="showmore bg-bright-blue flex">
           <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isOwnerVisible} accessKey="s">
@@ -230,7 +237,9 @@ class ReviewTransaction extends Component {
           </button>
         </div>
         <div className={this.state.ownerVisible ? "processor-dropdown active" : "processor-dropdown"}>
-          <OwnerinformationNew policy={this.state.policy} client={this.state.client}/>
+          <div className="insured-details">
+            <OwnerinformationNew policy={this.state.policy} client={this.state.client} />
+          </div>
         </div>
       </div >
     );

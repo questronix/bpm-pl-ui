@@ -41,7 +41,7 @@ class TaskContainer extends Component {
           });
         }
       })
-      .finally(() => {});
+      .finally(() => { });
 
     TaskService.getAllTaskHistory()
       .then(res => {
@@ -52,7 +52,7 @@ class TaskContainer extends Component {
           });
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   }
 
   handleSubmit(event) {
@@ -86,10 +86,10 @@ class TaskContainer extends Component {
       this.getClientInfo(12345);
     }
   }
-  
+
   handleModalToggle() {
     console.log('TOGGLE_MODAL')
-    this.setState({ openSearchModal:  !this.state.openSearchModal });
+    this.setState({ openSearchModal: !this.state.openSearchModal });
   }
 
   handlemodalAlert(){
@@ -175,7 +175,7 @@ class TaskContainer extends Component {
     //     const t = JSON.parse(JSON.stringify(res.data.variables.policy));
     //     localStorage.setItem("transactionNumber", t.transactionNo);
     //     localStorage.setItem("policy", JSON.stringify(this.state.policy));
-        // this.props.history.push(`/tasks/edit?id=${res.data.id}`);
+    // this.props.history.push(`/tasks/edit?id=${res.data.id}`);
     //   })
     //   .catch(err => {
     //     console.log(err);
@@ -205,34 +205,41 @@ class TaskContainer extends Component {
               Are you sure you want to Proceed?
             </h3>
           </div>
-      </ModalAlert> 
+        </ModalAlert>
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
         <MyModal modalId="1" modalLabel="New Transaction" isOpen={this.state.openSearchModal} onToggle={this.handleModalToggle}>
           <div className="col xl-12">
-              <form>
-                <div className="xl-12 flex f-justify-space-between">
-                  <div className="xl-11 search-container bg-lightgray no-border">
-                    <input
-                      className="search bg-lightgray no-border"
-                      type="text"
-                      placeholder="Search..."
-                      value={this.state.policyNumber}
-                      onChange={this.handleInputChange}
-                    />
-                  </div>
-                  <button
-                    className="btn prulife flex f-center"
-                    onClick={this.handleSubmit}
-                  >
-                    <span className="fa fa-search font-white" /> &nbsp;
-                    <span>SEARCH</span>
-                  </button>
+            <form>
+              <div className="xl-12 flex f-justify-space-between">
+                <div className="xl-11 search-container bg-lightgray no-border">
+                  <input
+                    className="search bg-lightgray no-border"
+                    type="text"
+                    placeholder="Search..."
+                    value={this.state.policyNumber}
+                    onChange={this.handleInputChange}
+                    autoFocus
+                  />
                 </div>
-              </form>
+                <button
+                  className="btn prulife flex f-center"
+                  onClick={this.handleSubmit}
+                >
+                  <span className="fa fa-search font-white" /> &nbsp;
+                    <span>SEARCH</span>
+                </button>
+              </div>
+            </form>
             <br />
             <hr />
           </div>
-          {isSearching && <div>Searching Policy</div>}
+          {isSearching &&
+            <div className="no-search-result flex f-center modal-body loading">
+                  <span className="spinner atom"></span>
+                  <br />
+                  <p className="font-white">Im on it!</p>
+            </div>
+          }
           {policy.status && (
             <div>
               <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
@@ -302,7 +309,7 @@ class TaskContainer extends Component {
               </div>
               <div className="flex f-row">
                 <button className="btn prulife" onClick={this.handleModalToggle} accessKey="s">
-                  <span className="fa fa-plus"></span> &nbsp; CREATE NEW TRANSACTION 
+                  <span className="fa fa-plus"></span> &nbsp; CREATE NEW TRANSACTION
                 </button>
               </div>
             </div>

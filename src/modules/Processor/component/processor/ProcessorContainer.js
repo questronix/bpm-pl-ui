@@ -10,6 +10,7 @@ import Footer from '../../../../shared/component/footer/Footer';
 import ProcessorHeader from './ProcessorHeader';
 import TabHeader from '../../../CSA/component/policy/TabHeader';
 import ReviewTransaction from './ReviewTransaction';
+import ProcessingDetails from './ProcessingDetails';
 
 class ProcessorContainer extends Component {
   constructor(props) {
@@ -202,11 +203,10 @@ class ProcessorContainer extends Component {
                 <h4>Processing Details</h4>
               </div>
             </div>
-            
-            <TabHeader policy={this.state.policy} clients={this.state.clients} />
+            <ProcessorHeader/>
             <div className="box-body">
               {this.state.currentTab === 1 && <ReviewTransaction/>}
-              {this.state.currentTab === 2}
+              {this.state.currentTab === 2 && <ProcessingDetails/>}
             </div>
           </div>
         </div>

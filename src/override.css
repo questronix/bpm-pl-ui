@@ -1333,7 +1333,8 @@ nav.navbar .navmenu {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 100%; }
+    width: 100%;
+    cursor: pointer; }
     .box .tab-title-container .tab-title.active {
       background-color: #0064B9; }
       .box .tab-title-container .tab-title.active .white {
@@ -1376,7 +1377,7 @@ nav.navbar .navmenu {
     flex: 1;
     height: 30px;
     color: #232323;
-    font: bold 19px 'Century Gothic';
+    font: bold 19px;
     line-height: 30px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -1548,18 +1549,11 @@ nav.navbar .navmenu {
   -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: infinite; }
 
-.fade-in, div, .modal-alert {
+.fade-in, .modal-alert {
   animation-name: fade-in;
   animation-duration: .5s;
   -webkit-animation-name: fade-in;
   -webkit-animation-duration: .5s; }
-
-div {
-  -webkit-transition: all .3s ease-out;
-  -moz-transition: all .3s ease-out;
-  -ms-transition: all .3s ease-out;
-  -o-transition: all .3s ease-out;
-  transition: all 0.3s ease-out; }
 
 .tooltip {
   position: relative;
@@ -1672,8 +1666,21 @@ div {
 .modal-header {
   border-bottom: 1px solid #bdbdbd; }
 
-.modal-body .input-container {
-  padding: 5px; }
+.modal-body {
+  overflow: hidden;
+  position: relative; }
+  .modal-body.loading {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999; }
+  .modal-body .input-container {
+    padding: 5px; }
 
 .modal-bg {
   position: absolute;
@@ -1785,7 +1792,7 @@ table tr {
     color: #00ADD8; }
 table th {
   color: #232323;
-  font: bold 13px 'Century Gothic';
+  font: bold 13px;
   text-align: left;
   padding: 25px 10px 8px 10px;
   font-size: 13px;
@@ -1796,7 +1803,7 @@ table th {
 table td {
   position: relative;
   color: #232323;
-  font: normal 12px 'Century Gothic';
+  font: normal 12px;
   padding: 15px 10px;
   cursor: pointer; }
 
@@ -1956,10 +1963,15 @@ input[type="search"]::-webkit-search-results-decoration {
   overflow: hidden;
   transition: max-height .3s ease-in-out; }
   .processor-container .processor-dropdown.active {
-    max-height: 1000px !important;
+    max-height: 5000px !important;
     transition: max-height .3s ease-in-out;
     overflow: hidden !important;
     padding-bottom: 0px; }
+
+.document-container {
+  height: 100%; }
+  .document-container object {
+    position: absolute; }
 
 .policyinfo-container {
   max-height: 110px;
@@ -2117,4 +2129,4 @@ input[type="search"]::-webkit-search-results-decoration {
     font-weight: bold;
     color: #bdbdbd; }
 
-/*# sourceMappingURL=Override.css.map */
+/*# sourceMappingURL=override.css.map */

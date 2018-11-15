@@ -163,6 +163,39 @@ class ProcessorHeader extends Component {
               </div>
             </div>
           </div>
+          <div className="header">
+            <h3 className="font-prulife">
+              Document Details
+               </h3>
+            <hr />
+          </div>
+          <div className="xl-12 container flex-container flex-wrap">
+            <div className="xl-6 container">
+              <div className="xl-6 margin-auto">
+                <a href="/DocumentViewer" className="btn prulife flex f-justify-space-between col" target="_blank">
+                  Insured Documment
+                <span className="fa fa-file font-white"></span>
+                </a>
+              </div>
+            </div>
+            <div className="xl-6 container">
+              <div className="xl-6 margin-auto">
+                <a href="/DocumentViewer" className="btn prulife flex f-justify-space-between col" target="_blank">
+                  Insured Documment
+                <span className="fa fa-file font-white"></span>
+                </a>
+              </div>
+            </div>
+            <div className="xl-6 container">
+              <div className="xl-6 margin-auto">
+                <a href="/DocumentViewer" className="btn prulife flex f-justify-space-between col" target="_blank">
+                  Insured Documment
+                <span className="fa fa-file font-white"></span>
+                </a>
+              </div>
+            </div>
+            <div className="xl-6 container"></div>
+          </div>
         </div>
       </div >
     );
