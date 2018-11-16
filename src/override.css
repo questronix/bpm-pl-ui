@@ -1710,8 +1710,7 @@ nav.navbar .navmenu {
   width: 50%;
   margin: auto;
   background: #fff;
-  height: 100%;
-  overflow: auto; }
+  height: 100%; }
 
 .modal__close {
   position: fixed;

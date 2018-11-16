@@ -169,7 +169,8 @@ class OwnerinformationNew extends Component {
           />
           <div className="xl-2">
             <p className="label flex no-margin">
-              Change in Occupation: &nbsp;<span className="fa fa-pencil-alt font-prulife"></span>
+              Change in Occupation: 
+              
             </p>
             <div className="col xl-12">
               <label className="checkbox container" htmlFor="yes">Yes
