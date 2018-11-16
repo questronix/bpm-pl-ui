@@ -125,7 +125,7 @@ class TransactionNew extends Component {
                               </label>
                             </td>
                             <td align="right">
-                              <label className="checkbox">
+                              <label className={doc.IsMandatory === "True" ? "checkbox required" : "checkbox"}>
                                 <input
                                   id={`doc${doc.DOCS_Id}`}
                                   index={index}

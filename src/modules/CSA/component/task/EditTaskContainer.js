@@ -52,6 +52,12 @@ class EditTaskContainer extends Component {
       },
       clients: [], // List of clients in Policy Search
       transactionNumber: localStorage.getItem('transactionNumber') || '',
+      task: null,
+      
+      // CONDITIONS
+      isSameInsuredAndOwner: false,
+      isPtrOrPwAvailed: false,
+      isAgentStatusActive: false,
 
       // TRANSACTION SELECTION STATE
       transactionType: 1,
@@ -90,6 +96,7 @@ class EditTaskContainer extends Component {
       isRelativeOfAgent: false,
       isFatcaTagging: false,
       withReinstatementAgent: false,
+      withCosal: false,
       completeFatca: false,
       additionalDateOfSigning: false,
 
@@ -169,8 +176,12 @@ class EditTaskContainer extends Component {
         this.setState({    
           policy: JSON.parse(policy.info),
           transactionNumber: transactionNo,
-          clients: JSON.parse(policy.info).clients
+          clients: JSON.parse(policy.info).clients,
+          isAgentStatusActive: JSON.parse(policy.info).agentStatus == "ACTIVE" ? true: false,
+          task: res.data
         });
+        this.checkIsSameInsuredAndOwner();
+        this.checkPtrOrPwAvailed();
         console.log('CLIENTS:  ', this.state.policy.clients);
       })
       .finally(() => {});
@@ -194,6 +205,7 @@ class EditTaskContainer extends Component {
       if (this.state.docs) {
         this.filterSelectedDocs(this.state.subTransactionType);
       }
+      
     });
 
     // TODO: REST call here
@@ -499,14 +511,23 @@ class EditTaskContainer extends Component {
   }
 
   updateVistedTab(tabPage) {
-    if (tabPage === 1) this.setState({ isVisitedTransaction: true });
+    // if (tabPage === 1) {
+    //   this.setState({ isVisitedTransaction: true });
+    // }
     if (tabPage === 2) {
-      this.setState({ isVisitedInsured: true }); this.getInsuredDetails();
+      this.setState({ 
+        isVisitedTransaction: true, 
+        isVisitedInsured: true 
+      }); 
+      this.getInsuredDetails();
     }
     if (tabPage === 3) { 
-      this.setState({ isVisitedOwner: true }); this.getOwnerDetails();
+      this.setState({ isVisitedOwner: true }); 
+      this.getOwnerDetails();
     }
-    if (tabPage === 4) this.setState({ isVisitedAdditional: true });
+    if (tabPage === 4) { 
+      this.setState({ isVisitedAdditional: true });
+    }
     if (tabPage === 5) {
       if (window.confirm('Are you sure you want to Proceed')) {
         this.saveTransaction();
@@ -631,6 +652,40 @@ class EditTaskContainer extends Component {
       });
   }
 
+  checkIsSameInsuredAndOwner() {
+    const { policy } = this.state;
+    let insured;
+    let owner;
+    
+    if (policy.clients) {
+      owner = policy.clients.find(client => client.role == "OW")
+      insured = policy.clients.find(client => client.role == "LF")
+    }
+
+    if (insured.clntNum == owner.clntNum) {
+      this.setState({ isSameInsuredAndOwner: true });
+    }
+    else {
+      this.setState({ isSameInsuredAndOwner: false });
+    }
+  }
+
+  checkPtrOrPwAvailed() {
+    const { policy } = this.state;
+
+    if (policy.payorTerm == 'Y' || policy.payorWaiver == 'Y') {
+      this.setState({ isPtrOrPwAvailed: true });
+    }
+    else {
+      this.setState({ isPtrOrPwAvailed: false });
+    }
+  }
+
+  formatDate(dt) {
+    const d = new Date(dt);
+    return `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`;
+  }
+
   render() {
     return (
       <div className="flex-container flex-wrap">
@@ -665,7 +720,7 @@ class EditTaskContainer extends Component {
                     Created Date	:	
                   </p>
                   <p className="font-prulife ">
-                  11/13/2018
+                  {this.state.task && this.formatDate(this.state.task.startTime)}
                   </p>
                 </div>
               </div>
@@ -731,6 +786,7 @@ class EditTaskContainer extends Component {
                 fma={this.state.additionalFMA}
                 mur={this.state.additionalMUR}
                 onCheckChange={this.handleOnCheckChange}
+                isPtrOrPwAvailed={this.state.isPtrOrPwAvailed}
               />}
               {this.state.currentTab === 3 && <OwnerinformationNew 
                 client={this.state.owner} 
@@ -742,21 +798,24 @@ class EditTaskContainer extends Component {
                 fma={this.state.additionalFMAOwner}
                 mur={this.state.additionalMUROwner}
                 onCheckChange={this.handleOnCheckChange}
+                isSameInsuredAndOwner={this.state.isSameInsuredAndOwner}
+                isPtrOrPwAvailed={this.state.isPtrOrPwAvailed}
               />}
-              {/* {this.state.currentTab === 3 && <OwnerinformationNew client={this.state.owner} />} */}
               {this.state.currentTab === 4 && <Additional
                 isRelativeOfAgent={this.state.isRelativeOfAgent}
                 isFatcaTagging={this.state.isFatcaTagging}
                 withReinstatementAgent={this.state.withReinstatementAgent}
+                withCosal={this.state.withCosal}
                 completeFatca={this.state.completeFatca}
                 additionalDateOfSigning={this.state.additionalDateOfSigning}
                 onYesNoSelect={this.handleYesNoSelect}
+                isAgentStatusActive={this.state.isAgentStatusActive}
               />}
 
               <div className="flex f-justify-space-between container">
-                <button className="btn prulife" accessKey="," onClick={this.handlePrevTab}>
+                <button className={this.state.currentTab === 1 ? "btn prulife invisible" : "btn prulife"} accessKey="," onClick={this.handlePrevTab}>
                   <span className="fa fa-chevron-left" />&nbsp; BACK
-              </button>
+                </button>
                 <button className="btn prulife" accessKey="." onClick={this.handleNextTab}>
                   PROCEED &nbsp; <span className="fa fa-chevron-right" />
                 </button>

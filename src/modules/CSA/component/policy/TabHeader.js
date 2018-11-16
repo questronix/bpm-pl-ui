@@ -36,8 +36,7 @@ class TabHeader extends Component {
           </div>
           <div className="flex f-end showmore">
             <button className="btn alt text-with-icon container flex f-center" onClick={this.isVisible} accessKey="s">
-              Show more
-              &nbsp; <span className="fa fa-chevron-down"></span>
+              {this.state.visible ? (<>Show less&nbsp; <span className="fa fa-chevron-up"></span></>) : <>Show more&nbsp; <span className="fa fa-chevron-down"></span></>}
             </button>
           </div>
           <hr />
