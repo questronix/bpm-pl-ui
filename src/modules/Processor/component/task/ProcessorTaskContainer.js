@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import TaskList from './TaskList';
-import MyModal from '../../../../shared/component/modal/Modal';
-import PolicyInformationNew from '../policy/PolicyInformationNew';
-import { PolicyService, TaskService } from '../../services';
-import AgentinformationNew from '../policy/AgentinformationNew';
-import ModalAlert from '../../../../shared/component/alerts/ModalAlert';
+import ProcessorTaskList from '../task/ProcessorTaskList'
+import { PolicyService, TaskService } from '../../../CSA/services';
+import Nav from '../nav/Nav';
 
-class TaskContainer extends Component {
+
+class ProcessorTaskContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -187,6 +185,8 @@ class TaskContainer extends Component {
     const { policy, isSearching } = this.state;
 
     return (
+      <div>
+      <Nav/>
       <div className="flex-container flex-wrap margin-top-70">
         {/* THIS WILL BE ADDED IF THE AUTHORITY CAN APPROVE */}
         {/* <ModalAlert>
@@ -198,7 +198,7 @@ class TaskContainer extends Component {
             </p>
           </div>
       </ModalAlert> */}
-      <ModalAlert mHeader="Confirmation" modalalert={this.handlemodalAlert} modalState={this.state.modalAlert} confirm={this.createTask}>
+      {/* <ModalAlert mHeader="Confirmation" modalalert={this.handlemodalAlert} modalState={this.state.modalAlert} confirm={this.createTask}>
           <div className="flex f-center f-column">
 
             <h3 className="text-center">
@@ -285,7 +285,7 @@ class TaskContainer extends Component {
               <p>No record/s found</p>
             </div>
           )}
-        </MyModal>
+        </MyModal> */}
 
         <div className="col xl-10 l-10 m-9 s-9 xs-8">
           <div className="">
@@ -318,14 +318,15 @@ class TaskContainer extends Component {
               <a className="btn-sm  bright-blue">All task</a>
               <a className="btn-sm alt">Recently Updated</a>
             </div>
-            <TaskList tasks={this.state.tasks} policy={this.state.policy} />
+            <ProcessorTaskList tasks={this.state.tasks} policy={this.state.policy} />
             {/* <h1>Task History</h1>  */}
             {/* <TaskList tasks={this.state.taskHistory}/> */}
           </div>
         </div>
       </div>
+      </div>
     );
   }
 }
 
-export default TaskContainer;
+export default ProcessorTaskContainer;
