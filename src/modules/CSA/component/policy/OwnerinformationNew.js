@@ -9,15 +9,8 @@ class OwnerinformationNew extends Component {
 
     return (
       <div className="App">
-        <div className="col xl-12 flex f-center f-start">
-          <span className="fa fa-user font-prulife">
-          </span> &nbsp;
-            <h3 className="no-margin">
-            Personal Information
-            </h3>
-        </div>
         {/* THIS WILL BE ADDED IF THE CONTENT IS THE SAME AS THE INSURED DETAILS */}
-        {/* <div className="content-disabled">
+        <div className="content-disabled active">
             <div className="box">
               <div className="box-body container flex f-center">
                 <span className="fa fa-user-edit font-prulife"></span> &nbsp;
@@ -26,7 +19,14 @@ class OwnerinformationNew extends Component {
               </h3>
               </div>
             </div>
-          </div> */}
+          </div>
+        <div className="col xl-12 flex f-center f-start">
+          <span className="fa fa-user font-prulife">
+          </span> &nbsp;
+            <h3 className="no-margin">
+            Personal Information
+            </h3>
+        </div>
         <div className="xl-12 flex-container flex-wrap">
           <Input
             editable="false"

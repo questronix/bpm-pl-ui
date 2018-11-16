@@ -561,7 +561,7 @@ class EditTaskContainer extends Component {
             <div className="box-body">
               {this.state.currentTab === 1 && <TransactionNew transactionNumber={this.state.transactionNumber} docs={this.state.docs} />}
               {this.state.currentTab === 2 &&
-                <div className="container insured-details">
+                <div className=" insured-details">
                   <div className="col no-padding xl-12 flex f-justify-space-between">
                     <h2 className="no-margin">
                       Insured Details
@@ -573,7 +573,7 @@ class EditTaskContainer extends Component {
                   <InsuredinformationNew client={this.state.client} />
                 </div>}
               {this.state.currentTab === 3 &&
-                <div className="container insured-details">
+                <div className=" insured-details">
                   <div className="col no-padding xl-12 flex f-justify-space-between">
                     <h2 className="no-margin">
                       Owner Details

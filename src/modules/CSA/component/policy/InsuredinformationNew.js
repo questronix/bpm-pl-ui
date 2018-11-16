@@ -114,6 +114,7 @@ class InsuredinformationNew extends Component {
         {/* CHECK POINT */}
         <div className="xl-12 flex-container flex-wrap">
           <Input
+            classRequired="editable"
             txtboxClass="bg-lightgray"
             inputLabel="Email Addtess:"
             inputClass="col xl-4 input-container"

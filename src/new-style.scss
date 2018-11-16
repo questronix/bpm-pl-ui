@@ -639,6 +639,13 @@ select { /* Chrome/Opera/Safari */
     color: $prulife;
     font-size: 13px;
 }
+.editable::after{
+    font-family: "FontAwesome";
+    content: " \f303";
+    color: $prulife;
+    font-size: 13px;
+    
+}
 .label{
     // font-size: 13;   
     font-weight: bold;
