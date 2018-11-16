@@ -99,7 +99,7 @@ class TransactionNew extends Component {
             <div className="xl-3 container-left-border big-container">
               <Input editable="false" inputLabel="Required Premium:" inputPlaceholder="(from LA)" txtboxClass="no-border" inputClass="input-container container" value="" />
               <Input editable="false" inputLabel="Suspense:" inputPlaceholder="(from LA)" txtboxClass="no-border" inputClass="input-container container" value="" />
-              <Input classRequired="required" inputLabel="Signature Verified:" inputPlaceholder="Enter OR Number" txtboxClass="no-border" inputClass="input-container container" value="" />
+              <Input classRequired="required" inputLabel="Signature Verified:" inputPlaceholder="Enter OR Number" txtboxClass="bg-lightgray" inputClass="input-container container" value="" />
               <div className="">
                 <p className="label container required">
                   Signature Verified:
