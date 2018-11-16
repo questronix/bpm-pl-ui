@@ -29,7 +29,7 @@ class Header extends Component {
           </h3>
         </div>
         <div className="header-action dropdown" onClick={() => this.toggleMenu()}>
-          <a href="#" className="flex f-row f-center">
+          <a className="flex f-row f-center">
             <div className="text-right">
               <p className="no-margin">
                 Welcome, {JSON.parse(sessionStorage.getItem('user_info')).Firstname}
@@ -41,7 +41,7 @@ class Header extends Component {
             </div>
             <span className="fa fa-user font-prulife"></span>
           </a>
-          <div className={this.state.isOpen ? 'dropdown-menu active' : 'dropdown-menu'}>
+          {/* <div className={this.state.isOpen ? 'dropdown-menu active' : 'dropdown-menu'}>
             <ul>
               <a href="/login">
                 <li>
@@ -50,7 +50,7 @@ class Header extends Component {
                 </li>
               </a>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     );

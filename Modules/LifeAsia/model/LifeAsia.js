@@ -58,3 +58,47 @@ module.exports.getPolicy = num => {
 };
 
 
+module.exports.save = args => {
+  const ACTION = '[saveTransaction]';
+  const uri = `${url}/insertTransactionDetails`;
+  Logger.log('info', `${TAG}${ACTION} - policy args `, { args });
+  Logger.log('info', `${TAG}${ACTION} - url`, uri);
+
+  if (isFakeEndpoint) {
+    return new Promise((resolve) => {
+      const data = require('../../Dummy/policy.json');  
+      Logger.log('info', `${TAG}${ACTION} - result`, data);
+      resolve(data);
+    });
+  } else {
+    return new Promise((resolve, reject) => {
+      // "policyNo": "72940355",
+
+      ajax
+        .setOptions({
+          uri
+        })
+        .post(args)
+        .then(res => {
+          if (res.body) {
+            resolve(res.body);
+          } else {
+            reject({
+              status: 400,
+              error: {
+                msg: 'Policy not found.'
+              }
+            });
+          }
+          Logger.log('info', `${TAG}${ACTION} - result`, res.body);
+        })
+        .catch(err => {
+          Logger.log('error', TAG + ACTION, err);
+          reject(Error.raise('INTERNAL_SERVER_ERROR', err));
+        });
+    });
+  }
+};
+
+
+

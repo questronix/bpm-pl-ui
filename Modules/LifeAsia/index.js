@@ -115,14 +115,12 @@ router.get('/documents/:transactionId', mw.isAuthenticated, (req, res) => {
 });
 
 router.post('/documents', mw.isAuthenticated, (req, res) => {
-  const ACTION = '[getDocument]';
+  const ACTION = '[getDocuments]';
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 
-  doc.create(req.body)
+  doc.doclist(req.body)
     .then(data => {
-      res.send({
-        data
-      });
+      res.send(data);
     })
     .catch(err => {
       res.status(err.status).send(err);
@@ -145,13 +143,28 @@ router.post('/transaction', mw.isAuthenticated, (req, res) => {
     });
 });
 
-router.post('/save', mw.isAuthenticated, (req, res) => {
+router.put('/documents', mw.isAuthenticated, (req, res) => {
   const ACTION = '[postSaveTransaction]';
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 
   trans.saveTransaction(req.body)
     .then(data => {
       res.send(data);
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
+});
+
+router.post('/transaction/save', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[postTransaction]';
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+
+  trans.generateTransactionId()
+    .then(data => {
+      res.send({
+        data
+      });
     })
     .catch(err => {
       res.status(err.status).send(err);

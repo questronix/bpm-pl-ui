@@ -72,7 +72,7 @@ module.exports.saveTransaction = (args) => {
             resolve({
               error: {
                 status: 404,
-                msg: 'Client details not found.'
+                msg: 'Failed to save transction.'
               }
             });
           }

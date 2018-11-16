@@ -118,19 +118,19 @@ class TransactionNew extends Component {
                     <table border="0" cellSpacing="0">
                       <tbody>
                         {this.props.docs.map((doc, index) => (
-                          <tr key={doc.DOCS_Id}>
+                          <tr key={doc.docId}>
                             <td className="flex align-center">
-                              <label htmlFor={`doc${doc.DOCS_Id}`}>
-                                {doc.Description}
+                              <label htmlFor={`doc${doc.docId}`}>
+                                {doc.description}
                               </label>
                             </td>
                             <td align="right">
-                              <label className={doc.IsMandatory === "True" ? "checkbox required" : "checkbox"}>
+                              <label className={doc.isMandatory === "True" ? "checkbox required" : "checkbox"}>
                                 <input
-                                  id={`doc${doc.DOCS_Id}`}
+                                  id={`doc${doc.docId}`}
                                   index={index}
                                   type="checkbox"
-                                  checked={doc.value}
+                                  checked={doc.value ? true : false}
                                   // value={doc.value}
                                   onChange={this.handleDocSelect}
                                 />

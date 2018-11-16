@@ -159,6 +159,18 @@ class EditTaskContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  filterSelectedDocs(type) {
+    console.log('updated');
+    const subTrans = this.state.docs.data.filter(
+      doc => doc.subTransactionId == type
+    );
+    // const docList = this.state.docs.filter(
+    //   docs => docs.SubTransaction_ID == type
+    // );
+    console.log('subTransDoc', subTrans[0].data);
+    this.setState({ selectedDocs: subTrans[0].data });
+  }
+
   componentDidMount() {
     this.setState({
       taskId: this.getQueryStringValue('id')
@@ -198,9 +210,14 @@ class EditTaskContainer extends Component {
     DocumentService.getDocumentByTransactionType(this.state.transactionType)
     .then((res) => {
       // TODO: FIX RESPONSE
-      console.log('DOCSSSS', res.data.result);
-      const d = res.data.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
-      this.setState({ docs: d });
+      console.log('DOCSSSS', res.data.result[0]);
+      const transDoc = res.data.result[0].data;
+      const subTransDoc = transDoc.filter(data => data.subTransactionId == this.state.subTransactionType)[0]
+      // console.log('subTransDoc', subTransDoc);
+
+      // const d = res.data.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
+      // this.setState({ docs: d });
+      this.setState({ docs: res.data.result[0] });
     }).finally(() => {
       if (this.state.docs) {
         this.filterSelectedDocs(this.state.subTransactionType);
@@ -520,6 +537,7 @@ class EditTaskContainer extends Component {
         isVisitedInsured: true 
       }); 
       this.getInsuredDetails();
+      this.updateDocList();
     }
     if (tabPage === 3) { 
       this.setState({ isVisitedOwner: true }); 
@@ -537,17 +555,34 @@ class EditTaskContainer extends Component {
   }
 
   saveTransaction() {
-    const args = {
-      result: {
-        transactionNumber: this.state.transactionNumber,
-        policyno: this.state.policy.number,
-        transactionType: this.state.transactionType,
-        subTransactionType: this.state.subTransactionType,
-        transDocID: 1,
-        assignee: "PROCESSOR",
-        createdBy: JSON.parse(localStorage.getItem('user_info')).User_ID
-      }
+    const { insured } = this.state;
+
+    let result = {};
+
+    if (this.state.insured) {
+      result.push({
+        transactionNo: this.state.transactionNumber,
+        clientId: insured.clientId,
+        "clientType": "Owner",
+        "occupation1": insured.occupation1,
+        "occupation2": insured.occupation2,
+        "questionId": "1",
+        "questionDescription": "SOI",
+        "questionAnswer": this.state.isSOI,
+        "questionReason": "",
+        "subQuestionId": "1",
+        "subQuestionAnswer": "Y",
+        "subQuestionReason": "",
+        "otherDetailsId": "1",
+        "otherDetailsAnswer": "Y",
+        "otherDetailsReason": "",
+        "levelStatus": "Pending"
+      });
     }
+
+    const args = {
+      result
+    };
     PolicyService.saveTransaction(args)
     .then((res) => {
       // TODO: FIX RESPONSE
@@ -576,14 +611,6 @@ class EditTaskContainer extends Component {
       .catch(err => {
         console.log(err);
       });
-  }
-
-  filterSelectedDocs(type) {
-    console.log('updated');
-    const docList = this.state.docs.filter(
-      docs => docs.SubTransaction_ID == type
-    );
-    this.setState({ selectedDocs: docList });
   }
 
   decrement() {
@@ -684,6 +711,21 @@ class EditTaskContainer extends Component {
   formatDate(dt) {
     const d = new Date(dt);
     return `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`;
+  }
+
+  updateDocList(docs) {
+    const data = {
+      transctionNo: this.state.transactionNumber,
+      listDocs: this.state.selectedDocs
+    };
+
+    DocumentService.saveDocs(data)
+      .then(res => {
+        console.log(res.data);
+      })
+      .finally(() => {
+        // console.log('CREATE TASK ERROR:', err);
+      });
   }
 
   render() {

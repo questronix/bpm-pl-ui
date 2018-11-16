@@ -19,6 +19,6 @@ export default class Policy {
   }
 
   saveTransaction(args) {
-    return this.http.post('/lifeasia/save', args);
+    return this.http.post('/lifeasia/transaction/save', args);
   }
 }
