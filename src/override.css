@@ -1934,9 +1934,11 @@ input[type="search"]::-webkit-search-results-decoration {
     font-size: 14px; }
   .insured-details .input-container.col {
     padding: 5px; }
-  .insured-details .input-container span {
-    position: absolute;
-    right: 0; }
+  .insured-details .input-container {
+    position: relative; }
+    .insured-details .input-container span {
+      position: absolute;
+      right: 0; }
 
 .content-disabled {
   position: absolute;

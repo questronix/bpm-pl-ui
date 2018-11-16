@@ -118,6 +118,7 @@ class InsuredinformationNew extends Component {
             inputLabel="Email Addtess:"
             inputClass="col xl-4 input-container"
             value={this.props.client.emailAdd}>
+            {/* <span className="fa fa-pencil-alt font-prulife"></span> */}
           </Input>
           <Input
             txtboxClass="bg-lightgray"
