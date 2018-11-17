@@ -765,7 +765,7 @@ class EditTaskContainer extends Component {
     DocumentService.createMemo(formData)
       .then(res => {
         console.log(res.data.result);
-        window.open(`data:application/pdf:base64, ${res.data.result}`, '_blank');
+        window.open(`data:application/pdf:base64, ${res.data.result.pdf}`, '_blank');
       })
       .finally(() => {
         // console.log('CREATE TASK ERROR:', err);
