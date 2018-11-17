@@ -143,8 +143,23 @@ router.post('/transaction', mw.isAuthenticated, (req, res) => {
     });
 });
 
+router.post('/transaction/save', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[postTransaction]';
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+
+  trans.generateTransactionId()
+    .then(data => {
+      res.send({
+        data
+      });
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
+});
+
 router.put('/documents', mw.isAuthenticated, (req, res) => {
-  const ACTION = '[postSaveTransaction]';
+  const ACTION = '[postSaveDocList]';
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 
   trans.saveTransaction(req.body)
@@ -156,15 +171,13 @@ router.put('/documents', mw.isAuthenticated, (req, res) => {
     });
 });
 
-router.post('/transaction/save', mw.isAuthenticated, (req, res) => {
-  const ACTION = '[postTransaction]';
+router.post('/memo', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[createMemo]';
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 
-  trans.generateTransactionId()
+  doc.createMemo(req.body)
     .then(data => {
-      res.send({
-        data
-      });
+      res.send(data);
     })
     .catch(err => {
       res.status(err.status).send(err);

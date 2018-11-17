@@ -48,12 +48,12 @@ class EditTaskContainer extends Component {
         address3: '',
         address4: '',
         address5: '',
-        zipCode: '',
+        zipCode: ''
       },
       clients: [], // List of clients in Policy Search
       transactionNumber: localStorage.getItem('transactionNumber') || '',
       task: null,
-      
+
       // CONDITIONS
       isSameInsuredAndOwner: false,
       isPtrOrPwAvailed: false,
@@ -100,7 +100,6 @@ class EditTaskContainer extends Component {
       completeFatca: false,
       additionalDateOfSigning: false,
 
-
       client: {},
 
       policyNumberSearch: '',
@@ -117,7 +116,7 @@ class EditTaskContainer extends Component {
         sumAssured: '000001111',
         createdDate: '10-12-18'
       },
-      
+
       selectedTransaction: '',
       transactionCheckList: [],
       statementOfInsurability: false,
@@ -134,25 +133,31 @@ class EditTaskContainer extends Component {
 
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
-    this.handleTransactionCheckList = this.handleTransactionCheckList.bind(this);
+    this.handleTransactionCheckList = this.handleTransactionCheckList.bind(
+      this
+    );
     this.handleNewTaskSubmit = this.handleNewTaskSubmit.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
     this.createTask = this.createTask.bind(this);
-    
+
     // Tab Events
     this.handlePrevTab = this.handlePrevTab.bind(this);
     this.handleNextTab = this.handleNextTab.bind(this);
     this.handleTabClick = this.handleTabClick.bind(this);
-    
+
     // Transaction Events
-    this.handleTransactionTypeChange = this.handleTransactionTypeChange.bind(this);
-    this.handleSubTransactionTypeChange = this.handleSubTransactionTypeChange.bind(this);
+    this.handleTransactionTypeChange = this.handleTransactionTypeChange.bind(
+      this
+    );
+    this.handleSubTransactionTypeChange = this.handleSubTransactionTypeChange.bind(
+      this
+    );
     this.handleDocSelect = this.handleDocSelect.bind(this);
     this.handleYesNoSelect = this.handleYesNoSelect.bind(this);
 
     // Insured Tab Events
     this.handleOnCheckChange = this.handleOnCheckChange.bind(this);
-    
+
     // Test
     this.decrement = this.decrement.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -185,11 +190,12 @@ class EditTaskContainer extends Component {
         const transactionNo = policy.transactionNo;
         // localStorage.setItem('transactionNumber', transactionNo);
         // localStorage.setItem('policy', policy.info);
-        this.setState({    
+        this.setState({
           policy: JSON.parse(policy.info),
           transactionNumber: transactionNo,
           clients: JSON.parse(policy.info).clients,
-          isAgentStatusActive: JSON.parse(policy.info).agentStatus == "ACTIVE" ? true: false,
+          isAgentStatusActive:
+            JSON.parse(policy.info).agentStatus == 'ACTIVE' ? true : false,
           task: res.data
         });
         this.checkIsSameInsuredAndOwner();
@@ -204,26 +210,28 @@ class EditTaskContainer extends Component {
     //     console.log('CLIENT INFO: ', res.data);
     //     this.setState({ client: res.data.result});
     //   }).finally(() => {
-        
-    //   });
-    
-    DocumentService.getDocumentByTransactionType(this.state.transactionType)
-    .then((res) => {
-      // TODO: FIX RESPONSE
-      console.log('DOCSSSS', res.data.result[0]);
-      const transDoc = res.data.result[0].data;
-      const subTransDoc = transDoc.filter(data => data.subTransactionId == this.state.subTransactionType)[0]
-      // console.log('subTransDoc', subTransDoc);
 
-      // const d = res.data.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
-      // this.setState({ docs: d });
-      this.setState({ docs: res.data.result[0] });
-    }).finally(() => {
-      if (this.state.docs) {
-        this.filterSelectedDocs(this.state.subTransactionType);
-      }
-      
-    });
+    //   });
+
+    DocumentService.getDocumentByTransactionType(this.state.transactionType)
+      .then(res => {
+        // TODO: FIX RESPONSE
+        console.log('DOCSSSS', res.data.result[0]);
+        const transDoc = res.data.result[0].data;
+        const subTransDoc = transDoc.filter(
+          data => data.subTransactionId == this.state.subTransactionType
+        )[0];
+        // console.log('subTransDoc', subTransDoc);
+
+        // const d = res.data.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
+        // this.setState({ docs: d });
+        this.setState({ docs: res.data.result[0] });
+      })
+      .finally(() => {
+        if (this.state.docs) {
+          this.filterSelectedDocs(this.state.subTransactionType);
+        }
+      });
 
     // TODO: REST call here
     this.setState({
@@ -519,7 +527,7 @@ class EditTaskContainer extends Component {
   }
 
   handleOnCheckChange(name, val) {
-    this.setState({ [name] : !val });
+    this.setState({ [name]: !val });
   }
 
   handleYesNoSelect(name, val) {
@@ -532,18 +540,18 @@ class EditTaskContainer extends Component {
     //   this.setState({ isVisitedTransaction: true });
     // }
     if (tabPage === 2) {
-      this.setState({ 
-        isVisitedTransaction: true, 
-        isVisitedInsured: true 
-      }); 
+      this.setState({
+        isVisitedTransaction: true,
+        isVisitedInsured: true
+      });
       this.getInsuredDetails();
       this.updateDocList();
     }
-    if (tabPage === 3) { 
-      this.setState({ isVisitedOwner: true }); 
+    if (tabPage === 3) {
+      this.setState({ isVisitedOwner: true });
       this.getOwnerDetails();
     }
-    if (tabPage === 4) { 
+    if (tabPage === 4) {
       this.setState({ isVisitedAdditional: true });
     }
     if (tabPage === 5) {
@@ -563,20 +571,20 @@ class EditTaskContainer extends Component {
       result.push({
         transactionNo: this.state.transactionNumber,
         clientId: insured.clientId,
-        "clientType": "Owner",
-        "occupation1": insured.occupation1,
-        "occupation2": insured.occupation2,
-        "questionId": "1",
-        "questionDescription": "SOI",
-        "questionAnswer": this.state.isSOI,
-        "questionReason": "",
-        "subQuestionId": "1",
-        "subQuestionAnswer": "Y",
-        "subQuestionReason": "",
-        "otherDetailsId": "1",
-        "otherDetailsAnswer": "Y",
-        "otherDetailsReason": "",
-        "levelStatus": "Pending"
+        clientType: 'Owner',
+        occupation1: insured.occupation1,
+        occupation2: insured.occupation2,
+        questionId: '1',
+        questionDescription: 'SOI',
+        questionAnswer: this.state.isSOI,
+        questionReason: '',
+        subQuestionId: '1',
+        subQuestionAnswer: 'Y',
+        subQuestionReason: '',
+        otherDetailsId: '1',
+        otherDetailsAnswer: 'Y',
+        otherDetailsReason: '',
+        levelStatus: 'Pending'
       });
     }
 
@@ -584,18 +592,16 @@ class EditTaskContainer extends Component {
       result
     };
     PolicyService.saveTransaction(args)
-    .then((res) => {
-      // TODO: FIX RESPONSE
-      if (res.data.isSuccess) {
-        alert('Transaction saved!');
-        // window.location.href = '/tasks';
-      }
-      else {
-        alert('Failed to save transaction');
-      }
-    }).finally(() => {
-      
-    });
+      .then(res => {
+        // TODO: FIX RESPONSE
+        if (res.data.isSuccess) {
+          alert('Transaction saved!');
+          // window.location.href = '/tasks';
+        } else {
+          alert('Failed to save transaction');
+        }
+      })
+      .finally(() => {});
   }
 
   getClientInfo(id) {
@@ -636,8 +642,8 @@ class EditTaskContainer extends Component {
       window.location.search.replace(
         new RegExp(
           '^(?:.*[&\\?]' +
-          encodeURIComponent(key).replace(/[\.\+\*]/g, '\\$&') +
-          '(?:\\=([^&]*))?)?.*$',
+            encodeURIComponent(key).replace(/[\.\+\*]/g, '\\$&') +
+            '(?:\\=([^&]*))?)?.*$',
           'i'
         ),
         '$1'
@@ -647,52 +653,47 @@ class EditTaskContainer extends Component {
 
   getInsuredDetails() {
     if (insured) return;
-    const insured = this.state.clients.find(client => client.role == "LF");
+    const insured = this.state.clients.find(client => client.role == 'LF');
     PolicyService.getClientIformationByid(insured.clntNum)
-      .then((res) => {
+      .then(res => {
         console.log('INSURED INFO: ', res.data);
         if (res.data.result) {
-          this.setState({ insured: res.data.result});
-        }
-        else {
+          this.setState({ insured: res.data.result });
+        } else {
           alert('Failed getting data to lifeasia');
         }
-      }).finally(() => {
-        
-      });
+      })
+      .finally(() => {});
   }
 
   getOwnerDetails() {
     if (owner) return;
-    const owner = this.state.clients.find(client => client.role == "OW");
+    const owner = this.state.clients.find(client => client.role == 'OW');
     PolicyService.getClientIformationByid(owner.clntNum)
-      .then((res) => {
+      .then(res => {
         console.log('OWNER INFO: ', res.data);
         if (res.data.result) {
-          this.setState({ owner: res.data.result});
-        }
-        else {
+          this.setState({ owner: res.data.result });
+        } else {
           alert('Failed getting data to lifeasia');
         }
-      }).finally(() => {
-        
-      });
+      })
+      .finally(() => {});
   }
 
   checkIsSameInsuredAndOwner() {
     const { policy } = this.state;
     let insured;
     let owner;
-    
+
     if (policy.clients) {
-      owner = policy.clients.find(client => client.role == "OW")
-      insured = policy.clients.find(client => client.role == "LF")
+      owner = policy.clients.find(client => client.role == 'OW');
+      insured = policy.clients.find(client => client.role == 'LF');
     }
 
     if (insured.clntNum == owner.clntNum) {
       this.setState({ isSameInsuredAndOwner: true });
-    }
-    else {
+    } else {
       this.setState({ isSameInsuredAndOwner: false });
     }
   }
@@ -702,15 +703,14 @@ class EditTaskContainer extends Component {
 
     if (policy.payorTerm == 'Y' || policy.payorWaiver == 'Y') {
       this.setState({ isPtrOrPwAvailed: true });
-    }
-    else {
+    } else {
       this.setState({ isPtrOrPwAvailed: false });
     }
   }
 
   formatDate(dt) {
     const d = new Date(dt);
-    return `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`;
+    return `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
   }
 
   updateDocList(docs) {
@@ -728,41 +728,84 @@ class EditTaskContainer extends Component {
       });
   }
 
+  createMemo() {
+    const formData = {
+      result: {
+        id: 'RequirementMemo',
+        template: 'BPM',
+        policyNo: "08293847",
+        data: {
+          date: '10/05/2018',
+          agentBroker: 'Henry Chu',
+          code: '70000261',
+          branch: 'BLUE PEARL BRANCH 1',
+          policyowner: 'Henry Chu Gocuan',
+          lifeInsured: 'Henry Chu Gocuan',
+          plan: 'PruLink Assurance Account Plus - PHP',
+          missingDocs: [
+            {
+              docs: 'Duly accomplished Reinstatement Form'
+            },
+            {
+              docs: 'Discretionary Waiver Form'
+            }
+          ],
+          missingFields: [
+            {
+              fields: 'Payment'
+            },
+
+            {
+              fields: 'Signatured Verified'
+            }
+          ]
+        }
+      }
+    };
+    DocumentService.createMemo(formData)
+      .then(res => {
+        console.log(res.data.result);
+        window.open(`data:application/pdf:base64, ${res.data.result}`, '_blank');
+      })
+      .finally(() => {
+        // console.log('CREATE TASK ERROR:', err);
+      });
+  }
+
   render() {
     return (
       <div className="flex-container flex-wrap">
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
         <div className="margin-top-70 col xl-9 l-9 m-8 s-8 xs-7 no-padding margin-auto">
           <div className="">
-            <h1 className="text-normal">
-              New Transaction
-          </h1>
+            <h1 className="text-normal">New Transaction</h1>
             <div className="flex-container flex-wrap col no-padding flex f-justify-space-between">
               <div className="flex f-column transaction-header">
                 <div className="flex">
-                  <p className="">
-                    Transaction Number  :
-                  </p>
+                  <p className="">Transaction Number :</p>
                   <p className="font-prulife ">
-                    {`${this.state.transactionNumber.substr(0, 2)}-${this.state.transactionNumber.substr(2, 6)}`}
+                    {`${this.state.transactionNumber.substr(
+                      0,
+                      2
+                    )}-${this.state.transactionNumber.substr(2, 6)}`}
                   </p>
                 </div>
                 <div className="flex">
-                  <p className="">
-                    Transaction Type	:
-                  </p>
+                  <p className="">Transaction Type :</p>
                   <p className="font-prulife ">
-                    Reinstatement - {this.state.subTransactionType === 1 && `Updating`} {this.state.subTransactionType === 2 && `Redating`} {this.state.subTransactionType === 3 && `Waiver`}
-                </p>
+                    Reinstatement -{' '}
+                    {this.state.subTransactionType === 1 && `Updating`}{' '}
+                    {this.state.subTransactionType === 2 && `Redating`}{' '}
+                    {this.state.subTransactionType === 3 && `Waiver`}
+                  </p>
                 </div>
               </div>
               <div className="flex f-column transaction-header">
                 <div className="flex">
-                  <p className="">
-                    Created Date	:	
-                  </p>
+                  <p className="">Created Date :</p>
                   <p className="font-prulife ">
-                  {this.state.task && this.formatDate(this.state.task.startTime)}
+                    {this.state.task &&
+                      this.formatDate(this.state.task.startTime)}
                   </p>
                 </div>
               </div>
@@ -772,97 +815,167 @@ class EditTaskContainer extends Component {
             <div className="tab-title-container">
               <div
                 onClick={() => this.handleSkipTab(1)}
-                className={this.state.currentTab === 1 || (this.state.isVisitedTransaction & this.state.currentTab > 1) ? "tab-title active" : "tab-title"}>
+                className={
+                  this.state.currentTab === 1 ||
+                  this.state.isVisitedTransaction & (this.state.currentTab > 1)
+                    ? 'tab-title active'
+                    : 'tab-title'
+                }
+              >
                 <h4 className="circle">
-                  {this.state.isVisitedTransaction ? <span className="fa fa-check" /> : 1}
+                  {this.state.isVisitedTransaction ? (
+                    <span className="fa fa-check" />
+                  ) : (
+                    1
+                  )}
                 </h4>
-                <h4>Transaction Selection</h4><span className="white" /><span className="gray" />
+                <h4>Transaction Selection</h4>
+                <span className="white" />
+                <span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(2)}
-                className={this.state.currentTab === 2 || (this.state.isVisitedInsured & this.state.currentTab > 2) ? "tab-title active" : "tab-title"}>
+                className={
+                  this.state.currentTab === 2 ||
+                  this.state.isVisitedInsured & (this.state.currentTab > 2)
+                    ? 'tab-title active'
+                    : 'tab-title'
+                }
+              >
                 <h4 className="circle">
-                  {this.state.isVisitedInsured ? <span className="fa fa-check" /> : 2}
+                  {this.state.isVisitedInsured ? (
+                    <span className="fa fa-check" />
+                  ) : (
+                    2
+                  )}
                 </h4>
-                <h4>Insured Details</h4><span className="white" /><span className="gray" />
+                <h4>Insured Details</h4>
+                <span className="white" />
+                <span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(3)}
-                className={this.state.currentTab === 3 || (this.state.isVisitedOwner & this.state.currentTab > 3) ? "tab-title active" : "tab-title"}>
+                className={
+                  this.state.currentTab === 3 ||
+                  this.state.isVisitedOwner & (this.state.currentTab > 3)
+                    ? 'tab-title active'
+                    : 'tab-title'
+                }
+              >
                 <h4 className="circle">
-                  {this.state.isVisitedOwner ? <span className="fa fa-check" /> : 3}
+                  {this.state.isVisitedOwner ? (
+                    <span className="fa fa-check" />
+                  ) : (
+                    3
+                  )}
                 </h4>
-                <h4>Owner Details</h4><span className="white" /><span className="gray" />
+                <h4>Owner Details</h4>
+                <span className="white" />
+                <span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(4)}
-                className={this.state.currentTab === 4 || (this.state.isVisitedAdditional & this.state.currentTab > 4) ? "tab-title active" : "tab-title"}>
+                className={
+                  this.state.currentTab === 4 ||
+                  this.state.isVisitedAdditional & (this.state.currentTab > 4)
+                    ? 'tab-title active'
+                    : 'tab-title'
+                }
+              >
                 <h4 className="circle">
-                  {this.state.isVisitedAdditional ? <span className="fa fa-check" /> : 4}
+                  {this.state.isVisitedAdditional ? (
+                    <span className="fa fa-check" />
+                  ) : (
+                    4
+                  )}
                 </h4>
                 <h4>Additional Details</h4>
               </div>
             </div>
-            <TabHeader policy={this.state.policy} clients={this.state.clients} />
+            <TabHeader
+              policy={this.state.policy}
+              clients={this.state.clients}
+            />
             <div className="box-body">
-
-              {this.state.currentTab === 1 && <TransactionNew
-                policy={this.state.policy} 
-                transactionNumber={this.state.transactionNumber}
-                transactionType={this.state.transactionType}
-                subTransactionType={this.state.subTransactionType}
-                isSignatureVerified={this.state.isSignatureVerified}
-                docs={this.state.selectedDocs}
-                onTransactionTypeChange={this.handleTransactionTypeChange}
-                onSubTransactionTypeChange={this.handleSubTransactionTypeChange}
-                onDocSelect={this.handleDocSelect}
-                onSelectSignatureVerified={this.handleYesNoSelect}
-              />}
-              {this.state.currentTab === 2 && <InsuredinformationNew 
-                client={this.state.insured} 
-                isChangeInOccupation={this.state.isChangeInOccupation}
-                isChangeInAddress={this.state.isChangeInAddress}
-                isSOI={this.state.isSOI}
-                isPregnant={this.state.isPregnant}
-                onYesNoSelect={this.handleYesNoSelect}
-                fma={this.state.additionalFMA}
-                mur={this.state.additionalMUR}
-                onCheckChange={this.handleOnCheckChange}
-                isPtrOrPwAvailed={this.state.isPtrOrPwAvailed}
-              />}
-              {this.state.currentTab === 3 && <OwnerinformationNew 
-                client={this.state.owner} 
-                isChangeInOccupation={this.state.isChangeInOccupationOwner}
-                isChangeInAddress={this.state.isChangeInAddressOwner}
-                isSOI={this.state.isSOIOwner}
-                isPregnant={this.state.isPregnantOwner}
-                onYesNoSelect={this.handleYesNoSelect}
-                fma={this.state.additionalFMAOwner}
-                mur={this.state.additionalMUROwner}
-                onCheckChange={this.handleOnCheckChange}
-                isSameInsuredAndOwner={this.state.isSameInsuredAndOwner}
-                isPtrOrPwAvailed={this.state.isPtrOrPwAvailed}
-              />}
-              {this.state.currentTab === 4 && <Additional
-                isRelativeOfAgent={this.state.isRelativeOfAgent}
-                isFatcaTagging={this.state.isFatcaTagging}
-                withReinstatementAgent={this.state.withReinstatementAgent}
-                withCosal={this.state.withCosal}
-                completeFatca={this.state.completeFatca}
-                additionalDateOfSigning={this.state.additionalDateOfSigning}
-                onYesNoSelect={this.handleYesNoSelect}
-                isAgentStatusActive={this.state.isAgentStatusActive}
-              />}
+              {this.state.currentTab === 1 && (
+                <TransactionNew
+                  policy={this.state.policy}
+                  transactionNumber={this.state.transactionNumber}
+                  transactionType={this.state.transactionType}
+                  subTransactionType={this.state.subTransactionType}
+                  isSignatureVerified={this.state.isSignatureVerified}
+                  docs={this.state.selectedDocs}
+                  onTransactionTypeChange={this.handleTransactionTypeChange}
+                  onSubTransactionTypeChange={
+                    this.handleSubTransactionTypeChange
+                  }
+                  onDocSelect={this.handleDocSelect}
+                  onSelectSignatureVerified={this.handleYesNoSelect}
+                />
+              )}
+              {this.state.currentTab === 2 && (
+                <InsuredinformationNew
+                  client={this.state.insured}
+                  isChangeInOccupation={this.state.isChangeInOccupation}
+                  isChangeInAddress={this.state.isChangeInAddress}
+                  isSOI={this.state.isSOI}
+                  isPregnant={this.state.isPregnant}
+                  onYesNoSelect={this.handleYesNoSelect}
+                  fma={this.state.additionalFMA}
+                  mur={this.state.additionalMUR}
+                  onCheckChange={this.handleOnCheckChange}
+                  isPtrOrPwAvailed={this.state.isPtrOrPwAvailed}
+                />
+              )}
+              {this.state.currentTab === 3 && (
+                <OwnerinformationNew
+                  client={this.state.owner}
+                  isChangeInOccupation={this.state.isChangeInOccupationOwner}
+                  isChangeInAddress={this.state.isChangeInAddressOwner}
+                  isSOI={this.state.isSOIOwner}
+                  isPregnant={this.state.isPregnantOwner}
+                  onYesNoSelect={this.handleYesNoSelect}
+                  fma={this.state.additionalFMAOwner}
+                  mur={this.state.additionalMUROwner}
+                  onCheckChange={this.handleOnCheckChange}
+                  isSameInsuredAndOwner={this.state.isSameInsuredAndOwner}
+                  isPtrOrPwAvailed={this.state.isPtrOrPwAvailed}
+                />
+              )}
+              {this.state.currentTab === 4 && (
+                <Additional
+                  isRelativeOfAgent={this.state.isRelativeOfAgent}
+                  isFatcaTagging={this.state.isFatcaTagging}
+                  withReinstatementAgent={this.state.withReinstatementAgent}
+                  withCosal={this.state.withCosal}
+                  completeFatca={this.state.completeFatca}
+                  additionalDateOfSigning={this.state.additionalDateOfSigning}
+                  onYesNoSelect={this.handleYesNoSelect}
+                  isAgentStatusActive={this.state.isAgentStatusActive}
+                />
+              )}
 
               <div className="flex f-justify-space-between container">
-                <button className={this.state.currentTab === 1 ? "btn prulife invisible" : "btn prulife"} accessKey="," onClick={this.handlePrevTab}>
-                  <span className="fa fa-chevron-left" />&nbsp; BACK
+                <button
+                  className={
+                    this.state.currentTab === 1
+                      ? 'btn prulife invisible'
+                      : 'btn prulife'
+                  }
+                  accessKey=","
+                  onClick={this.handlePrevTab}
+                >
+                  <span className="fa fa-chevron-left" />
+                  &nbsp; BACK
                 </button>
-                <button className="btn prulife" accessKey="." onClick={this.handleNextTab}>
+                <button
+                  className="btn prulife"
+                  accessKey="."
+                  onClick={this.handleNextTab}
+                >
                   PROCEED &nbsp; <span className="fa fa-chevron-right" />
                 </button>
               </div>
-
             </div>
           </div>
         </div>
