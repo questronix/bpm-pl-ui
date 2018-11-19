@@ -2037,7 +2037,7 @@ $background_color_1: #ED1B2E;
     visibility: visible;
   }
   
-  .modal-state:checked + .modal .modal-inner {
+  .modal-state:checked + .modal .modal-inner, .modal-state:checked + .modal .ghost {
     transform: translate(0, 0);
   }
   
@@ -2054,17 +2054,25 @@ $background_color_1: #ED1B2E;
     // border-radius: 5px;
     // padding: 1em 2em;
     height: 100%;
-    // overflow: auto;
+    overflow-y: auto;
   }
-  
+  .ghost{
+      width: 50%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transition:.25s ease;
+      transform: translate(100%, 0);
+  }
   .modal__close {
     position: fixed;
-    left: 0;
+    // left: 0;
     top: 0;
     width: 1.1em;
     height: 1.1em;
     cursor: pointer;
-    transform: translate(-40px,30px);
+    transform: translate(-60px,30px);
     background-color: white;
     padding: 15px;
     display: flex;

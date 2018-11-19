@@ -1703,7 +1703,7 @@ nav.navbar .navmenu {
   opacity: 1;
   visibility: visible; }
 
-.modal-state:checked + .modal .modal-inner {
+.modal-state:checked + .modal .modal-inner, .modal-state:checked + .modal .ghost {
   transform: translate(0, 0); }
 
 .modal-inner {
@@ -1716,16 +1716,25 @@ nav.navbar .navmenu {
   width: 50%;
   margin: auto;
   background: #fff;
-  height: 100%; }
+  height: 100%;
+  overflow-y: auto; }
+
+.ghost {
+  width: 50%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: .25s ease;
+  transform: translate(100%, 0); }
 
 .modal__close {
   position: fixed;
-  left: 0;
   top: 0;
   width: 1.1em;
   height: 1.1em;
   cursor: pointer;
-  transform: translate(-40px, 30px);
+  transform: translate(-60px, 30px);
   background-color: white;
   padding: 15px;
   display: flex;
