@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import SidebarNew from '../sidebar/SidebarProcessor';
-import SidebarProcessor from '../sidebar/SidebarProcessor';
 
 class Nav extends Component {
 
@@ -31,7 +30,7 @@ class Nav extends Component {
             </ul>
           </div>
         </nav> */}
-        <SidebarProcessor links={links}/>
+        <SidebarNew links={links}/>
       </div>
     );
   }
