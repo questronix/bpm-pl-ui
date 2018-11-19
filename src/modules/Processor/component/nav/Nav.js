@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from  '../../../../shared/component/nav/Nav';
+import NavBar from  '../../../../shared/component/nav/NavProcessor';
 
 const navLinks = [
   {
