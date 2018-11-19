@@ -1384,7 +1384,8 @@ nav.navbar .navmenu {
     flex: 1;
     height: 30px;
     color: #232323;
-    font: bold 19px;
+    font-weight: bold;
+    font-size: 19px;
     line-height: 30px;
     text-overflow: ellipsis;
     overflow: hidden;
