@@ -90,7 +90,7 @@ class ProcessorTaskContainer extends Component {
     this.setState({ openSearchModal: !this.state.openSearchModal });
   }
 
-  handlemodalAlert(){
+  handlemodalAlert() {
     this.setState({
       modalAlert: !this.state.modalAlert
     });
@@ -112,13 +112,15 @@ class ProcessorTaskContainer extends Component {
           });
         } else {
           console.log('Error: ', res.data);
-          {!policy.status && (
+          {
+          !policy.status && (
             <div className="no-search-result flex f-center">
               <span className="fa fa-search" />
               <br />
               <p>No record/s found</p>
             </div>
-          )}
+          )
+          }
         }
       })
       .finally(() => {
@@ -186,10 +188,10 @@ class ProcessorTaskContainer extends Component {
 
     return (
       <div>
-      <Nav/>
-      <div className="flex-container flex-wrap margin-top-70">
-        {/* THIS WILL BE ADDED IF THE AUTHORITY CAN APPROVE */}
-        {/* <ModalAlert>
+        <Nav />
+        <div className="flex-container flex-wrap margin-top-70 col">
+          {/* THIS WILL BE ADDED IF THE AUTHORITY CAN APPROVE */}
+          {/* <ModalAlert>
           <div className="flex f-center f-column big-container">
             <span className="fa fa-users-cog big-font font-gray big-container"></span>
             <p className="text-center">
@@ -198,7 +200,7 @@ class ProcessorTaskContainer extends Component {
             </p>
           </div>
       </ModalAlert> */}
-      {/* <ModalAlert mHeader="Confirmation" modalalert={this.handlemodalAlert} modalState={this.state.modalAlert} confirm={this.createTask}>
+          {/* <ModalAlert mHeader="Confirmation" modalalert={this.handlemodalAlert} modalState={this.state.modalAlert} confirm={this.createTask}>
           <div className="flex f-center f-column">
 
             <h3 className="text-center">
@@ -286,44 +288,44 @@ class ProcessorTaskContainer extends Component {
             </div>
           )}
         </MyModal> */}
-
-        <div className="col xl-10 l-10 m-9 s-9 xs-8">
-          <div className="">
-            <h1 className="flex s-f-center xs-f-center">Tasks</h1>
-            <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
-              <div className=" xl-5 flex f-justify-space-between">
-                <div className="search-container no-border">
-                  {/* <FilterButton/> */}
-                  <select>
-                    <option value="Policy Number">Policy Number</option>
-                    <option value="Policy Owner">Policy Owner</option>
-                    <option value="Insured Name">Insured Name</option>
-                    <option value="Policy">Policy</option>
-                  </select>
-                  <input className="search" placeholder="Search Policy Number" />
-                </div>
-                <a href="#" className="btn prulife flex f-center">
-                  <span className="fa fa-search font-white" /> &nbsp;
+          <div className="xl-2 l-2 m-3 s-3 xs-4"></div>
+          <div className=" xl-9 l-9 m-8 s-8 xs-7 margin-auto">
+            <div className="">
+              <h1 className="flex s-f-center xs-f-center">Tasks</h1>
+              <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
+                <div className=" xl-5 flex f-justify-space-between">
+                  <div className="search-container no-border">
+                    {/* <FilterButton/> */}
+                    <select>
+                      <option value="Policy Number">Policy Number</option>
+                      <option value="Policy Owner">Policy Owner</option>
+                      <option value="Insured Name">Insured Name</option>
+                      <option value="Policy">Policy</option>
+                    </select>
+                    <input className="search" placeholder="Search Policy Number" />
+                  </div>
+                  <a href="#" className="btn prulife flex f-center">
+                    <span className="fa fa-search font-white" /> &nbsp;
                   <span>SEARCH</span>
-                </a>
-              </div>
-              {/* <div className="flex f-row">
+                  </a>
+                </div>
+                {/* <div className="flex f-row">
                 <button className="btn prulife" onClick={this.handleModalToggle} accessKey="s">
                   <span className="fa fa-plus"></span> &nbsp; CREATE NEW TRANSACTION
                 </button>
               </div> */}
+              </div>
+              <div className="col no-padding xl-12 f-center f-start flex ">
+                <p className="text-bold">FILTERS :</p>
+                <a className="btn-sm  bright-blue">All task</a>
+                <a className="btn-sm alt">Recently Updated</a>
+              </div>
+              <ProcessorTaskList tasks={this.state.tasks} policy={this.state.policy} />
+              {/* <h1>Task History</h1>  */}
+              {/* <TaskList tasks={this.state.taskHistory}/> */}
             </div>
-            <div className="col no-padding xl-12 f-center f-start flex ">
-              <p className="text-bold">FILTERS :</p>
-              <a className="btn-sm  bright-blue">All task</a>
-              <a className="btn-sm alt">Recently Updated</a>
-            </div>
-            <ProcessorTaskList tasks={this.state.tasks} policy={this.state.policy} />
-            {/* <h1>Task History</h1>  */}
-            {/* <TaskList tasks={this.state.taskHistory}/> */}
           </div>
         </div>
-      </div>
       </div>
     );
   }
