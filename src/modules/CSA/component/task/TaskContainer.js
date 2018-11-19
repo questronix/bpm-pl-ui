@@ -114,13 +114,14 @@ class TaskContainer extends Component {
           });
         } else {
           console.log('Error: ', res.data);
-          {!policy.status && (
-            <div className="no-search-result flex f-center">
-              <span className="fa fa-search" />
-              <br />
-              <p>No record/s found</p>
-            </div>
-          )}
+          if (window.confirm('No Results Found')){
+           this.setState({
+             policy: "",
+             showComponent: false
+           })
+            
+          }
+          
         }
       })
       .finally(() => {
