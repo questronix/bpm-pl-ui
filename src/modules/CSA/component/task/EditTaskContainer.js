@@ -530,7 +530,7 @@ class EditTaskContainer extends Component {
                 <h4 className="circle">
                   {this.state.isVisitedTransaction ? <span className="fa fa-check" /> : 1}
                 </h4>
-                <h4>Transaction Selection</h4><span className="white" /><span className="gray" />
+                <h4 className="no-margin">Transaction Selection</h4><span className="white" /><span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(2)}
@@ -538,7 +538,7 @@ class EditTaskContainer extends Component {
                 <h4 className="circle">
                   {this.state.isVisitedInsured ? <span className="fa fa-check" /> : 2}
                 </h4>
-                <h4>Insured Details</h4><span className="white" /><span className="gray" />
+                <h4 className="no-margin">Insured Details</h4><span className="white" /><span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(3)}
@@ -546,7 +546,7 @@ class EditTaskContainer extends Component {
                 <h4 className="circle">
                   {this.state.isVisitedOwner ? <span className="fa fa-check" /> : 3}
                 </h4>
-                <h4>Owner Details</h4><span className="white" /><span className="gray" />
+                <h4 className="no-margin">Owner Details</h4><span className="white" /><span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(4)}
@@ -554,7 +554,7 @@ class EditTaskContainer extends Component {
                 <h4 className="circle">
                   {this.state.isVisitedAdditional ? <span className="fa fa-check" /> : 4}
                 </h4>
-                <h4>Additional Details</h4>
+                <h4 className="no-margin">Additional Details</h4>
               </div>
             </div>
             <TabHeader policy={this.state.policy} clients={this.state.clients} />
