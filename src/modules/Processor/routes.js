@@ -3,6 +3,7 @@ import EditTaskPage from './pages/EditTaskPage';
 import DocumentViewer from './pages/DocumentViewer';
 import ProcessorTaskList from './component/task/ProcessorTaskList';
 import ProcessorTaskContainer from './component/task/ProcessorTaskContainer';
+import ProcessorTaskPage from './component/task/ProcessorTaskPage';
 
 const routes = [
   {
@@ -13,7 +14,7 @@ const routes = [
   {
     path: "/list",
     exact: true,
-    component: ProcessorTaskContainer,
+    component: ProcessorTaskPage,
   },
   {
     path: "/DocumentViewer",
