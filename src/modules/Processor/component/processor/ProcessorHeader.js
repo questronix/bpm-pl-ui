@@ -47,7 +47,7 @@ class ProcessorHeader extends Component {
                </h3>
             <hr />
           </div>
-          <div className="xl-12 container">
+          <div className="xl-12 container horizontal-scroll">
             <div className="flex-container ">
               <Input
                 editable="false"
