@@ -114,13 +114,13 @@ class TaskContainer extends Component {
           });
         } else {
           console.log('Error: ', res.data);
-          if (window.confirm('No Results Found')){
+          // if (window.confirm('No Results Found')){
            this.setState({
              policy: "",
              showComponent: false
            })
             
-          }
+          // }
           
         }
       })
