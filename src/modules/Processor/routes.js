@@ -4,6 +4,7 @@ import DocumentViewer from './pages/DocumentViewer';
 import ProcessorTaskList from './component/task/ProcessorTaskList';
 import ProcessorTaskContainer from './component/task/ProcessorTaskContainer';
 import ProcessorTaskPage from './component/task/ProcessorTaskPage';
+import Approver from './pages/ApproverPage';
 
 const routes = [
   {
@@ -20,6 +21,12 @@ const routes = [
     path: "/DocumentViewer",
     exact: true,
     component: DocumentViewer,
+  },
+  
+  {
+    path: "/approver",
+    exact:true,
+    component: Approver
   },
 ];
 
