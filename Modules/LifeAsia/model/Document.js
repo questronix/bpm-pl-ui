@@ -3,12 +3,14 @@ const ajax = require('../../Common/services/Ajax');
 const Logger = require('../../Common/services/Logger');
 const Error = require('../../Common/services/Errors');
 const url = process.env.LIFE_ASIA_CLIENT_URL_2;
+const url2 = process.env.LIFE_ASIA_CLIENT_URL_3;
 const isFakeEndpoint = process.env.FAKE_ENDPOINTS;
 
-module.exports.getDocList = (transactionId, subTransactionId) => {
+// module.exports.getDocList = (transactionId, subTransactionId) => {
+module.exports.getDocList = (transactionNo) => {
   const ACTION = '[getDocList]';
   const uri = `${url}/getListDocs`;
-  Logger.log('info', `${TAG}${ACTION} - args `, { transactionId, subTransactionId });
+  Logger.log('info', `${TAG}${ACTION} - args `, { transactionNo });
   Logger.log('info', `${TAG}${ACTION} - url`, uri);
 
   if (isFakeEndpoint) {
@@ -21,8 +23,9 @@ module.exports.getDocList = (transactionId, subTransactionId) => {
   } else {
     return new Promise((resolve, reject) => {
       const args = {
-        transactionID: transactionId,
-        subTransactionID: subTransactionId
+        // transactionID: transactionId,
+        // subTransactionID: subTransactionId
+        transactionNo
       };
 
       ajax
@@ -111,6 +114,45 @@ module.exports.doclist = (args) => {
         .then(res => {
           Logger.log('info', `${TAG}${ACTION} - res `, { res });
           if (res.body) {
+            resolve(res.body);
+          } else {
+            reject({
+              status: 400,
+              error: {
+                msg: 'Failed to create document'
+              }
+            });
+          }
+        })
+        .catch(err => {
+          Logger.log('error', TAG + ACTION, err);
+          reject(Error.raise('INTERNAL_SERVER_ERROR', err));
+        });
+    });
+  }
+};
+
+module.exports.createMemo = (args) => {
+  const ACTION = '[getDocList]';
+  const uri = `${url2}/generateMemo`;
+  Logger.log('info', `${TAG}${ACTION} - args `, { args });
+  Logger.log('info', `${TAG}${ACTION} - url`, uri);
+
+  if (isFakeEndpoint) {
+    return new Promise((resolve, reject) => {
+      resolve(require('../../Dummy/docsCreate.json'));
+    });
+  } else {
+    return new Promise((resolve, reject) => {
+      ajax
+        .setOptions({
+          uri
+        })
+        .post(args)
+        .then(res => {
+          Logger.log('info', `${TAG}${ACTION} - res `, { res });
+          if (res.body) {
+            // res.body.result.data = Buffer.from(res.body.result.data, 'base64');
             resolve(res.body);
           } else {
             reject({

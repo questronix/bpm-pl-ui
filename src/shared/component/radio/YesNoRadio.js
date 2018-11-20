@@ -31,7 +31,7 @@ class YesNoRadio extends Component {
               id={`${this.props.name}Yes`}
               name={this.props.name}
               defaultValue={true}
-              defaultChecked={this.props.isYesDefault ? true : false}
+              defaultChecked={this.props.isYesDefault && this.props.isYesDefault !== null ? true : false}
               onChange={this.handleSelectChange}
             />
             <span className="checkmark" />
@@ -43,7 +43,7 @@ class YesNoRadio extends Component {
               id={`${this.props.name}No`}
               name={this.props.name}
               defaultValue={false}
-              defaultChecked={!this.props.isYesDefault ? true : false}
+              defaultChecked={this.props.isYesDefault && this.props.isYesDefault !== null ? true : false}
               onChange={this.handleSelectChange}
             />
             <span className="checkmark" />

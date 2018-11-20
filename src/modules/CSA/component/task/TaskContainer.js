@@ -88,6 +88,13 @@ class TaskContainer extends Component {
   
   handleModalToggle() {
     console.log('TOGGLE_MODAL')
+    if(!this.state.openSearchModal){
+      this.setState({
+        policy : {
+          status: false
+        }
+      });
+    }
     this.setState({ openSearchModal:  !this.state.openSearchModal });
   }
 
@@ -95,16 +102,28 @@ class TaskContainer extends Component {
     this.setState({
       policyNumberSearch: policyNumber,
       isSearching: true,
-      isError: false
+      isError: false,
+      policy: {}
     });
     PolicyService.getPolicyInformationByID(policyNumber)
       .then(res => {
-        console.log(res.data.result);
+        console.log(res.data.result); 
         if (res.data.result) {
-          this.setState({
-            policy: res.data.result,
-            showComponent: true
-          });
+          if(res.data.result.status == "0"){
+            alert("Error in processing in Life Asia");
+            this.setState({
+              policy : {
+                status: false
+              }
+            });
+          }
+          else {
+            this.setState({
+              policy: res.data.result,
+              showComponent: true
+            });
+          }
+          
         }
         else if (res.data.status == "fail") {
           alert(res.data.message);
@@ -137,9 +156,18 @@ class TaskContainer extends Component {
     PolicyService.getClientIformationByid(id)
       .then(res => {
         if (res.data.data.result.data) {
-          this.setState({
-            client: res.data.data.result.data
-          });
+          
+          // this.setState({
+          //   client: res.data.data.result.data
+          // });
+          if(res.data.data.result.data.status == "0"){
+            console.log("Error processing in Life Asia");
+          }
+          else {
+            this.setState({
+              client: res.data.data.result.data
+            });
+          }
         }
         console.log(res.data);
       })
@@ -222,6 +250,7 @@ class TaskContainer extends Component {
             <br />
             <hr />
           </div>
+          
           {isSearching && <div>Searching Policy</div>}
           {policy.status && (
             <div>

@@ -13,6 +13,16 @@ router.post('/', mw.isAuthenticated, async(req, res) => {
   try {
     const trans = await transaction.generateTransactionId()
       .catch((err) => res.send(err));
+
+    const pNo = JSON.parse(req.body.info).number;
+    
+    await transaction.saveTransactionDetails({
+        "transactionNo": trans.result.transactionNumber,
+        "policyno": pNo,
+        "assignee": "sample",
+        "createdBy": req.user.Firstname
+      })
+      .catch((err) => res.send(err));
   
     task.new(req.session.user.Username, req.body.info, trans.result.transactionNumber).then((data) => {
       res.send(data);

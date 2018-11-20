@@ -58,7 +58,47 @@ module.exports.saveTransaction = (args) => {
     });
   } else {
     return new Promise((resolve, reject) => {
+      
+      ajax
+        .setOptions({
+          uri
+        })
+        .post(args)
+        .then(res => {
+          Logger.log('info', `${TAG}${ACTION} - result`, res.body);
+          if (res.body) {
+            resolve(res.body);
+          } else {
+            resolve({
+              error: {
+                status: 404,
+                msg: 'Failed to save transction.'
+              }
+            });
+          }
+        })
+        .catch(err => {
+          Logger.log('error', TAG + ACTION, err);
+          reject(Error.raise('INTERNAL_SERVER_ERROR', err));
+        });
+    });
+  }
+};
 
+module.exports.saveTransactionDetails = (args) => {
+  const ACTION = '[saveTransactionDetails]';
+  const uri = `${url2}/insertTransactionDetails`;
+//   Logger.log('info', `${TAG}${ACTION} - policy number `, { clientNum });
+  Logger.log('info', `${TAG}${ACTION} - url`, uri);
+  Logger.log('info', `${TAG}${ACTION} - args`, args);
+
+  if (isFakeEndpoint) {
+    return new Promise((resolve, reject) => {
+      resolve(require('../../Dummy/client.json'));
+    });
+  } else {
+    return new Promise((resolve, reject) => {
+      
       ajax
         .setOptions({
           uri

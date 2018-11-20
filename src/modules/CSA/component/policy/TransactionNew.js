@@ -126,7 +126,17 @@ class TransactionNew extends Component {
                             </td>
                             <td align="right">
                               <label className={doc.isMandatory === "True" ? "checkbox required" : "checkbox"}>
-                                <input
+                                {doc.checked ? (
+                                  <input
+                                  // id={`doc${doc.docId}`}
+                                  // index={index}
+                                  type="checkbox"
+                                  checked={true}
+                                  disabled
+                                  />
+                                )
+                                : (
+                                  <input
                                   id={`doc${doc.docId}`}
                                   index={index}
                                   type="checkbox"
@@ -134,6 +144,7 @@ class TransactionNew extends Component {
                                   // value={doc.value}
                                   onChange={this.handleDocSelect}
                                 />
+                                )}
                                 <span className="checkmark" />
                               </label>
                             </td>

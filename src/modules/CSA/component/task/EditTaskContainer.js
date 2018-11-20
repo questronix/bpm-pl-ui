@@ -5,6 +5,7 @@ import InsuredinformationNew from '../policy/InsuredinformationNew';
 import TransactionNew from '../policy/TransactionNew';
 import OwnerinformationNew from '../policy/OwnerinformationNew';
 import Additional from '../policy/Additional';
+import { encode } from 'punycode';
 
 class EditTaskContainer extends Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class EditTaskContainer extends Component {
       subTransactionType: 1,
       docs: [], // Temporary placeholder for all documentlist
       selectedDocs: [], // Selected document list that is needed to display
-      isSignatureVerified: false,
+      isSignatureVerified: null,
 
       // TAB NAVIGATION STATE //
       currentTab: 1,
@@ -73,32 +74,33 @@ class EditTaskContainer extends Component {
       isVisitedInsured: false,
       isVisitedOwner: false,
       isVisitedAdditional: false,
+      isDisabledProceed: true,
 
       // INSURED TAB
       insured: null,
-      isChangeInOccupation: false,
-      isChangeInAddress: false,
-      isSOI: false,
-      isPregnant: false,
-      additionalFMA: false,
-      additionalMUR: false,
+      isChangeInOccupation: null,
+      isChangeInAddress: null,
+      isSOI: null,
+      isPregnant: null,
+      additionalFMA: null,
+      additionalMUR: null,
 
       // OWNER TAB
       owner: null,
-      isChangeInOccupationOwner: false,
-      isChangeInAddressOwner: false,
-      isSOIOwner: false,
-      isPregnantOwner: false,
-      additionalFMAOwner: false,
-      additionalMUROwner: false,
+      isChangeInOccupationOwner: null,
+      isChangeInAddressOwner: null,
+      isSOIOwner: null,
+      isPregnantOwner: null,
+      additionalFMAOwner: null,
+      additionalMUROwner: null,
 
       // ADDITIONAL TAB
-      isRelativeOfAgent: false,
-      isFatcaTagging: false,
-      withReinstatementAgent: false,
-      withCosal: false,
-      completeFatca: false,
-      additionalDateOfSigning: false,
+      isRelativeOfAgent: null,
+      isFatcaTagging: null,
+      withReinstatementAgent: null,
+      withCosal: null,
+      completeFatca: null,
+      additionalDateOfSigning: null,
 
 
       client: {},
@@ -129,7 +131,9 @@ class EditTaskContainer extends Component {
       tasks: [],
       taskHistory: [],
       policyNumber: '',
-      Tabs: 0
+      Tabs: 0,
+
+      user: JSON.parse(sessionStorage.getItem('user_info'))
     };
 
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
@@ -169,6 +173,15 @@ class EditTaskContainer extends Component {
     // );
     console.log('subTransDoc', subTrans[0].data);
     this.setState({ selectedDocs: subTrans[0].data });
+
+    const isAllChecked = subTrans[0].data.every(doc => doc.value);
+
+    if (isAllChecked) {
+      this.setState({ isDisabledProceed: false });
+    }
+    else {
+      this.setState({ isDisabledProceed: true });
+    }
   }
 
   componentDidMount() {
@@ -515,7 +528,15 @@ class EditTaskContainer extends Component {
   handleDocSelect(index) {
     const { selectedDocs } = this.state;
     selectedDocs[index].value = !selectedDocs[index].value;
+    const isAllChecked = selectedDocs.every(doc => doc.value);
     this.setState({ selectedDocs });
+
+    if (isAllChecked) {
+      this.setState({ isDisabledProceed: false });
+    }
+    else {
+      this.setState({ isDisabledProceed: true });
+    }
   }
 
   handleOnCheckChange(name, val) {
@@ -538,6 +559,7 @@ class EditTaskContainer extends Component {
       }); 
       this.getInsuredDetails();
       this.updateDocList();
+      this.createMemo();
     }
     if (tabPage === 3) { 
       this.setState({ isVisitedOwner: true }); 
@@ -559,13 +581,22 @@ class EditTaskContainer extends Component {
 
     let result = {};
 
-    if (this.state.insured) {
-      result.push({
+    // if (this.state.insured) {
+      result = {
         transactionNo: this.state.transactionNumber,
         clientId: insured.clientId,
         "clientType": "Owner",
         "occupation1": insured.occupation1,
         "occupation2": insured.occupation2,
+        questions: []
+      }
+
+      result.questions.push({
+        // transactionNo: this.state.transactionNumber,
+        // clientId: insured.clientId,
+        // "clientType": "Owner",
+        // "occupation1": insured.occupation1,
+        // "occupation2": insured.occupation2,
         "questionId": "1",
         "questionDescription": "SOI",
         "questionAnswer": this.state.isSOI,
@@ -578,17 +609,17 @@ class EditTaskContainer extends Component {
         "otherDetailsReason": "",
         "levelStatus": "Pending"
       });
-    }
+    // }
 
-    const args = {
-      result
-    };
-    PolicyService.saveTransaction(args)
+    const args = result;
+    
+    PolicyService.saveTransactionDetails(args)
     .then((res) => {
+      console.log(JSON.stringify(res.data));
       // TODO: FIX RESPONSE
       if (res.data.isSuccess) {
         alert('Transaction saved!');
-        // window.location.href = '/tasks';
+        window.location.href = '/tasks';
       }
       else {
         alert('Failed to save transaction');
@@ -713,19 +744,78 @@ class EditTaskContainer extends Component {
     return `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`;
   }
 
-  updateDocList(docs) {
+  updateDocList() {
+    const docs = this.state.selectedDocs
+      .filter(doc => doc.value )
+      .map(doc => {
+        return {
+          docs_ID: doc.docId,
+          createdBy: this.state.user.Firstname
+        };
+      })
+
+    console.log('DOCS PAYLOAD', docs);
+
     const data = {
-      transctionNo: this.state.transactionNumber,
-      listDocs: this.state.selectedDocs
+      transactionNo: this.state.transactionNumber,
+      transDocs: docs
     };
 
     DocumentService.saveDocs(data)
       .then(res => {
-        console.log(res.data);
+        console.log('DOCS SAVED', res.data);
       })
       .finally(() => {
         // console.log('CREATE TASK ERROR:', err);
       });
+  }
+
+  createMemo() {
+    const missingDocs = this.state.selectedDocs
+      .filter(doc => !doc.value)
+      .map(doc => {
+        return {
+          docs: doc.description
+        };
+      });
+
+    const data = {
+      "result": {
+        "id": "RequirementMemo",
+        "template": "BPM",
+        "policyNo": "",
+        "data": {
+          "date": "10/05/2018",
+            "agentBroker": "Henry Chu",
+            "code": "70000261",
+            "branch": "BLUE PEARL BRANCH 1",
+            "policyowner": "Henry Chu Gocuan",
+            "lifeInsured": "Henry Chu Gocuan",
+            "plan": "PruLink Assurance Account Plus - PHP",
+            "missingDocs": missingDocs,
+          "missingFields": [
+              {
+                "fields": "Signatured Verified"
+              }
+              
+          ]
+        }
+      }
+    }
+
+    if (missingDocs.length > 0) {
+      // Service for creating memo
+      // DocumentService.createMemo(data)
+      //   .then(res => {
+      //     console.log('DOCS MEMO', res.data.result.data);
+      //     const pdf = res.data.result.data;
+      //     window.open('data:application/pdf;base64,' + escape(pdf), '_blank');
+      //   })
+      //   .finally(() => {
+
+      //   });
+    }
+    
   }
 
   render() {
@@ -858,7 +948,7 @@ class EditTaskContainer extends Component {
                 <button className={this.state.currentTab === 1 ? "btn prulife invisible" : "btn prulife"} accessKey="," onClick={this.handlePrevTab}>
                   <span className="fa fa-chevron-left" />&nbsp; BACK
                 </button>
-                <button className="btn prulife" accessKey="." onClick={this.handleNextTab}>
+                <button className="btn prulife" accessKey="." onClick={this.handleNextTab} disabled={this.state.isDisabledProceed}>
                   PROCEED &nbsp; <span className="fa fa-chevron-right" />
                 </button>
               </div>

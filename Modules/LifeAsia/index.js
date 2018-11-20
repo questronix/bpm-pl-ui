@@ -47,8 +47,6 @@ router.get('/:policyNum/policy', mw.isAuthenticated, async(req, res) => {
 
   la.getLarten(req.params.policyNum)
     .then(data => {
-      // policy.result.push(data);
-      // const d = { }
       if (data.status == "fail") {
         res.send(data)
       } else {
@@ -61,15 +59,6 @@ router.get('/:policyNum/policy', mw.isAuthenticated, async(req, res) => {
     .catch(err => {
       res.status(err.status).send(err);
     });
-  
-  
-  // la.getPolicy(req.params.policyNum)
-  //   .then(data => {
-  //     res.send(data);
-  //   })
-  //   .catch(err => {
-  //     res.status(err.status).send(err);
-  //   });
 });
 
 router.get('/:policyNum/lartenq', mw.isAuthenticated, (req, res) => {
@@ -87,10 +76,12 @@ router.get('/:policyNum/lartenq', mw.isAuthenticated, (req, res) => {
 
 router.get('/documents/:transactionId/:subTransactionId', mw.isAuthenticated, (req, res) => {
   const ACTION = '[getDocument]';
-  const { transactionId, subTransactionId } = req.params;
+  // const { transactionId, subTransactionId } = req.params;
+  const { transactionNo } = req.params;
   Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
 
-  doc.getDocList(transactionId, subTransactionId)
+  // doc.getDocList(transactionId, subTransactionId)
+  doc.getDocList(transactionNo)
     .then(data => {
       res.send(data);
     })
@@ -127,16 +118,36 @@ router.post('/documents', mw.isAuthenticated, (req, res) => {
     });
 });
 
+router.post('/documents/save', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[psotDocumentSave]';
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 
-router.post('/transaction', mw.isAuthenticated, (req, res) => {
+  doc.create(req.body)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
+});
+
+
+router.post('/transaction', mw.isAuthenticated, async(req, res) => {
   const ACTION = '[postTransaction]';
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 
-  trans.generateTransactionId()
+  const transID = await trans.generateTransactionId()
+    .catch(err => res.status(err.status).send(err));
+
+  const { policy } = req.body;
+  trans.saveTransaction({
+    "transactionNo": transID.result.transactionNumber,
+    "policyno": "12222222",
+    "assignee": "sample",
+    "createdBy": "sample"
+  })
     .then(data => {
-      res.send({
-        data
-      });
+      res.send(transID);
     })
     .catch(err => {
       res.status(err.status).send(err);
@@ -156,15 +167,41 @@ router.put('/documents', mw.isAuthenticated, (req, res) => {
     });
 });
 
+router.post('/transaction/saveTransaction', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[postSaveTransaction]';
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+
+  trans.saveTransactionDetails(req.body)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
+});
+
 router.post('/transaction/save', mw.isAuthenticated, (req, res) => {
   const ACTION = '[postTransaction]';
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
-
-  trans.generateTransactionId()
+  
+  trans.saveTransactionDetails(req.body)
     .then(data => {
       res.send({
         data
       });
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
+});
+
+router.post('/documents/memo', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[postCreateMemo]';
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+  
+  doc.createMemo(req.body)
+    .then(data => {
+      res.send(data);
     })
     .catch(err => {
       res.status(err.status).send(err);

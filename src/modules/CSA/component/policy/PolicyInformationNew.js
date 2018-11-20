@@ -16,8 +16,8 @@ class PolicyInformationNew extends Component {
     return (
       <div className="xl-12 flex-container flex-wrap">
         <Input editable="false" inputLabel="Plan Description:" inputPlaceholder="Plan Name" txtboxClass="no-border" inputClass="col xl-6 input-container" value={policy.planDescription}/>
-        <Input editable="false" inputLabel="Plan Status:" inputPlaceholder="Lapsed" txtboxClass="no-border" inputClass="col xl-3 input-container" value={policy.policyStatus}/>
-        <Input editable="false" inputLabel="Premium Status:" inputPlaceholder="Premium Paying" txtboxClass="no-border" inputClass="col xl-3 input-container" value={policy.premiumStatus}/>
+        <Input editable="false" inputLabel="Plan Status:" inputPlaceholder="Lapsed" txtboxClass="no-border" inputClass="col xl-3 input-container" value={policy.policyStatusDesc}/>
+        <Input editable="false" inputLabel="Premium Status:" inputPlaceholder="Premium Paying" txtboxClass="no-border" inputClass="col xl-3 input-container" value={policy.premiumStatusDesc}/>
         <Input editable="false" inputLabel="First Issue Date:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-4 input-container" value={policy.firstIssueDate}/>
         <Input editable="false" inputLabel="Risk Commencement Date:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-4 input-container" value={policy.riskCommencementDate} />
         <Input editable="false" inputLabel="Sum Assured:" inputPlaceholder="100,000" txtboxClass="no-border" inputClass="col xl-4 input-container" value={policy.sumInsured}/>
