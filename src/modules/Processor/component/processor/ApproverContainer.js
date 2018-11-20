@@ -4,6 +4,8 @@ import YesNoRadio from '../../../../shared/component/radio/YesNoRadio';
 import ApprovalDetails from './ApprovalDetails';
 import PolicyInfoHeader from '../../../CSA/component/policy/PolicyInfoHeader';
 import AgentInfoHeader from '../../../CSA/component/policy/AgentInfoHeader';
+import PolicyInsuredOwnerContainer from './PolicyInsuredOwnerContainer';
+import ReviewDetails from './PolicyInsuredOwnerContainer';
 
 class ApproverContainer extends Component {
   constructor(props) {
@@ -16,7 +18,9 @@ class ApproverContainer extends Component {
     return (
       <div className="App">
         <ApprovalDetails isFatcaTagging={this.state.isFatcaTagging} />
+        <ReviewDetails/>
       </div >
+
     );
   }
 }
