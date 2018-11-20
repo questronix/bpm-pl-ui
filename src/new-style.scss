@@ -639,6 +639,13 @@ select { /* Chrome/Opera/Safari */
     color: $prulife;
     font-size: 13px;
 }
+.editable::after{
+    font-family: "FontAwesome";
+    content: " \f303";
+    color: $prulife;
+    font-size: 13px;
+    
+}
 .label{
     // font-size: 13;   
     font-weight: bold;
@@ -1481,6 +1488,7 @@ nav{
             flex-direction: row;
             justify-content: space-evenly;
             border-bottom: solid 1px #bdbdbd solid;
+            height: 50px;
             .circle{
                 border-radius: 50%;
                 border: solid 1.5px $pru-gray;
@@ -1515,6 +1523,7 @@ nav{
                 align-items: center;
                 justify-content: center;
                 width: 100%;
+                cursor: pointer;
                 &.active{
                     background-color:$bright-blue; 
                     .white{
@@ -1576,7 +1585,8 @@ $background_color_1: #ED1B2E;
         flex: 1;
         height: 30px;
         color: #232323;
-        font: bold 19px 'Century Gothic';
+        font-weight: bold;
+        font-size: 19px;
         line-height: 30px;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -1862,10 +1872,10 @@ $background_color_1: #ED1B2E;
       -webkit-animation-duration: .5s;
   }
 
-div{
-    @extend .fade-in;
-    @include transition();
-}
+// div{
+//     @extend .fade-in;
+//     @include transition();
+// }
 // Widgets
 @mixin max-width ($n) {
     max-width: 100% * ($n / 12) !important;
@@ -1993,6 +2003,19 @@ div{
     border-bottom: 1px solid $gray;
 }
 .modal-body{
+    overflow: hidden;
+    position: relative;
+        &.loading{
+            background-color: rgba(black,.30);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 999;
+        }
     .input-container{
         padding:5px;
     }
@@ -2016,7 +2039,7 @@ div{
     visibility: visible;
   }
   
-  .modal-state:checked + .modal .modal-inner {
+  .modal-state:checked + .modal .modal-inner, .modal-state:checked + .modal .ghost {
     transform: translate(0, 0);
   }
   
@@ -2033,17 +2056,25 @@ div{
     // border-radius: 5px;
     // padding: 1em 2em;
     height: 100%;
-    overflow: auto;
+    overflow-y: auto;
   }
-  
+  .ghost{
+      width: 50%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transition:.25s ease;
+      transform: translate(100%, 0);
+  }
   .modal__close {
     position: fixed;
-    left: 0;
+    // left: 0;
     top: 0;
     width: 1.1em;
     height: 1.1em;
     cursor: pointer;
-    transform: translate(-40px,30px);
+    transform: translate(-60px,30px);
     background-color: white;
     padding: 15px;
     display: flex;
@@ -2185,7 +2216,7 @@ table {
     }
     th {
         color: $color_1;
-        font: bold 13px 'Century Gothic';
+        font: bold 13px;
         text-align: left;
         padding: 25px 10px 8px 10px;
         font-size: 13px;
@@ -2197,7 +2228,7 @@ table {
     td {
         position: relative;
         color: $color_1;
-        font: normal 12px 'Century Gothic';
+        font: normal 12px;
         padding: 15px 10px;
         cursor: pointer;
     }
@@ -2366,6 +2397,11 @@ input[type="search"] {
         padding: 4px;
     }
 }
+@media only screen and (max-width: 1023px) {
+.horizontal-scroll{
+    overflow-x: auto;
+}
+}
 // policy-information
 .insured-details{
     overflow: hidden;
@@ -2378,6 +2414,7 @@ input[type="search"] {
         padding: 5px;
     }
     .input-container{
+        position: relative;
         span{
             position: absolute;
             right: 0;
@@ -2411,11 +2448,17 @@ input[type="search"] {
         overflow: hidden;
         transition: max-height .3s ease-in-out;
         &.active{
-            max-height: 1000px !important;
+            max-height: 5000px !important;
             transition: max-height .3s ease-in-out;
             overflow: hidden !important;
             padding-bottom: 0px;
         }
+    }
+}
+.document-container{
+    height: 100%;
+    object{
+        position: absolute;
     }
 }
     .policyinfo-container{

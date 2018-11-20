@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // import Nav from '../../../shared/component/nav/Nav';
 import SideBar from '../../../shared/component/sidebar/SideBar';
 import { TaskService } from '../../../services/index';
-import Nav from '../component/nav/Nav';
+import Nav from '../component/nav/Nav'
 import CardImg from '../../../shared/component/Widgets/CardImg';
 import Input from '../../../shared/component/input/Input';
 import ProcessorContainer from '../component/processor/ProcessorContainer';
@@ -68,7 +68,7 @@ export default class Main extends Component {
         {/* <Processor/> */}
         <div className="margin-top-70">
           <div className="flex-container flex-wrap">
-            <div className="xl-2 l-2 m-3 s-3 xs-4 col"></div>
+            <div className="xl-2 l-2 m-3 s-3 xs-4 col no-padding"></div>
             <div className="xl-10 l-10 m-9 s-9 xs-8 col">
               {/* <div className="xl-4">
                 <CardImg

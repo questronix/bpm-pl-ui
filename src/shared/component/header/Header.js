@@ -10,23 +10,17 @@ class Header extends Component {
     }
   }
 
-  toggleMenu() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
+  
 
   render() {
 
     return (
       <div className="header-container flex f-justify-space-between bg-white f-center">
-        <div className="header-brand flex">
-          <h3 className="font-prulife">
-            BPM
-          </h3>
-          <h3>
-            Aftersales
-          </h3>
+        <div className="sidebar-title">
+          <div className="logo col">
+            <div className="wrapper"><i className="icon fa fa-file-signature"></i></div>
+            <div className="title text-black"><span>BPM</span> After-sales</div>
+          </div>
         </div>
         <div className="header-action dropdown" onClick={() => this.toggleMenu()}>
           <a className="flex f-row f-center">
@@ -35,22 +29,12 @@ class Header extends Component {
                 Welcome, {JSON.parse(sessionStorage.getItem('user_info')).Firstname}
               </p>
               <p className="no-margin">
-              {JSON.parse(sessionStorage.getItem('user_info')).Role_Description}
+                {JSON.parse(sessionStorage.getItem('user_info')).Role_Description}
                 {/* CSA / Processor / Approver */}
               </p>
             </div>
             <span className="fa fa-user font-prulife"></span>
           </a>
-          {/* <div className={this.state.isOpen ? 'dropdown-menu active' : 'dropdown-menu'}>
-            <ul>
-              <a href="/login">
-                <li>
-                  <span className="fa fa-sign-out-alt"></span> &nbsp;
-                  Logout
-                </li>
-              </a>
-            </ul>
-          </div> */}
         </div>
       </div>
     );

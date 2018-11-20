@@ -7,6 +7,12 @@ const navLinks = [
     path: '/processor',
     icon: 'fa fa-tachometer-alt font-prulife',
   },
+  {
+    label: 'Task',  
+    path: '/list',
+    icon: 'fa fa-tachometer-alt font-prulife',
+  },
+
 ]
 
 const Nav = () => {

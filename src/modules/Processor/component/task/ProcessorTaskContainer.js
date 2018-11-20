@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import TaskList from './TaskList';
-import MyModal from '../../../../shared/component/modal/Modal';
-import PolicyInformationNew from '../policy/PolicyInformationNew';
-import { PolicyService, TaskService } from '../../services';
-import AgentinformationNew from '../policy/AgentinformationNew';
-import ModalAlert from '../../../../shared/component/alerts/ModalAlert';
+import ProcessorTaskList from '../task/ProcessorTaskList'
+import { PolicyService, TaskService } from '../../../CSA/services';
+import Nav from '../nav/Nav';
 
-class TaskContainer extends Component {
+
+class ProcessorTaskContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tasks: [],
       taskHistory: [],
-      policyNumber: '', //00043256
+      policyNumber: '',
       policy: {},
       client: {},
       transactionId: '',
       Tabs: 0,
       isSearching: false,
       openSearchModal: false,
-      openTransactionModal: false,
       modalAlert: false,
     };
     this.searchPolicy = this.searchPolicy.bind(this);
@@ -90,17 +87,10 @@ class TaskContainer extends Component {
 
   handleModalToggle() {
     console.log('TOGGLE_MODAL')
-    if(!this.state.openSearchModal){
-      this.setState({
-        policy : {
-          status: false
-        }
-      });
-    }
     this.setState({ openSearchModal: !this.state.openSearchModal });
   }
 
-  handlemodalAlert(){
+  handlemodalAlert() {
     this.setState({
       modalAlert: !this.state.modalAlert
     });
@@ -110,47 +100,33 @@ class TaskContainer extends Component {
     this.setState({
       policyNumberSearch: policyNumber,
       isSearching: true,
-      isError: false,
-      policy: {}
+      isError: false
     });
     PolicyService.getPolicyInformationByID(policyNumber)
       .then(res => {
-        console.log(res.data.result); 
+        console.log(res.data.result);
         if (res.data.result) {
-          if(res.data.result.status == "0"){
-            alert("Error in processing in Life Asia");
-            this.setState({
-              policy : {
-                status: false
-              }
-            });
-          }
-          else {
-            this.setState({
-              policy: res.data.result,
-              showComponent: true
-            });
-          }
-          
-        }
-        else if (res.data.status == "fail") {
-          alert(res.data.message);
+          this.setState({
+            policy: res.data.result,
+            showComponent: true
+          });
         } else {
           console.log('Error: ', res.data);
-          // if (window.confirm('No Results Found')){
-           this.setState({
-             policy: "",
-             showComponent: false
-           })
-            
-          // }
-          
+          {
+          !policy.status && (
+            <div className="no-search-result flex f-center">
+              <span className="fa fa-search" />
+              <br />
+              <p>No record/s found</p>
+            </div>
+          )
+          }
         }
       })
       .finally(() => {
         this.setState({
           isSearching: false,
-          // isError: true
+          isError: true
         });
       });
   }
@@ -171,18 +147,9 @@ class TaskContainer extends Component {
     PolicyService.getClientIformationByid(id)
       .then(res => {
         if (res.data.data.result.data) {
-          
-          // this.setState({
-          //   client: res.data.data.result.data
-          // });
-          if(res.data.data.result.data.status == "0"){
-            console.log("Error processing in Life Asia");
-          }
-          else {
-            this.setState({
-              client: res.data.data.result.data
-            });
-          }
+          this.setState({
+            client: res.data.data.result.data
+          });
         }
         console.log(res.data);
       })
@@ -202,26 +169,29 @@ class TaskContainer extends Component {
   }
 
   createTask() {
-    TaskService.createNewTask({"info": JSON.stringify(this.state.policy)})
-      .then(res => {
-        console.log(res.data);
-        const t = JSON.parse(JSON.stringify(res.data.variables.policy));
-        localStorage.setItem("transactionNumber", t.transactionNo);
-        localStorage.setItem("policy", JSON.stringify(this.state.policy));
-        this.props.history.push(`/tasks/edit?id=${res.data.id}`);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // TaskService.createNewTask({"info": JSON.stringify(this.state.policy)})
+    //   .then(res => {
+    //     console.log(res.data);
+    //     const t = JSON.parse(JSON.stringify(res.data.variables.policy));
+    //     localStorage.setItem("transactionNumber", t.transactionNo);
+    //     localStorage.setItem("policy", JSON.stringify(this.state.policy));
+    // this.props.history.push(`/tasks/edit?id=${res.data.id}`);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+    window.location.href = "/tasks/edit"
   }
 
   render() {
     const { policy, isSearching } = this.state;
 
     return (
-      <div className="flex-container flex-wrap margin-top-70">
-        {/* THIS WILL BE ADDED IF THE AUTHORITY CAN APPROVE */}
-        {/* <ModalAlert>
+      <div>
+        <Nav />
+        <div className="flex-container flex-wrap margin-top-70 col">
+          {/* THIS WILL BE ADDED IF THE AUTHORITY CAN APPROVE */}
+          {/* <ModalAlert>
           <div className="flex f-center f-column big-container">
             <span className="fa fa-users-cog big-font font-gray big-container"></span>
             <p className="text-center">
@@ -230,7 +200,7 @@ class TaskContainer extends Component {
             </p>
           </div>
       </ModalAlert> */}
-      <ModalAlert mHeader="Confirmation" modalalert={this.handlemodalAlert} modalState={this.state.modalAlert} confirm={this.createTask}>
+          {/* <ModalAlert mHeader="Confirmation" modalalert={this.handlemodalAlert} modalState={this.state.modalAlert} confirm={this.createTask}>
           <div className="flex f-center f-column">
 
             <h3 className="text-center">
@@ -298,6 +268,10 @@ class TaskContainer extends Component {
                 <div className="col xl-10" />
                 <a
                   className="btn prulife"
+                  // onClick={() => {
+                  //   if (window.confirm('Are you sure you want to Proceed'))
+                  //     this.createredirect();
+                  // }}
                   onClick={this.handlemodalAlert}
                 >
                   Proceed &nbsp;&nbsp;&nbsp;
@@ -313,42 +287,43 @@ class TaskContainer extends Component {
               <p>No record/s found</p>
             </div>
           )}
-        </MyModal>
-
-        <div className="col xl-10 l-10 m-9 s-9 xs-8">
-          <div className="">
-            <h1 className="flex s-f-center xs-f-center">Tasks</h1>
-            <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
-              <div className=" xl-5 flex f-justify-space-between">
-                <div className="search-container no-border">
-                  {/* <FilterButton/> */}
-                  <select>
-                    <option value="Policy Number">Policy Number</option>
-                    <option value="Policy Owner">Policy Owner</option>
-                    <option value="Insured Name">Insured Name</option>
-                    <option value="Policy">Policy</option>
-                  </select>
-                  <input className="search" placeholder="Search Policy Number" />
-                </div>
-                <a href="#" className="btn prulife flex f-center">
-                  <span className="fa fa-search font-white" /> &nbsp;
+        </MyModal> */}
+          <div className="xl-2 l-2 m-3 s-3 xs-4"></div>
+          <div className=" xl-9 l-9 m-8 s-8 xs-7 margin-auto">
+            <div className="">
+              <h1 className="flex s-f-center xs-f-center">Tasks</h1>
+              <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
+                <div className=" xl-5 flex f-justify-space-between">
+                  <div className="search-container no-border">
+                    {/* <FilterButton/> */}
+                    <select>
+                      <option value="Policy Number">Policy Number</option>
+                      <option value="Policy Owner">Policy Owner</option>
+                      <option value="Insured Name">Insured Name</option>
+                      <option value="Policy">Policy</option>
+                    </select>
+                    <input className="search" placeholder="Search Policy Number" />
+                  </div>
+                  <a href="#" className="btn prulife flex f-center">
+                    <span className="fa fa-search font-white" /> &nbsp;
                   <span>SEARCH</span>
-                </a>
-              </div>
-              <div className="flex f-row">
+                  </a>
+                </div>
+                {/* <div className="flex f-row">
                 <button className="btn prulife" onClick={this.handleModalToggle} accessKey="s">
                   <span className="fa fa-plus"></span> &nbsp; CREATE NEW TRANSACTION
                 </button>
+              </div> */}
               </div>
+              <div className="col no-padding xl-12 f-center f-start flex ">
+                <p className="text-bold">FILTERS :</p>
+                <a className="btn-sm  bright-blue">All task</a>
+                <a className="btn-sm alt">Recently Updated</a>
+              </div>
+              <ProcessorTaskList tasks={this.state.tasks} policy={this.state.policy} />
+              {/* <h1>Task History</h1>  */}
+              {/* <TaskList tasks={this.state.taskHistory}/> */}
             </div>
-            <div className="col no-padding xl-12 f-center f-start flex ">
-              <p className="text-bold">FILTERS :</p>
-              <a className="btn-sm  bright-blue">All task</a>
-              <a className="btn-sm alt">Recently Updated</a>
-            </div>
-            <TaskList tasks={this.state.tasks} policy={this.state.policy} />
-            {/* <h1>Task History</h1>  */}
-            {/* <TaskList tasks={this.state.taskHistory}/> */}
           </div>
         </div>
       </div>
@@ -356,4 +331,4 @@ class TaskContainer extends Component {
   }
 }
 
-export default TaskContainer;
+export default ProcessorTaskContainer;
