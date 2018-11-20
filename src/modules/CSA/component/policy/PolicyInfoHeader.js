@@ -16,7 +16,7 @@ class PolicyInfoHeader extends Component {
       console.log(owner, insured);
     }
     return (
-      <div className="xl-12 flex-container flex-wrap">
+      <div className="xl-12 flex-container flex-wrap insured-details">
         <Input editable="false" inputLabel="Policy Number:" inputPlaceholder="0000001" txtboxClass="no-border" inputClass="col xl-3 input-container" value={policy.policyNo}/>
         <Input editable="false" inputLabel="Sum Assured:" inputPlaceholder="100,000" txtboxClass="no-border" inputClass="col xl-3 input-container" value={policy.sumInsured}/>
         <Input editable="false" inputLabel="Plan Status:" inputPlaceholder="Lapsed" txtboxClass="no-border" inputClass="col xl-3 input-container" value={policy.premiumStatus}/>

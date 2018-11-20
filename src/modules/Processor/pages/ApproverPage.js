@@ -8,6 +8,7 @@ import Nav from '../component/nav/Nav'
 import CardImg from '../../../shared/component/Widgets/CardImg';
 import Input from '../../../shared/component/input/Input';
 import ProcessorContainer from '../component/processor/ProcessorContainer';
+import ApproverContainer from '../component/processor/ApproverContainer';
 
 export default class Approver extends Component {
   constructor(props) {
@@ -64,15 +65,10 @@ export default class Approver extends Component {
     return (
       <div>
         <Nav />
-        
-        <div className="margin-top-70">
-          <div className="flex-container flex-wrap">
-            <div className="xl-2 l-2 m-3 s-3 xs-4 col no-padding"></div>
-            <div className="xl-10 l-10 m-9 s-9 xs-8 col">
-             
-            
-              
-            </div>
+        <div className="flex-container flex-wrap margin-top-70">
+          <div className="xl-2 l-2 m-3 s-3 xs-4 col no-padding"></div>
+          <div className="xl-10 l-10 m-9 s-9 xs-8 col p-x2">
+            <ApproverContainer />
           </div>
         </div>
       </div>

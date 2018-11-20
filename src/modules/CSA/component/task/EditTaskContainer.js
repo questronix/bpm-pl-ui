@@ -484,15 +484,15 @@ class EditTaskContainer extends Component {
 
   render() {
     return (
-      <div className="flex-container flex-wrap">
+      <div className="flex-container col no-padding flex-wrap">
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
-        <div className="margin-top-70 col xl-9 l-9 m-8 s-8 xs-7 no-padding margin-auto">
+        <div className="margin-top-70 xl-9 l-9 m-8 s-8 xs-7 p-x2 margin-auto">
           <div className="">
             <h1 className="text-normal">
               New Transaction
           </h1>
             <div className="flex-container flex-wrap col no-padding flex f-justify-space-between">
-              <div className="flex f-column transaction-header">
+              <div className="flex f-column transaction-header f-justify-space-between">
                 <div className="flex">
                   <p className="">
                     Transaction Number  :
@@ -508,9 +508,7 @@ class EditTaskContainer extends Component {
                   <p className="font-prulife ">
                     Reinstatement - Updating
                 </p>
-                </div>
-              </div>
-              <div className="flex f-column transaction-header">
+                </div> 
                 <div className="flex">
                   <p className="">
                     Created Date	:

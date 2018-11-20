@@ -25,10 +25,10 @@ class Header extends Component {
         <div className="header-action dropdown" onClick={() => this.toggleMenu()}>
           <a href="#" className="flex f-row f-center">
             <div className="text-right">
-              <p className="no-margin">
+              <p className="no-margin bold">
                 Welcome, {JSON.parse(sessionStorage.getItem('user_info')).Firstname}
               </p>
-              <p className="no-margin">
+              <p className="no-margin  text-darkgray bold font-sm">
                 {JSON.parse(sessionStorage.getItem('user_info')).Role_Description}
                 {/* CSA / Processor / Approver */}
               </p>
