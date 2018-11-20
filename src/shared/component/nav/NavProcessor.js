@@ -4,7 +4,7 @@ import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import SidebarNew from '../sidebar/SidebarProcessor';
 
-class Nav extends Component {
+class NavProcessor extends Component {
 
 
   render() {
@@ -36,4 +36,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default NavProcessor;

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-import SidebarNew from '../sidebar/SidebarProcessor';
-import SidebarProcessor from '../sidebar/SidebarProcessor';
+import SidebarNew from '../sidebar/SidebarNew';
+import SidebarProcessor from '../sidebar/SidebarNew';
 
 class Nav extends Component {
 
@@ -31,7 +31,7 @@ class Nav extends Component {
             </ul>
           </div>
         </nav> */}
-        <SidebarProcessor links={links}/>
+        <SidebarNew links={links}/>
       </div>
     );
   }
