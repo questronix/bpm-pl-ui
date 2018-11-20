@@ -288,7 +288,7 @@ class TaskContainer extends Component {
           )}
         </MyModal>
 
-        <div className="col xl-10 l-10 m-9 s-9 xs-8">
+        <div className="col xl-10 l-10 m-9 s-9 xs-8 p-x2">
           <div className="">
             <h1 className="flex s-f-center xs-f-center">Tasks</h1>
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
