@@ -5,6 +5,10 @@ import PolicyInformationNew from '../policy/PolicyInformationNew';
 import { PolicyService, TaskService } from '../../services';
 import AgentinformationNew from '../policy/AgentinformationNew';
 import ModalAlert from '../../../../shared/component/alerts/ModalAlert';
+import { loadavg } from 'os';
+import onIt from '../../../../shared/component/loading/onIt';
+import OnIt from '../../../../shared/component/loading/onIt';
+
 
 class TaskContainer extends Component {
   constructor(props) {
@@ -235,11 +239,12 @@ class TaskContainer extends Component {
             <hr />
           </div>
           {isSearching &&
-            <div className="no-search-result flex f-center modal-body loading">
-                  <span className="spinner atom"></span>
-                  <br />
-                  <p className="font-white">Im on it!</p>
-            </div>
+            // <div className="no-search-result flex f-center modal-body loading">
+            //       <span className="spinner atom"></span>
+            //       <br />
+            //       <p className="font-white">Im on it!</p>
+            // </div>
+           <OnIt/>
           }
           {policy.status && (
             <div>
