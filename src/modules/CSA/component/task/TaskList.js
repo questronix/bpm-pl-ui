@@ -121,7 +121,7 @@ class TaskList extends Component {
             <h1>No Data Available</h1>
           </div>
         )}
-        <div className="table-footer flex f-row f-justify-space-between margin-container">
+        <div className="table-footer flex f-row f-justify-space-between p f-center">
           <div className="flex f-row">
             <h4>Total Count:&nbsp;</h4>
             <h4 className="font-prulife">{this.props.tasks.length}</h4>

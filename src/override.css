@@ -1761,14 +1761,13 @@ nav.navbar .navmenu {
   right: 0;
   top: 0;
   bottom: 0;
-  width: 50%;
+  width: 47%;
   margin: auto;
   background: #fff;
-  height: 100%;
   overflow-y: auto; }
 
 .ghost {
-  width: 50%;
+  width: 47%;
   position: absolute;
   right: 0;
   top: 0;
@@ -2137,6 +2136,11 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* BACKGROUND COLORS */
 /* FONT COLORS */
+* {
+  margin: 0px;
+  padding: 0px;
+  letter-spacing: 1px; }
+
 .bg-white {
   background-color: #fff !important; }
 

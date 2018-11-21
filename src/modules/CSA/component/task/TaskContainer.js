@@ -231,10 +231,10 @@ class TaskContainer extends Component {
           </div>
         </ModalAlert>
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
-        <MyModal modalId="1" modalLabel="New Transaction" isOpen={this.state.openSearchModal} onToggle={this.handleModalToggle}>
-          <div className="col xl-12">
+        <MyModal modalId="1" modalLabel="Add New Transaction" isOpen={this.state.openSearchModal} onToggle={this.handleModalToggle}>
+          <div className="col no-padding xl-12 mb ml-0 mr-0 border-bottom border-gray">
             <form>
-              <div className="xl-12 flex f-justify-space-between">
+              <div className="xl-12 flex f-justify-space-between ">
                 <div className="xl-11 search-container bg-lightgray no-border">
                   <input
                     className="search bg-lightgray no-border"
@@ -255,7 +255,6 @@ class TaskContainer extends Component {
               </div>
             </form>
             <br />
-            <hr />
           </div>
           {isSearching &&
             // <div className="no-search-result flex f-center modal-body loading">
@@ -268,22 +267,22 @@ class TaskContainer extends Component {
           {policy.status && (
             <div>
               <div className=" col xl-12 flex-container flex-wrap modal-body no-padding ">
-                <div className="col xl-12">
-                  <h2 className="font-prulife no-margin">Policy Information</h2>
+                <div className="xl-12">
+                  <h2 className="font-prulife text-red mb-sm mt-0">Policy Information</h2>
                 </div>
                 <div className="xl-12">
-                  <h3 className=" container">
+                  <h4 className="mb-sm mt-0">
                     Policy Number: {this.state.policy.policyNo}
-                  </h3>
+                  </h4>
                 </div>
                 <PolicyInformationNew policy={this.state.policy} />
-                <div className="col xl-12">
-                  <h2 className="font-prulife no-margin">Agent Information</h2>
+                <div className="xl-12">
+                  <h2 className="font-prulife text-red mb-sm mt-0">Agent Information</h2>
                 </div>
                 <div className="xl-12">
-                  <h3 className=" container">
+                  <h4 className="mb-sm mt-0">
                     Agent Code: {this.state.policy.agentCode}
-                  </h3>
+                  </h4>
                 </div>
                 <AgentinformationNew policy={this.state.policy} />
               </div>
@@ -332,14 +331,14 @@ class TaskContainer extends Component {
               </div>
               <div className="flex f-row">
                 <button className="btn prulife" onClick={this.handleModalToggle} accessKey="s">
-                  <span className="fa fa-plus"></span> &nbsp; CREATE NEW TRANSACTION
+                  <span className="fa fa-plus"></span> &nbsp;  ADD NEW TRANSACTION
                 </button>
               </div>
             </div>
             <div className="col no-padding xl-12 f-center f-start flex ">
-              <p className="text-bold">FILTERS :</p>
-              <a className="btn-sm  bright-blue">All task</a>
-              <a className="btn-sm alt">Recently Updated</a>
+              <p className="text-bold font-sm">FILTERS :</p>
+              <a className="btn-sm bright-blue ml">All task</a>
+              <a className="btn-sm alt ml">Recently Updated</a>
             </div>
             <TaskList tasks={this.state.tasks} policy={this.state.policy} />
             {/* <h1>Task History</h1>  */}
