@@ -3,13 +3,40 @@ import React, { Component } from 'react';
 class TaskList extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      owner: {},
+      insured: {}
+    }
   }
 
   handleItemClick(url) {
     window.location.href = url;
   }
 
+  componentWillReceiveProps(nextProps) {
+    // console.log('HEYY', nextProps);
+    // if (nextProps.tasks !== this.props.tasks) {
+    //   const clients = nextProps.tasks.variables.policy.info ? JSON.parse(nextProps.tasks.variables.policy.info).clients : null;
+    //   const owner = clients.find(client => client.role == 'OW');
+    //   const insured = clients.find(client => client.role == 'LF');
+    //   this.setState({owner, insured})
+    // }
+
+    // if (next)
+    //   console.log(insured
+  }
+
   render() {
+    
+    let owner;
+    let insured;
+    // if (this.props.tasks.variables.policy.info) {
+    //   const clients = this.props.tasks.variables.policy.info ? JSON.parse(this.props.tasks.variables.policy.info).clients : null;
+    //   owner = clients.find(client => client.role == 'OW');
+    //   insured = clients.find(client => client.role == 'LF');
+    //   console.log(insured)
+    // }
     return (
       <div className="card-table">
         {this.props.tasks ? (
@@ -37,35 +64,41 @@ class TaskList extends Component {
                   <td>
                     {/* Policy no */}
                     <div className="cursor" />
-                    {task.variables.policy.number
-                      ? task.variables.policy.number
+                    {task.variables.policy
+                      ? JSON.parse(task.variables.policy.info).number
                       : '-'}
                   </td>
                   {/* Transaction No */}
-                  <td>{task.variables.appno}</td>
+                  <td>{task.variables.policy.transactionNo}</td>
 
                   <td>
+                    Reinstatement
                     {/* Transation type */}
                     {/* {task.variables.policy.info != null
-                      ? JSON.parse(task.variables.policy.info).insured.firstName
+                      ? JSON.parse(task.variables.policy.info).find()
                       : '-'} */}
                   </td>
                   <td>
                     {/* Policy owner */}
-                    {/* {task.variables.policy.info != null
-                      ? JSON.parse(task.variables.policy.info).insured.firstName
-                      : '-'} */}
+                    {/* {owner && (owner.clientFirstName + owner.clientLastName) } */}
+                    {task.variables.policy.info != null
+                      ? JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'OW').clientFirstName + JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'OW').clientLasName
+                      : '-'}
                   </td>
                   <td>
                     {/* Insured owner */}
+                    {task.variables.policy.info != null
+                      ? JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'LF').clientFirstName + JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'LF').clientLasName
+                      : '-'}
+                    {/* {insured && (insured.clientFirstName + insured.clientLastName) } */}
                     {/* {task.variables.policy.info != null
                       ? JSON.parse(task.variables.policy.info).insured.firstName
                       : '-'} */}
                   </td>
                   <td>
-                    {/* {task.variables.user != null
+                    {task.variables.user != null
                       ? `${task.variables.user.firstName} ${task.variables.user.lastName}`
-                      : '-'} */}
+                      : '-'}
                   </td>
                   <td>
                     {/* Date created */}

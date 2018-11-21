@@ -125,7 +125,7 @@ class TransactionNew extends Component {
                               </label>
                             </td>
                             <td align="right">
-                              <label className={doc.isMandatory === "True" ? "checkbox required" : "checkbox"}>
+                              <label className={doc.isMandatory ? "checkbox required" : "checkbox"}>
                                 {doc.checked ? (
                                   <input
                                   // id={`doc${doc.docId}`}
@@ -157,6 +157,7 @@ class TransactionNew extends Component {
               )}
             </div>
             <div className="xl-3 container-left-border big-container">
+              {this.props.reqMemoPDF && <a className="font-bright-blue" href={`data:application/pdf;base64, ${escape(this.props.reqMemoPDF)}`} target="_blank"> Generate Memo </a> }
               <Input
                 inputLabel="Required Premium:"
                 inputPlaceholder="(from LA)"
@@ -171,14 +172,15 @@ class TransactionNew extends Component {
                 inputClass="input-container container"
                 value={this.props.policy.pdfSuspense}
               />
-              <Input
-                classRequired="required"
-                inputLabel="OR Number :"
-                inputPlaceholder="Enter OR Number"
-                txtboxClass="no-border"
-                inputClass="input-container container"
-                value=""
+
+              <YesNoRadio
+                name="withPayment"
+                title="With Payment"
+                isRequired={true}
+                isYesDefault={this.props.withPayment}
+                onSelect={this.handleSignatureVerifiedChange}
               />
+              
               <YesNoRadio
                 name="isSignatureVerified"
                 title="Signature Verified"

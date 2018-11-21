@@ -15,12 +15,20 @@ router.post('/', mw.isAuthenticated, async(req, res) => {
       .catch((err) => res.send(err));
 
     const pNo = JSON.parse(req.body.info).number;
+    const info = JSON.parse(req.body.info);
+    const owner = info.clients.find(client => client.role == "OW");
+    const insured = info.clients.find(client => client.role == "LF");
     
-    await transaction.saveTransactionDetails({
-        "transactionNo": trans.result.transactionNumber,
-        "policyno": pNo,
-        "assignee": "sample",
-        "createdBy": req.user.Firstname
+    await transaction.saveTransaction({
+        transactionNo: trans.result.transactionNumber,
+        policyno: info.number,
+        assignee: req.user.Firstname,
+        createdBy: req.user.Firstname,
+        owner: owner.clntNum,
+        ownerName: `${owner.clientLastName}, ${owner.clientFirstName} ${owner.clientMiddleName}`,
+        insured: insured.clntNum,
+        insuredName: `${insured.clientLastName}, ${insured.clientFirstName} ${insured.clientMiddleName}`,
+        transactionType: 1
       })
       .catch((err) => res.send(err));
   

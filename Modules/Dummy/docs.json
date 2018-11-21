@@ -1,50 +1,125 @@
-{  
-  "status": "success",
-  "statusCode": 0,
-  "isSuccess": true,
-  "message": "getting data is successful.",
-  "result": [
-      {
-          "Docs_ID": 1,
-          "Transaction_ID": 1,
-          "SubTransaction_ID": 1,
-          "Description": "Health Statement Form (HSF)",
-          "Date_Created": "2018-11-07T10:28:12.990Z"
-      },
-      {
-          "Docs_ID": 2,
-          "Transaction_ID": 1,
-          "SubTransaction_ID": 1,
-          "Description": "U/W Routine Requirements",
-          "Date_Created": "2018-11-07T10:29:01.707Z"
-      },
-      {
-          "Docs_ID": 3,
-          "Transaction_ID": 1,
-          "SubTransaction_ID": 2,
-          "Description": "Payment of Premium Arrears",
-          "Date_Created": "2018-11-07T10:30:35.633Z"
-      },
-      {
-          "Docs_ID": 4,
-          "Transaction_ID": 1,
-          "SubTransaction_ID": 2,
-          "Description": "Specimen Signature Form",
-          "Date_Created": "2018-11-07T10:33:51.187Z"
-      },
-      {
-          "Docs_ID": 5,
-          "Transaction_ID": 1,
-          "SubTransaction_ID": 3,
-          "Description": "Valid Government Issued ID ",
-          "Date_Created": "2018-11-07T10:33:37.510Z"
-      },
-      {
-          "Docs_ID": 6,
-          "Transaction_ID": 1,
-          "SubTransaction_ID": 3,
-          "Description": "Valid Non-Government Issued ID",
-          "Date_Created": "2018-11-07T10:34:13.803Z"
-      }
-  ]
+{
+    "status": "success",
+    "statusCode": 0,
+    "isSuccess": true,
+    "message": "getting data is successful.",
+    "result": [
+        {
+            "transactionId": 1,
+            "transactionType": "Reinstatement",
+            "data": [
+                {
+                    "subTransactionId": 1,
+                    "subTransactionType": "Updating",
+                    "data": [
+                        {
+                            "docId": 1,
+                            "description": "Duly accomplished Reinstatement Form",
+                            "isMandatory": true,
+                            "dateCreated": "2018-11-16T21:30:38.047Z",
+                            "checked": true
+                        },
+                        {
+                            "docId": 2,
+                            "description": "U/W routine requirements",
+                            "isMandatory": true,
+                            "dateCreated": "2018-11-16T21:30:38.047Z",
+                            "checked": true
+                        },
+                        {
+                            "docId": 3,
+                            "description": "Payment of Premium Arrears",
+                            "isMandatory": true,
+                            "dateCreated": "2018-11-16T21:30:38.047Z",
+                            "checked": true
+                        },
+                        {
+                            "docId": 4,
+                            "description": "Specimen Signature Form (if applicable)",
+                            "isMandatory": false,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        },
+                        {
+                            "docId": 5,
+                            "description": "Valid Government Issued ID (if applicable)",
+                            "isMandatory": false,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        },
+                        {
+                            "docId": 6,
+                            "description": "Valid Non-Government Issued ID",
+                            "isMandatory": false,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        }
+                    ]
+                },
+                {
+                    "subTransactionId": 2,
+                    "subTransactionType": "Redating",
+                    "data": [
+                        {
+                            "docId": 7,
+                            "description": "Duly accomplished Reinstatement Form",
+                            "isMandatory": true,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        },
+                        {
+                            "docId": 8,
+                            "description": "U/W routine requirements",
+                            "isMandatory": true,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        },
+                        {
+                            "docId": 9,
+                            "description": "Payment of redating cost equivalent to one modal premium ",
+                            "isMandatory": true,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        },
+                        {
+                            "docId": 10,
+                            "description": "Specimen Signature Form (if applicable)",
+                            "isMandatory": false,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        },
+                        {
+                            "docId": 11,
+                            "description": "Valid Government Issued ID (if applicable)",
+                            "isMandatory": false,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        },
+                        {
+                            "docId": 12,
+                            "description": "Valid Non-Government Issued ID",
+                            "isMandatory": false,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        }
+                    ]
+                },
+                {
+                    "subTransactionId": 3,
+                    "subTransactionType": "Waiver",
+                    "data": [
+                        {
+                            "docId": 13,
+                            "description": "Discretionary Waiver Form",
+                            "isMandatory": true,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        },
+                        {
+                            "docId": 14,
+                            "description": "Payment of reinstatement cost",
+                            "isMandatory": true,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        },
+                        {
+                            "docId": 15,
+                            "description": "Others - in case transaction is received from other units in Head Office (Payments, UC, etc) ",
+                            "isMandatory": false,
+                            "dateCreated": "2018-11-16T21:30:38.047Z"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

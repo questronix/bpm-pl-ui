@@ -73,6 +73,6 @@ function request(req) {
       window.location.href = '/login';
     }
     console.log(`Error Request: ${JSON.stringify(err)}`);
-    return err;
+    return err.response;
   });
 }

@@ -45,9 +45,9 @@ module.exports.generateTransactionId = () => {
 };
 
 
-module.exports.saveTransactionDetails = (args) => {
+module.exports.saveTransaction = (args) => {
   const ACTION = '[saveTransactionDetails]';
-  const uri = `${url2}/insertTransactionDetails`;
+  const uri = `${url2}/insertTransaction`;
 //   Logger.log('info', `${TAG}${ACTION} - policy number `, { clientNum });
   Logger.log('info', `${TAG}${ACTION} - url`, uri);
   Logger.log('info', `${TAG}${ACTION} - args`, args);

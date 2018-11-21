@@ -45,7 +45,8 @@ router.get('/:policyNum/policy', mw.isAuthenticated, async(req, res) => {
       res.status(err.status).send(err);
     });
 
-  la.getLarten(req.params.policyNum)
+  if(policy.result.policyStatus == "LA"){
+    la.getLarten(req.params.policyNum)
     .then(data => {
       if (data.status == "fail") {
         res.send(data)
@@ -59,6 +60,53 @@ router.get('/:policyNum/policy', mw.isAuthenticated, async(req, res) => {
     .catch(err => {
       res.status(err.status).send(err);
     });
+  }
+  else {
+    res.send({
+      status: "success",
+      result: { number: req.params.policyNum, ...policy.result},
+    });
+  }
+
+
+  // la.getLarten(req.params.policyNum)
+  // .then(data => {
+  //   if (data.status == "fail") {
+  //     res.send(data)
+  //   } else {
+  //     res.send({
+  //       status: "success",
+  //       result: { number: req.params.policyNum, ...policy.result, ...data.result},
+  //     });
+  //   }
+  // })
+  // .catch(err => {
+  //   res.status(err.status).send(err);
+  // });
+  
+  // if ( policy.result.status == "0") {
+  //   policy.result.isForReinstatement = true;
+  // }
+  // else {
+  //   policy.result.isForReinstatement = false;
+  // }
+
+
+
+  // la.getLarten(req.params.policyNum)
+  //   .then(data => {
+  //     if (data.status == "fail") {
+  //       res.send(data)
+  //     } else {
+  //       res.send({
+  //         status: "success",
+  //         result: { number: req.params.policyNum, ...policy.result, ...data.result},
+  //       });
+  //     }
+  //   })
+  //   .catch(err => {
+  //     res.status(err.status).send(err);
+  //   });
 });
 
 router.get('/:policyNum/lartenq', mw.isAuthenticated, (req, res) => {

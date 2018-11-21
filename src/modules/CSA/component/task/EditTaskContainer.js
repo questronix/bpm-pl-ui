@@ -5,7 +5,7 @@ import InsuredinformationNew from '../policy/InsuredinformationNew';
 import TransactionNew from '../policy/TransactionNew';
 import OwnerinformationNew from '../policy/OwnerinformationNew';
 import Additional from '../policy/Additional';
-import { encode } from 'punycode';
+import ModalOkCancel from '../../../../shared/component/modal/ModalOkCancel';
 
 class EditTaskContainer extends Component {
   constructor(props) {
@@ -63,9 +63,13 @@ class EditTaskContainer extends Component {
       // TRANSACTION SELECTION STATE
       transactionType: 1,
       subTransactionType: 1,
-      docs: [], // Temporary placeholder for all documentlist
-      selectedDocs: [], // Selected document list that is needed to display
+      docs: [],                     // Temporary placeholder for all documentlist
+      selectedDocs: [],             // Selected document list that is needed to display
+      missingDocs: [],
       isSignatureVerified: null,
+      withPayment: null,
+      showReqModal: false,
+      reqMemoPDF: '',
 
       // TAB NAVIGATION STATE //
       currentTab: 1,
@@ -153,6 +157,7 @@ class EditTaskContainer extends Component {
     this.handleSubTransactionTypeChange = this.handleSubTransactionTypeChange.bind(this);
     this.handleDocSelect = this.handleDocSelect.bind(this);
     this.handleYesNoSelect = this.handleYesNoSelect.bind(this);
+    this.generatePdfMemo = this.generatePdfMemo.bind(this);
 
     // Insured Tab Events
     this.handleOnCheckChange = this.handleOnCheckChange.bind(this);
@@ -174,7 +179,7 @@ class EditTaskContainer extends Component {
     console.log('subTransDoc', subTrans[0].data);
     this.setState({ selectedDocs: subTrans[0].data });
 
-    const isAllChecked = subTrans[0].data.every(doc => doc.value);
+    const isAllChecked = subTrans[0].data.filter(doc => doc.isMandatory).every(doc => doc.value);
 
     if (isAllChecked) {
       this.setState({ isDisabledProceed: false });
@@ -528,7 +533,7 @@ class EditTaskContainer extends Component {
   handleDocSelect(index) {
     const { selectedDocs } = this.state;
     selectedDocs[index].value = !selectedDocs[index].value;
-    const isAllChecked = selectedDocs.every(doc => doc.value);
+    const isAllChecked = selectedDocs.filter(doc => doc.isMandatory).every(doc => doc.value);
     this.setState({ selectedDocs });
 
     if (isAllChecked) {
@@ -550,25 +555,25 @@ class EditTaskContainer extends Component {
 
   updateVistedTab(tabPage) {
     // if (tabPage === 1) {
-    //   this.setState({ isVisitedTransaction: true });
+      // this.setState({ isVisitedTransaction: true });
+      this.createMemo();
     // }
     if (tabPage === 2) {
       this.setState({ 
         isVisitedTransaction: true, 
-        isVisitedInsured: true 
+        isVisitedInsured: true
       }); 
       this.getInsuredDetails();
       this.updateDocList();
-      this.createMemo();
     }
-    if (tabPage === 3) { 
+    else if (tabPage === 3) { 
       this.setState({ isVisitedOwner: true }); 
       this.getOwnerDetails();
     }
-    if (tabPage === 4) { 
+    else if (tabPage === 4) { 
       this.setState({ isVisitedAdditional: true });
     }
-    if (tabPage === 5) {
+    else if (tabPage === 5) {
       if (window.confirm('Are you sure you want to Proceed')) {
         this.saveTransaction();
       }
@@ -771,56 +776,78 @@ class EditTaskContainer extends Component {
   }
 
   createMemo() {
-    const missingDocs = this.state.selectedDocs
-      .filter(doc => !doc.value)
-      .map(doc => {
-        return {
-          docs: doc.description
-        };
-      });
+    if (this.state.currentTab === 1) {
+      const missingDocs = this.state.selectedDocs
+        .filter(doc => doc.isMandatory && !doc.value)
+        .map(doc => {
+          return {
+            docs: doc.description
+          };
+        });
+      this.setState({ missingDocs });
+      console.log('MISSING', missingDocs);
+      if (missingDocs.length > 0) {
+        this.setState({ showReqModal: true, currentTab: 1 });
+      } 
+    }
+    
+  }
 
+  generatePdfMemo() {
+    const owner = this.state.policy.clients.find(client => client.role == "OW");
     const data = {
-      "result": {
-        "id": "RequirementMemo",
-        "template": "BPM",
-        "policyNo": "",
-        "data": {
-          "date": "10/05/2018",
-            "agentBroker": "Henry Chu",
-            "code": "70000261",
-            "branch": "BLUE PEARL BRANCH 1",
-            "policyowner": "Henry Chu Gocuan",
-            "lifeInsured": "Henry Chu Gocuan",
-            "plan": "PruLink Assurance Account Plus - PHP",
-            "missingDocs": missingDocs,
-          "missingFields": [
-              {
-                "fields": "Signatured Verified"
-              }
-              
-          ]
+      result: {
+        id: "ReqMemo",
+        template: "BPM",
+        data: {
+          transactionNo: this.state.transactionNumber,
+          policyNo: this.state.policy.number,
+          date: "November 21, 2018",
+          agentBroker: `${owner.clientFirstName} ${owner.clientLastName}`,
+          code: "70000261",
+          branch: "BLUE PEARL B, RANCH 1",
+          salutation: "Mr",
+          policyowner: {
+          firstName: owner.clientFirstName,	
+          middleName: owner.clientMiddleName,	
+          lastName: owner.clientLastName
+        },
+        lifeInsured: `${owner.clientFirstName} ${owner.clientLastName}`,
+        plan: "PruLink Assurance Account Plus - PHP",
+        missingDocs: this.state.missingDocs,
+        payment: "Payment",
+        signatureVerified: "Signatured Verified"
         }
       }
     }
+    console.log('DATAAAAAAA', data)
+    DocumentService.createMemo(data)
+    .then(res => {
+      console.log('DOCS MEMO', res.data.result.data);
+      const pdf = res.data.result.data;
+      this.setState({ showReqModal: false, reqMemoPDF: pdf });
+      window.open('data:application/pdf;base64,' + escape(pdf), '_blank');
+    })
+    .finally(() => {
 
-    if (missingDocs.length > 0) {
-      // Service for creating memo
-      // DocumentService.createMemo(data)
-      //   .then(res => {
-      //     console.log('DOCS MEMO', res.data.result.data);
-      //     const pdf = res.data.result.data;
-      //     window.open('data:application/pdf;base64,' + escape(pdf), '_blank');
-      //   })
-      //   .finally(() => {
-
-      //   });
-    }
-    
+    });
   }
 
   render() {
     return (
       <div className="flex-container flex-wrap">
+        <ModalOkCancel mHeader="Confirmation" 
+          show={this.state.showReqModal} 
+          okCaption="Yes"
+          cancelCaption="No"
+          onOk={this.generatePdfMemo} 
+          onCancel={() => this.setState({ showReqModal: false })}>
+          <div className="flex f-center f-column">
+            <h3 className="text-center">
+              Inclomplete documents. Do you want to generate memo?
+            </h3>
+          </div>
+        </ModalOkCancel>
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
         <div className="margin-top-70 col xl-9 l-9 m-8 s-8 xs-7 no-padding margin-auto">
           <div className="">
@@ -901,8 +928,10 @@ class EditTaskContainer extends Component {
                 transactionNumber={this.state.transactionNumber}
                 transactionType={this.state.transactionType}
                 subTransactionType={this.state.subTransactionType}
-                isSignatureVerified={this.state.isSignatureVerified}
                 docs={this.state.selectedDocs}
+                reqMemoPDF={this.state.reqMemoPDF}
+                isSignatureVerified={this.state.isSignatureVerified}
+                withPayment={this.state.withPayment}
                 onTransactionTypeChange={this.handleTransactionTypeChange}
                 onSubTransactionTypeChange={this.handleSubTransactionTypeChange}
                 onDocSelect={this.handleDocSelect}
@@ -948,7 +977,7 @@ class EditTaskContainer extends Component {
                 <button className={this.state.currentTab === 1 ? "btn prulife invisible" : "btn prulife"} accessKey="," onClick={this.handlePrevTab}>
                   <span className="fa fa-chevron-left" />&nbsp; BACK
                 </button>
-                <button className="btn prulife" accessKey="." onClick={this.handleNextTab} disabled={this.state.isDisabledProceed}>
+                <button className="btn prulife" accessKey="." onClick={this.handleNextTab}>
                   PROCEED &nbsp; <span className="fa fa-chevron-right" />
                 </button>
               </div>

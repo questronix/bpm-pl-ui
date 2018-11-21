@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../../../../shared/component/input/Input';
 import YesNoRadio from '../../../../shared/component/radio/YesNoRadio';
+import InputDate from '../../../../shared/component/input/InputDate';
 
 class FatcaNew extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class FatcaNew extends Component {
           <h2>Additional Details</h2>
           <div className="flex-container flex-wrap">
             <div className="xl-7 margin-auto flex-container flex-wrap">
-              <Input
+              <InputDate
                 inputPlaceholder="mm/dd/yyyy"
                 inputClass="input-container xl-6"
                 inputLabel="Date of Signing:"

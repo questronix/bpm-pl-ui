@@ -115,36 +115,26 @@ class TaskContainer extends Component {
     });
     PolicyService.getPolicyInformationByID(policyNumber)
       .then(res => {
-        console.log(res.data.result); 
-        if (res.data.result) {
-          if(res.data.result.status == "0"){
-            alert("Error in processing in Life Asia");
-            this.setState({
-              policy : {
-                status: false
-              }
-            });
-          }
-          else {
-            this.setState({
-              policy: res.data.result,
-              showComponent: true
-            });
-          }
-          
+        if (res.status == 200) {
+          this.setState({
+            policy: res.data.result,
+            showComponent: true
+          });
         }
-        else if (res.data.status == "fail") {
-          alert(res.data.message);
-        } else {
+        else if (res.status == 404) {
+          alert('Policy not found.');
+        }
+        // else if (res.data.status == "fail") {
+        //   alert(res.data.message);
+        // } 
+        else {
           console.log('Error: ', res.data);
           // if (window.confirm('No Results Found')){
-           this.setState({
-             policy: "",
-             showComponent: false
-           })
-            
-          // }
-          
+          //  this.setState({
+          //    policy: "",
+          //    showComponent: false
+          //  })
+          // }   
         }
       })
       .finally(() => {
@@ -295,14 +285,16 @@ class TaskContainer extends Component {
                 <AgentinformationNew policy={this.state.policy} />
               </div>
               <div className="col xl-12 modal-footer flex-container flex-wrap">
-                <div className="col xl-10" />
-                <a
+                {this.state.policy.policyStatus == "IF" && <div className="col xl-10"><p className="">You can't proceed because of policy IN FORCE status.</p></div>}
+                {this.state.policy.policyStatus != "IF" && <div className="xl-10"></div>}
+                <button
                   className="btn prulife"
                   onClick={this.handlemodalAlert}
+                  disabled={this.state.policy.policyStatus == "IF" ? true : false}
                 >
                   Proceed &nbsp;&nbsp;&nbsp;
                   <span className="fa fa-chevron-right font-white" />
-                </a>
+                </button>
               </div>
             </div>
           )}

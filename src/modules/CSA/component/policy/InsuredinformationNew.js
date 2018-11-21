@@ -346,7 +346,7 @@ class InsuredinformationNew extends Component {
                       </p>
                       <div className="col xl-12 flex f-row-reverse f-end">
                         <label htmlFor="fma">
-                          FMA
+                          FME
                         </label>
                         <label className="checkbox">
                           <input id="fma" type="checkbox" name={"additionalFMA"} value={this.props.fma} checked={this.props.fma} onChange={this.handleCheckChange}/>

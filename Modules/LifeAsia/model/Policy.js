@@ -40,11 +40,11 @@ module.exports.getPolicy = num => {
         })
         .post(args)
         .then(res => {
-          if (res.body) {
+          if (res.body.result.status == "1") {
             resolve(res.body);
           } else {
             reject({
-              status: 400,
+              status: 404,
               error: {
                 msg: 'Policy not found.'
               }
@@ -60,7 +60,7 @@ module.exports.getPolicy = num => {
   }
 };
 
-module.exports.getLarten = num => {
+module.exports.getLarten = (num) => {
   const ACTION = '[getPolicy]';
   const uri = `${url}/requestDetailstoLifeAsia`;
   Logger.log('info', `${TAG}${ACTION} - policy number `, { num });
@@ -92,14 +92,14 @@ module.exports.getLarten = num => {
         })
         .post(args)
         .then(res => {
-          if (res.body) {
+          if (res.body.result.status == "1") {
             resolve(res.body);
           } else {
             reject({
-              status: 400,
+              status: 404,
               error: {
                 msg: 'Policy not found.'
-              }
+              },
             });
           }
           Logger.log('info', `${TAG}${ACTION} - result`, res.body);

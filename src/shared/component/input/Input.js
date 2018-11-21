@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 
 class Input extends Component {
-  
+  constructor(props) {
+    super(props);
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange() {
+    return
+  }
 
   render() {
     return (
@@ -14,12 +22,14 @@ class Input extends Component {
           disabled
           type="text" 
           placeholder={this.props.inputPlaceholder}
-          defaultValue={this.props.value}
+          value={this.props.value || ''}
+          onChange={this.handleInputChange}
           className={this.props.txtboxClass} /> :
           <input
             type="text" 
             placeholder={this.props.inputPlaceholder}
-            defaultValue={this.props.value}
+            value={this.props.value || ''}
+            onChange={this.handleInputChange}
             className={this.props.txtboxClass} />}
           {this.props.children}
         </div>
