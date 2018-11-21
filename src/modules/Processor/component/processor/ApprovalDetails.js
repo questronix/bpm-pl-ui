@@ -7,6 +7,18 @@ class ApprovalDetails extends Component {
     super(props);
     this.state = {
       isFatcaTagging: null,
+      isWithReinstatingAgent: null,
+      isRelativeOfAgent: null,
+      isSignatureVerified: null,
+      isCompleteFATCARequirements: null,
+      isWithCosal: null,
+      isDowJones: null,
+      isMid: null,
+      isBeyondMpt: null,
+      isWithPendingPolicies: null,
+      isWithClaimRecords: null,
+      isWithReinsurance: null,
+      isWithSubstandardRating: null,
     }
   }
   render() {
