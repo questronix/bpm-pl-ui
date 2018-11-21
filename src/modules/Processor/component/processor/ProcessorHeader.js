@@ -8,6 +8,7 @@ class ProcessorHeader extends Component {
         <div className="processor">
           <div className="header">
             <h3 className="font-prulife">
+            <i class="font-black fa fa-file-signature mr-sm font-xl"></i>
               Transaction Details
                </h3>
             <hr />
@@ -43,6 +44,7 @@ class ProcessorHeader extends Component {
           </div>
           <div className="header">
             <h3 className="font-prulife">
+            <i class="font-black fa fa-inbox mr-sm font-xl"></i>
               Prescreening Details
                </h3>
             <hr />
