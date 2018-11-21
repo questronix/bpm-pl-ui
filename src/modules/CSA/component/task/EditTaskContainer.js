@@ -525,34 +525,34 @@ class EditTaskContainer extends Component {
               <div
                 onClick={() => this.handleSkipTab(1)}
                 className={this.state.currentTab === 1 || (this.state.isVisitedTransaction & this.state.currentTab > 1) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
+                <div className="circle">
                   {this.state.isVisitedTransaction ? <span className="fa fa-check" /> : 1}
-                </h4>
-                <h4 className="no-margin">Transaction Selection</h4><span className="white" /><span className="gray" />
+                </div>
+                Transaction Selection<span className="white" /><span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(2)}
                 className={this.state.currentTab === 2 || (this.state.isVisitedInsured & this.state.currentTab > 2) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
+                <div className="circle">
                   {this.state.isVisitedInsured ? <span className="fa fa-check" /> : 2}
-                </h4>
-                <h4 className="no-margin">Insured Details</h4><span className="white" /><span className="gray" />
+                </div>
+                Insured Details<span className="white" /><span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(3)}
                 className={this.state.currentTab === 3 || (this.state.isVisitedOwner & this.state.currentTab > 3) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
+                <div className="circle">
                   {this.state.isVisitedOwner ? <span className="fa fa-check" /> : 3}
-                </h4>
-                <h4 className="no-margin">Owner Details</h4><span className="white" /><span className="gray" />
+                </div>
+                Owner Details<span className="white" /><span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(4)}
                 className={this.state.currentTab === 4 || (this.state.isVisitedAdditional & this.state.currentTab > 4) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
+                <div className="circle">
                   {this.state.isVisitedAdditional ? <span className="fa fa-check" /> : 4}
-                </h4>
-                <h4 className="no-margin">Additional Details</h4>
+                </div>
+                Additional Details
               </div>
             </div>
             <TabHeader policy={this.state.policy} clients={this.state.clients} />

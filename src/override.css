@@ -1384,7 +1384,10 @@ nav.navbar .navmenu {
     justify-content: center;
     width: 100%;
     cursor: pointer; }
+    .box .tab-title-container .tab-title span {
+      font-size: 14px; }
     .box .tab-title-container .tab-title.active {
+      color: #fff;
       background-color: #0064B9; }
       .box .tab-title-container .tab-title.active .white {
         border-left: 20px solid #0064B9; }
@@ -1395,8 +1398,6 @@ nav.navbar .navmenu {
         z-index: 1; }
       .box .tab-title-container .tab-title.active .circle {
         border: solid 1.5px #fff; }
-      .box .tab-title-container .tab-title.active h4 {
-        color: #fff; }
 .box .box-body .box-header {
   line-height: 2;
   width: auto;

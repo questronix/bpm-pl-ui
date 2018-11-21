@@ -222,7 +222,7 @@ render(){
       </div>
       <div className={this.state.insuredVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
         <div className="insured-details">
-          <InsuredinformationNew client={this.state.client} />
+          <InsuredinformationNew type={"default"} client={this.state.client} />
         </div>
       </div>
       <div className="showmore bg-bright-blue flex">
@@ -235,7 +235,7 @@ render(){
       </div>
       <div className={this.state.ownerVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
         <div className="insured-details">
-          <OwnerinformationNew policy={this.state.policy} client={this.state.client} />
+          <OwnerinformationNew type={"default"} policy={this.state.policy} client={this.state.client} />
         </div>
       </div>
     </div >

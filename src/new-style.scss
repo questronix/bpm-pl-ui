@@ -66,7 +66,7 @@ body, html, h1, h3, h4, h5, h6, a, p, b, input, table,th,td{
     color: $black;
     font-family: 'Century Gothic',  sans-serif;
 }
-body, html, a, p{
+body, html, a, p,{
     font-size: 13px;    
 }
 span{
@@ -1647,7 +1647,11 @@ nav{
                 justify-content: center;
                 width: 100%;
                 cursor: pointer;
+                span{
+                    font-size: 14px;
+                }
                 &.active{
+                    color: $white;
                     background-color:$bright-blue; 
                     .white{
                         border-left: 20px solid $bright-blue;
@@ -1661,9 +1665,6 @@ nav{
                     }
                     .circle{
                         border: solid 1.5px $white;
-                    }
-                    h4{
-                        color: $white;
                     }
                 }
             }

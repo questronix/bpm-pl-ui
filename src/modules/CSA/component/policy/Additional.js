@@ -25,8 +25,9 @@ class FatcaNew extends Component {
           <div className="flex-container flex-wrap">
             <div className="xl-7 margin-auto flex-container flex-wrap">
               <Input
+                classRequired="required"
                 inputPlaceholder="mm/dd/yyyy"
-                inputClass="input-container xl-6"
+                inputClass="input-container xl-6 "
                 inputLabel="Date of Signing:"
                 txtboxClass="bg-lightgray" />
               <div className="xl-6">
