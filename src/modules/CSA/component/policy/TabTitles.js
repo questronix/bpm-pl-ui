@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CheckBox from '../../../../shared/component/checkbox/CheckBox';
+
 
 class TabTitles extends Component {
 

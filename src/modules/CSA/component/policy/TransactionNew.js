@@ -159,6 +159,7 @@ class TransactionNew extends Component {
             <div className="xl-3 container-left-border big-container">
               {this.props.reqMemoPDF && <a className="font-bright-blue" href={`data:application/pdf;base64, ${escape(this.props.reqMemoPDF)}`} target="_blank"> Generate Memo </a> }
               <Input
+                editable="false"
                 inputLabel="Required Premium:"
                 inputPlaceholder="(from LA)"
                 txtboxClass="no-border"
@@ -166,6 +167,7 @@ class TransactionNew extends Component {
                 value={this.props.policy.requiredPremium}
               />
               <Input
+                editable="false"
                 inputLabel="Suspense:"
                 inputPlaceholder="(from LA)"
                 txtboxClass="no-border"

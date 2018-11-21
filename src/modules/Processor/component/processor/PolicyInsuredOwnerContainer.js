@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import ReviewDetails from './PolicyInsuredOwnerContainer';
-import { PolicyService, TaskService, DocumentService } from '../../../CSA/services';
-import { FileNetService } from '../../services/';
 import PolicyInfoHeader from '../../../CSA/component/policy/PolicyInfoHeader';
 import AgentInfoHeader from '../../../CSA/component/policy/AgentInfoHeader';
+import { PolicyService, TaskService, DocumentService } from '../../../CSA/services';
+import { FileNetService } from '../../services/';
 import InsuredinformationNew from '../../../CSA/component/policy/InsuredinformationNew';
 import OwnerinformationNew from '../../../CSA/component/policy/OwnerinformationNew';
 
-class ReviewTransaction extends Component {
+class ReviewDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -191,56 +190,57 @@ class ReviewTransaction extends Component {
     this.setState({ ownerVisible: !this.state.ownerVisible })
   }
 
-render(){
-  return (
-    <div className="App processor-container">
-      <div className="showmore bg-bright-blue flex">
-        <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isVisible} accessKey="s">
-          <h3 className="font-white no-margin">
+
+  render() {
+    return (
+      <div className="App processor-container">
+        <div className="showmore bg-bright-blue flex">
+          <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isVisible} accessKey="s">
+            <h3 className="font-white no-margin">
+              Policy Information
+            </h3>
+            &nbsp; <span className={this.state.visible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
+          </button>
+        </div>
+        <div className={this.state.visible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
+          <h2 className="font-prulife col no-margin">
             Policy Information
-            </h3>
-          &nbsp; <span className={this.state.visible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
-        </button>
-      </div>
-      <div className={this.state.visible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
-        <h2 className="font-prulife col no-margin">
-          Policy Information
           </h2>
-        <PolicyInfoHeader type={"default"} policy={this.state.policy} clients={this.state.clients} />
-        <h2 className="font-prulife col no-margin">
-          Agent Information
+          <PolicyInfoHeader type={"approver"} policy={this.state.policy} clients={this.state.clients} />
+          <h2 className="font-prulife col no-margin">
+            Agent Information
           </h2>
-        <AgentInfoHeader type={"default"} policy={this.state.policy} clients={this.state.clients} />
-      </div>
-      <div className="showmore bg-bright-blue flex">
-        <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isInsuredVisible} accessKey="s">
-          <h3 className="font-white no-margin">
-            Insured Details
-            </h3>
-          &nbsp; <span className={this.state.insuredVisible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
-        </button>
-      </div>
-      <div className={this.state.insuredVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
-        <div className="insured-details">
-          <InsuredinformationNew type={"default"} client={this.state.client} />
+          <AgentInfoHeader policy={this.state.policy} clients={this.state.clients} />
         </div>
-      </div>
-      <div className="showmore bg-bright-blue flex">
-        <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isOwnerVisible} accessKey="s">
-          <h3 className="font-white no-margin">
-            Owner Details
+        <div className="showmore bg-bright-blue flex">
+          <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isInsuredVisible} accessKey="s">
+            <h3 className="font-white no-margin">
+              Insured Details
             </h3>
-          &nbsp; <span className={this.state.ownerVisible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
-        </button>
-      </div>
-      <div className={this.state.ownerVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
-        <div className="insured-details">
-          <OwnerinformationNew type={"default"} policy={this.state.policy} client={this.state.client} />
+            &nbsp; <span className={this.state.insuredVisible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
+          </button>
         </div>
-      </div>
-    </div >
-  );
-}
+        <div className={this.state.insuredVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
+          <div className="insured-details">
+            <InsuredinformationNew client={this.state.client} />
+          </div>
+        </div>
+        <div className="showmore bg-bright-blue flex">
+          <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isOwnerVisible} accessKey="s">
+            <h3 className="font-white no-margin">
+              Owner Details
+            </h3>
+            &nbsp; <span className={this.state.ownerVisible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
+          </button>
+        </div>
+        <div className={this.state.ownerVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
+          <div className="insured-details">
+            <OwnerinformationNew policy={this.state.policy} client={this.state.client} />
+          </div>
+        </div>
+      </div >
+    );
+  }
 }
 
-export default ReviewTransaction;
+export default ReviewDetails;

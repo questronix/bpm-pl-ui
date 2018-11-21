@@ -22,22 +22,22 @@ class ProcessorHeader extends Component {
               <Input
                 editable="false"
                 txtboxClass="no-border"
-                inputLabel="Transaction Number:"
+                inputLabel="Transaction Type:                "
                 inputClass="col xl-4 input-container" />
               <Input
                 editable="false"
                 txtboxClass="no-border"
-                inputLabel="Transaction Number:"
+                inputLabel="Status:"
                 inputClass="col xl-2 input-container" />
               <Input
                 editable="false"
                 txtboxClass="no-border"
-                inputLabel="Transaction Number:"
+                inputLabel="Created Date:"
                 inputClass="col xl-2 input-container" />
               <Input
                 editable="false"
                 txtboxClass="no-border"
-                inputLabel="Transaction Number:"
+                inputLabel="Created By:"
                 inputClass="col xl-2 input-container" />
             </div>
           </div>

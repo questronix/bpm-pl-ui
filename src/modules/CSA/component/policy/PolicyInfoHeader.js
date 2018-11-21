@@ -1,14 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Input from '../../../../shared/component/input/Input';
 
 class PolicyInfoHeader extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
-    
+
 
     const { policy, clients } = this.props;
     let owner;
     let insured;
-    
+
     if (clients.length > 0) {
       console.log('from', clients);
       owner = clients.find(client => client.role === 'OW');
@@ -35,7 +38,6 @@ class PolicyInfoHeader extends Component {
         <Input editable="false" inputLabel="Owner Name:" inputPlaceholder="LastN, FirstN, MName" txtboxClass="no-border" inputClass="col xl-10 input-container" value={owner && `${owner.clientLastName}, ${owner.clientFirstName} ${owner.clientMiddleName}`}/>
         <Input editable="false" inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-2 input-container" value={owner && owner.dateOfBirth}/>
       </div>
-
     );
   }
 }

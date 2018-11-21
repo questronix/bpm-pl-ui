@@ -5,6 +5,8 @@ import PolicyInformationNew from '../policy/PolicyInformationNew';
 import { PolicyService, TaskService } from '../../services';
 import AgentinformationNew from '../policy/AgentinformationNew';
 import ModalAlert from '../../../../shared/component/alerts/ModalAlert';
+import OnIt from '../../../../shared/component/loading/onIt';
+
 
 class TaskContainer extends Component {
   constructor(props) {
@@ -256,11 +258,12 @@ class TaskContainer extends Component {
             <hr />
           </div>
           {isSearching &&
-            <div className="no-search-result flex f-center modal-body loading">
-                  <span className="spinner atom"></span>
-                  <br />
-                  <p className="font-white">Im on it!</p>
-            </div>
+            // <div className="no-search-result flex f-center modal-body loading">
+            //       <span className="spinner atom"></span>
+            //       <br />
+            //       <p className="font-white">Im on it!</p>
+            // </div>
+           <OnIt/>
           }
           {policy.status && (
             <div>
@@ -307,9 +310,9 @@ class TaskContainer extends Component {
           )}
         </MyModal>
 
-        <div className="col xl-10 l-10 m-9 s-9 xs-8">
+        <div className="col xl-10 l-10 m-9 s-9 xs-8 p-x2">
           <div className="">
-            <h1 className="flex s-f-center xs-f-center">Tasks</h1>
+            <h1 className="flex s-f-center xs-f-center text-darkgray larger normal">Tasks</h1>
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
               <div className=" xl-5 flex f-justify-space-between">
                 <div className="search-container no-border">

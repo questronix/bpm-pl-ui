@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import { TaskService } from '../../services';
-import TaskCounter from '../../../../shared/component/Widgets/TaskCounter';
-import CardImg from '../../../../shared/component/Widgets/CardImg';
-import CardPdf from '../../../../shared/component/Widgets/CardPdf';
-import Footer from '../../../../shared/component/footer/Footer';
 
 class DashboardContainer extends Component {
   constructor(props) {

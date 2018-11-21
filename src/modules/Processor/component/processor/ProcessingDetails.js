@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Input from '../../../../shared/component/input/Input';
-import PolicyInfoHeader from '../../../CSA/component/policy/PolicyInfoHeader';
-import AgentInfoHeader from '../../../CSA/component/policy/AgentInfoHeader';
 
 class ProcessingDetails extends Component {
   render() {

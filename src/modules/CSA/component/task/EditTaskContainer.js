@@ -849,13 +849,13 @@ class EditTaskContainer extends Component {
           </div>
         </ModalOkCancel>
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
-        <div className="margin-top-70 col xl-9 l-9 m-8 s-8 xs-7 no-padding margin-auto">
+        <div className="margin-top-70 col xl-10 l-10 m-9 s-9 xs-8 p-x2 margin-auto">
           <div className="">
-            <h1 className="text-normal">
+            <h1 className="text-darkgray larger normal mb-sm mt-0">
               New Transaction
-          </h1>
-            <div className="flex-container flex-wrap col no-padding flex f-justify-space-between">
-              <div className="flex f-column transaction-header">
+            </h1>
+            <div className="flex-container flex-wrap">
+              <div className="flex f-row transaction-header f-justify-space-between col no-padding">
                 <div className="flex">
                   <p className="">
                     Transaction Number  :
@@ -871,9 +871,7 @@ class EditTaskContainer extends Component {
                   <p className="font-prulife ">
                     Reinstatement - {this.state.subTransactionType === 1 && `Updating`} {this.state.subTransactionType === 2 && `Redating`} {this.state.subTransactionType === 3 && `Waiver`}
                 </p>
-                </div>
-              </div>
-              <div className="flex f-column transaction-header">
+                </div> 
                 <div className="flex">
                   <p className="">
                     Created Date	:
@@ -890,34 +888,34 @@ class EditTaskContainer extends Component {
               <div
                 onClick={() => this.handleSkipTab(1)}
                 className={this.state.currentTab === 1 || (this.state.isVisitedTransaction & this.state.currentTab > 1) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
+                <div className="circle">
                   {this.state.isVisitedTransaction ? <span className="fa fa-check" /> : 1}
-                </h4>
-                <h4 className="no-margin">Transaction Selection</h4><span className="white" /><span className="gray" />
+                </div>
+                Transaction Selection<span className="white" /><span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(2)}
                 className={this.state.currentTab === 2 || (this.state.isVisitedInsured & this.state.currentTab > 2) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
+                <div className="circle">
                   {this.state.isVisitedInsured ? <span className="fa fa-check" /> : 2}
-                </h4>
-                <h4 className="no-margin">Insured Details</h4><span className="white" /><span className="gray" />
+                </div>
+                Insured Details<span className="white" /><span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(3)}
                 className={this.state.currentTab === 3 || (this.state.isVisitedOwner & this.state.currentTab > 3) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
+                <div className="circle">
                   {this.state.isVisitedOwner ? <span className="fa fa-check" /> : 3}
-                </h4>
-                <h4 className="no-margin">Owner Details</h4><span className="white" /><span className="gray" />
+                </div>
+                Owner Details<span className="white" /><span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(4)}
                 className={this.state.currentTab === 4 || (this.state.isVisitedAdditional & this.state.currentTab > 4) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
+                <div className="circle">
                   {this.state.isVisitedAdditional ? <span className="fa fa-check" /> : 4}
-                </h4>
-                <h4 className="no-margin">Additional Details</h4>
+                </div>
+                Additional Details
               </div>
             </div>
             <TabHeader policy={this.state.policy} clients={this.state.clients} />
@@ -973,7 +971,7 @@ class EditTaskContainer extends Component {
                 isAgentStatusActive={this.state.isAgentStatusActive}
               />}
 
-              <div className="flex f-justify-space-between container">
+              <div className="flex f-justify-space-between p">
                 <button className={this.state.currentTab === 1 ? "btn prulife invisible" : "btn prulife"} accessKey="," onClick={this.handlePrevTab}>
                   <span className="fa fa-chevron-left" />&nbsp; BACK
                 </button>
@@ -981,7 +979,6 @@ class EditTaskContainer extends Component {
                   PROCEED &nbsp; <span className="fa fa-chevron-right" />
                 </button>
               </div>
-
             </div>
           </div>
         </div>

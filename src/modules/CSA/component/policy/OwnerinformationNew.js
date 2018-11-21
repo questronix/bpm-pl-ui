@@ -36,18 +36,18 @@ class InsuredinformationNew extends Component {
             </p>
           </div>
           <div className="col xl-12 flex f-center f-start">
-          {/* THIS WILL BE ADDED IF THE CONTENT IS THE SAME AS THE INSURED DETAILS */}
+            {/* THIS WILL BE ADDED IF THE CONTENT IS THE SAME AS THE INSURED DETAILS */}
             {this.props.isSameInsuredAndOwner && (
               <div className="content-disabled active">
-              <div className="box">
-                <div className="box-body container flex f-center">
-                  <span className="fa fa-user-edit font-prulife"></span> &nbsp;
+                <div className="box">
+                  <div className="box-body container flex f-center">
+                    <span className="fa fa-user-edit font-prulife"></span> &nbsp;
                 <h3>
-                    Same as Insured Details.
+                      Same as Insured Details.
                 </h3>
+                  </div>
                 </div>
               </div>
-            </div>
             )}
             <span className="fa fa-user font-prulife">
             </span> &nbsp;
@@ -158,21 +158,23 @@ class InsuredinformationNew extends Component {
               txtboxClass="bg-lightgray"
               inputLabel="Email Addtess:"
               inputClass="col xl-4 input-container"
-              value={client && client.emailAdd}>
-              <span className="fa fa-pencil-alt font-prulife"></span>
-            </Input>
+              value={client && client.emailAdd}
+            />
+            <span className="fa fa-pencil-alt font-prulife e-content"></span>
             <Input
               txtboxClass="bg-lightgray"
               inputLabel="Telephone Number:"
               inputClass="col xl-4 input-container"
               value={client && client.telephoneNum}
             />
+            <span className="fa fa-pencil-alt font-prulife e-content"></span>
             <Input
               txtboxClass="bg-lightgray"
               inputLabel="Mobile Number:"
               inputClass="col xl-4 input-container"
               value={client && client.mobileNum}
             />
+            <span className="fa fa-pencil-alt font-prulife e-content"></span>
           </div>
           <div className="xl-12 flex-container flex-wrap">
             <div className="col xl-12 flex f-center f-start">
@@ -197,7 +199,7 @@ class InsuredinformationNew extends Component {
               value={client && client.tinNum}
             />
             <div className="xl-2">
-              
+
               <YesNoRadio
                 name="isChangeInOccupationOwner"
                 title="Change Occupation"
@@ -212,6 +214,7 @@ class InsuredinformationNew extends Component {
               inputClass="col xl-4  input-container"
               value=""
             />
+            <span className="fa fa-pencil-alt font-prulife e-content"></span>
           </div>
           <div className="col xl-12 flex f-center f-start">
             <span className="fa fa-location-arrow font-prulife">
@@ -329,7 +332,7 @@ class InsuredinformationNew extends Component {
                   </div>
                   <div className="xl-12 flex-container flex-wrap">
                     <div className="xl-12">
-                    <YesNoRadio
+                      <YesNoRadio
                         name="isSOIOwner"
                         title="Statement of Insurability Declarations"
                         isRequired={false}
@@ -340,44 +343,44 @@ class InsuredinformationNew extends Component {
                   </div>
                   {this.props.isSOI && (
                     <Fragment>
-                    <div className="xl-12 flex-container flex-wrap">
-                      <div className="xl-12">
-                        <YesNoRadio
-                          name="isPregnantOwner"
-                          title="Are you pregnant?"
-                          isRequired={false}
-                          isYesDefault={this.props.isPregnant}
-                          onSelect={this.handleYesNoChange}
-                        />
-                      </div> 
-                    </div>
-                    {this.props.isPregnant && (
                       <div className="xl-12 flex-container flex-wrap">
                         <div className="xl-12">
-                          <p className="label flex no-margin required">
-                            Additional requirements:
-                          </p>
-                          <div className="col xl-12 flex f-row-reverse f-end">
-                            <label htmlFor="fma">
-                              FME
-                            </label>
-                            <label className="checkbox">
-                              <input id="fma" type="checkbox" name={"additionalFMAOwner"} value={this.props.fma} checked={this.props.fma} onChange={this.handleCheckChange}/>
-                              <span className="checkmark" />
-                            </label>
-                          </div>
-                          <div className="col xl-12 flex f-row-reverse f-end">
-                            <label htmlFor="mur">
-                              MUR
-                            </label>
-                            <label className="checkbox">
-                              <input id="mur" type="checkbox" name={"additionalMUROwner"} value={this.props.mur} checked={this.props.mur} onChange={this.handleCheckChange}/>
-                              <span className="checkmark" />
-                            </label>
-                          </div>
+                          <YesNoRadio
+                            name="isPregnantOwner"
+                            title="Are you pregnant?"
+                            isRequired={false}
+                            isYesDefault={this.props.isPregnant}
+                            onSelect={this.handleYesNoChange}
+                          />
                         </div>
                       </div>
-                    )}
+                      {this.props.isPregnant && (
+                        <div className="xl-12 flex-container flex-wrap">
+                          <div className="xl-12">
+                            <p className="label flex no-margin required">
+                              Additional requirements:
+                          </p>
+                            <div className="col xl-12 flex f-row-reverse f-end">
+                              <label htmlFor="fma">
+                                FME
+                            </label>
+                              <label className="checkbox">
+                                <input id="fma" type="checkbox" name={"additionalFMAOwner"} value={this.props.fma} checked={this.props.fma} onChange={this.handleCheckChange} />
+                                <span className="checkmark" />
+                              </label>
+                            </div>
+                            <div className="col xl-12 flex f-row-reverse f-end">
+                              <label htmlFor="mur">
+                                MUR
+                            </label>
+                              <label className="checkbox">
+                                <input id="mur" type="checkbox" name={"additionalMUROwner"} value={this.props.mur} checked={this.props.mur} onChange={this.handleCheckChange} />
+                                <span className="checkmark" />
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </Fragment>
                   )}
                 </Fragment>
