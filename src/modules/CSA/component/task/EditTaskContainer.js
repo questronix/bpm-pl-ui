@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PolicyService, TaskService, DocumentService } from '../../services';
+import { PolicyService, TaskService, DocumentService, QuestionService } from '../../services';
 import TabHeader from '../policy/TabHeader';
 import InsuredinformationNew from '../policy/InsuredinformationNew';
 import TransactionNew from '../policy/TransactionNew';
@@ -11,6 +11,8 @@ class EditTaskContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      questions: [],
+
       policy: localStorage.getItem('policy') || {
         guid: '',
         action: '',
@@ -194,36 +196,59 @@ class EditTaskContainer extends Component {
       taskId: this.getQueryStringValue('id')
     });
 
+
     // TODO: Validation to prevent Update of localstorage
     // if (!this.state.policy) {
     TaskService.getTaskDetails(this.getQueryStringValue('id'))
       .then(res => {
+
+        QuestionService.getQuestionsByTransactionID({ transactionNo: res.data.variables.transactionNumber })
+        .then((res) => {
+          console.log('QUESTIONS', res.data.result);
+          this.setState({ questions: res.data.result });
+        }).finally(() => {
+        });
+
         console.log(res.data);
-        const policy = res.data.variables.policy;
-        const transactionNo = policy.transactionNo;
-        // localStorage.setItem('transactionNumber', transactionNo);
-        // localStorage.setItem('policy', policy.info);
+        const transactionNo = res.data.variables.transactionNumber;
+        const policyNo = res.data.variables.policyNo;
+
+        PolicyService.getPolicyInformationByID(policyNo)
+          .then(res => {
+            if (res.status == 200) {
+              const policy = res.data.result;
+              const clients = res.data.result.clients;
+              this.setState({
+                policy: policy,
+                clients: clients,
+                isAgentStatusActive: policy.agentStatus == "ACTIVE" ? true: false,
+                showComponent: true
+              });
+            }
+            else if (res.status == 404) {
+              alert('Policy not found.');
+            }
+            else {
+              console.log('Error: ', res.data);
+            }
+          })
+          .finally(() => {
+          });
+
         this.setState({    
-          policy: JSON.parse(policy.info),
+          // policy: JSON.parse(policy.info),
           transactionNumber: transactionNo,
-          clients: JSON.parse(policy.info).clients,
-          isAgentStatusActive: JSON.parse(policy.info).agentStatus == "ACTIVE" ? true: false,
-          task: res.data
+          // clients: JSON.parse(policy.info).clients,
+          // isAgentStatusActive: JSON.parse(policy.info).agentStatus == "ACTIVE" ? true: false,
+          // task: res.data
         });
         this.checkIsSameInsuredAndOwner();
         this.checkPtrOrPwAvailed();
         console.log('CLIENTS:  ', this.state.policy.clients);
       })
       .finally(() => { });
-    // }
 
-    // PolicyService.getClientIformationByid("81789377")
-    //   .then((res) => {
-    //     console.log('CLIENT INFO: ', res.data);
-    //     this.setState({ client: res.data.result});
-    //   }).finally(() => {
-        
-    //   });
+      
     
     DocumentService.getDocumentByTransactionType(this.state.transactionType)
     .then((res) => {

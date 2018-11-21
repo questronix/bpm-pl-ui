@@ -38,7 +38,7 @@ class TaskContainer extends Component {
         console.log(res.data);
         if (!res.data.error) {
           this.setState({
-            tasks: res.data
+            tasks: res.data.result
           });
         }
       })
@@ -192,12 +192,12 @@ class TaskContainer extends Component {
   }
 
   createTask() {
-    TaskService.createNewTask({"info": JSON.stringify(this.state.policy)})
+    TaskService.createNewTask({ policy: this.state.policy })
       .then(res => {
         console.log(res.data);
-        const t = JSON.parse(JSON.stringify(res.data.variables.policy));
-        localStorage.setItem("transactionNumber", t.transactionNo);
-        localStorage.setItem("policy", JSON.stringify(this.state.policy));
+        // const t = JSON.parse(JSON.stringify(res.data.variables.policy));
+        // localStorage.setItem("transactionNumber", t.transactionNo);
+        // localStorage.setItem("policy", JSON.stringify(this.state.policy));
         this.props.history.push(`/tasks/edit?id=${res.data.id}`);
       })
       .catch(err => {
@@ -338,7 +338,7 @@ class TaskContainer extends Component {
               <a className="btn-sm  bright-blue">All task</a>
               <a className="btn-sm alt">Recently Updated</a>
             </div>
-            <TaskList tasks={this.state.tasks} policy={this.state.policy} />
+            <TaskList tasks={this.state.tasks}/>
             {/* <h1>Task History</h1>  */}
             {/* <TaskList tasks={this.state.taskHistory}/> */}
           </div>

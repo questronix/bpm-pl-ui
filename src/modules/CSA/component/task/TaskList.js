@@ -3,28 +3,14 @@ import React, { Component } from 'react';
 class TaskList extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      owner: {},
-      insured: {}
-    }
   }
 
   handleItemClick(url) {
     window.location.href = url;
   }
 
-  componentWillReceiveProps(nextProps) {
-    // console.log('HEYY', nextProps);
-    // if (nextProps.tasks !== this.props.tasks) {
-    //   const clients = nextProps.tasks.variables.policy.info ? JSON.parse(nextProps.tasks.variables.policy.info).clients : null;
-    //   const owner = clients.find(client => client.role == 'OW');
-    //   const insured = clients.find(client => client.role == 'LF');
-    //   this.setState({owner, insured})
-    // }
-
-    // if (next)
-    //   console.log(insured
+  componentDidMount() {
+    console.log('TASSKSS', this.props.tasks)
   }
 
   render() {
@@ -54,7 +40,7 @@ class TaskList extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.tasks.map((task, index) => (
+            {this.props.tasks.map((task, index) => (
                 <tr
                   key={index}
                   onClick={() =>
@@ -64,53 +50,46 @@ class TaskList extends Component {
                   <td>
                     {/* Policy no */}
                     <div className="cursor" />
-                    {task.variables.policy
-                      ? JSON.parse(task.variables.policy.info).number
+                    {task.policyNo
+                      ? task.policyNo
                       : '-'}
                   </td>
                   {/* Transaction No */}
-                  <td>{task.variables.policy.transactionNo}</td>
+                  <td>{task.transactionNo}</td>
 
                   <td>
                     Reinstatement
                     {/* Transation type */}
-                    {/* {task.variables.policy.info != null
-                      ? JSON.parse(task.variables.policy.info).find()
+                    {/* {task.variables.info != null
+                      ? JSON.parse(task.variables.info).find()
                       : '-'} */}
                   </td>
                   <td>
                     {/* Policy owner */}
-                    {/* {owner && (owner.clientFirstName + owner.clientLastName) } */}
-                    {task.variables.policy.info != null
-                      ? JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'OW').clientFirstName + JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'OW').clientLasName
+                    {task.ownerName
+                      ? task.ownerName
                       : '-'}
                   </td>
                   <td>
                     {/* Insured owner */}
-                    {task.variables.policy.info != null
-                      ? JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'LF').clientFirstName + JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'LF').clientLasName
+                    {task.insuredName
+                      ? task.insuredName
                       : '-'}
-                    {/* {insured && (insured.clientFirstName + insured.clientLastName) } */}
-                    {/* {task.variables.policy.info != null
-                      ? JSON.parse(task.variables.policy.info).insured.firstName
-                      : '-'} */}
                   </td>
                   <td>
-                    {task.variables.user != null
-                      ? `${task.variables.user.firstName} ${task.variables.user.lastName}`
+                    {task.username
+                      ? task.username
                       : '-'}
                   </td>
                   <td>
                     {/* Date created */}
-                    {new Date(task.variables.policy.createdAt).toDateString()}
+                    {new Date(task.startTime).toDateString()}
                   </td>
                   <td>
                     {/* Status */}
-                    {task.variables.status
-                      ? task.variables.status.toUpperCase()
+                    {task.status
+                      ? task.status.toUpperCase()
                       : 'Draft'}
-                  </td>
-                  <td>
                   </td>
                 </tr>
               ))}

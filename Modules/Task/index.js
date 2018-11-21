@@ -14,8 +14,7 @@ router.post('/', mw.isAuthenticated, async(req, res) => {
     const trans = await transaction.generateTransactionId()
       .catch((err) => res.send(err));
 
-    const pNo = JSON.parse(req.body.info).number;
-    const info = JSON.parse(req.body.info);
+    const info = req.body.policy;
     const owner = info.clients.find(client => client.role == "OW");
     const insured = info.clients.find(client => client.role == "LF");
     
@@ -32,7 +31,7 @@ router.post('/', mw.isAuthenticated, async(req, res) => {
       })
       .catch((err) => res.send(err));
   
-    task.new(req.session.user.Username, req.body.info, trans.result.transactionNumber).then((data) => {
+    task.new(req.session.user.User_ID, req.session.user.Username, trans.result.transactionNumber).then((data) => {
       res.send(data);
     }).catch((err) => {
       res.error(err);
@@ -45,11 +44,57 @@ router.post('/', mw.isAuthenticated, async(req, res) => {
 router.get('/', mw.isAuthenticated, (req, res) => {
   const ACTION = '[getAllTasks]';
   Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
-  task.getAll(req.session.user.id).then((data) => {
-    res.send(data);
-  }).catch((err) => {
-    res.error(err);
-  });
+
+  task.getAll(req.session.user.id)
+    .then(tasks=>{
+
+      const transactions = tasks.map(e=>{
+        return {
+          transactionNo: e.variables.transactionNumber
+        }
+      });
+
+      transaction.getTransactionDetails({
+        transactions: transactions
+      }).then((data) => {
+        let result = data.result.map(e=>{
+          let task = tasks.filter(tRes=>{
+            if(tRes.variables.transactionNumber == e.transactionNo){
+              return tRes.variables.username;
+            }
+          });
+          let user = '-';
+          let startTime = '-';
+          let status = '-';
+          let id;
+          if(task.length > 0){
+            user = task[0].variables.username;
+            startTime = task[0].startTime;
+            status = task[0].variables.status;
+            id = task[0].id;
+          }
+          return {
+            ...e,
+            username: user,
+            startTime: startTime,
+            status: status,
+            id,
+          };
+        });
+        data.result = result;
+        res.send(data);
+      }).catch((err) => {
+        res.error(err);
+      });
+    })
+    .catch((err) => { res.error(err); });
+    
+  // res.send(transactions);
+  // task.getAll(req.session.user.id).then((data) => {
+  //   res.send(data);
+  // }).catch((err) => {
+  //   res.error(err);
+  // });
 });
 
 router.get('/:taskId', mw.isAuthenticated, (req, res) => {
@@ -83,5 +128,7 @@ router.post('/:taskId/claim', mw.isAuthenticated, (req, res) => {
     res.error(err);
   });
 });
+
+
 
 module.exports = router;

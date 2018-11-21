@@ -6,7 +6,9 @@ const la = require('./model/Policy');
 const client = require('./model/Client');
 const doc = require('./model/Document');
 const trans = require('./model/Transaction');
+const question = require('./model/Question');
 const mw = require('../Common/middleware/Authentication');
+
 
 router.get('/:clientNum/client', mw.isAuthenticated, (req, res) => {
   const ACTION = '[getClient]';
@@ -254,6 +256,17 @@ router.post('/documents/memo', mw.isAuthenticated, (req, res) => {
     .catch(err => {
       res.status(err.status).send(err);
     });
+});
+
+router.post('/questions', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[getQuestions]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+  question.getAllQuestions({ transactionNo: req.body.transactionNo }).then((data) => {
+    res.send(data);
+  }).catch((err) => {
+    res.error(err);
+  });
 });
 
 module.exports = router;
