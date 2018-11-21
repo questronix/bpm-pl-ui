@@ -196,13 +196,13 @@ class ReviewDetails extends Component {
       <div className="App processor-container">
         <div className="showmore bg-bright-blue flex">
           <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isVisible} accessKey="s">
-            <h3 className="font-white no-margin">
+            <h5 className="font-white no-margin">
               Policy Information
-            </h3>
+            </h5>
             &nbsp; <span className={this.state.visible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
           </button>
         </div>
-        <div className={this.state.visible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
+        <div className={this.state.visible ? "processor-dropdown bg-white border-left border-lightgray active" : "processor-dropdown bg-white border-left border-lightgray"}>
           <h2 className="font-prulife col no-margin">
             Policy Information
           </h2>
@@ -214,26 +214,26 @@ class ReviewDetails extends Component {
         </div>
         <div className="showmore bg-bright-blue flex">
           <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isInsuredVisible} accessKey="s">
-            <h3 className="font-white no-margin">
+            <h5 className="font-white no-margin">
               Insured Details
-            </h3>
+            </h5>
             &nbsp; <span className={this.state.insuredVisible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
           </button>
         </div>
-        <div className={this.state.insuredVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
-          <div className="insured-details">
+        <div className={this.state.insuredVisible ? "processor-dropdown p bg-white border-left border-lightgray active" : "processor-dropdown bg-white border-left border-lightgray"}>
+          <div className="insured-details col no-padding">
             <InsuredinformationNew type={"approver"} client={this.state.client} />
           </div>
         </div>
         <div className="showmore bg-bright-blue flex">
           <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isOwnerVisible} accessKey="s">
-            <h3 className="font-white no-margin">
+            <h5 className="font-white no-margin">
               Owner Details
-            </h3>
+            </h5>
             &nbsp; <span className={this.state.ownerVisible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
           </button>
         </div>
-        <div className={this.state.ownerVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
+        <div className={this.state.ownerVisible ? "processor-dropdown bg-white border-left border-lightgray active" : "processor-dropdown bg-white border-left border-lightgray"}>
           <div className="insured-details">
             <OwnerinformationNew type={"approver"} policy={this.state.policy} client={this.state.client} />
           </div>
