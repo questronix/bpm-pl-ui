@@ -210,7 +210,7 @@ class ReviewDetails extends Component {
           <h2 className="font-prulife col no-margin">
             Agent Information
           </h2>
-          <AgentInfoHeader policy={this.state.policy} clients={this.state.clients} />
+          <AgentInfoHeader type={"approver"} policy={this.state.policy} clients={this.state.clients} />
         </div>
         <div className="showmore bg-bright-blue flex">
           <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isInsuredVisible} accessKey="s">
@@ -222,7 +222,7 @@ class ReviewDetails extends Component {
         </div>
         <div className={this.state.insuredVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
           <div className="insured-details">
-            <InsuredinformationNew client={this.state.client} />
+            <InsuredinformationNew type={"approver"} client={this.state.client} />
           </div>
         </div>
         <div className="showmore bg-bright-blue flex">
@@ -235,7 +235,7 @@ class ReviewDetails extends Component {
         </div>
         <div className={this.state.ownerVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
           <div className="insured-details">
-            <OwnerinformationNew policy={this.state.policy} client={this.state.client} />
+            <OwnerinformationNew type={"approver"} policy={this.state.policy} client={this.state.client} />
           </div>
         </div>
       </div >

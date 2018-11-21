@@ -15,7 +15,7 @@ class AgentInfoHeader extends Component {
             <Input editable="false" inputLabel="Branch Name:" inputPlaceholder="Complete Branch Name" txtboxClass="no-border" inputClass="col xl-6 input-container" value={this.props.policy.agentBranchDesc} />
             <Input editable="false" inputLabel="NMA:" inputPlaceholder="General" txtboxClass="no-border" inputClass="col xl-6 input-container" value={this.props.policy.nmaDesc} />
           </div>
-        }
+        } 
         {this.props.type === "default" &&
           <div className="xl-12 flex-container flex-wrap insured-details">
             <Input editable="false" inputLabel="Agent Code:" inputPlaceholder="000000000" txtboxClass="no-border" inputClass="col xl-3 input-container" value={this.props.policy.agentCode} />

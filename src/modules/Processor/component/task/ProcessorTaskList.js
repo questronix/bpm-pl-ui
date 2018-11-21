@@ -36,13 +36,13 @@ class ProcessorTaskList extends Component {
                 >
                   <td>
                     {/* Policy no */}
-                    <div className="cursor" />
+                    {/* <div className="cursor" />
                     {task.variables.policy.number
                       ? task.variables.policy.number
-                      : '-'}
+                      : '-'} */}
                   </td>
                   {/* Transaction No */}
-                  <td>{task.variables.appno}</td>
+                  {/* <td>{task.variables.appno}</td> */}
 
                   <td>
                     {/* Transation type */}
@@ -67,17 +67,17 @@ class ProcessorTaskList extends Component {
                       ? `${task.variables.user.firstName} ${task.variables.user.lastName}`
                       : '-'} */}
                   </td>
-                  <td>
+                  {/* <td> */}
                     {/* Date created */}
-                    {new Date(task.variables.policy.createdAt).toDateString()}
-                  </td>
+                    {/* {new Date(task.variables.policy.createdAt).toDateString()}
+                  </td> */}
                   <td>
                     {/* Status */}
-                    {task.variables.status
+                    {/* {task.variables.status
                       ? task.variables.status.toUpperCase()
                       : 'Draft'}
                   </td>
-                  <td>
+                  <td> */}
                   </td>
                 </tr>
               ))}
