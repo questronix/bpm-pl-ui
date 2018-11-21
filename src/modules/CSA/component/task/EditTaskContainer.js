@@ -568,7 +568,7 @@ class EditTaskContainer extends Component {
                       <span className="fa fa-pencil-alt font-prulife"></span> - Editable field
                     </p>
                   </div>
-                  <InsuredinformationNew client={this.state.client} />
+                  <InsuredinformationNew type={"default"} client={this.state.client} />
                 </div>}
               {this.state.currentTab === 3 &&
                 <div className=" insured-details">
@@ -580,7 +580,7 @@ class EditTaskContainer extends Component {
                       <span className="fa fa-pencil-alt font-prulife"></span> - Editable field
                     </p>
                   </div>
-                  <OwnerinformationNew client={this.state.client} />
+                  <OwnerinformationNew type={"default"} client={this.state.client} />
                 </div>}
               {this.state.currentTab === 4 && <Additional />}
               <div className="flex f-justify-space-between container">
