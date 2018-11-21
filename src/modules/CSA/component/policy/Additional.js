@@ -23,8 +23,13 @@ class FatcaNew extends Component {
             <div className="xl-7 margin-auto flex-container flex-wrap">
               <InputDate
                 inputPlaceholder="mm/dd/yyyy"
-                inputClass="input-container xl-6 "
+                inputClass="input-container xl-6 mr"
                 inputLabel="Date of Signing:"
+                txtboxClass="bg-lightgray" />
+              <Input
+                inputPlaceholder="OR Number"
+                inputClass="input-container xl-6 "
+                inputLabel="OR Number:"
                 txtboxClass="bg-lightgray" />
               <div className="xl-6">
                 <YesNoRadio
