@@ -417,11 +417,21 @@ p {
     color: #fff; }
     .btn.grass-green:hover, .grass-green.btn-circle:hover, .card-img-container .grass-green.card-btn:hover {
       box-shadow: 0px 0px 6px #007953; }
+  .btn.darkgreen, .darkgreen.btn-circle, .card-img-container .darkgreen.card-btn {
+    background-color: #27ae60;
+    color: #fff; }
+    .btn.darkgreen:hover, .darkgreen.btn-circle:hover, .card-img-container .darkgreen.card-btn:hover {
+      box-shadow: 0px 0px 6px #27ae60; }
   .btn.bright-blue, .bright-blue.btn-circle, .card-img-container .bright-blue.card-btn {
     background-color: #0064B9;
     color: #fff; }
     .btn.bright-blue:hover, .bright-blue.btn-circle:hover, .card-img-container .bright-blue.card-btn:hover {
       box-shadow: 0px 0px 6px #0064B9; }
+  .btn.prugray, .prugray.btn-circle, .card-img-container .prugray.card-btn {
+    background-color: #68737A;
+    color: #fff; }
+    .btn.prugray:hover, .prugray.btn-circle:hover, .card-img-container .prugray.card-btn:hover {
+      box-shadow: 0px 0px 6px #68737A; }
   .btn.alt, .alt.btn-circle, .card-img-container .alt.card-btn {
     background-color: #fff;
     color: #2b2b2b; }
@@ -1791,66 +1801,6 @@ nav.navbar .navmenu {
   .transaction-checkboxes table tr:nth-child(odd) {
     background-color: #eee; }
 
-table {
-  margin-top: 15px;
-  background-color: white;
-  overflow: hidden;
-  width: 100%; }
-
-table tr {
-  border-bottom: 1px solid #E0E1E2; }
-  table tr:last-child {
-    border-bottom: 0px; }
-  table tr:hover td {
-    background-color: rgba(0, 0, 0, 0.05); }
-    table tr:hover td .cursor {
-      height: 85%; }
-  table tr td.red {
-    color: #ED1B2E; }
-  table tr td.bold {
-    font-weight: bold; }
-  table tr td.alignCenter {
-    text-align: center; }
-  table tr td .cursor {
-    position: absolute;
-    background-color: #ED1B2E;
-    top: 50%;
-    left: 0px;
-    width: 4px;
-    height: 0%;
-    box-shadow: 0px 0px 6px #ED1B2E;
-    -webkit-transform: translateY(-50%);
-    -webkit-transition: all 0.2s ease;
-    z-index: 2; }
-  table tr td .icon {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    color: #ED1B2E;
-    font-size: 22px;
-    border-radius: 100%;
-    -webkit-transform: translate(-50%, -50%);
-    padding: 5px;
-    margin: 0px; }
-  table tr td .icon.orange {
-    color: #FFB81D; }
-  table tr td .icon.green {
-    color: #69813C; }
-  table tr td .icon.blue {
-    color: #00ADD8; }
-table th {
-  font-size: 14px;
-  font-weight: bold;
-  text-align: left;
-  padding: 20px 10px 8px 10px;
-  border-bottom: 2px solid #ED1B2E; }
-table td {
-  position: relative;
-  color: #232323;
-  font: normal 12px;
-  padding: 15px 10px;
-  cursor: pointer; }
-
 .card-table {
   background-color: #fff;
   border-radius: 5px; }
@@ -1970,6 +1920,9 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .processor .input-container.col {
   padding: 4px; }
+
+.approval .input-container.col {
+  padding: 2px; }
 
 @media only screen and (max-width: 1023px) {
   .horizontal-scroll {
@@ -2181,13 +2134,13 @@ input[type="search"]::-webkit-search-results-decoration {
 /* BACKGROUND COLORS */
 /* FONT COLORS */
 .bg-white {
-  background-color: white !important; }
+  background-color: #fff !important; }
 
 .bg-black {
-  background-color: #232323 !important; }
+  background-color: #bdbdbd !important; }
 
 .bg-darkblack {
-  background-color: black !important; }
+  background-color: #0064B9 !important; }
 
 .bg-lightgray, .page-loading-header, .page-loading-body {
   background-color: #F0F0F0 !important; }
@@ -2235,7 +2188,7 @@ input[type="search"]::-webkit-search-results-decoration {
   background-color: #722382 !important; }
 
 .text-white {
-  color: white !important; }
+  color: #232323 !important; }
 
 .text-white.stroke {
   -webkit-text-stroke: 1px #A8A8A8 !important; }
@@ -2244,7 +2197,7 @@ input[type="search"]::-webkit-search-results-decoration {
   color: #232323 !important; }
 
 .text-black.stroke {
-  color: black !important; }
+  color: #ED1B2E !important; }
 
 .text-lightgray {
   color: #A8A8A8 !important; }
@@ -2677,5 +2630,90 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .ml-0 {
   margin-left: 0px !important; }
+
+textarea {
+  height: 80px;
+  resize: none; }
+
+.rounded {
+  border-radius: 6px !important; }
+
+.rounded-top {
+  border-radius: 6px 6px 0px 0px !important; }
+
+.rounded-right {
+  border-radius: 0px 6px 6px 0px !important; }
+
+.rounded-bottom {
+  border-radius: 0px 0px 6px 6px !important; }
+
+.rounded-left {
+  border-radius: 6px 0px 0px 6px !important; }
+
+.rounded-circle {
+  border-radius: 100% !important; }
+
+.rounded-0 {
+  border-radius: 0% !important; }
+
+table {
+  margin-top: 15px;
+  background-color: white;
+  overflow: hidden;
+  width: 100%; }
+
+table tr {
+  border-bottom: 1px solid #E0E1E2; }
+  table tr:last-child {
+    border-bottom: 0px; }
+  table tr:hover td {
+    background-color: rgba(0, 0, 0, 0.05); }
+    table tr:hover td .cursor {
+      height: 85%; }
+  table tr td.red {
+    color: #ED1B2E; }
+  table tr td.bold {
+    font-weight: bold; }
+  table tr td.alignCenter {
+    text-align: center; }
+  table tr td .cursor {
+    position: absolute;
+    background-color: #ED1B2E;
+    top: 50%;
+    left: 0px;
+    width: 4px;
+    height: 0%;
+    box-shadow: 0px 0px 6px #ED1B2E;
+    -webkit-transform: translateY(-50%);
+    -webkit-transition: all 0.2s ease;
+    z-index: 2; }
+  table tr td .icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    color: #ED1B2E;
+    font-size: 22px;
+    border-radius: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    padding: 5px;
+    margin: 0px; }
+  table tr td .icon.orange {
+    color: #FFB81D; }
+  table tr td .icon.green {
+    color: #69813C; }
+  table tr td .icon.blue {
+    color: #00ADD8; }
+table th {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  padding: 20px 10px 8px 10px;
+  border-bottom: 2px solid #ED1B2E; }
+table td {
+  position: relative;
+  color: #232323;
+  font: normal 12px;
+  padding: 15px 10px;
+  cursor: pointer; }
 
 /*# sourceMappingURL=override.css.map */

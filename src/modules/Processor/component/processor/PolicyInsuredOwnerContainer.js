@@ -202,7 +202,7 @@ class ReviewDetails extends Component {
             &nbsp; <span className={this.state.visible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
           </button>
         </div>
-        <div className={this.state.visible ? "processor-dropdown active" : "processor-dropdown"}>
+        <div className={this.state.visible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
           <h2 className="font-prulife col no-margin">
             Policy Information
           </h2>
@@ -220,7 +220,7 @@ class ReviewDetails extends Component {
             &nbsp; <span className={this.state.insuredVisible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
           </button>
         </div>
-        <div className={this.state.insuredVisible ? "processor-dropdown active" : "processor-dropdown"}>
+        <div className={this.state.insuredVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
           <div className="insured-details">
             <InsuredinformationNew client={this.state.client} />
           </div>
@@ -233,7 +233,7 @@ class ReviewDetails extends Component {
             &nbsp; <span className={this.state.ownerVisible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
           </button>
         </div>
-        <div className={this.state.ownerVisible ? "processor-dropdown active" : "processor-dropdown"}>
+        <div className={this.state.ownerVisible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
           <div className="insured-details">
             <OwnerinformationNew policy={this.state.policy} client={this.state.client} />
           </div>
