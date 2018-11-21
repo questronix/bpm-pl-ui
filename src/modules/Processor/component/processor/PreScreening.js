@@ -1,11 +1,7 @@
-
 import React, {Component}from 'react';
-import CheckBox from '../../../../shared/component/checkbox/CheckBox';
-import CardImg from '../../../../shared/component/Widgets/CardImg';
-import Tab from '../../../../shared/component/tabs/Tab'
+import Tab from '../../../../shared/component/tabs/Tab';
 import Input from '../../../../shared/component/input/Input';
 class PrescreeningInfo extends Component{
-  
   constructor(props){
     super(props);
     this.state={

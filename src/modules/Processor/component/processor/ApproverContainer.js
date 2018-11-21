@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import Input from '../../../../shared/component/input/Input';
-import YesNoRadio from '../../../../shared/component/radio/YesNoRadio';
 import ApprovalDetails from './ApprovalDetails';
-import PolicyInfoHeader from '../../../CSA/component/policy/PolicyInfoHeader';
-import AgentInfoHeader from '../../../CSA/component/policy/AgentInfoHeader';
-import PolicyInsuredOwnerContainer from './PolicyInsuredOwnerContainer';
 import ReviewDetails from './PolicyInsuredOwnerContainer';
 
 class ApproverContainer extends Component {

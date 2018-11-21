@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Input from '../../../../shared/component/input/Input';
-import ModalAlert from '../../../../shared/component/alerts/ModalAlert';
-import ModalDisable from '../../../../shared/component/alerts/ModalDisable';
+
 
 class OwnerinformationNew extends Component {
 

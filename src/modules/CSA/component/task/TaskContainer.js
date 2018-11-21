@@ -5,8 +5,6 @@ import PolicyInformationNew from '../policy/PolicyInformationNew';
 import { PolicyService, TaskService } from '../../services';
 import AgentinformationNew from '../policy/AgentinformationNew';
 import ModalAlert from '../../../../shared/component/alerts/ModalAlert';
-import { loadavg } from 'os';
-import onIt from '../../../../shared/component/loading/onIt';
 import OnIt from '../../../../shared/component/loading/onIt';
 
 

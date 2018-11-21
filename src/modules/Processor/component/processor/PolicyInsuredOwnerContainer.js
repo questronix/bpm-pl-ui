@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import Input from '../../../../shared/component/input/Input';
 import PolicyInfoHeader from '../../../CSA/component/policy/PolicyInfoHeader';
 import AgentInfoHeader from '../../../CSA/component/policy/AgentInfoHeader';
-import ProcessorHeader from './ProcessorHeader';
-import TabHeader from '../../../CSA/component/policy/TabHeader';
 import { PolicyService, TaskService, DocumentService } from '../../../CSA/services';
 import { FileNetService } from '../../services/';
 import InsuredinformationNew from '../../../CSA/component/policy/InsuredinformationNew';
@@ -202,7 +199,7 @@ class ReviewDetails extends Component {
             <h3 className="font-white no-margin">
               Policy Information
             </h3>
-            &nbsp; <span className="fa fa-chevron-down font-white"></span>
+            &nbsp; <span className={this.state.visible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
           </button>
         </div>
         <div className={this.state.visible ? "processor-dropdown active" : "processor-dropdown"}>
@@ -220,7 +217,7 @@ class ReviewDetails extends Component {
             <h3 className="font-white no-margin">
               Insured Details
             </h3>
-            &nbsp; <span className="fa fa-chevron-down font-white"></span>
+            &nbsp; <span className={this.state.insuredVisible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
           </button>
         </div>
         <div className={this.state.insuredVisible ? "processor-dropdown active" : "processor-dropdown"}>
@@ -233,7 +230,7 @@ class ReviewDetails extends Component {
             <h3 className="font-white no-margin">
               Owner Details
             </h3>
-            &nbsp; <span className="fa fa-chevron-down font-white"></span>
+            &nbsp; <span className={this.state.ownerVisible ? "fa fa-chevron-up font-white" : "fa fa-chevron-down font-white"}></span>
           </button>
         </div>
         <div className={this.state.ownerVisible ? "processor-dropdown active" : "processor-dropdown"}>

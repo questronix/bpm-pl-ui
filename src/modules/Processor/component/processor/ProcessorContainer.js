@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-import CsaClient from './CsaClient';
-import PrescreeningInfo from './PreScreening';
-import CardTable from '../../../../shared/component/table/Table';
-import TaskCounter from '../../../../shared/component/Widgets/TaskCounter';
-import CardImg from '../../../../shared/component/Widgets/CardImg';
 import { FileNetService } from '../../services/';
 import { PolicyService, TaskService, DocumentService } from '../../../CSA/services';
-import Footer from '../../../../shared/component/footer/Footer';
 import ProcessorHeader from './ProcessorHeader';
-import TabHeader from '../../../CSA/component/policy/TabHeader';
 import ReviewTransaction from './ReviewTransaction';
 import ProcessingDetails from './ProcessingDetails';
 

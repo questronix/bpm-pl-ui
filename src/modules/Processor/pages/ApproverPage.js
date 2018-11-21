@@ -2,12 +2,8 @@
 
 import React, { Component } from 'react';
 // import Nav from '../../../shared/component/nav/Nav';
-import SideBar from '../../../shared/component/sidebar/SideBar';
 import { TaskService } from '../../../services/index';
 import Nav from '../component/nav/Nav'
-import CardImg from '../../../shared/component/Widgets/CardImg';
-import Input from '../../../shared/component/input/Input';
-import ProcessorContainer from '../component/processor/ProcessorContainer';
 import ApproverContainer from '../component/processor/ApproverContainer';
 
 export default class Approver extends Component {
