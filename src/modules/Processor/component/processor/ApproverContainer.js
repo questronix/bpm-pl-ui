@@ -17,8 +17,19 @@ class ApproverContainer extends Component {
   render() {
     return (
       <div className="App">
-        <ApprovalDetails isFatcaTagging={this.state.isFatcaTagging} />
-        <ReviewDetails/>
+        <div className="flex-container">
+          <div className="col no-padding xl-8">
+            <ApprovalDetails isFatcaTagging={this.state.isFatcaTagging} />
+          </div>
+          <div className="col no-padding xl-4">
+            <div className="">
+              <h1 className="text-darkgray larger normal mb mt-0">
+                For Approval
+              </h1>
+            </div>
+            <ReviewDetails />
+          </div>
+        </div>
       </div >
 
     );
