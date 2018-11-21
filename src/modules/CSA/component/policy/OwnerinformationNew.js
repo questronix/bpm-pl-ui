@@ -35,6 +35,19 @@ class OwnerinformationNew extends Component {
         inputLabel="Cleint ID:"
         value={this.props.client.clientId}
         inputClass="col xl-3 input-container" />
+       <Input
+        editable="false"
+        txtboxClass="no-border"
+        inputLabel="Salutation:"
+        valuevalue={this.props.client.salutation}
+        inputClass="col xl-3 input-container" />
+        <Input
+        editable="false"
+        txtboxClass="no-border"
+        inputLabel="Gender:"
+        inputClass="col xl-3 input-container"
+        value={this.props.client.gender}
+      />
       <Input
         editable="false"
         txtboxClass="no-border"
@@ -77,32 +90,22 @@ class OwnerinformationNew extends Component {
       <Input
         editable="false"
         txtboxClass="no-border"
-        inputLabel="Civil Status:"
-        inputClass="col xl-3 input-container"
-        value={this.props.client.civilStatus}
-      />
-      <Input
-        editable="false"
-        txtboxClass="no-border"
-        inputLabel="Salutation:"
-        valuevalue={this.props.client.salutation}
-        inputClass="col xl-3 input-container" />
-      <Input
-        editable="false"
-        txtboxClass="no-border"
-        inputLabel="Gender:"
-        inputClass="col xl-3 input-container"
-        value={this.props.client.gender}
-      />
-    </div>
-    <div className="xl-12 flex-container flex-wrap">
-      <Input
-        editable="false"
-        txtboxClass="no-border"
         inputLabel="Nationality:"
         inputClass="col xl-3 input-container"
         value={this.props.client.nationality}
       />
+
+      <Input
+        editable="false"
+        txtboxClass="no-border"
+        inputLabel="Civil Status:"
+        inputClass="col xl-3 input-container"
+        value={this.props.client.civilStatus}
+      />
+
+    </div>
+    <div className="xl-12 flex-container flex-wrap">
+      
       <Input
         editable="false"
         txtboxClass="no-border"
@@ -206,6 +209,13 @@ class OwnerinformationNew extends Component {
         inputClass="col xl-8 input-container"
         value={this.props.client.address && this.props.client.address[0].address1}
       />
+       <Input
+        editable="false"
+        txtboxClass="no-border"
+        inputLabel="Country:"
+        inputClass="col xl-2 input-container"
+        value={this.props.client.address && this.props.client.address[0].address5}
+      />
       <Input
         editable="false"
         txtboxClass="no-border"
@@ -213,13 +223,7 @@ class OwnerinformationNew extends Component {
         inputClass="col xl-2 input-container"
         value={this.props.client.address && this.props.client.address[0].zipCode}
       />
-      <Input
-        editable="false"
-        txtboxClass="no-border"
-        inputLabel="Country:"
-        inputClass="col xl-2 input-container"
-        value={this.props.client.address && this.props.client.address[0].address5}
-      />
+     
     </div>
     <div className="col xl-12 flex f-center f-start">
       <span className="fa fa-map-marker-alt font-prulife">
@@ -240,17 +244,18 @@ class OwnerinformationNew extends Component {
       <Input
         editable="false"
         txtboxClass="no-border"
-        inputLabel="Zip Code:"
-        inputClass="col xl-2 input-container"
-        value={this.props.client.address && this.props.client.address[1].zipCode}
-      />
-      <Input
-        editable="false"
-        txtboxClass="no-border"
         inputLabel="Country:"
         inputClass="col xl-2 input-container"
         value={this.props.client.address && this.props.client.address[1].address5}
       />
+      <Input
+        editable="false"
+        txtboxClass="no-border"
+        inputLabel="Zip Code:"
+        inputClass="col xl-2 input-container"
+        value={this.props.client.address && this.props.client.address[1].zipCode}
+      />
+      
     </div>
     <div className="col xl-12 flex f-center f-start">
       <span className="fa fa-map-marked-alt font-prulife">
@@ -271,17 +276,18 @@ class OwnerinformationNew extends Component {
       <Input
         editable="false"
         txtboxClass="no-border"
-        inputLabel="Zip Code:"
-        inputClass="col xl-2 input-container"
-        value={this.props.client.address && this.props.client.address[2].zipCode}
-      />
-      <Input
-        editable="false"
-        txtboxClass="no-border"
         inputLabel="Country:"
         inputClass="col xl-2 input-container"
         value={this.props.client.address && this.props.client.address[2].address5}
       />
+      <Input
+        editable="false"
+        txtboxClass="no-border"
+        inputLabel="Zip Code:"
+        inputClass="col xl-2 input-container"
+        value={this.props.client.address && this.props.client.address[2].zipCode}
+      />
+      
     </div>
     <div className="xl-12 flex-container flex-wrap col">
       <div className="xl-2">
