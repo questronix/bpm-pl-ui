@@ -312,7 +312,7 @@ class TaskContainer extends Component {
         <div className="col xl-10 l-10 m-9 s-9 xs-8 p-x2">
           <div className="">
             <h1 className="flex s-f-center xs-f-center text-darkgray larger normal">Tasks</h1>
-            <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
+            <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between mb">
               <div className=" xl-5 flex f-justify-space-between">
                 <div className="search-container no-border">
                   {/* <FilterButton/> */}
@@ -335,7 +335,7 @@ class TaskContainer extends Component {
                 </button>
               </div>
             </div>
-            <div className="col no-padding xl-12 f-center f-start flex ">
+            <div className="col no-padding xl-12 f-center f-start flex">
               <p className="text-bold font-sm">FILTERS :</p>
               <a className="btn-sm bright-blue ml">All task</a>
               <a className="btn-sm alt ml">Recently Updated</a>

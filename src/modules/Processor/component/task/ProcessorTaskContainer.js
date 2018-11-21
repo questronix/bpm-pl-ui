@@ -189,7 +189,7 @@ class ProcessorTaskContainer extends Component {
     return (
       <div>
         <Nav />
-        <div className="flex-container flex-wrap margin-top-70 col">
+        <div className="flex-container flex-wrap margin-top-70 col no-padding">
           {/* THIS WILL BE ADDED IF THE AUTHORITY CAN APPROVE */}
           {/* <ModalAlert>
           <div className="flex f-center f-column big-container">
@@ -289,9 +289,9 @@ class ProcessorTaskContainer extends Component {
           )}
         </MyModal> */}
           <div className="xl-2 l-2 m-3 s-3 xs-4"></div>
-          <div className=" xl-9 l-9 m-8 s-8 xs-7 margin-auto">
+          <div className=" xl-10 l-10 m-9 s-9 xs-8 p-x2">
             <div className="">
-              <h1 className="flex s-f-center xs-f-center">Tasks</h1>
+              <h1 className="text-darkgray larger normal">Tasks</h1>
               <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between">
                 <div className=" xl-5 flex f-justify-space-between">
                   <div className="search-container no-border">

@@ -15,7 +15,6 @@ class ApproverContainer extends Component {
           <div className="col no-padding xl-8">
             <ApprovalDetails
               isFatcaTagging={this.state.isFatcaTagging}
-              isFatcaTagging={this.state.isFatcaTagging}
               isWithReinstatingAgent={this.state.isWithReinstatingAgent}
               isRelativeOfAgent={this.state.isRelativeOfAgent}
               isSignatureVerified={this.state.isSignatureVerified}
@@ -33,7 +32,7 @@ class ApproverContainer extends Component {
           <div className="col no-padding xl-4">
             <div className="">
               <h1 className="text-darkgray larger normal mb mt-0">
-                For Approval
+              Reviewed Details
               </h1>
             </div>
             <ReviewDetails />

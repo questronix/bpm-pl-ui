@@ -5,74 +5,72 @@ class ProcessorHeader extends Component {
   render() {
     return (
       <div className="App">
-        <div className="processor">
-          <div className="header">
-            <h3 className="font-prulife">
+        <div className="processor p">
+          <div className="text-red border-bottom border-lightgray pb-sm mb-sm ml-0 mt-0 mr-0">
+            <h5 className="font-prulife">
             <i class="font-black fa fa-file-signature mr-sm font-xl"></i>
               Transaction Details
-               </h3>
-            <hr />
+               </h5>
           </div>
-          <div className="xl-12 container">
+          <div className="xl-12 mb">
             <div className="flex-container flex-wrap">
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Transaction Number:"
-                inputClass="col xl-2 input-container" />
+                inputClass="col no-padding mr xl-2 input-container" />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Transaction Type:                "
-                inputClass="col xl-4 input-container" />
+                inputClass="col no-padding mr xl-4 input-container" />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Status:"
-                inputClass="col xl-2 input-container" />
+                inputClass="col no-padding mr xl-2 input-container" />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Created Date:"
-                inputClass="col xl-2 input-container" />
+                inputClass="col no-padding mr xl-2 input-container" />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Created By:"
-                inputClass="col xl-2 input-container" />
+                inputClass="col no-padding xl-2 input-container" />
             </div>
           </div>
-          <div className="header">
-            <h3 className="font-prulife">
+          <div className="text-red border-bottom border-lightgray pb-sm mb-sm ml-0 mt-0 mr-0">
+            <h5 className="font-prulife">
             <i class="font-black fa fa-inbox mr-sm font-xl"></i>
               Prescreening Details
-               </h3>
-            <hr />
+            </h5>
           </div>
-          <div className="xl-12 container horizontal-scroll">
+          <div className="xl-12">
             <div className="flex-container ">
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Required Premium:"
-                inputClass="col input-container" />
+                inputClass="col no-padding mr input-container" />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Suspense:"
-                inputClass="col input-container" />
+                inputClass="col no-padding mr input-container" />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="OR Number:"
-                inputClass="col input-container" />
+                inputClass="col no-padding mr input-container" />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Date of Signing:"
-                inputClass="col input-container" />
+                inputClass="col no-padding mr input-container" />
               <div className="col no-padding">
-                <p className="label flex no-margin">
+                <p className="bold font-sm flex no-margin">
                   Signature Verified:
                     </p>
                 <div className="col xl-12">
@@ -88,8 +86,8 @@ class ProcessorHeader extends Component {
               </div>
             </div>
             <div className="flex-container ">
-              <div className="col">
-                <p className="label flex no-margin">
+              <div className="col no-padding mr">
+                <p className="bold font-sm flex no-margin">
                   Relative of Agent:
                     </p>
                 <div className="col xl-12">
@@ -103,8 +101,8 @@ class ProcessorHeader extends Component {
                   </label>
                 </div>
               </div>
-              <div className="col">
-                <p className="label flex no-margin">
+              <div className="col no-padding mr">
+                <p className="bold font-sm flex no-margin">
                   FATCA Tagging:
                     </p>
                 <div className="col xl-12">
@@ -118,8 +116,8 @@ class ProcessorHeader extends Component {
                   </label>
                 </div>
               </div>
-              <div className="col">
-                <p className="label flex no-margin">
+              <div className="col no-padding mr">
+                <p className="bold font-sm flex no-margin">
                   Complete FATCA Requirements?:
                     </p>
                 <div className="col xl-12">
@@ -133,8 +131,8 @@ class ProcessorHeader extends Component {
                   </label>
                 </div>
               </div>
-              <div className="col">
-                <p className="label flex no-margin">
+              <div className="col no-padding mr">
+                <p className="bold font-sm flex no-margin">
                   With Reinstating Agent:
                     </p>
                 <div className="col xl-12">
@@ -148,8 +146,8 @@ class ProcessorHeader extends Component {
                   </label>
                 </div>
               </div>
-              <div className="col">
-                <p className="label flex no-margin">
+              <div className="col no-padding">
+                <p className="bold font-sm flex no-margin">
                   With COSAL?:
                     </p>
                 <div className="col xl-12">
@@ -165,11 +163,11 @@ class ProcessorHeader extends Component {
               </div>
             </div>
           </div>
-          <div className="header">
-            <h3 className="font-prulife">
+          <div className="text-red border-bottom border-lightgray pb-sm mb-sm ml-0 mt-0 mr-0">
+            <h5 className="font-prulife">
+            <i class="font-black fa fa-file-alt mr-sm font-xl"></i>
               Document Details
-               </h3>
-            <hr />
+            </h5>
           </div>
           <div className="xl-12 container flex-container flex-wrap">
             <div className="xl-6 container">

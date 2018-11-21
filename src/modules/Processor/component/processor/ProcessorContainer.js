@@ -14,7 +14,7 @@ class ProcessorContainer extends Component {
       doc: '',
       clients: [],
       client: {},
-      policy:{},
+      policy: {},
       transactionNumber: localStorage.getItem('transactionNumber') || null,
 
     };
@@ -37,15 +37,15 @@ class ProcessorContainer extends Component {
         });
         console.log('CLIENTS:  ', this.state.policy.clients);
       })
-      .finally(() => {});
+      .finally(() => { });
     // }
 
     PolicyService.getClientIformationByid("81789377")
       .then((res) => {
         console.log('CLIENT INFO: ', res.data);
-        this.setState({ client: res.data.data.result.data});
+        this.setState({ client: res.data.data.result.data });
       }).finally(() => {
-        
+
       });
   }
 
@@ -176,30 +176,33 @@ class ProcessorContainer extends Component {
   render() {
     return (
       <div className="flex-container flex-wrap">
-        <div className="col xl-12 ">
+        <div className="col xl-12 no-padding">
+          <h1 className="text-darkgray larger normal mb-sm mt-0">
+          For Processing
+          </h1>
           <div className="box">
             <div className="tab-title-container">
               <div
                 onClick={() => this.handleSkipTab(1)}
                 className={this.state.currentTab === 1 || (this.state.isVisitedTransaction & this.state.currentTab > 1) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
+                <div className="circle">
                   {this.state.isVisitedTransaction ? <span className="fa fa-check" /> : 1}
-                </h4>
-                <h4>Review Transaction</h4><span className="white" /><span className="gray" />
+                </div>
+                Review Transaction<span className="white" /><span className="gray" />
               </div>
               <div
                 onClick={() => this.handleSkipTab(2)}
                 className={this.state.currentTab === 2 || (this.state.isVisitedInsured & this.state.currentTab > 2) ? "tab-title active" : "tab-title"}>
-                <h4 className="circle">
+                <div className="circle">
                   {this.state.isVisitedInsured ? <span className="fa fa-check" /> : 2}
-                </h4>
-                <h4>Processing Details</h4>
+                </div>
+                Processing Details
               </div>
             </div>
-            <ProcessorHeader/>
+            <ProcessorHeader />
             <div className="box-body">
-              {this.state.currentTab === 1 && <ReviewTransaction/>}
-              {this.state.currentTab === 2 && <ProcessingDetails/>}
+              {this.state.currentTab === 1 && <ReviewTransaction />}
+              {this.state.currentTab === 2 && <ProcessingDetails />}
             </div>
           </div>
         </div>
