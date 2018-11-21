@@ -204,10 +204,12 @@ class ReviewDetails extends Component {
         </div>
         <div className={this.state.visible ? "processor-dropdown bg-white active" : "processor-dropdown bg-white"}>
           <h2 className="font-prulife col no-margin">
+          <i class="font-black fa fa-umbrella mr-sm font-xl"></i>
             Policy Information
           </h2>
           <PolicyInfoHeader type={"approver"} policy={this.state.policy} clients={this.state.clients} />
           <h2 className="font-prulife col no-margin">
+          <i class="font-black fa fa-user-tie mr-sm font-xl"></i>
             Agent Information
           </h2>
           <AgentInfoHeader policy={this.state.policy} clients={this.state.clients} />
