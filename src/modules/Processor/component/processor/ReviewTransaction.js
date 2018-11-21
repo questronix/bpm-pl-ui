@@ -210,7 +210,7 @@ render(){
         <h2 className="font-prulife col no-margin">
           Agent Information
           </h2>
-        <AgentInfoHeader policy={this.state.policy} clients={this.state.clients} />
+        <AgentInfoHeader type={"default"} policy={this.state.policy} clients={this.state.clients} />
       </div>
       <div className="showmore bg-bright-blue flex">
         <button className="col flex f-justify-space-between no-border bg-none text-with-icon flex f-center" onClick={this.isInsuredVisible} accessKey="s">

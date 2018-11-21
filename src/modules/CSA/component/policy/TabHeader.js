@@ -26,13 +26,13 @@ class TabHeader extends Component {
                 Policy Information
             </h2>
             </div>
-            <PolicyInfoHeader  policy={this.props.policy} clients={this.props.clients}/>
+            <PolicyInfoHeader type="default"  policy={this.props.policy} clients={this.props.clients}/>
             <div className="col xl-12">
               <h2 className="font-prulife no-margin">
                 Agent Information
             </h2>
             </div>
-            <AgentInfoHeader policy={this.props.policy} />
+            <AgentInfoHeader type="default" policy={this.props.policy} />
           </div>
           <div className="flex f-end showmore">
             <button className="btn alt text-with-icon container flex f-center" onClick={this.isVisible} accessKey="s">

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Input from '../../../../shared/component/input/Input';
 
 class PolicyInfoHeader extends Component {
@@ -19,7 +19,8 @@ class PolicyInfoHeader extends Component {
       console.log(owner, insured);
     }
     return (
-      <div>
+      <Fragment>
+
         {this.props.type === "approver" &&
           <div className="xl-12 flex-container flex-wrap insured-details bg-prulife">
             <Input editable="false" inputLabel="Policy Number:" inputPlaceholder="0000001" txtboxClass="no-border" inputClass="col xl-3 input-container" value={policy.policyNo} />
@@ -63,7 +64,7 @@ class PolicyInfoHeader extends Component {
          <Input editable="false" inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-2 input-container" value={owner && owner.dateOfBirth} />
        </div>
       }
-      </div>
+    </Fragment>
     );
   }
 }
