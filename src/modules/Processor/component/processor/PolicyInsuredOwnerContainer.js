@@ -206,7 +206,7 @@ class ReviewDetails extends Component {
           <h2 className="font-prulife col no-margin">
             Policy Information
           </h2>
-          <PolicyInfoHeader policy={this.state.policy} clients={this.state.clients} />
+          <PolicyInfoHeader type={"approver"} policy={this.state.policy} clients={this.state.clients} />
           <h2 className="font-prulife col no-margin">
             Agent Information
           </h2>
