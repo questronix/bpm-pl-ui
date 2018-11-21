@@ -378,6 +378,15 @@ class InsuredinformationNew extends Component {
                                 <span className="checkmark" />
                               </label>
                             </div>
+                            <div className="col xl-12 flex f-row-reverse f-end">
+                              <label htmlFor="questionnaire">
+                                Pregnancy Questionnaire
+                          </label>
+                              <label className="checkbox">
+                                <input id="questionnaire" type="checkbox" />
+                                <span className="checkmark" />
+                              </label>
+                            </div>
                           </div>
                         </div>
                       )}
