@@ -5,7 +5,7 @@ const Error = require('../../Common/services/Errors');
 const url = process.env.BPM_URL;
 
 
-module.exports.new = (userId, username, transactionNo) => {
+module.exports.new = (userId, username, transactionNo, policyNo) => {
   const ACTION = '[getDetails]';
   const uri = `${url}/process/start`;
   Logger.log('info', `${TAG}${ACTION} - args `, { userId, username, transactionNo });
@@ -16,7 +16,7 @@ module.exports.new = (userId, username, transactionNo) => {
       .setOptions({
         uri
       })
-      .post({ userId, username, transactionNo })
+      .post({ userId, username, transactionNo, policyNo })
       .then(res => {
         Logger.log('info', `${TAG}${ACTION} - result`, res.body);
         const body = res.body;

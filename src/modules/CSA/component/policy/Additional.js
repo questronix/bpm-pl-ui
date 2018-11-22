@@ -53,6 +53,15 @@ class FatcaNew extends Component {
                     onSelect={this.handleYesNoChange}
                   />
               </div>
+              <div className="xl-6">
+                <YesNoRadio
+                  name="isBeyondAuth"
+                  title="Beyond Authority"
+                  isRequired={false}
+                  isYesDefault={this.props.isBeyondAuth}
+                  onSelect={this.handleYesNoChange}
+                />
+              </div>
               {(this.props.isAgentStatusActive && this.props.withReinstatementAgent) && (
                 <>
                 <div className="xl-6 invisible">

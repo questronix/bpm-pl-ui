@@ -7,4 +7,8 @@ export default class Question {
       return this.http.post(`/lifeasia/questions`, args);
     }
 
+    saveAnswer(args) {
+      return this.http.post(`/lifeasia/questions/save`, args);
+    }
+
   }

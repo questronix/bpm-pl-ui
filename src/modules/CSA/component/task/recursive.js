@@ -87,3 +87,8 @@ let data =  [
 
 
 
+// function findQuestion(questions, id){
+//     let question = questions.filter(e => {
+        
+//     })
+// }

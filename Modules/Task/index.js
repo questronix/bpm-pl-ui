@@ -31,7 +31,7 @@ router.post('/', mw.isAuthenticated, async(req, res) => {
       })
       .catch((err) => res.send(err));
   
-    task.new(req.session.user.User_ID, req.session.user.Username, trans.result.transactionNumber).then((data) => {
+    task.new(req.session.user.User_ID, req.session.user.Username, trans.result.transactionNumber, info.number).then((data) => {
       res.send(data);
     }).catch((err) => {
       res.error(err);

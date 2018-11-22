@@ -6,6 +6,8 @@ class TaskList extends Component {
   }
 
   handleItemClick(url) {
+    const role = JSON.parse(sessionStorage.getItem('user_info')).Role_Description;
+    if (role == "PROCESSOR") return;
     window.location.href = url;
   }
 
@@ -17,12 +19,7 @@ class TaskList extends Component {
     
     let owner;
     let insured;
-    // if (this.props.tasks.variables.policy.info) {
-    //   const clients = this.props.tasks.variables.policy.info ? JSON.parse(this.props.tasks.variables.policy.info).clients : null;
-    //   owner = clients.find(client => client.role == 'OW');
-    //   insured = clients.find(client => client.role == 'LF');
-    //   console.log(insured)
-    // }
+   
     return (
       <div className="card-table">
         {this.props.tasks ? (

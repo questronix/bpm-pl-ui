@@ -13,6 +13,7 @@ class TransactionNew extends Component {
     this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handleDocSelect = this.handleDocSelect.bind(this);
     this.handleSignatureVerifiedChange = this.handleSignatureVerifiedChange.bind(this);
+    this.handlePdfGeneration = this.handlePdfGeneration.bind(this);
   }
   
   componentDidMount() {
@@ -20,6 +21,11 @@ class TransactionNew extends Component {
       docs => docs.SubTransaction_ID == this.props.subTransactionType
     );
     this.setState({ docs: docList });
+  }
+
+  handlePdfGeneration() {
+    var win = window.open();
+    win.document.write(`<iframe src="data:application/pdf;base64,${this.props.reqMemoPDF}" height="100%" width="100%"> </iframe>`);
   }
 
   handleTransactionChange(e) {
@@ -128,8 +134,8 @@ class TransactionNew extends Component {
                               <label className={doc.isMandatory ? "checkbox required" : "checkbox"}>
                                 {doc.checked ? (
                                   <input
-                                  // id={`doc${doc.docId}`}
-                                  // index={index}
+                                  id={`doc${doc.docId}`}
+                                  index={index}
                                   type="checkbox"
                                   checked={true}
                                   disabled
@@ -157,7 +163,7 @@ class TransactionNew extends Component {
               )}
             </div>
             <div className="xl-3 container-left-border big-container">
-              {this.props.reqMemoPDF && <a className="font-bright-blue" href={`data:application/pdf;base64, ${escape(this.props.reqMemoPDF)}`} target="_blank"> Generate Memo </a> }
+              {this.props.reqMemoPDF && <a className="font-bright-blue" onClick={this.handlePdfGeneration}> Generate Memo </a> }
               <Input
                 inputLabel="Required Premium:"
                 inputPlaceholder="(from LA)"

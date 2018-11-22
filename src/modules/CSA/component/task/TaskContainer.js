@@ -207,6 +207,7 @@ class TaskContainer extends Component {
 
   render() {
     const { policy, isSearching } = this.state;
+    const role = JSON.parse(sessionStorage.getItem('user_info')).Role_Description;
 
     return (
       <div className="flex-container flex-wrap margin-top-70">
@@ -327,11 +328,13 @@ class TaskContainer extends Component {
                   <span>SEARCH</span>
                 </a>
               </div>
-              <div className="flex f-row">
+             {role == "CSA" && (
+                <div className="flex f-row">
                 <button className="btn prulife" onClick={this.handleModalToggle} accessKey="s">
                   <span className="fa fa-plus"></span> &nbsp; CREATE NEW TRANSACTION
                 </button>
               </div>
+             )}
             </div>
             <div className="col no-padding xl-12 f-center f-start flex ">
               <p className="text-bold">FILTERS :</p>
