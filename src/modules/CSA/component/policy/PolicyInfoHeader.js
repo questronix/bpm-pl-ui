@@ -10,10 +10,8 @@ class PolicyInfoHeader extends Component {
     let insured;
     
     if (clients.length > 0) {
-      console.log('from', clients);
       owner = clients.find(client => client.role === 'OW');
       insured = clients.find(client => client.role === 'LF');
-      console.log(owner, insured);
     }
     return (
       <div className="xl-12 flex-container flex-wrap">

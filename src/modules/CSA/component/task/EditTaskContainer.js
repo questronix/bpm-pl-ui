@@ -208,6 +208,8 @@ class EditTaskContainer extends Component {
         QuestionService.getQuestionsByTransactionID({ transactionNo: res.data.variables.transactionNumber })
         .then((res) => {
           console.log('QUESTIONS', res.data.result);
+          const flatQuestions = this.flatten(res.data.result);
+          console.log('FLAT QUESTIONS', flatQuestions);
           this.setState({ questions: res.data.result });
         }).finally(() => {
         });
@@ -244,10 +246,6 @@ class EditTaskContainer extends Component {
             console.log('DOCSSSS', res.data.result[0]);
             const transDoc = res.data.result[0].data;
             const subTransDoc = transDoc.filter(data => data.subTransactionId == this.state.subTransactionType)[0]
-            // console.log('subTransDoc', subTransDoc);
-      
-            // const d = res.data.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
-            // this.setState({ docs: d });
             this.setState({ docs: res.data.result[0] });
           }).finally(() => {
             if (this.state.docs) {
@@ -256,56 +254,14 @@ class EditTaskContainer extends Component {
           });
 
         this.setState({    
-          // policy: JSON.parse(policy.info),
           transactionNumber: transactionNo,
           task: res.data
-          // clients: JSON.parse(policy.info).clients,
-          // isAgentStatusActive: JSON.parse(policy.info).agentStatus == "ACTIVE" ? true: false,
-          // task: res.data
         });
         this.checkIsSameInsuredAndOwner();
         this.checkPtrOrPwAvailed();
         console.log('CLIENTS:  ', this.state.policy.clients);
       })
       .finally(() => { });
-
-
-    // TODO: REST call here
-    this.setState({
-      selectedTransaction: '1',
-      transactionCheckList: [
-        {
-          id: 1,
-          isChecked: false,
-          label: 'Health Statement Form (HSF)'
-        },
-        {
-          id: 2,
-          isChecked: false,
-          label: 'U/W routine requirements'
-        },
-        {
-          id: 3,
-          isChecked: false,
-          label: 'Payment of Premium Arrears'
-        },
-        {
-          id: 4,
-          isChecked: false,
-          label: 'Specimen Signature Form (if applicable)'
-        },
-        {
-          id: 5,
-          isChecked: false,
-          label: 'Valid Government Issued ID (if applicable)'
-        },
-        {
-          id: 6,
-          isChecked: false,
-          label: 'Valid Non-Government Issued ID (if applicable)'
-        }
-      ]
-    });
   }
 
   handleSubmit(event) {
@@ -584,6 +540,8 @@ class EditTaskContainer extends Component {
     // if (tabPage === 1) {
       // this.setState({ isVisitedTransaction: true });
       this.createMemo();
+      alert('withPayment ' + this.state.withPayment)
+      alert('signature verified ' +this.state.isSignatureVerified)
     // }
     if (tabPage === 2) {
       this.setState({ 
@@ -1068,6 +1026,25 @@ class EditTaskContainer extends Component {
     });
   }
 
+  flatten(records) {
+    let output = [];
+    records.forEach(e => {
+      //start of recursion
+      if (e.subQuestions) {
+        //change the child flag
+        let child = [e.subQuestions]; //change the child flag
+        delete e.subQuestions; //change the child flag
+        output.push(e); //push the parent
+        this.flatten(child).forEach(node => {
+          output.push(node); //push the last node
+        });
+      } else {
+        output.push(e);
+      }
+    });
+    return output;
+  }
+
   render() {
     return (
       <div className="flex-container flex-wrap">
@@ -1139,7 +1116,7 @@ class EditTaskContainer extends Component {
                 <h4 className="no-margin">Insured Details</h4><span className="white" /><span className="gray" />
               </div>
               <div
-                onClick={() => this.handleSkipTab(3)}
+                onClick={() => this.handleSkipTab(3)}  
                 className={this.state.currentTab === 3 || (this.state.isVisitedOwner & this.state.currentTab > 3) ? "tab-title active" : "tab-title"}>
                 <h4 className="circle">
                   {this.state.isVisitedOwner ? <span className="fa fa-check" /> : 3}
