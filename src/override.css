@@ -1446,6 +1446,7 @@ nav.navbar .navmenu {
 .sidebar {
   position: fixed;
   background-color: #232323;
+  width: 250px;
   height: 100%; }
   .sidebar .sidebar-title {
     background-color: black;
