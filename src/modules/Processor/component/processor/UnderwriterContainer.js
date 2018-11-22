@@ -101,7 +101,7 @@ class UnderwriterContainer extends Component {
                 <div className="flex-container flex-wrap mb">
                   <Input
                     editable="false"
-                    txtboxClass="Name:"
+                    txtboxClass="no-border"
                     inputLabel="Policy Number:"
                     inputClass="xl-8 mr input-container"
                   // value={}
@@ -204,7 +204,7 @@ class UnderwriterContainer extends Component {
                 <div className="flex-container flex-wrap mb">
                   <Input
                     editable="false"
-                    txtboxClass="Name:"
+                    txtboxClass="no-border"
                     inputLabel="Policy Number:"
                     inputClass="xl-8 mr input-container"
                   // value={}
