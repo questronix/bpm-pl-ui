@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PolicyService, TaskService, DocumentService } from '../../services';
+import { PolicyService, TaskService, DocumentService, QuestionService } from '../../services';
 import TabHeader from '../policy/TabHeader';
 import InsuredinformationNew from '../policy/InsuredinformationNew';
 import TransactionNew from '../policy/TransactionNew';
@@ -11,6 +11,8 @@ class EditTaskContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      questions: [],
+
       policy: localStorage.getItem('policy') || {
         guid: '',
         action: '',
@@ -106,6 +108,7 @@ class EditTaskContainer extends Component {
       completeFatca: null,
       additionalDateOfSigning: null,
       isBeyondLimmit: null,
+      isBeyondAuth: false,
 
 
       client: {},
@@ -173,14 +176,16 @@ class EditTaskContainer extends Component {
     console.log('updated');
     const subTrans = this.state.docs.data.filter(
       doc => doc.subTransactionId == type
-    );
-    // const docList = this.state.docs.filter(
-    //   docs => docs.SubTransaction_ID == type
-    // );
-    console.log('subTransDoc', subTrans[0].data);
-    this.setState({ selectedDocs: subTrans[0].data });
+    )[0].data.map(doc => {
+      return {
+        ...doc,
+        value: doc.checked
+      };
+    });
+    console.log('subTransDoc', subTrans);
+    this.setState({ selectedDocs: subTrans });
 
-    const isAllChecked = subTrans[0].data.filter(doc => doc.isMandatory).every(doc => doc.value);
+    const isAllChecked = subTrans.filter(doc => doc.isMandatory).every(doc => doc.value);
 
     if (isAllChecked) {
       this.setState({ isDisabledProceed: false });
@@ -195,20 +200,62 @@ class EditTaskContainer extends Component {
       taskId: this.getQueryStringValue('id')
     });
 
+
     // TODO: Validation to prevent Update of localstorage
     // if (!this.state.policy) {
     TaskService.getTaskDetails(this.getQueryStringValue('id'))
       .then(res => {
+
+        QuestionService.getQuestionsByTransactionID({ transactionNo: res.data.variables.transactionNumber })
+        .then((res) => {
+          console.log('QUESTIONS', res.data.result);
+          const flatQuestions = this.flatten(res.data.result);
+          console.log('FLAT QUESTIONS', flatQuestions);
+          this.setState({ questions: res.data.result });
+        }).finally(() => {
+        });
+
         console.log(res.data);
-        const policy = res.data.variables.policy;
-        const transactionNo = policy.transactionNo;
-        // localStorage.setItem('transactionNumber', transactionNo);
-        // localStorage.setItem('policy', policy.info);
+        const transactionNo = res.data.variables.transactionNumber;
+        const policyNo = res.data.variables.policyNo;
+
+        PolicyService.getPolicyInformationByID(policyNo)
+          .then(res => {
+            if (res.status == 200) {
+              const policy = res.data.result;
+              const clients = res.data.result.clients;
+              this.setState({
+                policy: policy,
+                clients: clients,
+                isAgentStatusActive: policy.agentStatus == "ACTIVE" ? true: false,
+                showComponent: true
+              });
+            }
+            else if (res.status == 404) {
+              alert('Policy not found.');
+            }
+            else {
+              console.log('Error: ', res.data);
+            }
+          })
+          .finally(() => {
+          });
+
+        DocumentService.getDocumentByTransactionType(res.data.variables.transactionNumber)
+          .then((res) => {
+            // TODO: FIX RESPONSE
+            console.log('DOCSSSS', res.data.result[0]);
+            const transDoc = res.data.result[0].data;
+            const subTransDoc = transDoc.filter(data => data.subTransactionId == this.state.subTransactionType)[0]
+            this.setState({ docs: res.data.result[0] });
+          }).finally(() => {
+            if (this.state.docs) {
+              this.filterSelectedDocs(this.state.subTransactionType);
+            }
+          });
+
         this.setState({    
-          policy: JSON.parse(policy.info),
           transactionNumber: transactionNo,
-          clients: JSON.parse(policy.info).clients,
-          isAgentStatusActive: JSON.parse(policy.info).agentStatus == "ACTIVE" ? true: false,
           task: res.data
         });
         this.checkIsSameInsuredAndOwner();
@@ -216,70 +263,6 @@ class EditTaskContainer extends Component {
         console.log('CLIENTS:  ', this.state.policy.clients);
       })
       .finally(() => { });
-    // }
-
-    // PolicyService.getClientIformationByid("81789377")
-    //   .then((res) => {
-    //     console.log('CLIENT INFO: ', res.data);
-    //     this.setState({ client: res.data.result});
-    //   }).finally(() => {
-        
-    //   });
-    
-    DocumentService.getDocumentByTransactionType(this.state.transactionType)
-    .then((res) => {
-      // TODO: FIX RESPONSE
-      console.log('DOCSSSS', res.data.result[0]);
-      const transDoc = res.data.result[0].data;
-      const subTransDoc = transDoc.filter(data => data.subTransactionId == this.state.subTransactionType)[0]
-      // console.log('subTransDoc', subTransDoc);
-
-      // const d = res.data.result.reduce((prev, current) => [{...current, value: false }, ...prev] , [])
-      // this.setState({ docs: d });
-      this.setState({ docs: res.data.result[0] });
-    }).finally(() => {
-      if (this.state.docs) {
-        this.filterSelectedDocs(this.state.subTransactionType);
-      }
-      
-    });
-
-    // TODO: REST call here
-    this.setState({
-      selectedTransaction: '1',
-      transactionCheckList: [
-        {
-          id: 1,
-          isChecked: false,
-          label: 'Health Statement Form (HSF)'
-        },
-        {
-          id: 2,
-          isChecked: false,
-          label: 'U/W routine requirements'
-        },
-        {
-          id: 3,
-          isChecked: false,
-          label: 'Payment of Premium Arrears'
-        },
-        {
-          id: 4,
-          isChecked: false,
-          label: 'Specimen Signature Form (if applicable)'
-        },
-        {
-          id: 5,
-          isChecked: false,
-          label: 'Valid Government Issued ID (if applicable)'
-        },
-        {
-          id: 6,
-          isChecked: false,
-          label: 'Valid Non-Government Issued ID (if applicable)'
-        }
-      ]
-    });
   }
 
   handleSubmit(event) {
@@ -558,6 +541,8 @@ class EditTaskContainer extends Component {
     // if (tabPage === 1) {
       // this.setState({ isVisitedTransaction: true });
       this.createMemo();
+      alert('withPayment ' + this.state.withPayment)
+      alert('signature verified ' +this.state.isSignatureVerified)
     // }
     if (tabPage === 2) {
       this.setState({ 
@@ -583,56 +568,181 @@ class EditTaskContainer extends Component {
   }
 
   saveTransaction() {
-    const { insured } = this.state;
 
-    let result = {};
-
-    // if (this.state.insured) {
-      result = {
-        transactionNo: this.state.transactionNumber,
-        clientId: insured.clientId,
-        "clientType": "Owner",
-        "occupation1": insured.occupation1,
-        "occupation2": insured.occupation2,
-        questions: []
+    const data = {
+      "status": "success",
+      "statusCode": 0,
+      "isSuccess": true,
+      "message": "successful in fetching data.",
+      "result": {
+        answers: [
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 1,
+            answer: this.state.isSOI
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 2,
+            answer: this.state.isPregnantOwner
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 3,
+            answer: this.state.additionalFMA
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 4,
+            answer: this.state.additionalMUR
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 5,
+            answer: this.state.withPayment
+          },
+          // {
+          //   transactionNo: this.state.transactionNumber,
+          //   questionId: 6,
+          //   answer: null
+          // },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 7,
+            answer: this.state.isSignatureVerified
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 8,
+            answer: this.state.isFatcaTagging
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 9,
+            answer: this.state.isRelativeOfAgent
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 10,
+            answer: this.state.withReinstatementAgent
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 11,
+            answer: this.state.additionalDateOfSigning
+          },
+          // {
+          //   transactionNo: this.state.transactionNumber,
+          //   questionId: 12,
+          //   answer: from la
+          // }
+        ]
       }
+    };
 
-      result.questions.push({
-        // transactionNo: this.state.transactionNumber,
-        // clientId: insured.clientId,
-        // "clientType": "Owner",
-        // "occupation1": insured.occupation1,
-        // "occupation2": insured.occupation2,
-        "questionId": "1",
-        "questionDescription": "SOI",
-        "questionAnswer": this.state.isSOI,
-        "questionReason": "",
-        "subQuestionId": "1",
-        "subQuestionAnswer": "Y",
-        "subQuestionReason": "",
-        "otherDetailsId": "1",
-        "otherDetailsAnswer": "Y",
-        "otherDetailsReason": "",
-        "levelStatus": "Pending"
-      });
-    // }
-
-    const args = result;
-    
-    PolicyService.saveTransactionDetails(args)
-    .then((res) => {
-      console.log(JSON.stringify(res.data));
-      // TODO: FIX RESPONSE
+    QuestionService.saveAnswer(data)
+    .then(res => {
+      console.log('SAVE ANSWER', res.data);
       if (res.data.isSuccess) {
-        alert('Transaction saved!');
-        window.location.href = '/tasks';
+
+        const owner = this.state.policy.clients.find(client => client.role == "OW");
+        const insured = this.state.policy.clients.find(client => client.role == "LF");
+
+        const clientInfo = {
+          insured: insured.clntNum,
+          insuredName: `${insured.clientLastName}, ${insured.clientFirstName} ${insured.clientMiddleName}`,
+          owner: owner.clntNum,
+          ownerName: `${owner.clientLastName}, ${owner.clientFirstName} ${owner.clientMiddleName}`
+        }
+
+        const policyInfo = {
+          "status": "success",
+          "statusCode": 0,
+          "isSuccess": true,
+          "message": "successful in fetching data.",
+          "result": {
+            transactionNo: this.state.transactionNumber,
+            ...this.state.policy,
+            ...clientInfo
+          }
+        };
+
+        const taskInfo = {
+          "isCompleteAndValid": true,
+          "type": "csa",
+          "action": "complete",
+          "uid": "17"
+        }
+
+        PolicyService.saveDetails(policyInfo)
+        .then(res => {
+
+          console.log('SAVE POLICY', res.data);
+
+          TaskService.submitTask(this.state.taskId, taskInfo)
+          .then(res => {
+            console.log(res.data);
+            if (res.data.id) {
+              alert('Transaction saved!');
+              window.location.href = '/tasks';
+            }
+            else {
+              alert('Failed to save transaction');
+              this.setState({ currentTab: 4 });
+            }
+          })
+          .catch(err => {
+            this.setState({
+              isSearching: false,
+              isError: true
+            });
+            console.log('Error: ', err);
+          });
+
+          // if (res.data.isSuccess) {
+          //   alert('Transaction saved!');
+          //   window.location.href = '/tasks';
+          // }
+          // else {
+          //   alert('Failed to save transaction');
+          //   this.setState({ currentTab: 4 });
+          // }
+        })
+        .finally(() => {
+
+        });
+        // alert('Transaction saved!');
+        // window.location.href = '/tasks';
       }
       else {
         alert('Failed to save transaction');
+        this.setState({ currentTab: 4 });
       }
-    }).finally(() => {
-      
+    })
+    .finally(() => {
+
     });
+
+    
+
+
+
+    // const args = result;
+    
+  //   PolicyService.saveTransactionDetails(args)
+  //   .then((res) => {
+  //     console.log(JSON.stringify(res.data));
+  //     // TODO: FIX RESPONSE
+  //     if (res.data.isSuccess) {
+  //       alert('Transaction saved!');
+  //       window.location.href = '/tasks';
+  //     }
+  //     else {
+  //       alert('Failed to save transaction');
+  //     }
+  //   }).finally(() => {
+      
+  //   });
   }
 
   getClientInfo(id) {
@@ -827,11 +937,113 @@ class EditTaskContainer extends Component {
       console.log('DOCS MEMO', res.data.result.data);
       const pdf = res.data.result.data;
       this.setState({ showReqModal: false, reqMemoPDF: pdf });
-      window.open('data:application/pdf;base64,' + escape(pdf), '_blank');
+      var win = window.open();
+      win.document.write(`<iframe src="data:application/pdf;base64,${pdf}" height="100%" width="100%"> </iframe>`);
     })
     .finally(() => {
 
     });
+  }
+  
+  saveAnswer() {
+    const data = {
+      "status": "success",
+      "statusCode": 0,
+      "isSuccess": true,
+      "message": "successful in fetching data.",
+      "result": {
+        answers: [
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 1,
+            answer: this.state.isSOI
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 2,
+            answer: this.state.isPregnantOwner
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 3,
+            answer: this.state.additionalFMA
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 4,
+            answer: this.state.additionalMUR
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 5,
+            answer: this.state.withPayment
+          },
+          // {
+          //   transactionNo: this.state.transactionNumber,
+          //   questionId: 6,
+          //   answer: null
+          // },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 7,
+            answer: this.state.isSignatureVerified
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 8,
+            answer: this.state.isFatcaTagging
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 9,
+            answer: this.state.isRelativeOfAgent
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 10,
+            answer: this.state.withReinstatementAgent
+          },
+          {
+            transactionNo: this.state.transactionNumber,
+            questionId: 11,
+            answer: this.state.additionalDateOfSigning
+          },
+          // {
+          //   transactionNo: this.state.transactionNumber,
+          //   questionId: 12,
+          //   answer: from la
+          // }
+        ]
+      }
+    }
+
+    QuestionService.saveAnswer(data)
+    .then(res => {
+      console.log('SAVE ANSWER', res.data);
+      
+    })
+    .finally(() => {
+
+    });
+  }
+
+  flatten(records) {
+    let output = [];
+    records.forEach(e => {
+      //start of recursion
+      if (e.subQuestions) {
+        //change the child flag
+        let child = [e.subQuestions]; //change the child flag
+        delete e.subQuestions; //change the child flag
+        output.push(e); //push the parent
+        this.flatten(child).forEach(node => {
+          output.push(node); //push the last node
+        });
+      } else {
+        output.push(e);
+      }
+    });
+    return output;
   }
 
   render() {
@@ -875,7 +1087,7 @@ class EditTaskContainer extends Component {
                 </div> 
                 <div className="flex">
                   <p className="">
-                    Created Date	:
+                    Created Date	: 
                   </p>
                   <p className="font-prulife ">
                   {this.state.task && this.formatDate(this.state.task.startTime)}
@@ -903,7 +1115,7 @@ class EditTaskContainer extends Component {
                 Insured Details<span className="white" /><span className="gray" />
               </div>
               <div
-                onClick={() => this.handleSkipTab(3)}
+                onClick={() => this.handleSkipTab(3)}  
                 className={this.state.currentTab === 3 || (this.state.isVisitedOwner & this.state.currentTab > 3) ? "tab-title active" : "tab-title"}>
                 <div className="circle">
                   {this.state.isVisitedOwner ? <span className="fa fa-check" /> : 3}
@@ -970,6 +1182,7 @@ class EditTaskContainer extends Component {
                 additionalDateOfSigning={this.state.additionalDateOfSigning}
                 onYesNoSelect={this.handleYesNoSelect}
                 isAgentStatusActive={this.state.isAgentStatusActive}
+                isBeyondAuth={this.state.isBeyondAuth}
               />}
 
               <div className="flex f-justify-space-between p">

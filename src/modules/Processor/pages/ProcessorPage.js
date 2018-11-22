@@ -8,6 +8,7 @@ import Nav from '../component/nav/Nav'
 import CardImg from '../../../shared/component/Widgets/CardImg';
 import Input from '../../../shared/component/input/Input';
 import ProcessorContainer from '../component/processor/ProcessorContainer';
+import TaskContainer from '../../CSA/component/task/TaskContainer';
 
 export default class Main extends Component {
   constructor(props) {
@@ -66,10 +67,12 @@ export default class Main extends Component {
         <Nav />
         {/* <SideBar tasks={this.state.tasks} onTabClick={this.handleSidebarTabClick} /> */}
         {/* <Processor/> */}
+        {/* <div className=""> */}
         <div className="margin-top-70">
           <div className="flex-container flex-wrap">
             <div className="xl-2 l-2 m-3 s-3 xs-4 col no-padding"></div>
-            <div className="xl-10 l-10 m-9 s-9 xs-8 col p-x2">
+            {/* <div className=" col"> */}
+            <div className="xl-10 l-10 m-9 s-9 xs-8 col">
               {/* <div className="xl-4">
                 <CardImg
                   docLabel="This document"
@@ -78,6 +81,7 @@ export default class Main extends Component {
                   docsId="333" />
               </div> */}
               <ProcessorContainer/>
+              {/* <TaskContainer/> */}
             </div>
           </div>
         </div>

@@ -40,7 +40,7 @@ class TaskContainer extends Component {
         console.log(res.data);
         if (!res.data.error) {
           this.setState({
-            tasks: res.data
+            tasks: res.data.result
           });
         }
       })
@@ -194,12 +194,12 @@ class TaskContainer extends Component {
   }
 
   createTask() {
-    TaskService.createNewTask({"info": JSON.stringify(this.state.policy)})
+    TaskService.createNewTask({ policy: this.state.policy })
       .then(res => {
         console.log(res.data);
-        const t = JSON.parse(JSON.stringify(res.data.variables.policy));
-        localStorage.setItem("transactionNumber", t.transactionNo);
-        localStorage.setItem("policy", JSON.stringify(this.state.policy));
+        // const t = JSON.parse(JSON.stringify(res.data.variables.policy));
+        // localStorage.setItem("transactionNumber", t.transactionNo);
+        // localStorage.setItem("policy", JSON.stringify(this.state.policy));
         this.props.history.push(`/tasks/edit?id=${res.data.id}`);
       })
       .catch(err => {
@@ -209,6 +209,7 @@ class TaskContainer extends Component {
 
   render() {
     const { policy, isSearching } = this.state;
+    const role = JSON.parse(sessionStorage.getItem('user_info')).Role_Description;
 
     return (
       <div className="flex-container flex-wrap margin-top-70">
@@ -329,18 +330,20 @@ class TaskContainer extends Component {
                   <span>SEARCH</span>
                 </a>
               </div>
-              <div className="flex f-row">
+             {role == "CSA" && (
+                <div className="flex f-row">
                 <button className="btn prulife" onClick={this.handleModalToggle} accessKey="s">
                   <span className="fa fa-plus"></span> &nbsp;  ADD NEW TRANSACTION
                 </button>
               </div>
+             )}
             </div>
             <div className="col no-padding xl-12 f-center f-start flex">
               <p className="text-bold font-sm">FILTERS :</p>
               <a className="btn-sm bright-blue ml">All task</a>
               <a className="btn-sm alt ml">Recently Updated</a>
             </div>
-            <TaskList tasks={this.state.tasks} policy={this.state.policy} />
+            <TaskList tasks={this.state.tasks}/>
             {/* <h1>Task History</h1>  */}
             {/* <TaskList tasks={this.state.taskHistory}/> */}
           </div>

@@ -6,7 +6,9 @@ const la = require('./model/Policy');
 const client = require('./model/Client');
 const doc = require('./model/Document');
 const trans = require('./model/Transaction');
+const question = require('./model/Question');
 const mw = require('../Common/middleware/Authentication');
+
 
 router.get('/:clientNum/client', mw.isAuthenticated, (req, res) => {
   const ACTION = '[getClient]';
@@ -67,46 +69,6 @@ router.get('/:policyNum/policy', mw.isAuthenticated, async(req, res) => {
       result: { number: req.params.policyNum, ...policy.result},
     });
   }
-
-
-  // la.getLarten(req.params.policyNum)
-  // .then(data => {
-  //   if (data.status == "fail") {
-  //     res.send(data)
-  //   } else {
-  //     res.send({
-  //       status: "success",
-  //       result: { number: req.params.policyNum, ...policy.result, ...data.result},
-  //     });
-  //   }
-  // })
-  // .catch(err => {
-  //   res.status(err.status).send(err);
-  // });
-  
-  // if ( policy.result.status == "0") {
-  //   policy.result.isForReinstatement = true;
-  // }
-  // else {
-  //   policy.result.isForReinstatement = false;
-  // }
-
-
-
-  // la.getLarten(req.params.policyNum)
-  //   .then(data => {
-  //     if (data.status == "fail") {
-  //       res.send(data)
-  //     } else {
-  //       res.send({
-  //         status: "success",
-  //         result: { number: req.params.policyNum, ...policy.result, ...data.result},
-  //       });
-  //     }
-  //   })
-  //   .catch(err => {
-  //     res.status(err.status).send(err);
-  //   });
 });
 
 router.get('/:policyNum/lartenq', mw.isAuthenticated, (req, res) => {
@@ -206,7 +168,7 @@ router.put('/documents', mw.isAuthenticated, (req, res) => {
   const ACTION = '[postSaveTransaction]';
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
 
-  trans.saveTransaction(req.body)
+  doc.create(req.body)
     .then(data => {
       res.send(data);
     })
@@ -255,5 +217,39 @@ router.post('/documents/memo', mw.isAuthenticated, (req, res) => {
       res.status(err.status).send(err);
     });
 });
+
+router.post('/questions', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[getQuestions]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+  question.getAllQuestions({ transactionNo: req.body.transactionNo }).then((data) => {
+    res.send(data);
+  }).catch((err) => {
+    res.error(err);
+  });
+});
+
+router.post('/questions/save', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[postSaveAnswers]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+  question.saveAllAnswers(req.body).then((data) => {
+    res.send(data);
+  }).catch((err) => {
+    res.error(err);
+  });
+});
+
+router.post('/policy/save', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[postSavePolicy]';
+  Logger.log('debug', `${TAG}${ACTION} - request parameters`, req.params);
+  Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);
+  trans.savePolicyDetails(req.body).then((data) => {
+    res.send(data);
+  }).catch((err) => {
+    res.error(err);
+  });
+});
+
 
 module.exports = router;
