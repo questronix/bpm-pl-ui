@@ -23,7 +23,7 @@ class TabHeader extends Component {
           <div className={this.state.visible ? "policyinfo-container active" : "policyinfo-container"}>
             <div className="col xl-12">
               <h2 className="font-prulife no-margin">
-                Policy Information1
+                Policy Information
             </h2>
             </div>
             <PolicyInfoHeader type="default"  policy={this.props.policy} clients={this.props.clients}/>

@@ -88,8 +88,8 @@ class EditTaskContainer extends Component {
       isChangeInAddress: null,
       isSOI: null,
       isPregnant: null,
-      additionalFMA: null,
-      additionalMUR: null,
+      additionalFMA: false,
+      additionalMUR: false,
 
       // OWNER TAB
       owner: null,
@@ -109,7 +109,6 @@ class EditTaskContainer extends Component {
       additionalDateOfSigning: null,
       isBeyondLimmit: null,
       isBeyondAuth: false,
-
 
       client: {},
 
@@ -230,6 +229,8 @@ class EditTaskContainer extends Component {
                 isAgentStatusActive: policy.agentStatus == "ACTIVE" ? true: false,
                 showComponent: true
               });
+              this.checkIsSameInsuredAndOwner();
+              this.checkPtrOrPwAvailed();
             }
             else if (res.status == 404) {
               alert('Policy not found.');
@@ -258,8 +259,6 @@ class EditTaskContainer extends Component {
           transactionNumber: transactionNo,
           task: res.data
         });
-        this.checkIsSameInsuredAndOwner();
-        this.checkPtrOrPwAvailed();
         console.log('CLIENTS:  ', this.state.policy.clients);
       })
       .finally(() => { });
@@ -538,12 +537,7 @@ class EditTaskContainer extends Component {
   }
 
   updateVistedTab(tabPage) {
-    // if (tabPage === 1) {
-      // this.setState({ isVisitedTransaction: true });
-      this.createMemo();
-      alert('withPayment ' + this.state.withPayment)
-      alert('signature verified ' +this.state.isSignatureVerified)
-    // }
+    this.createMemo();
     if (tabPage === 2) {
       this.setState({ 
         isVisitedTransaction: true, 
@@ -1149,6 +1143,7 @@ class EditTaskContainer extends Component {
                 onSelectSignatureVerified={this.handleYesNoSelect}
               />}
               {this.state.currentTab === 2 && <InsuredinformationNew 
+                type={"default"}
                 client={this.state.insured} 
                 isChangeInOccupation={this.state.isChangeInOccupation}
                 isChangeInAddress={this.state.isChangeInAddress}
@@ -1161,6 +1156,7 @@ class EditTaskContainer extends Component {
                 isPtrOrPwAvailed={this.state.isPtrOrPwAvailed}
               />}
               {this.state.currentTab === 3 && <OwnerinformationNew 
+                type={"default"}
                 client={this.state.owner} 
                 isChangeInOccupation={this.state.isChangeInOccupationOwner}
                 isChangeInAddress={this.state.isChangeInAddressOwner}
