@@ -161,7 +161,6 @@ app.get('/api/fr2',(req, res) => {
 });
 
 app.get('*', (req,res) =>{
-  // res.sendFile(path.join(__dirname+'/public/index.html'));
   res.render('index.ejs', { isLoggedIn: req.session.user ? true : false });
 });
 

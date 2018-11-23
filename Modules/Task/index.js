@@ -21,8 +21,8 @@ router.post('/', mw.isAuthenticated, async(req, res) => {
     await transaction.saveTransaction({
         transactionNo: trans.result.transactionNumber,
         policyno: info.number,
-        assignee: req.user.Firstname,
-        createdBy: req.user.Firstname,
+        assignee: req.user.Username,
+        createdBy: req.user.Username,
         owner: owner.clntNum,
         ownerName: `${owner.clientLastName}, ${owner.clientFirstName} ${owner.clientMiddleName}`,
         insured: insured.clntNum,

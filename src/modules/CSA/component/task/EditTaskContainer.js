@@ -500,7 +500,7 @@ class EditTaskContainer extends Component {
 
   handleNextTab() {
     const { currentTab } = this.state;
-    if (currentTab + 1 > 5) return;
+    if (currentTab + 1 >= 5) return;
     this.setState({ currentTab: currentTab + 1 });
     this.updateVistedTab(currentTab + 1);
   }
