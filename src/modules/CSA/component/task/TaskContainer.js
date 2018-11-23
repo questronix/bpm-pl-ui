@@ -288,12 +288,12 @@ class TaskContainer extends Component {
                 <AgentinformationNew policy={this.state.policy} />
               </div>
               <div className="col xl-12 modal-footer flex-container flex-wrap">
-                {this.state.policy.policyStatus == "IF" && <div className="col xl-10"><p className="">You can't proceed because of policy IN FORCE status.</p></div>}
-                {this.state.policy.policyStatus != "IF" && <div className="xl-10"></div>}
+                {this.state.policy.policyStatus != "LA" && <div className="col xl-10"><p className="">Sorry, y ou can't proceed. Invalid policy status.</p></div>}
+                {this.state.policy.policyStatus == "LA" && <div className="xl-10"></div>}
                 <button
                   className="btn prulife"
                   onClick={this.handlemodalAlert}
-                  disabled={this.state.policy.policyStatus == "IF" ? true : false}
+                  disabled={this.state.policy.policyStatus != "LA" ? true : false}
                 >
                   Proceed &nbsp;&nbsp;&nbsp;
                   <span className="fa fa-chevron-right font-white" />
@@ -343,7 +343,7 @@ class TaskContainer extends Component {
               <a className="btn-sm bright-blue ml">All task</a>
               <a className="btn-sm alt ml">Recently Updated</a>
             </div>
-            <TaskList tasks={this.state.tasks}/>
+            <TaskList tasks={this.state.tasks} history={this.props.history}/>
             {/* <h1>Task History</h1>  */}
             {/* <TaskList tasks={this.state.taskHistory}/> */}
           </div>

@@ -107,8 +107,7 @@ class EditTaskContainer extends Component {
       withCosal: null,
       completeFatca: null,
       additionalDateOfSigning: null,
-      isBeyondLimmit: null,
-      isBeyondAuth: false,
+      isBeyondLimit: false,
 
       client: {},
 
@@ -194,6 +193,28 @@ class EditTaskContainer extends Component {
     }
   }
 
+  mapQuestionToState() {
+    const { questions } = this.state;
+    // questions.map(item => {
+    //   item.find(q => q.questionId === 4).answer === "true" ? true : false
+    // })
+    this.setState({
+      // isSOI: questions.find(q => q.questionId === 1).answer === "true" ? true : false,
+      // isPregnant: questions.find(q => q.questionId === 2).answer === "true" ? true : false,
+      // additionalFMA: questions.find(q => q.questionId === 3).answer === "true" ? true : false,
+      // additionalMUR: questions.find(q => q.questionId === 4).answer === "true" ? true : false,
+
+      // additionalMUR: questions.find(q => q.questionId === 4).answer === "true" ? true : false,
+      withPayment: questions.find(q => q.questionId === 5).answer === "true" ? true : false,
+      isSignatureVerified: questions.find(q => q.questionId === 7).answer === "true" ? true : false,
+      isFatcaTagging: questions.find(q => q.questionId === 8).answer === "true" ? true : false,
+      isRelativeOfAgent: questions.find(q => q.questionId === 9).answer === "true" ? true : false,
+      withReinstatementAgent: questions.find(q => q.questionId === 10).answer === "true" ? true : false,
+
+      // withCosal: questions.find(q => q.questionId === 11).answer === "true"  ? true : false
+    });
+  }
+
   componentDidMount() {
     this.setState({
       taskId: this.getQueryStringValue('id')
@@ -209,9 +230,14 @@ class EditTaskContainer extends Component {
         .then((res) => {
           console.log('QUESTIONS', res.data.result);
           const flatQuestions = this.flatten(res.data.result);
-          console.log('FLAT QUESTIONS', flatQuestions);
-          this.setState({ questions: res.data.result });
+          const withPayment = flatQuestions.find(q => q.questionId === 5).answer === "true" ? true : false;
+          this.setState({ 
+            questions: flatQuestions,
+            // withPayment
+          });
+          this.mapQuestionToState();
         }).finally(() => {
+
         });
 
         console.log(res.data);
@@ -474,7 +500,7 @@ class EditTaskContainer extends Component {
 
   handleNextTab() {
     const { currentTab } = this.state;
-    if (currentTab + 1 > 5) return;
+    if (currentTab + 1 >= 5) return;
     this.setState({ currentTab: currentTab + 1 });
     this.updateVistedTab(currentTab + 1);
   }
@@ -578,7 +604,7 @@ class EditTaskContainer extends Component {
           {
             transactionNo: this.state.transactionNumber,
             questionId: 2,
-            answer: this.state.isPregnantOwner
+            answer: this.state.isPregnant
           },
           {
             transactionNo: this.state.transactionNumber,
@@ -665,9 +691,10 @@ class EditTaskContainer extends Component {
           "isCompleteAndValid": true,
           "type": "csa",
           "action": "complete",
-          "uid": "17"
+          "uid": this.state.isBeyondLimit ? "17" : JSON.parse(sessionStorage.getItem('user_info')).User_ID // TODO: change this to server user session
         }
 
+        // alert(JSON.parse(sessionStorage.getItem('user_info')).id)
         PolicyService.saveDetails(policyInfo)
         .then(res => {
 
@@ -692,21 +719,10 @@ class EditTaskContainer extends Component {
             });
             console.log('Error: ', err);
           });
-
-          // if (res.data.isSuccess) {
-          //   alert('Transaction saved!');
-          //   window.location.href = '/tasks';
-          // }
-          // else {
-          //   alert('Failed to save transaction');
-          //   this.setState({ currentTab: 4 });
-          // }
         })
         .finally(() => {
 
         });
-        // alert('Transaction saved!');
-        // window.location.href = '/tasks';
       }
       else {
         alert('Failed to save transaction');
@@ -716,27 +732,6 @@ class EditTaskContainer extends Component {
     .finally(() => {
 
     });
-
-    
-
-
-
-    // const args = result;
-    
-  //   PolicyService.saveTransactionDetails(args)
-  //   .then((res) => {
-  //     console.log(JSON.stringify(res.data));
-  //     // TODO: FIX RESPONSE
-  //     if (res.data.isSuccess) {
-  //       alert('Transaction saved!');
-  //       window.location.href = '/tasks';
-  //     }
-  //     else {
-  //       alert('Failed to save transaction');
-  //     }
-  //   }).finally(() => {
-      
-  //   });
   }
 
   getClientInfo(id) {
@@ -1025,14 +1020,23 @@ class EditTaskContainer extends Component {
     let output = [];
     records.forEach(e => {
       //start of recursion
-      if (e.subQuestions) {
+      if (e.hasChild) {
         //change the child flag
-        let child = [e.subQuestions]; //change the child flag
-        delete e.subQuestions; //change the child flag
-        output.push(e); //push the parent
-        this.flatten(child).forEach(node => {
-          output.push(node); //push the last node
-        });
+        if (Array.isArray(e.hasChild)) {
+          let child = e.hasChild; //change the child flag
+          delete e.hasChild; //change the child flag
+          output.push(e); //push the parent
+          this.flatten(child).forEach(node => {
+            output.push(node); //push the last node
+          });
+        } else {
+          let child = [e.hasChild]; //change the child flag
+          delete e.hasChild; //change the child flag
+          output.push(e); //push the parent
+          this.flatten(child).forEach(node => {
+            output.push(node); //push the last node
+          });
+        }
       } else {
         output.push(e);
       }
@@ -1178,7 +1182,7 @@ class EditTaskContainer extends Component {
                 additionalDateOfSigning={this.state.additionalDateOfSigning}
                 onYesNoSelect={this.handleYesNoSelect}
                 isAgentStatusActive={this.state.isAgentStatusActive}
-                isBeyondAuth={this.state.isBeyondAuth}
+                isBeyondLimit={this.state.isBeyondLimit}
               />}
 
               <div className="flex f-justify-space-between p">

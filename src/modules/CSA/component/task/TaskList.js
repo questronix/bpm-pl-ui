@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class TaskList extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class TaskList extends Component {
   handleItemClick(url) {
     const role = JSON.parse(sessionStorage.getItem('user_info')).Role_Description;
     if (role == "PROCESSOR") return;
-    window.location.href = url;
+    this.props.history.push(url);
   }
 
   componentDidMount() {

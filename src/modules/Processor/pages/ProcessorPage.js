@@ -62,17 +62,44 @@ export default class Main extends Component {
   }
 
   render() {
+    // return (
+    //   <div>
+    //     <Nav />
+    //     {/* <SideBar tasks={this.state.tasks} onTabClick={this.handleSidebarTabClick} /> */}
+    //     {/* <Processor/> */}
+    //     {/* <div className=""> */}
+    //     <div className="margin-top-70">
+    //       <div className="flex-container flex-wrap">
+    //         <div className="xl-2 l-2 m-3 s-3 xs-4 col no-padding"></div>
+    //         {/* <div className=" col"> */}
+    //         <div className="xl-10 l-10 m-9 s-9 xs-8 col">
+    //           {/* <div className="xl-4">
+    //             <CardImg
+    //               docLabel="This document"
+    //               docDate="12/31/18"
+    //               docs="https://images.unsplash.com/photo-1540349946389-8ea10a9da3cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=73648bc8f9b4c8067106d4da017386ac&auto=format&fit=crop&w=634&q=80"
+    //               docsId="333" />
+    //           </div> */}
+    //           {/* <ProcessorContainer/> */}
+    //           {/* <TaskContainer/> */}
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
+
+
     return (
       <div>
         <Nav />
         {/* <SideBar tasks={this.state.tasks} onTabClick={this.handleSidebarTabClick} /> */}
         {/* <Processor/> */}
-        {/* <div className=""> */}
-        <div className="margin-top-70">
+        <div className="">
+        {/* <div className="margin-top-70"> */}
           <div className="flex-container flex-wrap">
             <div className="xl-2 l-2 m-3 s-3 xs-4 col no-padding"></div>
-            {/* <div className=" col"> */}
-            <div className="xl-10 l-10 m-9 s-9 xs-8 col">
+            <div className=" col">
+            {/* <div className="xl-10 l-10 m-9 s-9 xs-8 col"> */}
               {/* <div className="xl-4">
                 <CardImg
                   docLabel="This document"
@@ -80,8 +107,8 @@ export default class Main extends Component {
                   docs="https://images.unsplash.com/photo-1540349946389-8ea10a9da3cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=73648bc8f9b4c8067106d4da017386ac&auto=format&fit=crop&w=634&q=80"
                   docsId="333" />
               </div> */}
-              <ProcessorContainer/>
-              {/* <TaskContainer/> */}
+              {/* <ProcessorContainer/> */}
+              <TaskContainer/>
             </div>
           </div>
         </div>
