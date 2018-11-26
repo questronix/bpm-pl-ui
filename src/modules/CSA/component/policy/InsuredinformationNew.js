@@ -646,33 +646,6 @@ class InsuredinformationNew extends Component {
             <div className="xl-12 flex-container flex-wrap col">
               <div className="xl-2">
                 <YesNoRadio
-<<<<<<< HEAD
-                    name="isSOI"
-                    title="Statement of Insurability Declarations"
-                    isRequired={false}
-                    isYesDefault={this.props.isSOI}
-                    onSelect={this.handleYesNoChange}
-                  />
-                </div>
-                
-              </div>
-              {this.props.isSOI && (
-                <Fragment>
-                  <div className="xl-12 flex-container flex-wrap col">
-                    <div className="xl-12">
-                      <YesNoRadio
-                        name="isPregnant"
-                        title="Are you pregnant?"
-                        isRequired={false}
-                        isYesDefault={this.props.isPregnant}
-                        onSelect={this.handleYesNoChange}
-                      />
-                    </div>
-                    {this.props.isPregnant===true ? 
-                <input type="text" class="bg-lightgray col xl-2 input-container" value={this.state.months} placeholder="How many months?" onChange={this.handleInputChange}></input>
-                : null
-              } 
-=======
                   name="isChangeInAddress"
                   title="Change in Address"
                   isRequired={false}
@@ -696,7 +669,6 @@ class InsuredinformationNew extends Component {
                       isYesDefault={this.props.isSOI}
                       onSelect={this.handleYesNoChange}
                     />
->>>>>>> uat-ui
                   </div>
                 </div>
                 {this.props.isSOI && (
