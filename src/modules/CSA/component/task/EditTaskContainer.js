@@ -173,6 +173,20 @@ class EditTaskContainer extends Component {
     this.decrement = this.decrement.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePregnant = this.handlePregnant.bind(this);
+    this.notPregnant = this.notPregnant.bind(this);
+  }
+
+  handlePregnant(){
+    this.setState({
+      isPregnant: true
+    })
+  }
+
+  notPregnant(){
+    this.setState({
+      isPregnant: false
+    })
   }
 
   filterSelectedDocs(type) {

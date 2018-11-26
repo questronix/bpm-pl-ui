@@ -90,7 +90,8 @@ class TaskList extends Component {
                     {/* Date created */}
                     {new Date(task.startTime).toDateString()}
                   </td>
-                  <td>
+                  <td className={task.variables.status === "For Processing" || "For Underwriter" || "For Compliance" ? "text-red bold" : task.variables.status === "Pending" 
+                  ? "text-darkgray bold" : task.variables.status === "Approval" ? "text-darkblue bold" : task.variables.status === "Completed" ? "text-darkblue bold" : ""}>
                     {/* Status */}
                     {task.status
                       ? task.status.toUpperCase()

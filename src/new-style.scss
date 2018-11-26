@@ -1003,16 +1003,36 @@ hr{
     transform: translate(-50%, -50%) rotate(70deg);
 }
 .login{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    margin-bottom: 350px;
-    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .logo{
+        display: flex;
+        justify-content: center;
+        .wrapper{
+            background-color: #ED1B2E;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            border-radius: 100%;
+        }
+        .title{
+            height: 30px;
+            color: #232323;
+            font-size: 19px;
+            font-weight: bold;
+            line-height: 30px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0px 10px;
+        }
+    }
     .input-container{
         margin-top: 20px;
         .text-label{
@@ -1035,6 +1055,9 @@ hr{
     .login-button{
         margin-top: 15px;
         width: 100%;
+        .btn{
+            margin: 0;
+        }
         button{
             // background-color: transparent;
             font-size: 13px;
@@ -1049,6 +1072,53 @@ hr{
         }
     }
 }
+// .login{
+//     position: fixed;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+//     margin-bottom: 350px;
+//     overflow: hidden;
+//     .input-container{
+//         margin-top: 20px;
+//         .text-label{
+//             width: 100%;
+//             display: flex;
+//             flex-direction: column;
+//         }
+//         .icon{
+//             border-bottom: 1px solid black;
+//         }
+//         width: 300px;
+//         input{
+//             font-size: 13px;
+//             background-color: transparent;
+//             border-radius: 0%;
+//             border: none;
+//             border-bottom: 1px solid black;
+//         }
+//     }
+//     .login-button{
+//         margin-top: 15px;
+//         width: 100%;
+//         button{
+//             // background-color: transparent;
+//             font-size: 13px;
+//             font-weight: bold;
+//             color: white;
+//         }
+//         .btn{
+//             width: 100%;
+//         }
+//         span{
+//             margin-left:15px;
+//         }
+//     }
+// }
 // .login{
 //     background-image: url("https://i.imgur.com/9WWhVe8.png");
 //     background-position: center;
@@ -3060,6 +3130,19 @@ textarea{
 
 .max-w-100 {
     max-width: 100% !important;
+}
+.bottom-left{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+.top-right{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.prulife-logo{
+    height: 25px;
 }
 $color_1: #232323;
 $color_2: #ED1B2E;
