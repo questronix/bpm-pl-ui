@@ -5,11 +5,22 @@ import YesNoRadio from '../../../../shared/component/radio/YesNoRadio';
 class InsuredinformationNew extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      months: '',
+    }
 
     this.pregnant = this.pregnant.bind(this);
     this.notPregnant = this.notPregnant.bind(this);
     this.handleYesNoChange = this.handleYesNoChange.bind(this);
     this.handleCheckChange = this.handleCheckChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+  handleInputChange(event) {
+    const value = event.target.value;
+
+    this.setState({
+      months: value
+    })
   }
 
   pregnant(){
@@ -659,10 +670,7 @@ class InsuredinformationNew extends Component {
                     onSelect={this.handleYesNoChange}
                   />
                 </div>
-                {this.props.isPregnant===true ? 
-                <input type="text" class="bg-lightgray col xl-2 input-container" value="" placeholder="How many months?"></input>
-                : null
-              }
+                
               </div>
               {this.props.isSOI && (
                 <Fragment>
@@ -675,7 +683,11 @@ class InsuredinformationNew extends Component {
                         isYesDefault={this.props.isPregnant}
                         onSelect={this.handleYesNoChange}
                       />
-                    </div> 
+                    </div>
+                    {this.props.isPregnant===true ? 
+                <input type="text" class="bg-lightgray col xl-2 input-container" value={this.state.months} placeholder="How many months?" onChange={this.handleInputChange}></input>
+                : null
+              } 
                   </div>
                   {this.props.isPregnant && (
                     <div className="xl-12 flex-container flex-wrap col">
