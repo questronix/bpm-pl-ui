@@ -154,6 +154,8 @@ class LoginForm extends Component {
             </div>
           </div>
         </form>
+        <img src="https://i.imgur.com/Ndb2rUO.png" className="top-right p prulife-logo"></img>
+        <div className="bottom-left font-xs p">Copyright © 2018 Pru Life UK. All rights reserved.</div>
       </div>
     );
   }
