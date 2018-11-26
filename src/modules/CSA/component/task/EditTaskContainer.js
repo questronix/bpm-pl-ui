@@ -167,6 +167,20 @@ class EditTaskContainer extends Component {
     this.decrement = this.decrement.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePregnant = this.handlePregnant.bind(this);
+    this.notPregnant = this.notPregnant.bind(this);
+  }
+
+  handlePregnant(){
+    this.setState({
+      isPregnant: true
+    })
+  }
+
+  notPregnant(){
+    this.setState({
+      isPregnant: false
+    })
   }
 
   filterSelectedDocs(type) {
@@ -937,7 +951,10 @@ class EditTaskContainer extends Component {
                 onSelectSignatureVerified={this.handleYesNoSelect}
               />}
               {this.state.currentTab === 2 && <InsuredinformationNew 
-                client={this.state.insured} 
+                type={"default"}
+                handlePregnant={this.handlePregnant}
+                notPregnant={this.notPregnant}
+                client={this.state.client} 
                 isChangeInOccupation={this.state.isChangeInOccupation}
                 isChangeInAddress={this.state.isChangeInAddress}
                 isSOI={this.state.isSOI}

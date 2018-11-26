@@ -2,6 +2,20 @@ import React, { Component } from 'react';
 import Input from '../../../../shared/component/input/Input';
 
 class InsuredinformationNew extends Component {
+  constructor(props) {
+    super(props);
+
+    this.pregnant = this.pregnant.bind(this);
+    this.notPregnant = this.notPregnant.bind(this);
+  }
+
+  pregnant(){
+    this.props.handlePregnant();
+  }
+
+  notPregnant(){
+    this.props.notPregnant();
+  }
 
   render() {
 
@@ -659,14 +673,18 @@ class InsuredinformationNew extends Component {
                       </p>
                 <div className="col xl-12">
                   <label className="checkbox container" htmlFor="yes3">Yes
-                            <input type="radio" id="yes3" name="pregnant" />
+                            <input type="radio" id="yes3" name="pregnant" onClick={() => {this.pregnant()}}/>
                     <span className="checkmark"></span>
                   </label>
                   <label className="checkbox container" htmlFor="no3">No
-                          <input type="radio" id="no3" name="pregnant" />
+                          <input type="radio" id="no3" name="pregnant" onClick={() => {this.notPregnant()}}/>
                     <span className="checkmark"></span>
                   </label>
                 </div>
+                {this.props.isPregnant===true ? 
+                <input type="text" class="bg-lightgray col xl-2 input-container" value="" placeholder="How many months?"></input>
+                : null
+              }
               </div>
             </div>
             <div className="xl-12 flex-container flex-wrap col">
