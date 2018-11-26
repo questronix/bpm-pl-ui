@@ -11,6 +11,7 @@ class InputDate extends Component {
           </label>
           <input
             type="date" 
+            max="9999-12-31"
             placeholder={this.props.inputPlaceholder}
             value={this.props.value}
             className={this.props.txtboxClass} />

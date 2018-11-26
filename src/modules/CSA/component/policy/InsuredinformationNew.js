@@ -3,11 +3,21 @@ import Input from '../../../../shared/component/input/Input';
 import YesNoRadio from '../../../../shared/component/radio/YesNoRadio';
 
 class InsuredinformationNew extends Component {
-
   constructor(props) {
     super(props);
+
+    this.pregnant = this.pregnant.bind(this);
+    this.notPregnant = this.notPregnant.bind(this);
     this.handleYesNoChange = this.handleYesNoChange.bind(this);
     this.handleCheckChange = this.handleCheckChange.bind(this);
+  }
+
+  pregnant(){
+    this.props.handlePregnant();
+  }
+
+  notPregnant(){
+    this.props.notPregnant();
   }
 
   handleYesNoChange(name, value) {
@@ -649,6 +659,10 @@ class InsuredinformationNew extends Component {
                     onSelect={this.handleYesNoChange}
                   />
                 </div>
+                {this.props.isPregnant===true ? 
+                <input type="text" class="bg-lightgray col xl-2 input-container" value="" placeholder="How many months?"></input>
+                : null
+              }
               </div>
               {this.props.isSOI && (
                 <Fragment>

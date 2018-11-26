@@ -71,7 +71,9 @@ class ProcessorTaskList extends Component {
                     {/* Date created */}
                     {/* {new Date(task.variables.policy.createdAt).toDateString()}
                   </td> */}
-                  <td>
+                  <td className={task.variables.status === "For Processing" || "For Underwriter" || "For Compliance" ? "text-red bold" : task.variables.status === "Pending" 
+                  ? "text-darkgray bold" : task.variables.status === "Approval" ? "text-darkblue bold" : task.variables.status === "Completed" ? "text-darkblue bold" : ""}>
+                    {/* Status */}
                     {/* Status */}
                     {/* {task.variables.status
                       ? task.variables.status.toUpperCase()
