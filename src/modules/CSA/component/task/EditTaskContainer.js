@@ -107,6 +107,8 @@ class EditTaskContainer extends Component {
       withCosal: null,
       completeFatca: null,
       additionalDateOfSigning: null,
+      dateOfSigning: '',
+      orNum: '',
       isBeyondLimit: false,
 
       client: {},
@@ -163,6 +165,9 @@ class EditTaskContainer extends Component {
 
     // Insured Tab Events
     this.handleOnCheckChange = this.handleOnCheckChange.bind(this);
+
+    // Additional Info Tab Events
+    this.handleDateChange = this.handleDateChange.bind(this);
     
     // Test
     this.decrement = this.decrement.bind(this);
@@ -193,27 +198,44 @@ class EditTaskContainer extends Component {
     }
   }
 
-  mapQuestionToState() {
-    const { questions } = this.state;
-    // questions.map(item => {
-    //   item.find(q => q.questionId === 4).answer === "true" ? true : false
-    // })
-    this.setState({
-      // isSOI: questions.find(q => q.questionId === 1).answer === "true" ? true : false,
-      // isPregnant: questions.find(q => q.questionId === 2).answer === "true" ? true : false,
-      // additionalFMA: questions.find(q => q.questionId === 3).answer === "true" ? true : false,
-      // additionalMUR: questions.find(q => q.questionId === 4).answer === "true" ? true : false,
+  mapQuestionsToProps(questions) {
+    let isRelativeOfAgent = questions.find(q => q.questionId === 9);
+    isRelativeOfAgent = isRelativeOfAgent !== undefined && this.sanitizeBool(isRelativeOfAgent.answer);
 
-      // additionalMUR: questions.find(q => q.questionId === 4).answer === "true" ? true : false,
-      withPayment: questions.find(q => q.questionId === 5).answer === "true" ? true : false,
-      isSignatureVerified: questions.find(q => q.questionId === 7).answer === "true" ? true : false,
-      isFatcaTagging: questions.find(q => q.questionId === 8).answer === "true" ? true : false,
-      isRelativeOfAgent: questions.find(q => q.questionId === 9).answer === "true" ? true : false,
-      withReinstatementAgent: questions.find(q => q.questionId === 10).answer === "true" ? true : false,
+    let withReinstatementAgent = questions.find(q => q.questionId === 10);
+    withReinstatementAgent = withReinstatementAgent !== undefined && this.sanitizeBool(withReinstatementAgent.answer);
 
-      // withCosal: questions.find(q => q.questionId === 11).answer === "true"  ? true : false
-    });
+    let withCosal = questions.find(q => q.questionId === 13);
+    withCosal = withCosal !== undefined && this.sanitizeBool(withCosal.answer);
+
+    this.setState({ questions, isRelativeOfAgent, withReinstatementAgent, withCosal });
+
+    // NO FATCA TAGGING IN DB
+    // let isFatcaTagging = questions.find(q => q.questionId === 13);
+    // isFatcaTagging = isFatcaTagging !== undefined && this.sanitizeBool(isFatcaTagging.answer);
   }
+
+  // mapQuestionToState() {
+  //   const { questions } = this.state;
+  //   // questions.map(item => {
+  //   //   item.find(q => q.questionId === 4).answer === "true" ? true : false
+  //   // })
+  //   this.setState({
+  //     // isSOI: questions.find(q => q.questionId === 1).answer === "true" ? true : false,
+  //     // isPregnant: questions.find(q => q.questionId === 2).answer === "true" ? true : false,
+  //     // additionalFMA: questions.find(q => q.questionId === 3).answer === "true" ? true : false,
+  //     // additionalMUR: questions.find(q => q.questionId === 4).answer === "true" ? true : false,
+
+  //     // additionalMUR: questions.find(q => q.questionId === 4).answer === "true" ? true : false,
+  //     withPayment: questions.find(q => q.questionId === 5).answer === "true" ? true : false,
+  //     isSignatureVerified: questions.find(q => q.questionId === 7).answer === "true" ? true : false,
+  //     isFatcaTagging: questions.find(q => q.questionId === 8).answer === "true" ? true : false,
+  //     isRelativeOfAgent: questions.find(q => q.questionId === 9).answer === "true" ? true : false,
+  //     withReinstatementAgent: questions.find(q => q.questionId === 10).answer === "true" ? true : false,
+
+  //     // withCosal: questions.find(q => q.questionId === 11).answer === "true"  ? true : false
+  //   });
+  // }
 
   componentDidMount() {
     this.setState({
@@ -235,7 +257,7 @@ class EditTaskContainer extends Component {
             questions: flatQuestions,
             // withPayment
           });
-          this.mapQuestionToState();
+          this.mapQuestionToState(flatQuestions);
         }).finally(() => {
 
         });
@@ -295,12 +317,13 @@ class EditTaskContainer extends Component {
     this.handlePolicySearchSubmit(this.state.policyNumber);
   }
 
-  handleInputChange(event) {
-    const value = event.target.value;
+  handleInputChange(name, val) {
+    this.setState({ [name]: val });
+    // const value = event.target.value;
 
-    this.setState({
-      policyNumber: value
-    });
+    // this.setState({
+    //   policyNumber: value
+    // });
   }
 
   handlePolicySearchSubmit(policyNumber) {
@@ -562,6 +585,10 @@ class EditTaskContainer extends Component {
     this.setState({ [name]: val });
   }
 
+  handleDateChange(name, val) {
+    this.setState({ [name]: val });
+  }
+
   updateVistedTab(tabPage) {
     this.createMemo();
     if (tabPage === 2) {
@@ -590,11 +617,11 @@ class EditTaskContainer extends Component {
   saveTransaction() {
 
     const data = {
-      "status": "success",
-      "statusCode": 0,
-      "isSuccess": true,
-      "message": "successful in fetching data.",
-      "result": {
+      status: "success",
+      statusCode: 0,
+      isSuccess: true,
+      message: "successful in fetching data.",
+      result: {
         answers: [
           {
             transactionNo: this.state.transactionNumber,
@@ -621,6 +648,7 @@ class EditTaskContainer extends Component {
             questionId: 5,
             answer: this.state.withPayment
           },
+          // TODO: Update Policy state initial fields
           // {
           //   transactionNo: this.state.transactionNumber,
           //   questionId: 6,
@@ -651,11 +679,24 @@ class EditTaskContainer extends Component {
             questionId: 11,
             answer: this.state.additionalDateOfSigning
           },
+          // TODO: Update Policy state initial fields
           // {
           //   transactionNo: this.state.transactionNumber,
           //   questionId: 12,
           //   answer: from la
           // }
+
+          // TODO: Add this fields to DB
+          // {
+          //     transactionNo: this.state.transactionNumber,
+          //     questionId: 13,
+          //     answer: this.state.dateOfSigning
+          // },
+          // {
+          //   transactionNo: this.state.transactionNumber,
+          //   questionId: 14,
+          //   answer: this.state.orNum
+          // },
         ]
       }
     };
@@ -676,11 +717,11 @@ class EditTaskContainer extends Component {
         }
 
         const policyInfo = {
-          "status": "success",
-          "statusCode": 0,
-          "isSuccess": true,
-          "message": "successful in fetching data.",
-          "result": {
+          status: "success",
+          statusCode: 0,
+          isSuccess: true,
+          message: "successful in fetching data.",
+          result: {
             transactionNo: this.state.transactionNumber,
             ...this.state.policy,
             ...clientInfo
@@ -688,13 +729,12 @@ class EditTaskContainer extends Component {
         };
 
         const taskInfo = {
-          "isCompleteAndValid": true,
-          "type": "csa",
-          "action": "complete",
-          "uid": this.state.isBeyondLimit ? "2" : JSON.parse(sessionStorage.getItem('user_info')).User_ID // TODO: change this to server user session
+          isCompleteAndValid: true,
+          type: "csa",
+          action: "complete",
+          uid: this.state.isBeyondLimit ? "2" : JSON.parse(sessionStorage.getItem('user_info')).User_ID // TODO: change this to server user session
         }
 
-        // alert(JSON.parse(sessionStorage.getItem('user_info')).id)
         PolicyService.saveDetails(policyInfo)
         .then(res => {
 
@@ -1182,7 +1222,11 @@ class EditTaskContainer extends Component {
                 additionalDateOfSigning={this.state.additionalDateOfSigning}
                 onYesNoSelect={this.handleYesNoSelect}
                 isAgentStatusActive={this.state.isAgentStatusActive}
+                dateOfSigning={this.props.dateOfSigning}
+                onDateChange={this.handleDateChange}
                 isBeyondLimit={this.state.isBeyondLimit}
+                orNum={this.state.orNum}
+                onTextChange={this.handleInputChange}
               />}
 
               <div className="flex f-justify-space-between p">

@@ -5,6 +5,7 @@ import ProcessorHeader from './ProcessorHeader';
 import ReviewTransaction from './ReviewTransaction';
 import ProcessingDetails from './ProcessingDetails';
 import { timingSafeEqual } from 'crypto';
+import YesNoRadio from '../../../../shared/component/radio/YesNoRadio'
 
 class ProcessorContainer extends Component {
   constructor(props) {
@@ -57,16 +58,15 @@ class ProcessorContainer extends Component {
       owner: null,
       insured: null,
 
-      isRelativeOfAgent: true,
-      isFatcaTagging: true,
-      withReinstatementAgent: true,
-      withCosal: true,
+      isRelativeOfAgent: null,
+      isFatcaTagging: null,
+      withReinstatementAgent: null,
+      withCosal: null,
 
       currentTab: 1,
-      sample: 'sample',
       doc: '',
-      clients: [],
       client: {},
+      sampleName: 'Juan',
       
       transactionNumber: localStorage.getItem('transactionNumber') || null,
 
@@ -162,7 +162,6 @@ class ProcessorContainer extends Component {
     withCosal = withCosal !== undefined && this.sanitizeBool(withCosal.answer);
 
     this.setState({ questions, isRelativeOfAgent, withReinstatementAgent, withCosal });
-    // this.setState({ isRelativeOfAgent: true })
 
     // NO FATCA TAGGING IN DB
     // let isFatcaTagging = questions.find(q => q.questionId === 13);
@@ -349,6 +348,7 @@ class ProcessorContainer extends Component {
               withCosal={this.state.withCosal}
             />
             <div className="box-body">
+
               {this.state.currentTab === 1 && 
                 <ReviewTransaction 
                   policy={this.state.policy} 
@@ -358,6 +358,7 @@ class ProcessorContainer extends Component {
                 />
               }
               {this.state.currentTab === 2 && <ProcessingDetails />}
+
             </div>
           </div>
         </div>

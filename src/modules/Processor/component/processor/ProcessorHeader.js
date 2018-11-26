@@ -10,7 +10,7 @@ class ProcessorHeader extends Component {
   }
 
   render() {
-    const { task, transaction, policy, questions } = this.props;
+    const { task, transaction, policy } = this.props;
     
     return (
       <div className="App">
@@ -118,7 +118,7 @@ class ProcessorHeader extends Component {
                   name="isRelativeOfAgent"
                   title="Relative Of Agent"
                   isRequired={false}
-                  isYesDefault={this.props.isRelativeOfAgent}
+                  isYesDefault={this.props.isRelativeOfAgent && this.props.isRelativeOfAgent}
                   onSelect={this.handleYesNoChange}
                   disabled={true}
                 />
