@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../header/Header';
-import Footer from '../footer/Footer';
-import SidebarNew from '../sidebar/SidebarProcessor';
+import SidebarNew from '../sidebar/SidebarNew';
 
 class NavProcessor extends Component {
 
-
   render() {
     const path = window.location.pathname;
-
     const links = this.props.links.map((link, i) => (
       < Link to={link.path}>
         <li key={i}>
@@ -23,13 +20,6 @@ class NavProcessor extends Component {
     return (
       <div className="App header-container">
         <Header/>
-        {/* <nav className="navbar">
-          <div className="navmenu m-hide s-hide xs-hide">
-            <ul>
-              {links}
-            </ul>
-          </div>
-        </nav> */}
         <SidebarNew links={links}/>
       </div>
     );

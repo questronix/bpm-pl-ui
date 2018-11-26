@@ -75,10 +75,10 @@ class FatcaNew extends Component {
               )}
               <div className="xl-6">
                 <YesNoRadio
-                  name="isBeyondLimmit"
-                  title="Beyond Limmit"
+                  name="isBeyondLimit"
+                  title="Beyond Limit"
                   isRequired={false}
-                  isYesDefault={this.props.isBeyondLimmit}
+                  isYesDefault={this.props.isBeyondLimit}
                   onSelect={this.handleYesNoChange}
                 />
               </div>

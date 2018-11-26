@@ -3,40 +3,31 @@ import React, { Component } from 'react';
 class TaskList extends Component {
   constructor(props) {
     super(props);
+  }
 
-    this.state = {
-      owner: {},
-      insured: {}
+  handleItemClick(id, status) {
+    const role = JSON.parse(sessionStorage.getItem('user_info')).Role_Description;
+    let url;
+    if (role == "PROCESSOR") {
+      this.props.history.push(`/tasks/edit?id=${id}`);
+    } else {
+      if (status.toUpperCase() == "PROCESSOR") {
+        this.props.history.push(`/tasks/processing?id=${id}`);
+      } else {
+        this.props.history.push(`/tasks/edit?id=${id}`);
+      }
     }
   }
 
-  handleItemClick(url) {
-    window.location.href = url;
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // console.log('HEYY', nextProps);
-    // if (nextProps.tasks !== this.props.tasks) {
-    //   const clients = nextProps.tasks.variables.policy.info ? JSON.parse(nextProps.tasks.variables.policy.info).clients : null;
-    //   const owner = clients.find(client => client.role == 'OW');
-    //   const insured = clients.find(client => client.role == 'LF');
-    //   this.setState({owner, insured})
-    // }
-
-    // if (next)
-    //   console.log(insured
+  componentDidMount() {
+    console.log('TASSKSS', this.props.tasks)
   }
 
   render() {
     
     let owner;
     let insured;
-    // if (this.props.tasks.variables.policy.info) {
-    //   const clients = this.props.tasks.variables.policy.info ? JSON.parse(this.props.tasks.variables.policy.info).clients : null;
-    //   owner = clients.find(client => client.role == 'OW');
-    //   insured = clients.find(client => client.role == 'LF');
-    //   console.log(insured)
-    // }
+   
     return (
       <div className="card-table">
         {this.props.tasks ? (
@@ -54,63 +45,56 @@ class TaskList extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.tasks.map((task, index) => (
+            {this.props.tasks.map((task, index) => (
                 <tr
                   key={index}
                   onClick={() =>
-                    this.handleItemClick(`/tasks/edit?id=${task.id}`)
+                    this.handleItemClick(task.id, task.status)
                   }
                 >
                   <td>
                     {/* Policy no */}
                     <div className="cursor" />
-                    {task.variables.policy
-                      ? JSON.parse(task.variables.policy.info).number
+                    {task.policyNo
+                      ? task.policyNo
                       : '-'}
                   </td>
                   {/* Transaction No */}
-                  <td>{task.variables.policy.transactionNo}</td>
+                  <td>{task.transactionNo}</td>
 
                   <td>
                     Reinstatement
                     {/* Transation type */}
-                    {/* {task.variables.policy.info != null
-                      ? JSON.parse(task.variables.policy.info).find()
+                    {/* {task.variables.info != null
+                      ? JSON.parse(task.variables.info).find()
                       : '-'} */}
                   </td>
                   <td>
                     {/* Policy owner */}
-                    {/* {owner && (owner.clientFirstName + owner.clientLastName) } */}
-                    {task.variables.policy.info != null
-                      ? JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'OW').clientFirstName + JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'OW').clientLasName
+                    {task.ownerName
+                      ? task.ownerName
                       : '-'}
                   </td>
                   <td>
                     {/* Insured owner */}
-                    {task.variables.policy.info != null
-                      ? JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'LF').clientFirstName + JSON.parse(task.variables.policy.info).clients.find(client => client.role == 'LF').clientLasName
+                    {task.insuredName
+                      ? task.insuredName
                       : '-'}
-                    {/* {insured && (insured.clientFirstName + insured.clientLastName) } */}
-                    {/* {task.variables.policy.info != null
-                      ? JSON.parse(task.variables.policy.info).insured.firstName
-                      : '-'} */}
                   </td>
                   <td>
-                    {task.variables.user != null
-                      ? `${task.variables.user.firstName} ${task.variables.user.lastName}`
+                    {task.username
+                      ? task.username
                       : '-'}
                   </td>
                   <td>
                     {/* Date created */}
-                    {new Date(task.variables.policy.createdAt).toDateString()}
+                    {new Date(task.startTime).toDateString()}
                   </td>
                   <td>
                     {/* Status */}
-                    {task.variables.status
-                      ? task.variables.status.toUpperCase()
+                    {task.status
+                      ? task.status.toUpperCase()
                       : 'Draft'}
-                  </td>
-                  <td>
                   </td>
                 </tr>
               ))}

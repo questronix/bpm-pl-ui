@@ -9,7 +9,7 @@ class ProcessingDetails extends Component {
         <div className="col xl-12 flex-container flex-wrap">
           <div className="col xl-6">
             <p className="label flex no-margin">
-              Daw Jones:
+              Dow Jones:
             </p>
             <div className="col no-padding xl-12">
               <label className="checkbox container" htmlFor="yes">Yes
@@ -39,12 +39,12 @@ class ProcessingDetails extends Component {
           </div>
           <Input
               txtboxClass="bg-lightgray"
-              inputLabel="Country:"
+              inputLabel="MPT:"
               inputClass="col xl-6 input-container"
             />
           <div className="xl-6">
             <p className="label flex no-margin">
-              Beyont MPT:
+              Beyond MPT:
             </p>
             <div className="col no-padding xl-12">
               <label className="checkbox container" htmlFor="yes2">Yes

@@ -8,7 +8,7 @@ export default class Policy {
   }
 
   saveDocs(args) {
-    return this.http.post(`/lifeasia/documents/save`, args);
+    return this.http.put(`/lifeasia/documents`, args);
   }
 
   createMemo(args) {
