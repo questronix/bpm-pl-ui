@@ -75,38 +75,38 @@ class ApprovalDetails extends Component {
               <h5 className="text-red border-bottom border-lightgray pb-sm mb-sm"><i className="fa fa fa-inbox font-black mr-sm"></i>Prescreening Details</h5>
             </div>
             <div className="box-body flex-container flex-wrap">
-              <div className="col flex-container flex-wrap mb-sm no-padding">
+              <div className="col flex-container flex-wrap no-padding">
                 <Input
                   editable="false"
                   txtboxClass="no-border"
                   inputLabel="Required Premium:"
-                  inputClass="col xl-3 mb input-container"
+                  inputClass="col xl-3 input-container"
                 // value={}
                 />
                 <Input
                   editable="false"
                   txtboxClass="no-border"
                   inputLabel="Suspense:"
-                  inputClass="col xl-3 mb input-container"
+                  inputClass="col xl-3 input-container"
                 // value={}
                 />
                 <Input
                   editable="false"
                   txtboxClass="no-border"
                   inputLabel="OR Number:"
-                  inputClass="col xl-3 mb input-container"
+                  inputClass="col xl-3 input-container"
                 // value={}
                 />
                 <Input
                   editable="false"
                   txtboxClass="no-border"
                   inputLabel="Date of Signing:"
-                  inputClass="col xl-3 mb input-container"
+                  inputClass="col xl-3 input-container"
                 // value={}
                 />
               </div>
-              <div className="col flex-container flex-wrap mb-sm no-padding">
-                <div className="xl-3 mb">
+              <div className="col flex-container flex-wrap no-padding">
+                <div className="xl-3 ">
                   <YesNoRadio
                     name="isFatcaTagging"
                     title="FATCA Tagging"
@@ -115,7 +115,7 @@ class ApprovalDetails extends Component {
                   // onSelect={this.handleSignatureVerifiedChange}
                   />
                 </div>
-                <div className="xl-3 mb">
+                <div className="xl-3 ">
                   <YesNoRadio
                     name="isWithReinstatingAgent"
                     title="With Reinstating Agent"
@@ -124,7 +124,7 @@ class ApprovalDetails extends Component {
                   // onSelect={this.handleSignatureVerifiedChange}
                   />
                 </div>
-                <div className="xl-3 mb">
+                <div className="xl-3 ">
                   <YesNoRadio
                     name="isRelativeOfAgent"
                     title="Relative of Agent"
@@ -133,7 +133,7 @@ class ApprovalDetails extends Component {
                   // onSelect={this.handleSignatureVerifiedChange}
                   />
                 </div>
-                <div className="xl-3 mb">
+                <div className="xl-3 ">
                   <YesNoRadio
                     name="isSignatureVerified"
                     title="Signature Verified"
@@ -143,8 +143,8 @@ class ApprovalDetails extends Component {
                   />
                 </div>
               </div>
-              <div className="col flex-container flex-wrap mb-sm no-padding">
-                <div className="xl-3 mb">
+              <div className="col flex-container flex-wrap no-padding">
+                <div className="xl-3 ">
                   <YesNoRadio
                     name="isCompleteFATCARequirements"
                     title="Complete FATCA Requirements?"
@@ -153,7 +153,7 @@ class ApprovalDetails extends Component {
                   // onSelect={this.handleSignatureVerifiedChange}
                   />
                 </div>
-                <div className="xl-3 mb">
+                <div className="xl-3 ">
                   <YesNoRadio
                     name="isWithCosal"
                     title="With COSAL"
@@ -165,7 +165,7 @@ class ApprovalDetails extends Component {
               </div>
             </div>
             <div className="box-header ">
-              <h5 className="text-red border-bottom border-lightgray pb-sm mb-sm"><i className="fa fa-sync font-black mr-sm"></i>Processing Details</h5>
+              <h5 className="text-red border-bottom border-lightgray pb-sm mt mb-sm"><i className="fa fa-sync font-black mr-sm"></i>Processing Details</h5>
             </div>
             <div className="box-body flex-container flex-wrap ">
               <div className="xl-3 mb">
@@ -242,7 +242,7 @@ class ApprovalDetails extends Component {
           </div>
           <div className="p border-top border-lightgray">
             <div className="col no-padding flex-container">
-              <textarea className="xl-12 bg-lightgray border rounded border-gray" placeholder="Remarks"></textarea>
+              <textarea className="xl-12 p-xs bg-lightgray border rounded border-gray" placeholder="Remarks"></textarea>
             </div>
             <p className="text-italic font-sm text-darkgray mb-sm mt-0"><b className="text-darkgray">Note:</b> remarks is required if the resolution is declined.</p>
             <div className="flex f-end">

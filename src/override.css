@@ -782,16 +782,33 @@ hr {
   transform: translate(-50%, -50%) rotate(70deg); }
 
 .login {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin-bottom: 350px;
-  overflow: hidden; }
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  .login .logo {
+    display: flex;
+    justify-content: center; }
+    .login .logo .wrapper {
+      background-color: #ED1B2E;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      border-radius: 100%; }
+    .login .logo .title {
+      height: 30px;
+      color: #232323;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 30px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 0px 10px; }
   .login .input-container {
     margin-top: 20px;
     width: 300px; }
@@ -810,6 +827,8 @@ hr {
   .login .login-button {
     margin-top: 15px;
     width: 100%; }
+    .login .login-button .btn, .login .login-button .btn-circle, .login .login-button .card-img-container .card-btn, .card-img-container .login .login-button .card-btn {
+      margin: 0; }
     .login .login-button button {
       font-size: 13px;
       font-weight: bold;

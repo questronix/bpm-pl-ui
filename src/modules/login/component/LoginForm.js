@@ -90,66 +90,68 @@ class LoginForm extends Component {
     return (
       <div className="login-container">
         <div className="login-circle" />
-        <form onSubmit={this.handleSubmit}>
-          <div className="login col no-padding">
-            <div className="logo">
-              <div className="wrapper">
-                <i className="icon fa fa-file-signature" />
-              </div>
-              <div className="title">
-                <span>BPM</span> After-sales
-              </div>
-            </div>
-            <div>
-              <div className="input-container flex f-row">
-                <div className="text-label">
-                  <label>Username</label>
-                  <input
-                    type="text"
-                    placeholder="Username"
-                    name="username"
-                    disabled={isSubmitting}
-                    value={username}
-                    onChange={this.handleInputChange}
-                    autoFocus
-                  />
+        <form className="login" onSubmit={this.handleSubmit}>
+          <div className="">
+            <div className="no-padding">
+              <div className="logo">
+                <div className="wrapper">
+                  <i className="icon fa fa-file-signature" />
                 </div>
-                <div className="icon flex f-center">
-                  <span className="fa fa-user" />
-                </div>
+                <div className="title">
+                  <span>BPM</span> After-sales
               </div>
-              <div className="input-container flex f-row">
-                <div className="text-label">
-                  <label>Password</label>
-                  <input
-                    type={maskPassword ? 'password' : 'input'}
-                    name="password"
-                    placeholder="Password"
-                    disabled={isSubmitting}
-                    value={password}
-                    onChange={this.handleInputChange}
-                  />
-                </div>
-                <div className="icon flex f-center">
-                  <span
-                    className={maskPassword ? 'fa fa-eye-slash' : 'fa fa-eye'}
-                    onClick={this.handleMaskPassword}
-                  />
-                </div>
               </div>
-              {!isSubmitting && (
-                <div className="login-button">
-                  <button className="btn prulife flex f-center" type="submit">
-                    LOGIN
+              <div>
+                <div className="input-container flex f-row">
+                  <div className="text-label">
+                    <label>Username</label>
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      name="username"
+                      disabled={isSubmitting}
+                      value={username}
+                      onChange={this.handleInputChange}
+                      autoFocus
+                    />
+                  </div>
+                  <div className="icon flex f-center">
+                    <span className="fa fa-user" />
+                  </div>
+                </div>
+                <div className="input-container flex f-row">
+                  <div className="text-label">
+                    <label>Password</label>
+                    <input
+                      type={maskPassword ? 'password' : 'input'}
+                      name="password"
+                      placeholder="Password"
+                      disabled={isSubmitting}
+                      value={password}
+                      onChange={this.handleInputChange}
+                    />
+                  </div>
+                  <div className="icon flex f-center">
+                    <span
+                      className={maskPassword ? 'fa fa-eye-slash' : 'fa fa-eye'}
+                      onClick={this.handleMaskPassword}
+                    />
+                  </div>
+                </div>
+                {!isSubmitting && (
+                  <div className="login-button">
+                    <button className="btn prulife flex f-center" type="submit">
+                      LOGIN
                     <span className="fa fa-arrow-right" />
-                  </button>
-                </div>
-              )}
-            </div>
-            {isSubmitting && <span className="spinner atom" />}
-            {/* <AppContext.Consumer>
+                    </button>
+                  </div>
+                )}
+              </div>
+              {isSubmitting && <span className="spinner atom" />}
+              {/* <AppContext.Consumer>
               {(updateContext) => <h1>{updateContext('hey', 'new Val')}</h1>}
             </AppContext.Consumer> */}
+            </div>
           </div>
         </form>
       </div>
