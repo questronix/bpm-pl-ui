@@ -205,6 +205,19 @@ router.post('/transaction/save', mw.isAuthenticated, (req, res) => {
     });
 });
 
+router.get('/transaction-details/:transId', mw.isAuthenticated, (req, res) => {
+  const ACTION = '[getTransactionDetails]';
+  Logger.log('debug', `${TAG}${ACTION} - request params`, req.params);
+
+  trans.getTransactionDetailsById(req.params.transId)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(err.status).send(err);
+    });
+});
+
 router.post('/documents/memo', mw.isAuthenticated, (req, res) => {
   const ACTION = '[postCreateMemo]';
   Logger.log('debug', `${TAG}${ACTION} - request body`, req.body);

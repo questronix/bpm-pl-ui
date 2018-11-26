@@ -4,11 +4,16 @@ import DocumentViewer from './pages/DocumentViewer';
 import ProcessorTaskPage from './component/task/ProcessorTaskPage';
 import Approver from './pages/ApproverPage';
 import UnderWriter from './pages/UnderWriterPage';
+import TaskPage from './pages/TaskPage';
 
 const routes = [
   {
     path: "/tasks",
     exact: true,
+    component: TaskPage,
+  },
+  {
+    path: "/tasks/edit",
     component: Processor,
   },
   {

@@ -6,6 +6,10 @@ class YesNoRadio extends Component {
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log('YESNO ', nextProps)
+  }
+
   handleSelectChange(e) {
     const val = e.target.value == 'true' ? true : false;
     this.props.onSelect(e.target.name, val);
@@ -33,6 +37,7 @@ class YesNoRadio extends Component {
               defaultValue={true}
               defaultChecked={this.props.isYesDefault && this.props.isYesDefault !== null ? true : false}
               onChange={this.handleSelectChange}
+              disabled={this.props.disabled !== undefined && this.props.disabled}
             />
             <span className="checkmark" />
           </label>
@@ -45,6 +50,7 @@ class YesNoRadio extends Component {
               defaultValue={false}
               defaultChecked={!this.props.isYesDefault && this.props.isYesDefault !== null ? true : false}
               onChange={this.handleSelectChange}
+              disabled={this.props.disabled !== undefined && this.props.disabled}
             />
             <span className="checkmark" />
           </label>

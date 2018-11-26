@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 
 class TaskList extends Component {
   constructor(props) {
     super(props);
   }
 
-  handleItemClick(url) {
+  handleItemClick(id, status) {
     const role = JSON.parse(sessionStorage.getItem('user_info')).Role_Description;
-    if (role == "PROCESSOR") return;
-    this.props.history.push(url);
+    let url;
+    if (role == "PROCESSOR") {
+      this.props.history.push(`/tasks/edit?id=${id}`);
+    } else {
+      if (status.toUpperCase() == "PROCESSOR") {
+        this.props.history.push(`/tasks/processing?id=${id}`);
+      } else {
+        this.props.history.push(`/tasks/edit?id=${id}`);
+      }
+    }
   }
 
   componentDidMount() {
@@ -42,7 +49,7 @@ class TaskList extends Component {
                 <tr
                   key={index}
                   onClick={() =>
-                    this.handleItemClick(`/tasks/edit?id=${task.id}`)
+                    this.handleItemClick(task.id, task.status)
                   }
                 >
                   <td>

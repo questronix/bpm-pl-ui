@@ -164,3 +164,49 @@ module.exports.savePolicyDetails = (args) => {
     });
   }
 };
+
+module.exports.getTransactionDetailsById = (id) => {
+  const ACTION = '[getTransactionDetailsById]';
+  const uri = `${url2}/getTransactionDetails`;
+  const args = {
+    transactions: [
+      {
+        transactionNo: id
+      }
+    ]
+  };
+  Logger.log('info', `${TAG}${ACTION} - url`, uri);
+  Logger.log('info', `${TAG}${ACTION} - args`, args);
+
+  if (isFakeEndpoint) {
+    return new Promise((resolve, reject) => {
+      resolve(require('../../Dummy/client.json'));
+    });
+  } else {
+    return new Promise((resolve, reject) => {
+      
+      ajax
+        .setOptions({
+          uri
+        })
+        .post(args)
+        .then(res => {
+          Logger.log('info', `${TAG}${ACTION} - result`, res.body);
+          if (res.body) {
+            resolve({...res.body, result: res.body.result[0]});
+          } else {
+            resolve({
+              error: {
+                status: 404,
+                msg: 'Transaction details not found.'
+              }
+            });
+          }
+        })
+        .catch(err => {
+          Logger.log('error', TAG + ACTION, err);
+          reject(Error.raise('INTERNAL_SERVER_ERROR', err));
+        });
+    });
+  }
+};

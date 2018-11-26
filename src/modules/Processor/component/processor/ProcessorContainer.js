@@ -1,20 +1,73 @@
 import React, { Component } from 'react';
-import { FileNetService } from '../../services/';
-import { PolicyService, TaskService, DocumentService } from '../../../CSA/services';
+import { FileNetService, TransactionService } from '../../services/';
+import { PolicyService, TaskService, DocumentService, QuestionService } from '../../../CSA/services';
 import ProcessorHeader from './ProcessorHeader';
 import ReviewTransaction from './ReviewTransaction';
 import ProcessingDetails from './ProcessingDetails';
+import { timingSafeEqual } from 'crypto';
 
 class ProcessorContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      task: null,
+      transaction: null,
+      questions: null,
+      policy: {
+        guid: '',
+        action: '',
+        user: '',
+        status: '',
+        policyNo: '',
+        agentNumber: '',
+        agentLastName: '',
+        agentFirstName: '',
+        agentMiddleName: '',
+        agentBranch: '',
+        agentBranchDesc: '',
+        agentStatus: '',
+        nmaCode: '',
+        nmaDesc: '',
+        planCode: '',
+        planDescription: '',
+        policyStatus: '',
+        policyStatusDesc: '',
+        premiumStatus: '',
+        premiumStatusDesc: '',
+        riskCommencementDate: '',
+        firstIssueDate: '',
+        paidToDate: '',
+        billFrequency: '',
+        billFrequencyDesc: '',
+        currency: '',
+        sumInsured: '',
+        currentPremium: '',
+        payorWaiver: '',
+        payorTerm: '',
+        addressType: '',
+        countryCode: '',
+        address1: '',
+        address2: '',
+        address3: '',
+        address4: '',
+        address5: '',
+        zipCode: '',
+      },
+      clients: [],
+      owner: null,
+      insured: null,
+
+      isRelativeOfAgent: true,
+      isFatcaTagging: true,
+      withReinstatementAgent: true,
+      withCosal: true,
+
       currentTab: 1,
       sample: 'sample',
       doc: '',
       clients: [],
       client: {},
-      policy: {},
+      
       transactionNumber: localStorage.getItem('transactionNumber') || null,
 
     };
@@ -22,29 +75,38 @@ class ProcessorContainer extends Component {
     this.handleNextTab = this.handleNextTab.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     TaskService.getTaskDetails(this.getQueryStringValue('id'))
       .then(res => {
         console.log(res.data);
-        const policy = res.data.variables.policy;
-        const transactionNo = policy.transactionNo;
-        // localStorage.setItem('transactionNumber', transactionNo);
-        // localStorage.setItem('policy', policy.info);
+        const task = res.data;
         this.setState({
-          policy: JSON.parse(policy.info),
-          transactionNumber: transactionNo,
-          clients: JSON.parse(policy.info).clients
+          task,
+          transactionNumber: task.transactionNumber,
         });
-        console.log('CLIENTS:  ', this.state.policy.clients);
+        return task;
       })
-      .finally(() => { });
-    // }
+      .then(res => {
+        TransactionService.getDetailsById(res.variables.transactionNumber)
+          .then(res => {
+            this.setState({ transaction: res.data.result });
+          });
 
-    PolicyService.getClientIformationByid("81789377")
-      .then((res) => {
-        console.log('CLIENT INFO: ', res.data);
-        this.setState({ client: res.data.data.result.data });
-      }).finally(() => {
+        PolicyService.getPolicyInformationByID(res.variables.policyNo)
+          .then(res => {
+            this.setState({ policy: res.data.result, clients: res.data.result.clients });
+            this.getInsuredDetails(res.data.result.clients);
+            this.getOwnerDetails(res.data.result.clients);
+          });
+
+        QuestionService.getQuestionsByTransactionID({transactionNo: res.variables.transactionNumber})
+          .then((res) => {
+            const questions = this.flatten(res.data.result);
+            console.log(questions);
+            this.mapQuestionsToProps(questions);
+          });
+      })
+      .finally(() => { 
 
       });
   }
@@ -89,8 +151,89 @@ class ProcessorContainer extends Component {
     this.setState({ visitedTabStatus: tabPage });
   }
 
-  componentDidMount() {
-    this.getApplicationDocs("12345678");
+  mapQuestionsToProps(questions) {
+    let isRelativeOfAgent = questions.find(q => q.questionId === 9);
+    isRelativeOfAgent = isRelativeOfAgent !== undefined && this.sanitizeBool(isRelativeOfAgent.answer);
+
+    let withReinstatementAgent = questions.find(q => q.questionId === 10);
+    withReinstatementAgent = withReinstatementAgent !== undefined && this.sanitizeBool(withReinstatementAgent.answer);
+
+    let withCosal = questions.find(q => q.questionId === 13);
+    withCosal = withCosal !== undefined && this.sanitizeBool(withCosal.answer);
+
+    this.setState({ questions, isRelativeOfAgent, withReinstatementAgent, withCosal });
+    // this.setState({ isRelativeOfAgent: true })
+
+    // NO FATCA TAGGING IN DB
+    // let isFatcaTagging = questions.find(q => q.questionId === 13);
+    // isFatcaTagging = isFatcaTagging !== undefined && this.sanitizeBool(isFatcaTagging.answer);
+  }
+
+  sanitizeBool(input) {
+    if (input === null) return;
+    return input === "true" ? true : false;
+  }
+
+  flatten(records) {
+    let output = [];
+    records.forEach(e => {
+      //start of recursion
+      if (e.hasChild) {
+        //change the child flag
+        if (Array.isArray(e.hasChild)) {
+          let child = e.hasChild; //change the child flag
+          delete e.hasChild; //change the child flag
+          output.push(e); //push the parent
+          this.flatten(child).forEach(node => {
+            output.push(node); //push the last node
+          });
+        } else {
+          let child = [e.hasChild]; //change the child flag
+          delete e.hasChild; //change the child flag
+          output.push(e); //push the parent
+          this.flatten(child).forEach(node => {
+            output.push(node); //push the last node
+          });
+        }
+      } else {
+        output.push(e);
+      }
+    });
+    return output;
+  }
+
+  getInsuredDetails(clients) {
+    if (insured) return;
+    const insured = clients.find(client => client.role == "LF");
+    PolicyService.getClientIformationByid(insured.clntNum)
+      .then((res) => {
+        console.log('INSURED INFO: ', res.data);
+        if (res.data.result) {
+          this.setState({ insured: res.data.result});
+        }
+        else {
+          alert('Failed getting data to lifeasia');
+        }
+      }).finally(() => {
+        
+      });
+  }
+
+  getOwnerDetails(clients) {
+    if (owner) return;
+    const owner = clients.find(client => client.role == "OW");
+    PolicyService.getClientIformationByid(owner.clntNum)
+      .then((res) => {
+        console.log('OWNER INFO: ', res.data);
+        if (res.data.result) {
+          this.setState({ owner: res.data.result});
+        }
+        else {
+          alert('Failed getting data to lifeasia');
+        }
+      }).finally(() => {
+        
+      });
   }
 
   getQueryStringValue(key) {
@@ -158,10 +301,6 @@ class ProcessorContainer extends Component {
     this.setState({ visitedTabStatus: tabPage });
   }
 
-  componentDidMount() {
-    this.getApplicationDocs("12345678");
-  }
-
   getApplicationDocs(appNo) {
     FileNetService.getDocs().then((res) => {
       console.log(res);
@@ -199,9 +338,25 @@ class ProcessorContainer extends Component {
                 Processing Details
               </div>
             </div>
-            <ProcessorHeader />
+            <ProcessorHeader 
+              task={this.state.task} 
+              transaction={this.state.transaction}
+              policy={this.state.policy}
+              questions={this.state.questions}
+              isRelativeOfAgent={this.state.isRelativeOfAgent}
+              isFatcaTagging={this.state.isFatcaTagging}
+              withReinstatementAgent={this.state.withReinstatementAgent}
+              withCosal={this.state.withCosal}
+            />
             <div className="box-body">
-              {this.state.currentTab === 1 && <ReviewTransaction />}
+              {this.state.currentTab === 1 && 
+                <ReviewTransaction 
+                  policy={this.state.policy} 
+                  clients={this.state.clients} 
+                  owner={this.state.owner}
+                  insured={this.state.insured}
+                />
+              }
               {this.state.currentTab === 2 && <ProcessingDetails />}
             </div>
           </div>

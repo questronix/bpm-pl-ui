@@ -500,7 +500,7 @@ class EditTaskContainer extends Component {
 
   handleNextTab() {
     const { currentTab } = this.state;
-    if (currentTab + 1 >= 5) return;
+    if (currentTab + 1 > 5) return;
     this.setState({ currentTab: currentTab + 1 });
     this.updateVistedTab(currentTab + 1);
   }
@@ -691,7 +691,7 @@ class EditTaskContainer extends Component {
           "isCompleteAndValid": true,
           "type": "csa",
           "action": "complete",
-          "uid": this.state.isBeyondLimit ? "17" : JSON.parse(sessionStorage.getItem('user_info')).User_ID // TODO: change this to server user session
+          "uid": this.state.isBeyondLimit ? "2" : JSON.parse(sessionStorage.getItem('user_info')).User_ID // TODO: change this to server user session
         }
 
         // alert(JSON.parse(sessionStorage.getItem('user_info')).id)
