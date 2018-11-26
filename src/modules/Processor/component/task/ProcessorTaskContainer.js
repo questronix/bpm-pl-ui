@@ -315,7 +315,7 @@ class ProcessorTaskContainer extends Component {
                 </button>
               </div> */}
               </div>
-              <div className="col no-padding xl-12 f-center f-start flex ">
+              <div className="col no-padding xl-12 f-center f-start flex mt">
                 <p className="text-bold">FILTERS :</p>
                 <a className="btn-sm  bright-blue">All task</a>
                 <a className="btn-sm alt">Recently Updated</a>
