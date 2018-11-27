@@ -70,6 +70,7 @@ class EditTaskContainer extends Component {
       missingDocs: [],
       isSignatureVerified: null,
       withPayment: null,
+      renderError: false,
       showReqModal: false,
       reqMemoPDF: '',
 
@@ -606,6 +607,13 @@ class EditTaskContainer extends Component {
   updateVistedTab(tabPage) {
     this.createMemo();
     if (tabPage === 2) {
+      if (this.state.withPayment === null) {
+        this.setState({ currentTab: 1, renderError: true});
+      }
+
+      if (this.state.signatureVerified === null) {
+        this.setState({ currentTab: 1, renderError: true});
+      }
       this.setState({ 
         isVisitedTransaction: true, 
         isVisitedInsured: true
@@ -1195,6 +1203,7 @@ class EditTaskContainer extends Component {
                 reqMemoPDF={this.state.reqMemoPDF}
                 isSignatureVerified={this.state.isSignatureVerified}
                 withPayment={this.state.withPayment}
+                renderError={this.state.renderError}
                 onTransactionTypeChange={this.handleTransactionTypeChange}
                 onSubTransactionTypeChange={this.handleSubTransactionTypeChange}
                 onDocSelect={this.handleDocSelect}

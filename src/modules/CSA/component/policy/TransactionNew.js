@@ -186,6 +186,7 @@ class TransactionNew extends Component {
                 title="With Payment"
                 isRequired={true}
                 isYesDefault={this.props.withPayment}
+                errorRender={this.props.renderError}
                 onSelect={this.handleSignatureVerifiedChange}
               />
               

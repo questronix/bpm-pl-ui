@@ -14,10 +14,16 @@ class YesNoRadio extends Component {
   render() {
     return (
       <div className="position-relative">
-        {this.props.isRequired && (
-          <div className="error">
-            <span className="fa fa-times"></span>
-          </div>
+        {this.props.isRequired && ( 
+          <div className={this.props.isYesDefault !==null ? "" : "error"}>
+          <span className= {this.props.isYesDefault !==null ? "" :  "fa fa-times"}></span>
+        </div>
+          // <div>
+          //   {this.props.errorRender === true ? 
+          //   <div className={this.props.isYesDefault !==null ? "" : "error"}>
+          //   <span className= {this.props.isYesDefault !==null ? "" :  "fa fa-times"}></span>
+          // </div> : "" }
+          // </div>
         )}
         <p
           className={
