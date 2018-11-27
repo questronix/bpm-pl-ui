@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loading from '../../../../shared/component/loading/onIt';
 
 class TaskList extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class TaskList extends Component {
    
     return (
       <div className="card-table">
+        {this.props.tasks.length === 0 && <Loading />}
         {this.props.tasks ? (
           <table id="table" cellPadding="0" cellSpacing="0">
             <thead>
@@ -90,8 +92,8 @@ class TaskList extends Component {
                     {/* Date created */}
                     {new Date(task.startTime).toDateString()}
                   </td>
-                  <td className={task.variables.status === "For Processing" || "For Underwriter" || "For Compliance" ? "text-red bold" : task.variables.status === "Pending" 
-                  ? "text-darkgray bold" : task.variables.status === "Approval" ? "text-darkblue bold" : task.variables.status === "Completed" ? "text-darkblue bold" : ""}>
+                  <td className={task.status === "processor" || "For Underwriter" || "For Compliance" ? "text-red bold" : task.status === "pending" 
+                  ? "text-darkgray bold" : task.status === "approval" ? "text-darkblue bold" : task.status === "completed" ? "text-darkblue bold" : ""}>
                     {/* Status */}
                     {task.status
                       ? task.status.toUpperCase()

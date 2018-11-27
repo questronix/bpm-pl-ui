@@ -1,62 +1,69 @@
 import React, { Component } from 'react';
 import Input from '../../../../shared/component/input/Input';
+import YesNoRadio from '../../../../shared/component/radio/YesNoRadio';
 
 class ProcessingDetails extends Component {
+
+  constructor(props) {
+    super(props);
+    this.handleYesNoChange = this.handleYesNoChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleYesNoChange(name, value) {
+    this.props.onYesNoSelect(name, value);
+  }
+
+  handleInputChange(name, value) {
+    this.props.onTextChange(name, value);
+  }
+
   render() {
     return (
       <div className="App processor-container">
         <hr/>
-        <div className="col xl-12 flex-container flex-wrap">
-          <div className="col xl-6">
-            <p className="label flex no-margin">
-              Dow Jones:
-            </p>
-            <div className="col no-padding xl-12">
-              <label className="checkbox container" htmlFor="yes">Yes
-                    <input type="radio" id="yes" name="DawJones" />
-                <span className="checkmark"></span>
-              </label>
-              <label className="checkbox container" htmlFor="no">No
-                  <input type="radio" id="no" name="DawJones" />
-                <span className="checkmark"></span>
-              </label>
-            </div>
+        <div className="col xl-12 margin-auto flex-container flex-wrap">
+          <div className="xl-6 mb">
+            <YesNoRadio
+              name="isDowJones"
+              title="Dow Jones"
+              isRequired={false}
+              isYesDefault={this.props.isDowJones}
+              onSelect={this.handleYesNoChange}
+            />
           </div>
-          <div className="xl-6">
-            <p className="label flex no-margin">
-              MID:
-            </p>
-            <div className="col no-padding xl-12">
-              <label className="checkbox container" htmlFor="yes1">Yes
-                    <input type="radio" id="yes1" name="mid" />
-                <span className="checkmark"></span>
-              </label>
-              <label className="checkbox container" htmlFor="no1">No
-                  <input type="radio" id="no1" name="mid" />
-                <span className="checkmark"></span>
-              </label>
-            </div>
+          <div className="xl-6 mb">
+            <YesNoRadio
+              name="isMid"
+              title="MID"
+              isRequired={false}
+              isYesDefault={this.props.isMid}
+              onSelect={this.handleYesNoChange}
+            />
           </div>
           <Input
-              txtboxClass="bg-lightgray"
-              inputLabel="MPT:"
-              inputClass="col xl-6 input-container"
+            name="mpt"
+            value={this.props.mpt}
+            inputPlaceholder="MPT"
+            inputClass="input-container xl-6 "
+            inputLabel="MPT:"
+            txtboxClass="bg-lightgray"
+            onInputChange={this.handleInputChange} 
+          />
+          <div className="xl-6 mb">
+            <YesNoRadio
+              name="isBeyondMpt"
+              title="Beyond MPT"
+              isRequired={false}
+              isYesDefault={this.props.isBeyondMpt}
+              onSelect={this.handleYesNoChange}
             />
-          <div className="xl-6">
-            <p className="label flex no-margin">
-              Beyond MPT:
-            </p>
-            <div className="col no-padding xl-12">
-              <label className="checkbox container" htmlFor="yes2">Yes
-                    <input type="radio" id="yes2" name="mpt" />
-                <span className="checkmark"></span>
-              </label>
-              <label className="checkbox container" htmlFor="no2">No
-                  <input type="radio" id="no2" name="mpt" />
-                <span className="checkmark"></span>
-              </label>
-            </div>
           </div>
+        </div>
+        <div className="border-top border-lightgray flex f-end p">
+          <button className="btn prulife ">
+           Submit
+          </button>
         </div>
       </div >
     );

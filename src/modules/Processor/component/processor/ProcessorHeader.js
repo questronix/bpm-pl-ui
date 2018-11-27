@@ -87,14 +87,14 @@ class ProcessorHeader extends Component {
                 txtboxClass="no-border"
                 inputLabel="OR Number:"
                 inputClass="col no-padding mr input-container" 
-                // value={policy && }
+                value={this.props.orNum}
               />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Date of Signing:"
                 inputClass="col no-padding mr input-container" 
-                // value={policy && }
+                value={this.props.dateOfSigning}
               />
               <div className="col no-padding">
                 <p className="bold font-sm flex no-margin">

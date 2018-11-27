@@ -58,10 +58,20 @@ class ProcessorContainer extends Component {
       owner: null,
       insured: null,
 
+      // Questions
       isRelativeOfAgent: null,
       isFatcaTagging: null,
       withReinstatementAgent: null,
       withCosal: null,
+      suspense: null,
+      orNum: '0012365',
+      dateOfSigning: '07-12-2018',
+
+      // Processing Details
+      isDowJones: null,
+      isMid: null,
+      isBeyondMpt: null,
+      mpt: '',
 
       currentTab: 1,
       doc: '',
@@ -73,6 +83,8 @@ class ProcessorContainer extends Component {
     };
     this.handlePrevTab = this.handlePrevTab.bind(this);
     this.handleNextTab = this.handleNextTab.bind(this);
+    this.handleYesNoSelect = this.handleYesNoSelect.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   componentDidMount() {
@@ -94,9 +106,14 @@ class ProcessorContainer extends Component {
 
         PolicyService.getPolicyInformationByID(res.variables.policyNo)
           .then(res => {
-            this.setState({ policy: res.data.result, clients: res.data.result.clients });
-            this.getInsuredDetails(res.data.result.clients);
-            this.getOwnerDetails(res.data.result.clients);
+            if (res.status === 200) {
+              this.setState({ policy: res.data.result, clients: res.data.result.clients });
+              this.getInsuredDetails(res.data.result.clients);
+              this.getOwnerDetails(res.data.result.clients);
+            }
+            else if (res.data.status === 500) {
+              alert('Something went wrong on the server');
+            }
           });
 
         QuestionService.getQuestionsByTransactionID({transactionNo: res.variables.transactionNumber})
@@ -152,6 +169,15 @@ class ProcessorContainer extends Component {
   }
 
   mapQuestionsToProps(questions) {
+    // let dateOfSigning = questions.find(q => q.questionId === 9);
+    // dateOfSigning = dateOfSigning !== undefined && this.sanitizeBool(dateOfSigning.answer);
+
+    // let orNum = questions.find(q => q.questionId === 9);
+    // orNum = orNum !== undefined && this.sanitizeBool(orNum.answer);
+
+    let suspense = questions.find(q => q.questionId === 6);
+    suspense = suspense !== undefined && this.sanitizeBool(suspense.answer);
+    
     let isRelativeOfAgent = questions.find(q => q.questionId === 9);
     isRelativeOfAgent = isRelativeOfAgent !== undefined && this.sanitizeBool(isRelativeOfAgent.answer);
 
@@ -161,7 +187,15 @@ class ProcessorContainer extends Component {
     let withCosal = questions.find(q => q.questionId === 13);
     withCosal = withCosal !== undefined && this.sanitizeBool(withCosal.answer);
 
-    this.setState({ questions, isRelativeOfAgent, withReinstatementAgent, withCosal });
+    this.setState({ 
+      questions, 
+      isRelativeOfAgent, 
+      withReinstatementAgent, 
+      withCosal,
+      suspense,
+      // orNum,
+      // dateOfSigning
+    });
 
     // NO FATCA TAGGING IN DB
     // let isFatcaTagging = questions.find(q => q.questionId === 13);
@@ -292,6 +326,15 @@ class ProcessorContainer extends Component {
     this.setState({ currentTab: tabPage });
   }
 
+  handleYesNoSelect(name, val) {
+    console.log(name, val);
+    this.setState({ [name]: val });
+  }
+
+  handleInputChange(name, val) {
+    this.setState({ [name]: val });
+  }
+
   updateVistedTab(tabPage) {
     if (tabPage === 1) this.setState({ isVisitedTransaction: true });
     if (tabPage === 2) this.setState({ isVisitedInsured: true });
@@ -346,6 +389,8 @@ class ProcessorContainer extends Component {
               isFatcaTagging={this.state.isFatcaTagging}
               withReinstatementAgent={this.state.withReinstatementAgent}
               withCosal={this.state.withCosal}
+              orNum={this.state.orNum}
+              dateOfSigning={this.state.dateOfSigning}
             />
             <div className="box-body">
 
@@ -357,7 +402,16 @@ class ProcessorContainer extends Component {
                   insured={this.state.insured}
                 />
               }
-              {this.state.currentTab === 2 && <ProcessingDetails />}
+              {this.state.currentTab === 2 && 
+                <ProcessingDetails 
+                isDowJones={this.state.isDowJones}
+                isMid={this.state.isMid}
+                isBeyondMpt={this.state.isBeyondMpt}
+                mpt={this.state.mpt}
+                onYesNoSelect={this.handleYesNoSelect}
+                onTextChange={this.handleInputChange}
+                />
+              }
 
             </div>
           </div>

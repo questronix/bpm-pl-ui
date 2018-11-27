@@ -90,7 +90,7 @@ class LoginForm extends Component {
     return (
       <div className="login-container">
         <div className="login-circle" />
-        <form className="login" onSubmit={this.handleSubmit}>
+        <form className="login flex f-column" onSubmit={this.handleSubmit}>
           <div className="">
             <div className="no-padding">
               <div className="logo">
@@ -147,12 +147,12 @@ class LoginForm extends Component {
                   </div>
                 )}
               </div>
-              {isSubmitting && <span className="spinner atom" />}
               {/* <AppContext.Consumer>
               {(updateContext) => <h1>{updateContext('hey', 'new Val')}</h1>}
             </AppContext.Consumer> */}
             </div>
           </div>
+          {isSubmitting && <span className="spinner atom" />}
         </form>
         <img src="https://i.imgur.com/Ndb2rUO.png" className="top-right p prulife-logo"></img>
         <div className="bottom-left font-xs p">Copyright © 2018 Pru Life UK. All rights reserved.</div>
