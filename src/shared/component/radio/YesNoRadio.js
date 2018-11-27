@@ -13,7 +13,12 @@ class YesNoRadio extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="position-relative">
+        {this.props.isRequired && (
+          <div className="error">
+            <span className="fa fa-times"></span>
+          </div>
+        )}
         <p
           className={
             this.props.isRequired

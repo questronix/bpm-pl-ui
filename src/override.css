@@ -553,6 +553,9 @@ select {
     color: #2b2b2b;
     box-shadow: none; }
 
+.position-relative {
+  position: relative; }
+
 .e-content {
   transform: translate(-30px, 30px); }
 
@@ -563,6 +566,39 @@ select {
   content: " *";
   color: #ED1B2E;
   font-size: 13px; }
+
+.error {
+  position: absolute;
+  background: #ED1B2E;
+  border-radius: .4em;
+  /* padding: 15px; */
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -ms-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all 0.3s ease-out; }
+
+.error:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-right-color: #ED1B2E;
+  border-left: 0;
+  margin-top: -5px;
+  margin-left: -5px; }
 
 .editable::after {
   font-family: "FontAwesome";
@@ -739,7 +775,7 @@ hr {
   .flex.f-end, .f-end.btn-circle, nav.navbar .navmenu ul.f-end, nav.navbar .navmenu ul li.f-end, .box .tab-title-container .f-end.circle, .dropdown .dropdown-menu ul li.f-end, .f-end.input-container, .flex .f-end, .btn-circle .f-end, nav.navbar .navmenu ul .f-end, .box .tab-title-container .circle .f-end, .dropdown .dropdown-menu ul li .f-end, .input-container .f-end {
     justify-content: flex-end; }
   .flex.f-row, .f-row.btn-circle, nav.navbar .navmenu ul, nav.navbar .navmenu ul li.f-row, .box .tab-title-container .f-row.circle, .box .tab-title-container nav.navbar .navmenu ul.circle, nav.navbar .navmenu .box .tab-title-container ul.circle, .dropdown .dropdown-menu ul li.f-row, .f-row.input-container, .flex .f-row, .btn-circle .f-row, nav.navbar .navmenu ul .f-row, .box .tab-title-container .circle .f-row, .dropdown .dropdown-menu ul li .f-row, .input-container .f-row, .flex nav.navbar .navmenu ul, nav.navbar .navmenu .flex ul, .btn-circle nav.navbar .navmenu ul, nav.navbar .navmenu .btn-circle ul, nav.navbar .navmenu ul ul, .box .tab-title-container .circle nav.navbar .navmenu ul, nav.navbar .navmenu .box .tab-title-container .circle ul, .dropdown .dropdown-menu ul li nav.navbar .navmenu ul, .input-container nav.navbar .navmenu ul, nav.navbar .navmenu .input-container ul {
-    flex-direction: row; }
+    flex-direction: row !important; }
   .flex.f-column, .f-column.btn-circle, nav.navbar .navmenu ul.f-column, nav.navbar .navmenu ul.input-container, nav.navbar .navmenu ul li, .box .tab-title-container .f-column.circle, .box .tab-title-container nav.navbar .navmenu ul li.circle, nav.navbar .navmenu ul .box .tab-title-container li.circle, .box .tab-title-container .circle.input-container, .dropdown .dropdown-menu ul li.f-column, .dropdown .dropdown-menu ul li.input-container, .input-container, .flex .f-column, .btn-circle .f-column, nav.navbar .navmenu ul .f-column, .box .tab-title-container .circle .f-column, .dropdown .dropdown-menu ul li .f-column, .input-container .f-column, nav.navbar .navmenu ul li, .box .tab-title-container .circle nav.navbar .navmenu ul li, nav.navbar .navmenu ul .box .tab-title-container .circle li, .flex .input-container, .btn-circle .input-container, nav.navbar .navmenu ul .input-container, .box .tab-title-container .circle .input-container, .dropdown .dropdown-menu ul li .input-container, .input-container .input-container {
     flex-direction: column; }
   .flex.f-justify-space-between, .f-justify-space-between.btn-circle, nav.navbar .navmenu ul.f-justify-space-between, nav.navbar .navmenu ul li.f-justify-space-between, .box .tab-title-container .f-justify-space-between.circle, .dropdown .dropdown-menu ul li.f-justify-space-between, .f-justify-space-between.input-container, .flex .f-justify-space-between, .btn-circle .f-justify-space-between, nav.navbar .navmenu ul .f-justify-space-between, .box .tab-title-container .circle .f-justify-space-between, .dropdown .dropdown-menu ul li .f-justify-space-between, .input-container .f-justify-space-between {
@@ -1465,7 +1501,6 @@ nav.navbar .navmenu {
 .sidebar {
   position: fixed;
   background-color: #232323;
-  width: 250px;
   height: 100%; }
   .sidebar .sidebar-title {
     background-color: black;

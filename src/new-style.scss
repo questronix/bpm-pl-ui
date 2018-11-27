@@ -754,6 +754,9 @@ select { /* Chrome/Opera/Safari */
     }
 }
 // misc
+.position-relative{
+    position: relative;
+}
 .e-content{
     transform: translate(-30px,30px);
 }
@@ -764,6 +767,36 @@ select { /* Chrome/Opera/Safari */
     content: " *";
     color: $prulife;
     font-size: 13px;
+}
+.error {
+    position: absolute;
+    background: $prulife;
+    border-radius: .4em;
+    /* padding: 15px; */
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    right: 0;
+    bottom:0;
+    top: 0;
+    @include transition();
+}
+
+.error:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-right-color: $prulife;
+	border-left: 0;
+	margin-top: -5px;
+	margin-left: -5px;
 }
 .editable::after{
     font-family: "FontAwesome";
@@ -948,7 +981,7 @@ hr{
         justify-content: flex-end;
     }
     &.f-row, .f-row{
-        flex-direction: row;
+        flex-direction: row !important;
     }
     &.f-column, .f-column{
         flex-direction: column;
@@ -1807,7 +1840,7 @@ $background_color_1: #ED1B2E;
 .sidebar{
     position: fixed;
     background-color: #232323;
-    width: 250px;
+    // width: 250px;
     height: 100%;    
     .sidebar-title{
         background-color: black;

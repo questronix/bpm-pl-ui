@@ -12,32 +12,37 @@ class Input extends Component {
 
   render() {
     return (
-        <div className={this.props.inputClass}>
-          <label className={this.props.classRequired}>
-            {this.props.inputLabel}
-          </label>
-          {this.props.editable 
-            ?
-            <input
-              disabled
-              type="text" 
-              name={this.props.name}
-              placeholder={this.props.inputPlaceholder}
-              value={this.props.value || ''}
-              onChange={this.handleInputChange}
-              className={this.props.txtboxClass} 
-            /> 
-            : 
-            <input
-              type="text" 
-              name={this.props.name}
-              placeholder={this.props.inputPlaceholder}
-              value={this.props.value || ''}
-              onChange={this.handleInputChange}
-              className={this.props.txtboxClass} 
-            />}
-          {this.props.children}
-        </div>
+      <div className={this.props.inputClass}>
+        {this.props.isRequired && (
+          <div className="error">
+            <span className="fa fa-times"></span>
+          </div>
+        )}
+        <label className={this.props.classRequired}>
+          {this.props.inputLabel}
+        </label>
+        {this.props.editable
+          ?
+          <input
+            disabled
+            type="text"
+            name={this.props.name}
+            placeholder={this.props.inputPlaceholder}
+            value={this.props.value || ''}
+            onChange={this.handleInputChange}
+            className={this.props.txtboxClass}
+          />
+          :
+          <input
+            type="text"
+            name={this.props.name}
+            placeholder={this.props.inputPlaceholder}
+            value={this.props.value || ''}
+            onChange={this.handleInputChange}
+            className={this.props.txtboxClass}
+          />}
+        {this.props.children}
+      </div>
     );
   }
 }
