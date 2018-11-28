@@ -169,6 +169,7 @@ class EditTaskContainer extends Component {
     this.handleSubTransactionTypeChange = this.handleSubTransactionTypeChange.bind(this);
     this.handleDocSelect = this.handleDocSelect.bind(this);
     this.handleYesNoSelect = this.handleYesNoSelect.bind(this);
+    this.handleYesNoSelectOwner = this.handleYesNoSelectOwner.bind(this);
     this.generatePdfMemo = this.generatePdfMemo.bind(this);
 
     // Insured Tab Events
@@ -183,6 +184,30 @@ class EditTaskContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePregnant = this.handlePregnant.bind(this);
     this.notPregnant = this.notPregnant.bind(this);
+    this.handleChangeInOccupation = this.handleChangeInOccupation.bind(this);
+    this.handleChangeInOccupationOwner = this.handleChangeInOccupationOwner.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
+  }
+
+  onInputChange(name, value) {
+    // const value = event.target.value;
+
+    this.setState({
+      [name]: value
+    })
+    console.log(this.state.months)
+  }
+
+  handleChangeInOccupation(){
+    this.setState({
+      isChangeInOccupation: true
+    })
+  }
+
+  handleChangeInOccupationOwner(){
+    this.setState({
+      isChangeInOccupationOwner: true
+    })
   }
 
   handlePregnant(){
@@ -264,6 +289,7 @@ class EditTaskContainer extends Component {
               const clients = res.data.result.clients;
               this.setState({
                 policy: policy,
+                months: '',
                 clients: clients,
                 isAgentStatusActive: policy.agentStatus == "ACTIVE" ? true: false,
                 showComponent: true
@@ -504,6 +530,12 @@ class EditTaskContainer extends Component {
     console.log(name, val);
     this.setState({ [name]: val });
   }
+
+  handleYesNoSelectOwner(name, val) {
+    console.log(name, val);
+    this.setState({ [name]: val });
+  }
+
 
   handleDateChange(name, val) {
     this.setState({ [name]: val });
@@ -1153,7 +1185,9 @@ class EditTaskContainer extends Component {
               />}
               {this.state.currentTab === 2 && <InsuredinformationNew 
                 type={"default"}
+                months={this.state.months}
                 client={this.state.insured} 
+                onInputChange={this.onInputChange}
                 isChangeInOccupation={this.state.isChangeInOccupation}
                 isChangeInAddress={this.state.isChangeInAddress}
                 isSOI={this.state.isSOI}
@@ -1168,11 +1202,11 @@ class EditTaskContainer extends Component {
               {this.state.currentTab === 3 && <OwnerinformationNew 
                 type={"default"}
                 client={this.state.owner} 
-                isChangeInOccupation={this.state.isChangeInOccupationOwner}
+                isChangeInOccupationOwner={this.state.isChangeInOccupationOwner}
                 isChangeInAddress={this.state.isChangeInAddressOwner}
                 isSOI={this.state.isSOIOwner}
                 isPregnant={this.state.isPregnantOwner}
-                onYesNoSelect={this.handleYesNoSelect}
+                onYesNoSelect={this.handleYesNoSelectOwner}
                 fma={this.state.additionalFMAOwner}
                 mur={this.state.additionalMUROwner}
                 additionalPregnancyQuestionOwner={this.state.additionalPregnancyQuestionOwner}

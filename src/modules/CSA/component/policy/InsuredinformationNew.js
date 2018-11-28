@@ -5,23 +5,25 @@ import YesNoRadio from '../../../../shared/component/radio/YesNoRadio';
 class InsuredinformationNew extends Component {
   constructor(props) {
     super(props);
-    this.state={
-      months: '',
-    }
+    // this.state={
+    //   months: '',
+    // }
 
     this.pregnant = this.pregnant.bind(this);
+    this.ChangeInOccupation = this.ChangeInOccupation.bind(this);
     this.notPregnant = this.notPregnant.bind(this);
     this.handleYesNoChange = this.handleYesNoChange.bind(this);
     this.handleCheckChange = this.handleCheckChange.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
   }
-  onInputChange(name, value) {
+  onInputChange(e) {
     // const value = event.target.value;
+    this.props.onInputChange(e.target.name, e.target.value)
+    
+  }
 
-    this.setState({
-      [name]: value
-    })
-    console.log(this.state.months)
+  ChangeInOccupation(){
+    this.props.handleChangeInOccupation();
   }
 
   pregnant() {
@@ -203,11 +205,13 @@ class InsuredinformationNew extends Component {
                     </label>
                   </div>
                 </div>
+                
                 <Input
                   txtboxClass="bg-lightgray"
                   inputLabel="Occupation:"
                   inputClass="xl-6  input-container"
                   value={this.props.client.occupation1} />
+               
               </div>
             </div>
             <div className="col xl-12 flex f-center f-start mb no-padding">
@@ -528,6 +532,7 @@ class InsuredinformationNew extends Component {
                 inputClass="col xl-4  input-container"
                 value={client && client.occupation1}
               />
+             
               <Input
                 editable="false"
                 txtboxClass="no-border"
@@ -544,13 +549,14 @@ class InsuredinformationNew extends Component {
                   onSelect={this.handleYesNoChange}
                 />
               </div>
-
+              {this.props.isChangeInOccupation ==true ? 
               <Input
                 txtboxClass="bg-lightgray"
-                inputLabel="Occupation:"
+                inputLabel="New Occupation:"
                 inputClass="col xl-4  input-container"
                 value={client && client.occupation1}
               />
+              : null }
             </div>
             <div className="col xl-12 flex f-center f-start">
               <span className="fa fa-location-arrow font-prulife">
@@ -692,7 +698,7 @@ class InsuredinformationNew extends Component {
                         onInputChange={this.onInputChange}
                         inputLabel="How many months? :"
                         inputClass="col xl-2 input-container"
-                        value={this.state.months}
+                        value={this.props.months}
                       />
                       : null
                     }

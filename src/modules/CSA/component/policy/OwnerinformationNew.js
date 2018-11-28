@@ -10,6 +10,7 @@ class OwnerinformationNew extends Component {
     this.state = {
       months: ''
     }
+    this.ChangeInOccupationOwner = this.ChangeInOccupationOwner.bind(this);
     this.handleYesNoChange = this.handleYesNoChange.bind(this);
     this.handleCheckChange = this.handleCheckChange.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
@@ -22,6 +23,10 @@ class OwnerinformationNew extends Component {
       [name]: value
     })
     console.log(this.state.months)
+  }
+
+  ChangeInOccupationOwner(){
+    this.props.handleChangeInOccupationOwner();
   }
 
   handleYesNoChange(name, value) {
@@ -566,20 +571,21 @@ class OwnerinformationNew extends Component {
               />
               <div className="xl-2">
                 <YesNoRadio
-                  name="isChangeInOccupation"
+                  name="isChangeInOccupationOwner"
                   title="Change Occupation"
                   isRequired={false}
-                  isYesDefault={this.props.isChangeInOccupation}
+                  isYesDefault={this.props.isChangeInOccupationOwner}
                   onSelect={this.handleYesNoChange}
                 />
               </div>
-
+              {this.props.isChangeInOccupationOwner ==true ?
               <Input
                 txtboxClass="bg-lightgray"
                 inputLabel="Occupation:"
                 inputClass="col xl-4  input-container"
                 value={client && client.occupation1}
               />
+              : null }
             </div>
             <div className="col xl-12 flex f-center f-start">
               <span className="fa fa-location-arrow font-prulife">
