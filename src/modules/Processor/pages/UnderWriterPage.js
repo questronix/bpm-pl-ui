@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // import Nav from '../../../shared/component/nav/Nav';
 import { TaskService } from '../../../services/index';
 import Nav from '../component/nav/Nav'
-import UnderwriterContainer from '../component/processor/UnderwriterContainer';
+import UnderwriterContainer from '../component/underwriter/UnderwriterContainer';
 
 export default class UnderWriter extends Component {
   constructor(props) {

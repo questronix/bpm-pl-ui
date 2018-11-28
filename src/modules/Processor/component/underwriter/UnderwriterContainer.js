@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ApprovalDetails from './ApprovalDetails';
-import ReviewDetails from './PolicyInsuredOwnerContainer';
 import Input from '../../../../shared/component/input/Input';
 import YesNoRadio from '../../../../shared/component/radio/YesNoRadio';
 
