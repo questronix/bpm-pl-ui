@@ -7,8 +7,21 @@ class OwnerinformationNew extends Component {
 
   constructor(props) {
     super(props);
+    this.state={
+      months: ''
+    }
     this.handleYesNoChange = this.handleYesNoChange.bind(this);
     this.handleCheckChange = this.handleCheckChange.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
+  }
+
+  onInputChange(name, value) {
+  
+
+    this.setState({
+      [name]: value
+    })
+    console.log(this.state.months)
   }
 
   handleYesNoChange(name, value) {
@@ -653,6 +666,7 @@ class OwnerinformationNew extends Component {
               <span className="fa fa-info-circle font-prulife"></span> &nbsp;
               <h3 className="no-margin">Additional Information</h3>
             </div>
+
             <div className="xl-12 flex-container flex-wrap col">
               <div className="xl-12">
               <YesNoRadio
@@ -677,6 +691,18 @@ class OwnerinformationNew extends Component {
                     />
                   </div> 
                 </div>
+                {this.props.isPregnant === true ?
+                      <Input
+                        name="months"
+                        txtboxClass="bg-light-gray  "
+                        onInputChange={this.onInputChange}
+                        inputLabel="How many months? :"
+                        inputClass="col xl-2 input-container"
+                        value={this.state.months}
+                      />
+                      : null
+                    }
+                
                 {this.props.isPregnant && (
                   <div className="xl-12 flex-container flex-wrap col">
                   <div className="xl-12">

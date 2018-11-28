@@ -13,14 +13,15 @@ class InsuredinformationNew extends Component {
     this.notPregnant = this.notPregnant.bind(this);
     this.handleYesNoChange = this.handleYesNoChange.bind(this);
     this.handleCheckChange = this.handleCheckChange.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
   }
-  handleInputChange(event) {
-    const value = event.target.value;
+  onInputChange(name, value) {
+    // const value = event.target.value;
 
     this.setState({
-      months: value
+      [name]: value
     })
+    console.log(this.state.months)
   }
 
   pregnant() {
@@ -686,10 +687,12 @@ class InsuredinformationNew extends Component {
                     </div>
                     {this.props.isPregnant === true ?
                       <Input
+                        name="months"
                         txtboxClass="bg-light-gray  "
+                        onInputChange={this.onInputChange}
                         inputLabel="How many months? :"
                         inputClass="col xl-2 input-container"
-                        value=""
+                        value={this.state.months}
                       />
                       : null
                     }
