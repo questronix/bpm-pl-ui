@@ -1063,8 +1063,8 @@ class EditTaskContainer extends Component {
             </h3>
           </div>
         </ModalOkCancel> */}
-        <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
-        <div className="margin-top-70 col xl-10 l-10 m-9 s-9 xs-8 p-x2 margin-auto">
+        <div className="col no-padding ghost-sidebar" />
+        <div className="margin-top-70 col p-x2 margin-left-250">
           <div className="">
             <h1 className="text-darkgray larger normal mb-sm mt-0">
               New Transaction

@@ -63,9 +63,9 @@ export default class Main extends Component {
         {/* <div className=""> */}
         <div className="margin-top-70">
           <div className="flex-container flex-wrap">
-            <div className="xl-2 l-2 m-3 s-3 xs-4 col no-padding"></div>
+            <div className="ghost-sidebar col no-padding"></div>
             {/* <div className=" col"> */}
-            <div className="xl-10 l-10 m-9 s-9 xs-8 col">
+            <div className="p-x2 col margin-left-250">
               {/* <div className="xl-4">
                 <CardImg
                   docLabel="This document"

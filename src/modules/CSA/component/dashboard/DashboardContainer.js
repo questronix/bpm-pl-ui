@@ -21,16 +21,13 @@ class DashboardContainer extends Component {
     console.log(this.props);
     return (
       <div className="flex-container flex-wrap f-center flex margin-top-70">
-        <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4">
-          made by questronix
-        </div>
-        <div className="col xl-10 l-10 m-9 s-9 xs-8 ">
+        <div className="col no-padding ghost-sidebar"/>
+        <div className="col p-x2 margin-left-250 ">
           <div className="col xl-12 l-12 m-12 s-12 xs-12">
             <h1 className="font-prulife flex s-f-center xs-f-center">Dashboard</h1>
             <button className="btn prulife" onClick={this.createTask} accessKey="n">Create Task</button>
             <h3 className="flex s-f-center xs-f-center">Welcome back, {JSON.parse(sessionStorage.getItem('user_info')).firstName}.</h3>
           </div>
-         
         </div>
       </div>
     );

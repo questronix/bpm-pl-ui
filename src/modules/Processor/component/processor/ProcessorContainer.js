@@ -312,7 +312,7 @@ class ProcessorContainer extends Component {
   render() {
     return (
       <div className="flex-container flex-wrap">
-        <div className="col p-x2 xl-12 no-padding">
+        <div className="col no-padding">
           <h1 className="text-darkgray larger normal mb-sm mt-0">
           For Processing
           </h1>

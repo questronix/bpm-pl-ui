@@ -760,6 +760,9 @@ select { /* Chrome/Opera/Safari */
 .e-content{
     transform: translate(-30px,30px);
 }
+.margin-left-250{
+    margin-left:250px !important;
+}
 .big-font{
     font-size: 120px;
 }
@@ -1212,6 +1215,9 @@ hr{
     flex-basis: (100% * ($f / 12)-$f);
 }
 @media only screen and (min-width: 1280px) {
+    .ghost-sidebar{
+        width: 250px;
+    }
     .col{
         padding: 10px;
         max-width: 100%;
@@ -1300,6 +1306,9 @@ hr{
 }
 //smaller pc(L)
 @media only screen and (min-width: 1024px) and (max-width: 1279px) {
+    .ghost-sidebar{
+        width: 250px;
+    }
     .col{
         padding: 10px;
         max-width: 100%;
@@ -1388,6 +1397,9 @@ hr{
 }
 //tablet(M)
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .ghost-sidebar{
+        width: 250px;
+    }
     .col{
         padding: 10px;
         max-width: 100%;
@@ -1478,6 +1490,9 @@ hr{
 }
 //mobile(S)
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+    .ghost-sidebar{
+        width: 250px;
+    }
     .col{
         padding: 10px;
         max-width: 100%;
@@ -1568,6 +1583,9 @@ hr{
 }
 //small mobile(XS)
 @media only screen and (max-width: 479px) and (min-width: 100px) {
+    .ghost-sidebar{
+        width: 250px;
+    }
     .col{
         padding: 10px;
         max-width: 100%;
@@ -1836,12 +1854,12 @@ $background_color_1: #ED1B2E;
 
 // sidebar
 .ghost-sidebar{
-    // width: 250px;
+    width: 250px;
 }
 .sidebar{
     position: fixed;
     background-color: #232323;
-    // width: 250px;
+    width: 250px;
     height: 100%;    
     .sidebar-title{
         background-color: black;
