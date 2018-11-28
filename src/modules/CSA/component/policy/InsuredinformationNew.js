@@ -711,9 +711,18 @@ class InsuredinformationNew extends Component {
                           <div className="col xl-12 flex f-row-reverse f-end">
                             <label htmlFor="mur">
                               MUR
-                        </label>
+                            </label>
                             <label className="checkbox">
                               <input id="mur" type="checkbox" name={"additionalMUR"} value={this.props.mur} checked={this.props.mur} onChange={this.handleCheckChange} />
+                              <span className="checkmark" />
+                            </label>
+                          </div>
+                          <div className="col xl-12 flex f-row-reverse f-end">
+                            <label htmlFor="mur">
+                              Pregnancy Questionaire
+                            </label>
+                            <label className="checkbox">
+                              <input id="mur" type="checkbox" name={"additionalPregnancyQuestion"} value={this.props.additionalPregnancyQuestion} checked={this.props.additionalPregnancyQuestion} onChange={this.handleCheckChange} />
                               <span className="checkmark" />
                             </label>
                           </div>

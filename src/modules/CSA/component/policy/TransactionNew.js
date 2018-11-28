@@ -170,7 +170,7 @@ class TransactionNew extends Component {
                 inputPlaceholder="(from LA)"
                 txtboxClass="no-border"
                 inputClass="input-container container"
-                value={this.props.policy.requiredPremium}
+                value={this.props.policy.requiredPremium + ""}
               />
               <Input
                 editable="false"
@@ -178,7 +178,7 @@ class TransactionNew extends Component {
                 inputPlaceholder="(from LA)"
                 txtboxClass="no-border"
                 inputClass="input-container container"
-                value={this.props.policy.pdfSuspense}
+                value={this.props.policy.pdfSuspense + ""}
               />
 
               <YesNoRadio

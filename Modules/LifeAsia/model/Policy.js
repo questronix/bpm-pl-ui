@@ -61,7 +61,7 @@ module.exports.getPolicy = num => {
 };
 
 module.exports.getLarten = (num) => {
-  const ACTION = '[getPolicy]';
+  const ACTION = '[getLarten]';
   const uri = `${url}/requestDetailstoLifeAsia`;
   Logger.log('info', `${TAG}${ACTION} - policy number `, { num });
   Logger.log('info', `${TAG}${ACTION} - url`, uri);

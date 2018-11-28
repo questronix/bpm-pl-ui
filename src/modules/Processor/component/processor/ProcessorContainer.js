@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { FileNetService, TransactionService } from '../../services/';
 import { PolicyService, TaskService, DocumentService, QuestionService } from '../../../CSA/services';
+import { questionUtils, miscUtils } from '../../../../utils';
 import ProcessorHeader from './ProcessorHeader';
 import ReviewTransaction from './ReviewTransaction';
 import ProcessingDetails from './ProcessingDetails';
-import { timingSafeEqual } from 'crypto';
-import YesNoRadio from '../../../../shared/component/radio/YesNoRadio'
 
 class ProcessorContainer extends Component {
   constructor(props) {
@@ -111,15 +110,15 @@ class ProcessorContainer extends Component {
               this.getInsuredDetails(res.data.result.clients);
               this.getOwnerDetails(res.data.result.clients);
             }
-            else if (res.data.status === 500) {
+            else if (res.status === 500) {
               alert('Something went wrong on the server');
             }
           });
 
         QuestionService.getQuestionsByTransactionID({transactionNo: res.variables.transactionNumber})
           .then((res) => {
-            const questions = this.flatten(res.data.result);
-            console.log(questions);
+            const questions = miscUtils.flatten(res.data.result);
+            console.log('QUESTIONS: ', questions);
             this.mapQuestionsToProps(questions);
           });
       })
@@ -169,23 +168,12 @@ class ProcessorContainer extends Component {
   }
 
   mapQuestionsToProps(questions) {
-    // let dateOfSigning = questions.find(q => q.questionId === 9);
-    // dateOfSigning = dateOfSigning !== undefined && this.sanitizeBool(dateOfSigning.answer);
-
-    // let orNum = questions.find(q => q.questionId === 9);
-    // orNum = orNum !== undefined && this.sanitizeBool(orNum.answer);
-
-    let suspense = questions.find(q => q.questionId === 6);
-    suspense = suspense !== undefined && this.sanitizeBool(suspense.answer);
-    
-    let isRelativeOfAgent = questions.find(q => q.questionId === 9);
-    isRelativeOfAgent = isRelativeOfAgent !== undefined && this.sanitizeBool(isRelativeOfAgent.answer);
-
-    let withReinstatementAgent = questions.find(q => q.questionId === 10);
-    withReinstatementAgent = withReinstatementAgent !== undefined && this.sanitizeBool(withReinstatementAgent.answer);
-
-    let withCosal = questions.find(q => q.questionId === 13);
-    withCosal = withCosal !== undefined && this.sanitizeBool(withCosal.answer);
+    // const dateOfSigning = questionUtils.findAnswer(9, questions);
+    // const orNum = questionUtils.findAnswer(9, questions);
+    const suspense = questionUtils.findAnswer(6, questions);
+    const isRelativeOfAgent = questionUtils.findAnswer(9, questions);
+    const withReinstatementAgent = questionUtils.findAnswer(10, questions);
+    const withCosal = questionUtils.findAnswer(13, questions);
 
     this.setState({ 
       questions, 
@@ -200,39 +188,6 @@ class ProcessorContainer extends Component {
     // NO FATCA TAGGING IN DB
     // let isFatcaTagging = questions.find(q => q.questionId === 13);
     // isFatcaTagging = isFatcaTagging !== undefined && this.sanitizeBool(isFatcaTagging.answer);
-  }
-
-  sanitizeBool(input) {
-    if (input === null) return;
-    return input === "true" ? true : false;
-  }
-
-  flatten(records) {
-    let output = [];
-    records.forEach(e => {
-      //start of recursion
-      if (e.hasChild) {
-        //change the child flag
-        if (Array.isArray(e.hasChild)) {
-          let child = e.hasChild; //change the child flag
-          delete e.hasChild; //change the child flag
-          output.push(e); //push the parent
-          this.flatten(child).forEach(node => {
-            output.push(node); //push the last node
-          });
-        } else {
-          let child = [e.hasChild]; //change the child flag
-          delete e.hasChild; //change the child flag
-          output.push(e); //push the parent
-          this.flatten(child).forEach(node => {
-            output.push(node); //push the last node
-          });
-        }
-      } else {
-        output.push(e);
-      }
-    });
-    return output;
   }
 
   getInsuredDetails(clients) {
