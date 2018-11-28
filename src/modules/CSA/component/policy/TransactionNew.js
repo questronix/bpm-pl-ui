@@ -49,6 +49,8 @@ class TransactionNew extends Component {
   }
 
   render() {
+    const docs = this.props.docs.filter(doc => !doc.additionalReq);
+    const additionalDocs = this.props.docs.filter(doc => doc.additionalReq);
     return (
       <div>
         <div className="box-header flex f-row f-justify-space-between tt-container">
@@ -123,7 +125,7 @@ class TransactionNew extends Component {
                   <div className="transaction-checkboxes margin-auto">
                     <table border="0" cellSpacing="0">
                       <tbody>
-                        {this.props.docs.map((doc, index) => (
+                        {docs.map((doc, index) => (
                           <tr key={doc.docId}>
                             <td className="flex align-center">
                               <label htmlFor={`doc${doc.docId}`}>
@@ -134,8 +136,6 @@ class TransactionNew extends Component {
                               <label className={doc.isMandatory ? "checkbox required" : "checkbox"}>
                                 {doc.checked ? (
                                   <input
-                                  id={`doc${doc.docId}`}
-                                  index={index}
                                   type="checkbox"
                                   checked={true}
                                   disabled
@@ -147,7 +147,41 @@ class TransactionNew extends Component {
                                   index={index}
                                   type="checkbox"
                                   checked={doc.value ? true : false}
-                                  // value={doc.value}
+                                  onChange={this.handleDocSelect}
+                                />
+                                )}
+                                <span className="checkmark" />
+                              </label>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    {additionalDocs.length > 0 && <div className="font-md bold mt mb-sm">If reinstating under monthly mode of payment, the following are strictly required.</div> }
+                    <table border="0" cellSpacing="0">
+                      <tbody>
+                        {additionalDocs.map((doc, index) => (
+                          <tr key={doc.docId}>
+                            <td className="flex align-center">
+                              <label htmlFor={`doc${doc.docId}`}>
+                                {doc.description}
+                              </label>
+                            </td>
+                            <td align="right">
+                              <label className={doc.isMandatory ? "checkbox required" : "checkbox"}>
+                                {doc.checked ? (
+                                  <input
+                                  type="checkbox"
+                                  checked={true}
+                                  disabled
+                                  />
+                                )
+                                : (
+                                  <input
+                                  id={`doc${doc.docId}`}
+                                  index={index + docs.length}
+                                  type="checkbox"
+                                  checked={doc.value ? true : false}
                                   onChange={this.handleDocSelect}
                                 />
                                 )}
@@ -163,7 +197,7 @@ class TransactionNew extends Component {
               )}
             </div>
             <div className="xl-3 container-left-border big-container">
-              {this.props.reqMemoPDF && <a className="font-bright-blue" onClick={this.handlePdfGeneration}> Generate Memo </a> }
+            {this.props.reqMemoPDF && <a className="font-bright-blue" onClick={this.handlePdfGeneration}> Generate Memo </a> }
               <Input
                 editable="false"
                 inputLabel="Required Premium:"
@@ -186,7 +220,6 @@ class TransactionNew extends Component {
                 title="With Payment"
                 isRequired={true}
                 isYesDefault={this.props.withPayment}
-                errorRender={this.props.renderError}
                 onSelect={this.handleSignatureVerifiedChange}
               />
               
