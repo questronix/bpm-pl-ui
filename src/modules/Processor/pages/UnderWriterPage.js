@@ -64,7 +64,7 @@ export default class UnderWriter extends Component {
         <div className="flex-container flex-wrap margin-top-70">
           <div className="xl-2 l-2 m-3 s-3 xs-4 col no-padding"></div>
           <div className="xl-10 l-10 m-9 s-9 xs-8 col p-x2">
-            <UnderwriterContainer/>
+          <UnderwriterContainer/>
           </div>
         </div>
       </div>
