@@ -10,6 +10,7 @@ class OwnerinformationNew extends Component {
     this.state = {
       months: ''
     }
+    this.ChangeInOccupationOwner = this.ChangeInOccupationOwner.bind(this);
     this.handleYesNoChange = this.handleYesNoChange.bind(this);
     this.handleCheckChange = this.handleCheckChange.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
@@ -22,6 +23,10 @@ class OwnerinformationNew extends Component {
       [name]: value
     })
     console.log(this.state.months)
+  }
+
+  ChangeInOccupationOwner() {
+    this.props.handleChangeInOccupationOwner();
   }
 
   handleYesNoChange(name, value) {
@@ -42,16 +47,18 @@ class OwnerinformationNew extends Component {
         {this.props.type === "approver" &&
           <div className="App position-relative">
             {/* START OF SAME AS INSURE DETAILS BLOCKER */}
-            <div className="content-disabled active">
-              <div className="box">
-                <div className="box-body container flex f-center">
-                  <span className="fa fa-user-edit font-prulife"></span> &nbsp;
-                      <h3>
-                    Same as Insured Details.
-                      </h3>
+            {this.props.isPtrOrPwAvailed && (
+              <div className="content-disabled active">
+                <div className="box">
+                  <div className="box-body container flex f-center">
+                    <span className="fa fa-user-edit font-prulife"></span> &nbsp;
+                        <h3>
+                      Same as Insured Details.
+                        </h3>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
             {/* END */}
             <div className="col xl-12 flex f-center f-start mb no-padding">
               <span className="fa fa-user font-prulife">
@@ -392,30 +399,19 @@ class OwnerinformationNew extends Component {
 
         {this.props.type === "default" &&
           <div className="App position-relative">
-            {/* THIS WILL BE ADDED IF THE CONTENT IS THE SAME AS THE INSURED DETAILS */}
-            {this.props.isSameInsuredAndOwner && (
+            {/* START OF SAME AS INSURE DETAILS BLOCKER */}
+            {this.props.isPtrOrPwAvailed && (
               <div className="content-disabled active">
                 <div className="box">
                   <div className="box-body container flex f-center">
                     <span className="fa fa-user-edit font-prulife"></span> &nbsp;
-                      <h3>
+                        <h3>
                       Same as Insured Details.
-                      </h3>
+                        </h3>
                   </div>
                 </div>
               </div>
             )}
-            {/* START OF SAME AS INSURE DETAILS BLOCKER */}
-            <div className="content-disabled active">
-              <div className="box">
-                <div className="box-body container flex f-center">
-                  <span className="fa fa-user-edit font-prulife"></span> &nbsp;
-                      <h3>
-                    Same as Insured Details.
-                      </h3>
-                </div>
-              </div>
-            </div>
             {/* END */}
             <div className="col xl-12 flex f-center f-start">
               <span className="fa fa-user font-prulife"></span> &nbsp;
@@ -521,7 +517,25 @@ class OwnerinformationNew extends Component {
             </div>
             {/* CHECK POINT */}
             <div className="xl-12 flex-container flex-wrap">
-              <Input
+              <div className="col xl-4 input-container">
+                <label>
+                  Email Address:
+                  </label>
+                <input className="bg-lightgray" type="text" />
+              </div>
+              <div className="col xl-4 input-container">
+                <label>
+                  Telephone Number:
+                  </label>
+                <input className="bg-lightgray" type="text" />
+              </div>
+              <div className="col xl-4 input-container">
+                <label>
+                  Mobile Number
+                  </label>
+                <input className="bg-lightgray" type="text" />
+              </div>
+              {/* <Input
                 // classRequired="editable"
                 txtboxClass="bg-lightgray"
                 inputLabel="Email Address:"
@@ -540,7 +554,7 @@ class OwnerinformationNew extends Component {
                 inputLabel="Mobile Number:"
                 inputClass="col xl-4 input-container"
                 value={client && client.mobileNum}
-              />
+              /> */}
             </div>
             <div className="xl-12 flex-container flex-wrap">
               <div className="col xl-12 flex f-center f-start">
@@ -566,20 +580,27 @@ class OwnerinformationNew extends Component {
               />
               <div className="xl-2">
                 <YesNoRadio
-                  name="isChangeInOccupation"
+                  name="isChangeInOccupationOwner"
                   title="Change Occupation"
                   isRequired={false}
-                  isYesDefault={this.props.isChangeInOccupation}
+                  isYesDefault={this.props.isChangeInOccupationOwner}
                   onSelect={this.handleYesNoChange}
                 />
               </div>
-
-              <Input
-                txtboxClass="bg-lightgray"
-                inputLabel="Occupation:"
-                inputClass="col xl-4  input-container"
-                value={client && client.occupation1}
-              />
+              {this.props.isChangeInOccupationOwner == true ?
+                <div className="col xl-4 input-container">
+                  <label>
+                    New Occupation
+                  </label>
+                  <input className="bg-lightgray" type="text" />
+                </div>
+                // <Input
+                //   txtboxClass="bg-lightgray"
+                //   inputLabel="Occupation:"
+                //   inputClass="col xl-4  input-container"
+                //   value={client && client.occupation1}
+                // />
+                : null}
             </div>
             <div className="col xl-12 flex f-center f-start">
               <span className="fa fa-location-arrow font-prulife">
@@ -783,7 +804,7 @@ class OwnerinformationNew extends Component {
                     </div>
                   </Fragment>
                 )}
-            </Fragment>)}
+              </Fragment>)}
             );
             </div>
         }
