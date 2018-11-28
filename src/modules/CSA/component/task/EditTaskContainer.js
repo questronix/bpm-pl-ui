@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { Prompt } from 'react-router-dom';
+
 import { PolicyService, TaskService, DocumentService, QuestionService } from '../../services';
+import { questionUtils } from '../../../../utils';
+
 import TabHeader from '../policy/TabHeader';
 import InsuredinformationNew from '../policy/InsuredinformationNew';
 import TransactionNew from '../policy/TransactionNew';
@@ -12,7 +16,10 @@ class EditTaskContainer extends Component {
     super(props);
     this.state = {
       questions: [],
-
+      transactionNumber: '',
+      hasChangesMade: true,
+      showSaveTransactionModal: false,
+      showBeforeLeaveModal: false,
       policy: localStorage.getItem('policy') || {
         guid: '',
         action: '',
@@ -54,7 +61,6 @@ class EditTaskContainer extends Component {
         zipCode: '',
       },
       clients: [], // List of clients in Policy Search
-      transactionNumber: localStorage.getItem('transactionNumber') || '',
       task: null,
       
       // CONDITIONS
@@ -90,6 +96,7 @@ class EditTaskContainer extends Component {
       isPregnant: null,
       additionalFMA: false,
       additionalMUR: false,
+      additionalPregnancyQuestion: false,
 
       // OWNER TAB
       owner: null,
@@ -99,6 +106,7 @@ class EditTaskContainer extends Component {
       isPregnantOwner: null,
       additionalFMAOwner: null,
       additionalMUROwner: null,
+      additionalPregnancyQuestionOwner: false,
 
       // ADDITIONAL TAB
       isRelativeOfAgent: null,
@@ -144,7 +152,6 @@ class EditTaskContainer extends Component {
       user: JSON.parse(sessionStorage.getItem('user_info'))
     };
 
-    this.handleTransactionChange = this.handleTransactionChange.bind(this);
     this.handlePolicySearchSubmit = this.handlePolicySearchSubmit.bind(this);
     this.handleTransactionCheckList = this.handleTransactionCheckList.bind(this);
     this.handleNewTaskSubmit = this.handleNewTaskSubmit.bind(this);
@@ -212,73 +219,42 @@ class EditTaskContainer extends Component {
     }
   }
 
-  mapQuestionsToProps(questions) {
-    let isRelativeOfAgent = questions.find(q => q.questionId === 9);
-    isRelativeOfAgent = isRelativeOfAgent !== undefined && this.sanitizeBool(isRelativeOfAgent.answer);
+  mapQuestionToState(questions) {
+    const isRelativeOfAgent = questionUtils.findAnswer(9, questions);
+    const withReinstatementAgent = questionUtils.findAnswer(10, questions);
+    // const withCosal = questionUtils.findAnswer(13, questions);
 
-    let withReinstatementAgent = questions.find(q => q.questionId === 10);
-    withReinstatementAgent = withReinstatementAgent !== undefined && this.sanitizeBool(withReinstatementAgent.answer);
-
-    let withCosal = questions.find(q => q.questionId === 13);
-    withCosal = withCosal !== undefined && this.sanitizeBool(withCosal.answer);
-
-    this.setState({ questions, isRelativeOfAgent, withReinstatementAgent, withCosal });
-
-    // NO FATCA TAGGING IN DB
-    // let isFatcaTagging = questions.find(q => q.questionId === 13);
-    // isFatcaTagging = isFatcaTagging !== undefined && this.sanitizeBool(isFatcaTagging.answer);
+    this.setState({ 
+      questions, 
+      isRelativeOfAgent, 
+      withReinstatementAgent, 
+      // withCosal,
+      // suspense,
+      // orNum,
+      // dateOfSigning
+    });
   }
 
-  // mapQuestionToState() {
-  //   const { questions } = this.state;
-  //   // questions.map(item => {
-  //   //   item.find(q => q.questionId === 4).answer === "true" ? true : false
-  //   // })
-  //   this.setState({
-  //     // isSOI: questions.find(q => q.questionId === 1).answer === "true" ? true : false,
-  //     // isPregnant: questions.find(q => q.questionId === 2).answer === "true" ? true : false,
-  //     // additionalFMA: questions.find(q => q.questionId === 3).answer === "true" ? true : false,
-  //     // additionalMUR: questions.find(q => q.questionId === 4).answer === "true" ? true : false,
-
-  //     // additionalMUR: questions.find(q => q.questionId === 4).answer === "true" ? true : false,
-  //     withPayment: questions.find(q => q.questionId === 5).answer === "true" ? true : false,
-  //     isSignatureVerified: questions.find(q => q.questionId === 7).answer === "true" ? true : false,
-  //     isFatcaTagging: questions.find(q => q.questionId === 8).answer === "true" ? true : false,
-  //     isRelativeOfAgent: questions.find(q => q.questionId === 9).answer === "true" ? true : false,
-  //     withReinstatementAgent: questions.find(q => q.questionId === 10).answer === "true" ? true : false,
-
-  //     // withCosal: questions.find(q => q.questionId === 11).answer === "true"  ? true : false
-  //   });
-  // }
-
   componentDidMount() {
-    this.setState({
-      taskId: this.getQueryStringValue('id')
-    });
-
+    // window.addEventListener('beforeunload', this.handleLeavePage);
 
     // TODO: Validation to prevent Update of localstorage
     // if (!this.state.policy) {
     TaskService.getTaskDetails(this.getQueryStringValue('id'))
       .then(res => {
 
+        console.log(res.data);
+        const transactionNo = res.data.variables.transactionNumber;
+        const policyNo = res.data.variables.policyNo;
+
         QuestionService.getQuestionsByTransactionID({ transactionNo: res.data.variables.transactionNumber })
         .then((res) => {
           console.log('QUESTIONS', res.data.result);
           const flatQuestions = this.flatten(res.data.result);
-          const withPayment = flatQuestions.find(q => q.questionId === 5).answer === "true" ? true : false;
-          this.setState({ 
-            questions: flatQuestions,
-            // withPayment
-          });
           this.mapQuestionToState(flatQuestions);
         }).finally(() => {
 
         });
-
-        console.log(res.data);
-        const transactionNo = res.data.variables.transactionNumber;
-        const policyNo = res.data.variables.policyNo;
 
         PolicyService.getPolicyInformationByID(policyNo)
           .then(res => {
@@ -319,11 +295,28 @@ class EditTaskContainer extends Component {
 
         this.setState({    
           transactionNumber: transactionNo,
+          taskId: res.data.id,
           task: res.data
         });
         console.log('CLIENTS:  ', this.state.policy.clients);
       })
       .finally(() => { });
+  }
+
+  componentWillUnmount() {
+    // window.removeEventListener('beforeunload', this.handleLeavePage);
+    if (this.state.hasChangesMade) {
+      this.setState({ showBeforeLeaveModal: true });
+    }
+  }
+  
+  handleLeavePage(e) {
+    // if there's unsaved tasks
+    if (!this.state.hasChangesMade) return;
+    
+    const confirmationMessage = '';
+    e.returnValue = confirmationMessage;
+    return confirmationMessage;              
   }
 
   handleSubmit(event) {
@@ -333,11 +326,6 @@ class EditTaskContainer extends Component {
 
   handleInputChange(name, val) {
     this.setState({ [name]: val });
-    // const value = event.target.value;
-
-    // this.setState({
-    //   policyNumber: value
-    // });
   }
 
   handlePolicySearchSubmit(policyNumber) {
@@ -448,89 +436,6 @@ class EditTaskContainer extends Component {
       });
   }
 
-  handleTransactionChange(transactionType) {
-    this.setState({ selectedTransaction: transactionType });
-    let t_list;
-
-    if (transactionType === '1') {
-      t_list = [
-        {
-          id: 1,
-          isChecked: false,
-          label: 'Health Statement Form (HSF)'
-        },
-        {
-          id: 2,
-          isChecked: false,
-          label: 'U/W routine requirements'
-        },
-        {
-          id: 3,
-          isChecked: false,
-          label: 'Payment of Premium Arrears'
-        },
-        {
-          id: 4,
-          isChecked: false,
-          label: 'Specimen Signature Form (if applicable)'
-        },
-        {
-          id: 5,
-          isChecked: false,
-          label: 'Valid Government Issued ID (if applicable)'
-        },
-        {
-          id: 6,
-          isChecked: false,
-          label: 'Valid Non-Government Issued ID (if applicable)'
-        }
-      ];
-    } else if (transactionType === '2') {
-      t_list = [
-        {
-          id: 1,
-          isChecked: false,
-          label: 'Health Statement Form (HSF)'
-        },
-        {
-          id: 2,
-          isChecked: false,
-          label: 'Health Statement Form (HSF)'
-        },
-        {
-          id: 3,
-          isChecked: false,
-          label: 'Specimen Signature Form (if applicable)'
-        },
-        {
-          id: 4,
-          isChecked: false,
-          label: 'Valid Government Issued ID (if applicable)'
-        },
-        {
-          id: 5,
-          isChecked: false,
-          label: 'Valid Non-Government Issued ID (if applicable)'
-        }
-      ];
-    } else if (transactionType === '3') {
-      t_list = [
-        {
-          id: 1,
-          isChecked: false,
-          label: 'Discretionary Waiver Form'
-        },
-        {
-          id: 2,
-          isChecked: false,
-          label: 'Payment of reinstatement cost'
-        }
-      ];
-    }
-
-    this.setState({ transactionCheckList: t_list });
-  }
-
   handleTransactionCheckList(updatedTransactionCheckList) {
     this.setState({ transactionCheckList: updatedTransactionCheckList });
   }
@@ -612,6 +517,7 @@ class EditTaskContainer extends Component {
       }); 
       this.getInsuredDetails();
       this.updateDocList();
+      this.saveAnswer();
     }
     else if (tabPage === 3) { 
       this.setState({ isVisitedOwner: true }); 
@@ -621,9 +527,10 @@ class EditTaskContainer extends Component {
       this.setState({ isVisitedAdditional: true });
     }
     else if (tabPage === 5) {
-      if (window.confirm('Are you sure you want to Proceed')) {
-        this.saveTransaction();
-      }
+      // if (window.confirm('Are you sure you want to Proceed')) {
+      //   this.saveTransaction();
+      // }
+      this.setState({ showSaveTransactionModal: true, currentTab: 4});
     }
     this.setState({ visitedTabStatus: tabPage });
   }
@@ -719,17 +626,14 @@ class EditTaskContainer extends Component {
     .then(res => {
       console.log('SAVE ANSWER', res.data);
       if (res.data.isSuccess) {
-
         const owner = this.state.policy.clients.find(client => client.role == "OW");
         const insured = this.state.policy.clients.find(client => client.role == "LF");
-
         const clientInfo = {
           insured: insured.clntNum,
           insuredName: `${insured.clientLastName}, ${insured.clientFirstName} ${insured.clientMiddleName}`,
           owner: owner.clntNum,
           ownerName: `${owner.clientLastName}, ${owner.clientFirstName} ${owner.clientMiddleName}`
         }
-
         const policyInfo = {
           status: "success",
           statusCode: 0,
@@ -741,7 +645,6 @@ class EditTaskContainer extends Component {
             ...clientInfo
           }
         };
-
         const taskInfo = {
           isCompleteAndValid: true,
           type: "csa",
@@ -751,7 +654,6 @@ class EditTaskContainer extends Component {
 
         PolicyService.saveDetails(policyInfo)
         .then(res => {
-
           console.log('SAVE POLICY', res.data);
 
           TaskService.submitTask(this.state.taskId, taskInfo)
@@ -990,11 +892,11 @@ class EditTaskContainer extends Component {
   
   saveAnswer() {
     const data = {
-      "status": "success",
-      "statusCode": 0,
-      "isSuccess": true,
-      "message": "successful in fetching data.",
-      "result": {
+      status: "success",
+      statusCode: 0,
+      isSuccess: true,
+      message: "successful in fetching data.",
+      result: {
         answers: [
           {
             transactionNo: this.state.transactionNumber,
@@ -1098,10 +1000,26 @@ class EditTaskContainer extends Component {
     return output;
   }
 
+  saveBeforeLeaving(save) {
+    if (!save) {
+      this.setState({ showBeforeLeaveModal: false });
+      return;
+    }
+    this.saveAnswer();
+    this.setState({ showBeforeLeaveModal: false });
+  }
+
   render() {
     return (
       <div className="flex-container flex-wrap">
-        <ModalOkCancel mHeader="Confirmation" 
+        {/* <Prompt 
+          when={this.state.hasChangesMade} 
+          message={() => {
+            this.setState({ showBeforeLeaveModal: true });
+            return "Unsaved changes detected. Save your progress before leaving?"
+          } }
+        /> */}
+        <ModalOkCancel mHeader="Confirm" 
           show={this.state.showReqModal} 
           okCaption="Yes"
           cancelCaption="No"
@@ -1109,10 +1027,34 @@ class EditTaskContainer extends Component {
           onCancel={() => this.setState({ showReqModal: false })}>
           <div className="flex f-center f-column">
             <h3 className="text-center">
-              Inclomplete documents. Do you want to generate memo?
+              Incomplete documents. Do you want to generate memo?
             </h3>
           </div>
         </ModalOkCancel>
+        <ModalOkCancel mHeader="Confirm" 
+          show={this.state.showSaveTransactionModal} 
+          okCaption="Yes"
+          cancelCaption="No"
+          onOk={() => this.saveTransaction()} 
+          onCancel={() => this.setState({ showSaveTransactionModal: false })}>
+          <div className="flex f-center f-column">
+            <h3 className="text-center">
+              Are you sure you want to save transaction?
+            </h3>
+          </div>
+        </ModalOkCancel>
+        {/* <ModalOkCancel mHeader="Unsaved task" 
+          show={this.state.showBeforeLeaveModal} 
+          okCaption="Save and Exit"
+          cancelCaption="Exit without saving"
+          onOk={() => this.saveBeforeLeaving(true)} 
+          onCancel={() => this.saveBeforeLeaving(false)}>
+          <div className="flex f-center f-column">
+            <h3 className="text-center">
+              Unsaved changes detected. We recommend that you save your progress before leaving the page.?
+            </h3>
+          </div>
+        </ModalOkCancel> */}
         <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
         <div className="margin-top-70 col xl-10 l-10 m-9 s-9 xs-8 p-x2 margin-auto">
           <div className="">
@@ -1210,6 +1152,7 @@ class EditTaskContainer extends Component {
                 onYesNoSelect={this.handleYesNoSelect}
                 fma={this.state.additionalFMA}
                 mur={this.state.additionalMUR}
+                additionalPregnancyQuestion={this.state.additionalPregnancyQuestion}
                 onCheckChange={this.handleOnCheckChange}
                 isPtrOrPwAvailed={this.state.isPtrOrPwAvailed}
               />}
@@ -1223,6 +1166,7 @@ class EditTaskContainer extends Component {
                 onYesNoSelect={this.handleYesNoSelect}
                 fma={this.state.additionalFMAOwner}
                 mur={this.state.additionalMUROwner}
+                additionalPregnancyQuestionOwner={this.state.additionalPregnancyQuestionOwner}
                 onCheckChange={this.handleOnCheckChange}
                 isSameInsuredAndOwner={this.state.isSameInsuredAndOwner}
                 isPtrOrPwAvailed={this.state.isPtrOrPwAvailed}

@@ -51,7 +51,7 @@ class FatcaNew extends Component {
                 name="orNum"
                 value={this.props.orNum}
                 inputPlaceholder="OR Number"
-                inputClass="inp ut-container xl-6 "
+                inputClass="input-container xl-6 "
                 inputLabel="OR Number:"
                 txtboxClass="bg-lightgray"
                 onInputChange={this.handleInputChange} 

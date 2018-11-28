@@ -1,25 +1,19 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import Input from '../../../../shared/component/input/Input';
+import { policyUtils } from '../../../../utils';
 
-class PolicyInfoHeader extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
+const PolicyInfoHeader = ({policy, clients, type}) => {
 
-
-    const { policy, clients } = this.props;
-    let owner;
-    let insured;
-
+    let owner = {};
+    let insured = {};
     if (clients.length > 0) {
-      owner = clients.find(client => client.role === 'OW');
-      insured = clients.find(client => client.role === 'LF');
+      owner = policyUtils.findOwnerInfo(clients);
+      insured = policyUtils.findInsuredInfo(clients);
     }
+
     return (
       <Fragment>
-
-        {this.props.type === "approver" &&
+        {type === 'approver' &&
           <div className="xl-12 flex-container flex-wrap insured-details">
             <Input editable="false" inputLabel="Policy Number:" inputPlaceholder="0000001" txtboxClass="no-border" inputClass="col xl-6 input-container" value={policy.policyNo} />
             <Input editable="false" inputLabel="Sum Assured:" inputPlaceholder="100,000" txtboxClass="no-border" inputClass="col xl-6 input-container" value={policy.sumInsured} />
@@ -34,14 +28,14 @@ class PolicyInfoHeader extends Component {
             <Input editable="false" inputLabel="Current Premium:" inputPlaceholder="Current Premium" txtboxClass="no-border" inputClass="col xl-6 input-container" value={policy.currentPremium} />
             <Input editable="false" inputLabel="Mode of Payment:" inputPlaceholder="Monthly" txtboxClass="no-border" inputClass="col xl-6 input-container" value="" />
 
-            <Input editable="false" inputLabel="Insured Name:" inputPlaceholder="LastN, FirstN, MName" txtboxClass="no-border" inputClass="col xl-6 input-container" value={insured && `${insured.clientLastName}, ${insured.clientFirstName}, ${insured.clientMiddleName}`} />
-            <Input editable="false" inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-6 input-container" value={insured && insured.dateOfBirth} />
-            <Input editable="false" inputLabel="Owner Name:" inputPlaceholder="LastN, FirstN, MName" txtboxClass="no-border" inputClass="col xl-6 input-container" value={owner && `${owner.clientLastName}, ${owner.clientFirstName}, ${owner.clientMiddleName}`} />
-            <Input editable="false" inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-6 input-container" value={owner && owner.dateOfBirth} />
+            <Input editable="false" inputLabel="Insured Name:" inputPlaceholder="LastN, FirstN, MName" txtboxClass="no-border" inputClass="col xl-6 input-container" value={`${insured.clientLastName}, ${insured.clientFirstName} ${insured.clientMiddleName}`} />
+            <Input editable="false" inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-6 input-container" value={insured.dateOfBirth} />
+            <Input editable="false" inputLabel="Owner Name:" inputPlaceholder="LastN, FirstN, MName" txtboxClass="no-border" inputClass="col xl-6 input-container" value={`${owner.clientLastName}, ${owner.clientFirstName} ${owner.clientMiddleName}`} />
+            <Input editable="false" inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-6 input-container" value={owner.dateOfBirth} />
           </div>
         }
 
-        {this.props.type === "default" &&
+        {type === 'default' &&
          <div className="xl-12 flex-container flex-wrap insured-details">
          <Input editable="false" inputLabel="Policy Number:" inputPlaceholder="0000001" txtboxClass="no-border" inputClass="col xl-3 input-container" value={policy.policyNo} />
          <Input editable="false" inputLabel="Sum Assured:" inputPlaceholder="100,000" txtboxClass="no-border" inputClass="col xl-3 input-container" value={policy.sumInsured} />
@@ -56,15 +50,18 @@ class PolicyInfoHeader extends Component {
          <Input editable="false" inputLabel="Current Premium:" inputPlaceholder="Current Premium" txtboxClass="no-border" inputClass="col xl-4 input-container" value={policy.currentPremium} />
          <Input editable="false" inputLabel="Mode of Payment:" inputPlaceholder="Monthly" txtboxClass="no-border" inputClass="col xl-4 input-container" value="" />
 
-         <Input editable="false" inputLabel="Insured Name:" inputPlaceholder="LastN, FirstN, MName" txtboxClass="no-border" inputClass="col xl-10 input-container" value={insured && `${insured.clientLastName}, ${insured.clientFirstName}, ${insured.clientMiddleName}`} />
-         <Input editable="false" inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-2 input-container" value={insured && insured.dateOfBirth} />
-         <Input editable="false" inputLabel="Owner Name:" inputPlaceholder="LastN, FirstN, MName" txtboxClass="no-border" inputClass="col xl-10 input-container" value={owner && `${owner.clientLastName}, ${owner.clientFirstName}, ${owner.clientMiddleName}`} />
-         <Input editable="false" inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-2 input-container" value={owner && owner.dateOfBirth} />
+         <Input editable="false" inputLabel="Insured Name:" inputPlaceholder="LastN, FirstN, MName" txtboxClass="no-border" inputClass="col xl-10 input-container" value={`${insured.clientLastName}, ${insured.clientFirstName} ${insured.clientMiddleName}`} />
+         <Input editable="false" inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-2 input-container" value={insured.dateOfBirth} />
+         <Input editable="false" inputLabel="Owner Name:" inputPlaceholder="LastN, FirstN, MName" txtboxClass="no-border" inputClass="col xl-10 input-container" value={`${owner.clientLastName}, ${owner.clientFirstName} ${owner.clientMiddleName}`} />
+         <Input editable="false" inputLabel="Birthdate:" inputPlaceholder="mm/dd/yyyy" txtboxClass="no-border" inputClass="col xl-2 input-container" value={owner.dateOfBirth} />
        </div>
       }
     </Fragment>
     );
-  }
+}
+
+PolicyInfoHeader.defaultProps = {
+  type: 'default'
 }
 
 export default PolicyInfoHeader;

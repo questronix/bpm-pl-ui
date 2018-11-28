@@ -656,7 +656,7 @@ class OwnerinformationNew extends Component {
             <div className="xl-12 flex-container flex-wrap col">
               <div className="xl-12">
               <YesNoRadio
-                  name="isSOI"
+                  name="isSOIOwner"
                   title="Statement of Insurability Declarations"
                   isRequired={false}
                   isYesDefault={this.props.isSOI}
@@ -669,7 +669,7 @@ class OwnerinformationNew extends Component {
                 <div className="xl-12 flex-container flex-wrap col">
                   <div className="xl-12">
                     <YesNoRadio
-                      name="isPregnant"
+                      name="isPregnantOwner"
                       title="Are you pregnant?"
                       isRequired={false}
                       isYesDefault={this.props.isPregnant}
@@ -688,7 +688,7 @@ class OwnerinformationNew extends Component {
                         FME
                       </label>
                       <label className="checkbox">
-                        <input id="fma" type="checkbox" name={"additionalFMA"} value={this.props.fma} checked={this.props.fma} onChange={this.handleCheckChange}/>
+                        <input id="fma" type="checkbox" name={"additionalFMAOwner"} value={this.props.fma} checked={this.props.fma} onChange={this.handleCheckChange}/>
                         <span className="checkmark" />
                       </label>
                     </div>
@@ -697,7 +697,16 @@ class OwnerinformationNew extends Component {
                         MUR
                       </label>
                       <label className="checkbox">
-                        <input id="mur" type="checkbox" name={"additionalMUR"} value={this.props.mur} checked={this.props.mur} onChange={this.handleCheckChange}/>
+                        <input id="mur" type="checkbox" name={"additionalMUROwner"} value={this.props.mur} checked={this.props.mur} onChange={this.handleCheckChange}/>
+                        <span className="checkmark" />
+                      </label>
+                    </div>
+                    <div className="col xl-12 flex f-row-reverse f-end">
+                      <label htmlFor="mur">
+                        Pregnancy Questionaire
+                      </label>
+                      <label className="checkbox">
+                        <input id="mur" type="checkbox" name={"additionalPregnancyQuestionOwner"} value={this.props.additionalPregnancyQuestionOwner} checked={this.props.additionalPregnancyQuestionOwner} onChange={this.handleCheckChange} />
                         <span className="checkmark" />
                       </label>
                     </div>
