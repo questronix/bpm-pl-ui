@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PolicyInfoHeader from '../../../CSA/component/policy/PolicyInfoHeader';
 import AgentInfoHeader from '../../../CSA/component/policy/AgentInfoHeader';
 import { PolicyService, TaskService, DocumentService } from '../../../CSA/services';
-import { FileNetService } from '../../services/';
+import { FileNetService } from '../../services';
 import InsuredinformationNew from '../../../CSA/component/policy/InsuredinformationNew';
 import OwnerinformationNew from '../../../CSA/component/policy/OwnerinformationNew';
 

@@ -23,7 +23,7 @@ class SidebarNew extends Component {
     const ROLE = JSON.parse(sessionStorage.getItem('user_info')).Role_Description;
 
     return (
-      <div className="sidebar col no-padding xl-2 l-2 m-3 s-3 xs-4 ">
+      <div className="sidebar col no-padding  ">
         <div className="sidebar-title">
           <div className="logo">
             <div className="wrapper"><i className="icon fa fa-file-signature"></i></div>

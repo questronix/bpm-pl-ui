@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReviewDetails from './PolicyInsuredOwnerContainer';
 import { PolicyService, TaskService, DocumentService } from '../../../CSA/services';
 import { FileNetService } from '../../services/';
 import PolicyInfoHeader from '../../../CSA/component/policy/PolicyInfoHeader';

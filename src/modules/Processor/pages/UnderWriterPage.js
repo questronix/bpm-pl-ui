@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // import Nav from '../../../shared/component/nav/Nav';
 import { TaskService } from '../../../services/index';
 import Nav from '../component/nav/Nav'
-import UnderwriterContainer from '../component/processor/UnderwriterContainer';
+import UnderwriterContainer from '../component/underwriter/UnderwriterContainer';
 
 export default class UnderWriter extends Component {
   constructor(props) {
@@ -62,8 +62,8 @@ export default class UnderWriter extends Component {
       <div>
         <Nav />
         <div className="flex-container flex-wrap margin-top-70">
-          <div className="xl-2 l-2 m-3 s-3 xs-4 col no-padding"></div>
-          <div className="xl-10 l-10 m-9 s-9 xs-8 col p-x2">
+          <div className="col no-padding ghost-sidebar"></div>
+          <div className="col p-x2 margin-left-250">
             <UnderwriterContainer/>
           </div>
         </div>

@@ -35,7 +35,7 @@ class ApproverContainer extends Component {
               Reviewed Details
               </h1>
             </div>
-            <ReviewDetails />
+            <ReviewDetails /> 
           </div>
         </div>
       </div >

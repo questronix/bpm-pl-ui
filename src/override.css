@@ -559,13 +559,17 @@ select {
 .e-content {
   transform: translate(-30px, 30px); }
 
+.margin-left-250 {
+  margin-left: 250px !important; }
+
 .big-font {
   font-size: 120px; }
 
 .required::after {
   content: " *";
   color: #ED1B2E;
-  font-size: 13px; }
+  font-size: 13px;
+  position: absolute; }
 
 .error {
   position: absolute;
@@ -647,7 +651,7 @@ ul, li, ol {
   margin-top: 90px; }
 
 .margin-top-70 {
-  margin-top: 70px !important; }
+  margin-top: 60px !important; }
 
 .margin-top-10 {
   margin-top: 10px; }
@@ -879,6 +883,9 @@ hr {
   width: 100%; }
 
 @media only screen and (min-width: 1280px) {
+  .ghost-sidebar {
+    width: 250px; }
+
   .col {
     padding: 10px;
     max-width: 100%;
@@ -976,6 +983,9 @@ hr {
   .login-form {
     width: 20%; } }
 @media only screen and (min-width: 1024px) and (max-width: 1279px) {
+  .ghost-sidebar {
+    width: 250px; }
+
   .col {
     padding: 10px;
     max-width: 100%;
@@ -1073,6 +1083,9 @@ hr {
   .login-form {
     width: 30%; } }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .ghost-sidebar {
+    width: 250px; }
+
   .col {
     padding: 10px;
     max-width: 100%;
@@ -1172,6 +1185,9 @@ hr {
     height: 100%;
     border-radius: 0; } }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+  .ghost-sidebar {
+    width: 250px; }
+
   .col {
     padding: 10px;
     max-width: 100%;
@@ -1271,6 +1287,9 @@ hr {
     height: 100%;
     border-radius: 0; } }
 @media only screen and (max-width: 479px) and (min-width: 100px) {
+  .ghost-sidebar {
+    width: 250px; }
+
   .col {
     padding: 10px;
     max-width: 100%;
@@ -1498,9 +1517,13 @@ nav.navbar .navmenu {
   .logo .title.white {
     color: white; }
 
+.ghost-sidebar {
+  width: 250px; }
+
 .sidebar {
   position: fixed;
   background-color: #232323;
+  width: 250px;
   height: 100%; }
   .sidebar .sidebar-title {
     background-color: black;
@@ -2001,7 +2024,6 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .content-disabled {
   position: absolute;
-  transform: translate(-10px, -10px);
   background-color: rgba(0, 0, 0, 0.75);
   width: 100%;
   height: 100%;

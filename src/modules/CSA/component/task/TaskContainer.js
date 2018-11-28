@@ -231,7 +231,7 @@ class TaskContainer extends Component {
             </h3>
           </div>
         </ModalAlert>
-        <div className="col no-padding xl-2 l-2 m-3 s-3 xs-4" />
+        <div className="col no-padding ghost-sidebar" />
         <MyModal modalId="1" modalLabel="Add New Transaction" isOpen={this.state.openSearchModal} onToggle={this.handleModalToggle}>
           <div className="col no-padding xl-12 mb ml-0 mr-0 border-bottom border-gray">
             <form>
@@ -310,7 +310,7 @@ class TaskContainer extends Component {
           )}
         </MyModal>
 
-        <div className="col xl-10 l-10 m-9 s-9 xs-8 p-x2">
+        <div className="col margin-left-250 p-x2">
           <div className="">
             <h1 className="flex s-f-center xs-f-center text-darkgray larger normal">Tasks</h1>
             <div className="xl-12 l-12 m-12 s-12 xs-12 flex-container flex-wrap flex f-justify-space-between mb">
