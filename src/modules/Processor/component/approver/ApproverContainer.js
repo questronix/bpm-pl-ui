@@ -5,10 +5,32 @@ class ApproverContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isApprove: null,
       remarks: ''
-    }
+    };
+    this.handleApprove = this.handleApprove.bind(this);
+    this.handleDecline = this.handleDecline.bind(this);
+    this.remarksInput = this.remarksInput.bind(this);
   }
+
+    handleApprove(){
+    
+      alert('Approved')
+    }
+
+    handleDecline(){
+      alert('Declined')
+    }
+
+    remarksInput(event) {
+      const value = event.target.value;
+  
+      this.setState({
+        remarks: value
+      })
+      console.log(this.state.remarks)
+    }
+
+
   render() {
     return (
       <div className="App">
@@ -22,17 +44,18 @@ class ApproverContainer extends Component {
             <div className="box approval">
               <div className="p">
                 <ApprovalDetailsContainer />
-              </div>
-              <div className="p border-top border-lightgray">
-                <div className="col no-padding flex-container">
-                  <textarea className="xl-12 p-xs bg-lightgray border rounded border-gray" placeholder="Remarks"></textarea>
+                <div className="p border-top border-lightgray">
+                  <div className="col no-padding flex-container">
+                    <textarea className="xl-12 p-xs bg-lightgray border rounded border-gray" placeholder="Remarks" onChange={this.remarksInput} value={this.state.remarks}></textarea>
+                  </div>
+                  <p className="text-italic font-sm text-darkgray mb-sm mt-0"><b className="text-darkgray">Note:</b> remarks is required if the resolution is declined.</p>
                 </div>
                 <p className="text-italic font-sm text-darkgray mb-sm mt-0"><b className="text-darkgray">Note:</b> remarks is required if the resolution is declined.</p>
                 <div className="flex f-end">
-                  <button className="btn prugray ml">
+                  <button className="btn prugray ml" onClick={this.handleDecline}>
                     <i className="icon fa fa-times mr-sm"></i>DECLINE
                   </button>
-                  <button className="btn darkgreen ml">
+                  <button className="btn darkgreen ml" onClick={this.handleApprove}>
                     <i className="icon fa fa-check mr-sm"></i>APPROVE
                   </button>
                 </div>

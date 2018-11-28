@@ -7,8 +7,21 @@ class OwnerinformationNew extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      months: ''
+    }
     this.handleYesNoChange = this.handleYesNoChange.bind(this);
     this.handleCheckChange = this.handleCheckChange.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
+  }
+
+  onInputChange(name, value) {
+
+
+    this.setState({
+      [name]: value
+    })
+    console.log(this.state.months)
   }
 
   handleYesNoChange(name, value) {
@@ -660,6 +673,7 @@ class OwnerinformationNew extends Component {
                 value={client && client.address[2].address5}
               />
             </div>
+
             <div className="xl-12 flex-container flex-wrap col">
               <div className="xl-2">
                 <YesNoRadio
@@ -700,48 +714,79 @@ class OwnerinformationNew extends Component {
                           onSelect={this.handleYesNoChange}
                         />
                       </div>
-                    </div>
-                    {this.props.isPregnant && (
-                      <div className="xl-12 flex-container flex-wrap col">
-                        <div className="xl-12">
-                          <p className="label flex no-margin required">
-                            Additional requirements:
+                      {this.props.isPregnant === true ?
+                        <Input
+                          name="months"
+                          txtboxClass="bg-light-gray  "
+                          onInputChange={this.onInputChange}
+                          inputLabel="How many months? :"
+                          inputClass="col xl-2 input-container"
+                          value={this.state.months}
+                        />
+                        : null
+                      }
+
+                      {this.props.isPregnant && (
+                        <div className="xl-12 flex-container flex-wrap col">
+                          <div className="xl-12">
+                            <p className="label flex no-margin required">
+                              Additional requirements:
+                           </p>
+                            <div className="col xl-12 flex f-row-reverse f-end">
+                              <label htmlFor="fma">
+                                FME
+                      </label>
+                              <label className="checkbox">
+                                <input id="fma" type="checkbox" name={"additionalFMAOwner"} value={this.props.fma} checked={this.props.fma} onChange={this.handleCheckChange} />
+                                <span className="checkmark" />
+                              </label>
+                            </div>
+                            {this.props.isPregnant && (
+                              <div className="xl-12 flex-container flex-wrap col">
+                                <div className="xl-12">
+                                  <p className="label flex no-margin required">
+                                    Additional requirements:
                     </p>
-                          <div className="col xl-12 flex f-row-reverse f-end">
-                            <label htmlFor="fma">
-                              FME
+                                  <div className="col xl-12 flex f-row-reverse f-end">
+                                    <label htmlFor="fma">
+                                      FME
                       </label>
-                            <label className="checkbox">
-                              <input id="fma" type="checkbox" name={"additionalFMAOwner"} value={this.props.fma} checked={this.props.fma} onChange={this.handleCheckChange} />
-                              <span className="checkmark" />
-                            </label>
-                          </div>
-                          <div className="col xl-12 flex f-row-reverse f-end">
-                            <label htmlFor="mur">
-                              MUR
+                                    <label className="checkbox">
+                                      <input id="fma" type="checkbox" name={"additionalFMAOwner"} value={this.props.fma} checked={this.props.fma} onChange={this.handleCheckChange} />
+                                      <span className="checkmark" />
+                                    </label>
+                                  </div>
+                                  <div className="col xl-12 flex f-row-reverse f-end">
+                                    <label htmlFor="mur">
+                                      MUR
                       </label>
-                            <label className="checkbox">
-                              <input id="mur" type="checkbox" name={"additionalMUROwner"} value={this.props.mur} checked={this.props.mur} onChange={this.handleCheckChange} />
-                              <span className="checkmark" />
-                            </label>
-                          </div>
-                          <div className="col xl-12 flex f-row-reverse f-end">
-                            <label htmlFor="mur">
-                              Pregnancy Questionaire
+                                    <label className="checkbox">
+                                      <input id="mur" type="checkbox" name={"additionalMUROwner"} value={this.props.mur} checked={this.props.mur} onChange={this.handleCheckChange} />
+                                      <span className="checkmark" />
+                                    </label>
+                                  </div>
+                                  <div className="col xl-12 flex f-row-reverse f-end">
+                                    <label htmlFor="mur">
+                                      Pregnancy Questionaire
                       </label>
-                            <label className="checkbox">
-                              <input id="mur" type="checkbox" name={"additionalPregnancyQuestionOwner"} value={this.props.additionalPregnancyQuestionOwner} checked={this.props.additionalPregnancyQuestionOwner} onChange={this.handleCheckChange} />
-                              <span className="checkmark" />
-                            </label>
+                                    <label className="checkbox">
+                                      <input id="mur" type="checkbox" name={"additionalPregnancyQuestionOwner"} value={this.props.additionalPregnancyQuestionOwner} checked={this.props.additionalPregnancyQuestionOwner} onChange={this.handleCheckChange} />
+                                      <span className="checkmark" />
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </Fragment>
                 )}
-              </Fragment>
-            )}
-          </div>}
+            </Fragment>)}
+            );
+            </div>
+        }
       </div>
     );
   }

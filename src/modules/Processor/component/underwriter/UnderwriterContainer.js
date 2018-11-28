@@ -6,8 +6,30 @@ class UnderwriterContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      remarks: ''
     }
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.isApprove = this.isApprove.bind(this);
+    this.isDissApprove = this.isDissApprove.bind(this);
   }
+
+  handleInputChange(event) {
+    const value = event.target.value;
+
+    this.setState({
+      remarks: value
+    })
+    console.log(this.state.remarks)
+  }
+  
+  isApprove(){
+    alert("Approve")
+  }
+
+  isDissApprove(){
+    alert("Dissaprove")
+  }
+  
   render() {
     return (
       <div className="App">
@@ -299,7 +321,7 @@ class UnderwriterContainer extends Component {
               </div>
             </div>
             <div className="p">
-              <textarea className="bg-lightgray border rounded border-gray no-padding col" placeholder="Remarks"></textarea>
+              <textarea className="bg-lightgray border rounded border-gray no-padding col" placeholder="Remarks" onChange={this.handleInputChange} value={this.state.remarks}></textarea>
               <p className="text-italic font-sm text-darkgray mb-sm"><b className="text-darkgray">Note:</b> remarks is required if the resolution is declined.</p>
 
               <div className="flex-container f-end flex f-center">
@@ -336,11 +358,11 @@ class UnderwriterContainer extends Component {
                     <span className="checkmark" />
                   </label>
                 </div>
-                <button className="ml-0 btn prugray mr">
+                <button className="ml-0 btn prugray mr"onClick={this.isDissApprove}>
                   <i className="fa fa-times mr-sm"></i>
                   DISSAPROVE
                 </button>
-                <button className="ml-0 btn darkgreen">
+                <button className="ml-0 btn darkgreen"onClick={this.isApprove}>
                   <i className="fa fa-check mr-sm"></i>
                   APPROVE
                 </button>
