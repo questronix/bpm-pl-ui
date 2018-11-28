@@ -224,12 +224,16 @@ class EditTaskContainer extends Component {
   mapQuestionToState(questions) {
     const isRelativeOfAgent = questionUtils.findAnswer(9, questions);
     const withReinstatementAgent = questionUtils.findAnswer(10, questions);
+    const withPayment = questionUtils.findAnswer(5, questions);
+    const isSignatureVerified = questionUtils.findAnswer(7, questions);
     // const withCosal = questionUtils.findAnswer(13, questions);
 
     this.setState({ 
       questions, 
       isRelativeOfAgent, 
       withReinstatementAgent, 
+      withPayment,
+      isSignatureVerified
       // withCosal,
       // suspense,
       // orNum,
