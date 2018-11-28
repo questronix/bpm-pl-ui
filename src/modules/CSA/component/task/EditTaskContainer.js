@@ -20,6 +20,7 @@ class EditTaskContainer extends Component {
       hasChangesMade: true,
       showSaveTransactionModal: false,
       showBeforeLeaveModal: false,
+      
       policy: localStorage.getItem('policy') || {
         guid: '',
         action: '',
@@ -510,22 +511,25 @@ class EditTaskContainer extends Component {
   }
 
   updateVistedTab(tabPage) {
+    const { withPayment, isSignatureVerified } = this.state;
     this.createMemo();
+    this.saveAnswer();
     if (tabPage === 2) {
-      if (this.state.withPayment === null) {
+      // page 1 validation
+      if (withPayment === null || withPayment === false || isSignatureVerified === null || isSignatureVerified === false) {
         this.setState({ currentTab: 1, renderError: true});
+        return;
       }
 
-      if (this.state.signatureVerified === null) {
-        this.setState({ currentTab: 1, renderError: true});
-      }
+      // if (this.state.signatureVerified === null) {
+      //   this.setState({ currentTab: 1, renderError: true});
+      // }
       this.setState({ 
         isVisitedTransaction: true, 
         isVisitedInsured: true
       }); 
       this.getInsuredDetails();
       this.updateDocList();
-      this.saveAnswer();
     }
     else if (tabPage === 3) { 
       this.setState({ isVisitedOwner: true }); 

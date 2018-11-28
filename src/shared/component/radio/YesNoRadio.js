@@ -3,27 +3,26 @@ import React, { Component } from 'react';
 class YesNoRadio extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      currentVal: false
+    };
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   handleSelectChange(e) {
     const val = e.target.value == 'true' ? true : false;
     this.props.onSelect(e.target.name, val);
+    this.setState({ currentVal: val });
   }
 
   render() {
+    const isInvalid = this.props.isRequired && (this.props.isYesDefault === null || !this.props.isYesDefault);
     return (
       <div className="position-relative">
-        {this.props.isRequired && ( 
-          <div className={this.props.isYesDefault !==null ? "" : "error"}>
-          <span className= {this.props.isYesDefault !==null ? "" :  "fa fa-times"}></span>
+        {(isInvalid && this.props.showError) && ( 
+          <div className="error">
+          <span className="fa fa-times"></span>
         </div>
-          // <div>
-          //   {this.props.errorRender === true ? 
-          //   <div className={this.props.isYesDefault !==null ? "" : "error"}>
-          //   <span className= {this.props.isYesDefault !==null ? "" :  "fa fa-times"}></span>
-          // </div> : "" }
-          // </div>
         )}
         <p
           className={

@@ -323,7 +323,7 @@ class TaskContainer extends Component {
                     <option value="Insured Name">Insured Name</option>
                     <option value="Policy">Policy</option>
                   </select>
-                  <input className="search" placeholder="Search Policy Number" />
+                  <input className="search" placeholder="Search" />
                 </div>
                 <a href="#" className="btn prulife flex f-center">
                   <span className="fa fa-search font-white" /> &nbsp;

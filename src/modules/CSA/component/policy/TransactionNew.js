@@ -221,6 +221,7 @@ class TransactionNew extends Component {
                 isRequired={true}
                 isYesDefault={this.props.withPayment}
                 onSelect={this.handleSignatureVerifiedChange}
+                showError={this.props.renderError}
               />
               
               <YesNoRadio
@@ -229,6 +230,7 @@ class TransactionNew extends Component {
                 isRequired={true}
                 isYesDefault={this.props.isSignatureVerified}
                 onSelect={this.handleSignatureVerifiedChange}
+                showError={this.props.renderError}
               />
             </div>
           </div>  
