@@ -119,6 +119,7 @@ class EditTaskContainer extends Component {
       dateOfSigning: '',
       orNum: '',
       isBeyondLimit: false,
+      isPlaceOfSigning: null,
 
       client: {},
 
@@ -1194,6 +1195,7 @@ class EditTaskContainer extends Component {
                 isBeyondLimit={this.state.isBeyondLimit}
                 orNum={this.state.orNum}
                 onTextChange={this.handleInputChange}
+                isPlaceOfSigning={this.state.isPlaceOfSigning}
               />}
 
               <div className="flex f-justify-space-between p">
