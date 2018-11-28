@@ -22,12 +22,12 @@ class ApproverContainer extends Component {
             <div className="box approval">
               <div className="p">
                 <ApprovalDetailsContainer />
-                <div className="p border-top border-lightgray">
-                  <div className="col no-padding flex-container">
-                    <textarea className="xl-12 p-xs bg-lightgray border rounded border-gray" placeholder="Remarks"></textarea>
-                  </div>
-                  <p className="text-italic font-sm text-darkgray mb-sm mt-0"><b className="text-darkgray">Note:</b> remarks is required if the resolution is declined.</p>
+              </div>
+              <div className="p border-top border-lightgray">
+                <div className="col no-padding flex-container">
+                  <textarea className="xl-12 p-xs bg-lightgray border rounded border-gray" placeholder="Remarks"></textarea>
                 </div>
+                <p className="text-italic font-sm text-darkgray mb-sm mt-0"><b className="text-darkgray">Note:</b> remarks is required if the resolution is declined.</p>
                 <div className="flex f-end">
                   <button className="btn prugray ml">
                     <i className="icon fa fa-times mr-sm"></i>DECLINE

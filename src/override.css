@@ -565,7 +565,8 @@ select {
 .required::after {
   content: " *";
   color: #ED1B2E;
-  font-size: 13px; }
+  font-size: 13px;
+  position: absolute; }
 
 .error {
   position: absolute;

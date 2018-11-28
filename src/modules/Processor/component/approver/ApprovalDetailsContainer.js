@@ -183,7 +183,7 @@ class ApprovalDetailsContainer extends Component {
             editable="false"
             txtboxClass="no-border"
             inputLabel="MPT:"
-            inputClass="col xl-3 mb input-container"
+            inputClass="col xl-3 mt input-container"
           // value={}
           />
           <div className="xl-3 mb">
