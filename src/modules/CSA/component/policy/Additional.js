@@ -38,6 +38,7 @@ class FatcaNew extends Component {
               <input
                 type="date" 
                 name="dateOfSigning"
+                max="9999-12-31"
                 value={this.props.dateOfSigning}
                 onChange={this.handleDateChange}
                 className="bg-lightgray" />
