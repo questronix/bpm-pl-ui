@@ -108,6 +108,15 @@ class FatcaNew extends Component {
                   onSelect={this.handleYesNoChange}
                 />
               </div>
+              <div className="xl-6">
+                <YesNoRadio
+                  name="isPlaceOfSigning"
+                  title="Place of Signing within the Philippines"
+                  isRequired={false}
+                  isYesDefault={this.props.isPlaceOfSigning}
+                  onSelect={this.handleYesNoChange}
+                />
+              </div>
               
               {/* Business logic in progress */}
               {/* <div className="xl-6">
