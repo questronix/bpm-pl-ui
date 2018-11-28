@@ -722,7 +722,7 @@ class InsuredinformationNew extends Component {
                           </div>
                           <div className="col xl-12 flex f-row-reverse f-end">
                             <label htmlFor="mur">
-                              Pregnancy Questionaire
+                              Pregnancy Questionnaire
                             </label>
                             <label className="checkbox">
                               <input id="mur" type="checkbox" name={"additionalPregnancyQuestion"} value={this.props.additionalPregnancyQuestion} checked={this.props.additionalPregnancyQuestion} onChange={this.handleCheckChange} />

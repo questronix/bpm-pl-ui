@@ -808,7 +808,7 @@ class EditTaskContainer extends Component {
   checkPtrOrPwAvailed() {
     const { policy } = this.state;
 
-    if (policy.payorTerm == 'Y' || policy.payorWaiver == 'Y') {
+    if (policy.payorTerm || policy.payorWaiver) {
       this.setState({ isPtrOrPwAvailed: true });
     }
     else {
