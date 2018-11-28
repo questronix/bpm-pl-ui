@@ -27,7 +27,19 @@ class OwnerinformationNew extends Component {
     return (
       <div>
         {this.props.type === "approver" &&
-          <div className="App">
+          <div className="App position-relative">
+            {/* START OF SAME AS INSURE DETAILS BLOCKER */}
+            <div className="content-disabled active">
+              <div className="box">
+                <div className="box-body container flex f-center">
+                  <span className="fa fa-user-edit font-prulife"></span> &nbsp;
+                      <h3>
+                    Same as Insured Details.
+                      </h3>
+                </div>
+              </div>
+            </div>
+            {/* END */}
             <div className="col xl-12 flex f-center f-start mb no-padding">
               <span className="fa fa-user font-prulife">
               </span> &nbsp;
