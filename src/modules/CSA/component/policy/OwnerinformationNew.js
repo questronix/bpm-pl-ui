@@ -7,9 +7,9 @@ class OwnerinformationNew extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      months: ''
-    }
+    // this.state = {
+    //   months: ''
+    // }
     this.ChangeInOccupationOwner = this.ChangeInOccupationOwner.bind(this);
     this.handleYesNoChange = this.handleYesNoChange.bind(this);
     this.handleCheckChange = this.handleCheckChange.bind(this);
@@ -17,12 +17,8 @@ class OwnerinformationNew extends Component {
   }
 
   onInputChange(name, value) {
-
-
-    this.setState({
-      [name]: value
-    })
-    console.log(this.state.months)
+    console.log([name], value);
+    this.props.onInputChange(name, value);
   }
 
   ChangeInOccupationOwner() {
@@ -79,7 +75,7 @@ class OwnerinformationNew extends Component {
                   editable="false"
                   txtboxClass="no-border"
                   inputLabel="Salutation:"
-                  valuevalue={this.props.client.salutation}
+                  value={this.props.client.salutation}
                   inputClass="xl-4 mr-xs input-container" />
                 <Input
                   editable="false"
@@ -588,18 +584,20 @@ class OwnerinformationNew extends Component {
                 />
               </div>
               {this.props.isChangeInOccupationOwner == true ?
-                <div className="col xl-4 input-container">
-                  <label>
-                    New Occupation
-                  </label>
-                  <input className="bg-lightgray" type="text" />
-                </div>
-                // <Input
-                //   txtboxClass="bg-lightgray"
-                //   inputLabel="Occupation:"
-                //   inputClass="col xl-4  input-container"
-                //   value={client && client.occupation1}
-                // />
+                // <div className="col xl-4 input-container">
+                //   <label>
+                //     New Occupation
+                //   </label>
+                //   <input className="bg-lightgray" type="text" />
+                // </div>
+                <Input
+                  name="newOccupationOwner"
+                  onInputChange={this.onInputChange}
+                  txtboxClass="bg-lightgray"
+                  inputLabel="Occupation:"
+                  inputClass="col xl-4  input-container"
+                  value={this.props.newOccupationOwner}
+                />
                 : null}
             </div>
             <div className="col xl-12 flex f-center f-start">
@@ -737,12 +735,12 @@ class OwnerinformationNew extends Component {
                       </div>
                       {this.props.isPregnant === true ?
                         <Input
-                          name="months"
+                          name="monthsOwner"
                           txtboxClass="bg-light-gray  "
-                          onInputChange={this.onInputChange}
+                          onInputChange={this.onInputChange}    
                           inputLabel="How many months? :"
                           inputClass="col xl-2 input-container"
-                          value={this.state.months}
+                          value={this.props.monthsOwner}
                         />
                         : null
                       }
@@ -758,7 +756,9 @@ class OwnerinformationNew extends Component {
                                 FME
                               </label>
                               <label className="checkbox">
-                                <input id="fma" type="checkbox" name={"additionalFMAOwner"} value={this.props.fma} checked={this.props.fma} onChange={this.handleCheckChange} />
+                                <input id="fma" type="checkbox" name={"additionalFMAOwner"} 
+                                value={this.props.fma} checked={this.props.fma} 
+                                onChange={this.handleCheckChange} />
                                 <span className="checkmark" />
                               </label>
                             </div>

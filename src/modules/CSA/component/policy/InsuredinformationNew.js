@@ -16,10 +16,10 @@ class InsuredinformationNew extends Component {
     this.handleCheckChange = this.handleCheckChange.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
   }
-  onInputChange(e) {
-    // const value = event.target.value;
-    this.props.onInputChange(e.target.name, e.target.value)
 
+  onInputChange(name, value) {
+    console.log([name], value)
+    this.props.onInputChange(name, value);
   }
 
   ChangeInOccupation() {
@@ -953,21 +953,25 @@ class InsuredinformationNew extends Component {
                 />
               </div>
               {this.props.isChangeInOccupation == true ?
-                <>
-                  <div className="col xl-4 input-container editable pl-sm">
-                    <label>
-                      New Occupation
-                  </label>
-                    <input className="bg-lightgray" type="text" />
-                    <span className="fa fa-pencil-alt font-prulife"></span>
-                  </div>
-                </>
-                // <Input
-                //   txtboxClass="bg-lightgray"
-                //   inputLabel="New Occupation:"
-                //   inputClass="col xl-4  input-container"
-                //   value={client && client.occupation1}
-                // />
+                // <>
+                //   <div className="col xl-4 input-container">
+                //     <label>
+                //       New Occupation
+                //     </label>
+                //     <input className="bg-lightgray" type="text" />
+                //   </div>
+                // </>
+                <div className=" editable xl-4 input-container">
+                  <Input
+                    name="newOccupation"
+                    txtboxClass="bg-lightgray"
+                    onInputChange={this.onInputChange}
+                    inputLabel="New Occupation:"
+                    inputClass="input-container"
+                    value={this.props.newOccupation}
+                  />
+                  <span className="fa fa-pencil-alt font-prulife"></span>
+                </div>
                 : null}
             </div>
             <div className="col xl-12 flex f-center f-start">

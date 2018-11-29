@@ -94,6 +94,8 @@ class EditTaskContainer extends Component {
       insured: null,
       isChangeInOccupation: null,
       isChangeInAddress: null,
+      newOccupation:'',
+      months: '',
       isSOI: null,
       isPregnant: null,
       additionalFMA: false,
@@ -102,6 +104,8 @@ class EditTaskContainer extends Component {
 
       // OWNER TAB
       owner: null,
+      monthsOwner: '',
+      newOccupationOwner: '',
       isChangeInOccupationOwner: null,
       isChangeInAddressOwner: null,
       isSOIOwner: null,
@@ -192,12 +196,9 @@ class EditTaskContainer extends Component {
   }
 
   onInputChange(name, value) {
-    // const value = event.target.value;
-
     this.setState({
       [name]: value
     })
-    console.log(this.state.months)
   }
 
   handleChangeInOccupation(){
@@ -1195,8 +1196,9 @@ class EditTaskContainer extends Component {
               {this.state.currentTab === 2 && <InsuredinformationNew 
                 type={"editable"}
                 months={this.state.months}
+                newOccupation={this.state.newOccupation}
                 client={this.state.insured} 
-                onInputChange={this.onInputChange}
+                onInputChange={this.handleInputChange}
                 isChangeInOccupation={this.state.isChangeInOccupation}
                 isChangeInAddress={this.state.isChangeInAddress}
                 isSOI={this.state.isSOI}
@@ -1210,6 +1212,9 @@ class EditTaskContainer extends Component {
               />}
               {this.state.currentTab === 3 && <OwnerinformationNew 
                 type={"editable"}
+                monthsOwner={this.state.monthsOwner}
+                onInputChange={this.handleInputChange}
+                newOccupationOwner={this.state.newOccupationOwner}
                 client={this.state.owner} 
                 isChangeInOccupationOwner={this.state.isChangeInOccupationOwner}
                 isChangeInAddress={this.state.isChangeInAddressOwner}
