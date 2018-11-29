@@ -282,7 +282,7 @@ class TaskContainer extends Component {
                 </div>
                 <div className="xl-12">
                   <h4 className="mb-sm mt-0">
-                    Agent Code: {this.state.policy.agentCode}
+                    Agent Code: {this.state.policy.agentNumber}
                   </h4>
                 </div>
                 <AgentinformationNew policy={this.state.policy} />

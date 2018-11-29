@@ -61,27 +61,30 @@ class FatcaNew extends Component {
                 <YesNoRadio
                   name="isRelativeOfAgent"
                   title="Relative Of Agent"
-                  isRequired={false}
+                  isRequired={true}
                   isYesDefault={this.props.isRelativeOfAgent}
                   onSelect={this.handleYesNoChange}
+                  showError={this.props.renderError}
                 />
               </div>
               <div className="xl-6">
                 <YesNoRadio
                   name="isFatcaTagging"
                   title="FATCA Tagging"
-                  isRequired={false}
+                  isRequired={true}
                   isYesDefault={this.props.isFatcaTagging}
                   onSelect={this.handleYesNoChange}
+                  showError={this.props.renderError}
                 />
               </div>
               <div className="xl-6">
                 <YesNoRadio
                     name="withReinstatementAgent"
                     title="With Reinstating Agent"
-                    isRequired={false}
+                    isRequired={true}
                     isYesDefault={this.props.withReinstatementAgent}
                     onSelect={this.handleYesNoChange}
+                    showError={this.props.renderError}
                   />
               </div>
               {(this.props.isAgentStatusActive && this.props.withReinstatementAgent) && (

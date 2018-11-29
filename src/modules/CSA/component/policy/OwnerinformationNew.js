@@ -221,95 +221,94 @@ class OwnerinformationNew extends Component {
                   value={this.props.client.occupation1} />
               </div>
             </div>
-            <div className="col xl-12 flex f-center f-start mb no-padding">
+            <div className="col xl-12 flex f-center f-start">
               <span className="fa fa-location-arrow font-prulife">
               </span> &nbsp;
-              <h5 className="no-margin">
+                  <h3 className="no-margin">
                 Present Address
-              </h5>
+                  </h3>
             </div>
-            <div className="flex-container col no-padding flex f-justify-space-between mb-sm">
+            <div className="xl-12 flex-container flex-wrap">
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Street/Municipality:"
                 inputClass="xl-6 mr-xs input-container"
-                value={this.props.client.address && this.props.client.address[0].address1}
+                value={client && client.address && client.address[0].address1 + " " + client.address[0].address2 + " " + client.address[0].address3 + " " + client.address[0].address4 + " " + client.address[0].address5 }
               />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Zip Code:"
-                inputClass="xl-3 mr-xs input-container"
-                value={this.props.client.address && this.props.client.address[0].zipCode}
+                inputClass="col xl-2 input-container"
+                value={client && client.address[0].zipCode}
               />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Country:"
-                inputClass="xl-3 input-container"
-                value={this.props.client.address && this.props.client.address[0].address5}
+                inputClass="col xl-2 input-container"
+                value={client && client.address[0].countryCode}
               />
             </div>
-            <div className="col xl-12 flex f-center f-start mb no-padding">
+            <div className="col xl-12 flex f-center f-start">
               <span className="fa fa-map-marker-alt font-prulife">
               </span> &nbsp;
-              <h5 className="no-margin">
+                  <h3 className="no-margin">
                 Permanent Address
-              </h5>
+                  </h3>
             </div>
-            <div className="flex-container col no-padding flex f-justify-space-between mb-sm">
+            <div className="xl-12 flex-container flex-wrap">
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Street/Municipality:"
                 inputClass="xl-6 mr-xs input-container"
-
-                value={this.props.client.address && this.props.client.address[1].address1}
+                value={client && client.address && client.address[1].address1 + " " + client.address[1].address2 + " " + client.address[1].address3 + " " + client.address[1].address4 + " " + client.address[1].address5 }
               />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Zip Code:"
-                inputClass="xl-3 mr-xs input-container"
-                value={this.props.client.address && this.props.client.address[1].zipCode}
+                inputClass="col xl-2 input-container"
+                value={client && client.address[1].zipCode}
               />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Country:"
-                inputClass="xl-3 input-container"
-                value={this.props.client.address && this.props.client.address[1].address5}
+                inputClass="col xl-2 input-container"
+                value={client && client.address[1].countryCode}
               />
             </div>
-            <div className="col xl-12 flex f-center f-start mb no-padding">
+            <div className="col xl-12 flex f-center f-start">
               <span className="fa fa-map-marked-alt font-prulife">
               </span> &nbsp;
-              <h5 className="no-margin">
+                  <h3 className="no-margin">
                 Business Address
-              </h5>
+                  </h3>
             </div>
-            <div className="flex-container col no-padding flex f-justify-space-between mb-sm">
+            <div className="xl-12 flex-container flex-wrap">
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Street/Municipality:"
                 inputClass="xl-6 mr-xs input-container"
-                value={this.props.client.address && this.props.client.address[2].address1}
+                value={client && client.address && client.address[2].address1 + " " + client.address[2].address2 + " " + client.address[2].address3 + " " + client.address[2].address4 + " " + client.address[2].address5 }
               />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Zip Code:"
-                inputClass="xl-3 mr-xs input-container"
-                value={this.props.client.address && this.props.client.address[2].zipCode}
+                inputClass="col xl-2 input-container"
+                value={client && client.address[2].zipCode}
               />
               <Input
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Country:"
-                inputClass="xl-3 input-container"
-                value={this.props.client.address && this.props.client.address[2].address5}
+                inputClass="col xl-2 input-container"
+                value={client && client.address[2].countryCode}
               />
             </div>
             <div className="xl-12 flex-container flex-wrap col">

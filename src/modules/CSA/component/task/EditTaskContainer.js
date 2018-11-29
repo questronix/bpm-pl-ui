@@ -248,10 +248,16 @@ class EditTaskContainer extends Component {
   }
 
   mapQuestionToState(questions) {
+    const isSOI = questionUtils.findAnswer(1, questions);
+    // const withPregnancy = questionUtils.findAnswer(1, questions);
+    const withPayment = questionUtils.findAnswer(5, questions);
+    const suspense = questionUtils.findAnswer(6, questions);
+    const isSignatureVerified = questionUtils.findAnswer(7, questions);
+    const isFatcaTagging = questionUtils.findAnswer(8, questions);
     const isRelativeOfAgent = questionUtils.findAnswer(9, questions);
     const withReinstatementAgent = questionUtils.findAnswer(10, questions);
-    const withPayment = questionUtils.findAnswer(5, questions);
-    const isSignatureVerified = questionUtils.findAnswer(7, questions);
+    const additionalDateOfSigning = questionUtils.findAnswer(11, questions);
+    // const req = questionUtils.findAnswer(12, questions);
     // const withCosal = questionUtils.findAnswer(13, questions);
 
     this.setState({ 
@@ -283,7 +289,7 @@ class EditTaskContainer extends Component {
         .then((res) => {
           console.log('QUESTIONS', res.data.result);
           const flatQuestions = this.flatten(res.data.result);
-          this.mapQuestionToState(flatQuestions);
+          this.mapQuestionToState(res.data.result);
         }).finally(() => {
 
         });
@@ -548,7 +554,7 @@ class EditTaskContainer extends Component {
   }
 
   updateVistedTab(tabPage) {
-    const { withPayment, isSignatureVerified } = this.state;
+    const { withPayment, isSignatureVerified, isRelativeOfAgent, isFatcaTagging, withReinstatementAgent } = this.state;
     this.createMemo();
     this.saveAnswer();
     if (tabPage === 2) {
@@ -576,6 +582,14 @@ class EditTaskContainer extends Component {
       this.setState({ isVisitedAdditional: true });
     }
     else if (tabPage === 5) {
+      if (
+        isRelativeOfAgent === null || isRelativeOfAgent === false || 
+        isFatcaTagging === null || isFatcaTagging === false ||
+        withReinstatementAgent === null || withReinstatementAgent === false
+      ) {
+        this.setState({ currentTab: 4, renderError: true });
+        return;
+      }
       // if (window.confirm('Are you sure you want to Proceed')) {
       //   this.saveTransaction();
       // }
@@ -1238,6 +1252,7 @@ class EditTaskContainer extends Component {
                 orNum={this.state.orNum}
                 onTextChange={this.handleInputChange}
                 isPlaceOfSigning={this.state.isPlaceOfSigning}
+                renderError={this.state.renderError}
               />}
 
               <div className="flex f-justify-space-between p">

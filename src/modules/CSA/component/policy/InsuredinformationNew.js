@@ -227,7 +227,7 @@ class InsuredinformationNew extends Component {
                 txtboxClass="no-border"
                 inputLabel="Street/Municipality:"
                 inputClass="xl-6 mr-xs input-container"
-                value={this.props.client.address && this.props.client.address[0].address1}
+                value={this.props.client.address && this.props.client.address[0].address1 + ", " + this.props.client.address[0].address2 }
               />
               <Input
                 editable="false"
@@ -594,8 +594,8 @@ class InsuredinformationNew extends Component {
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Street/Municipality:"
-                inputClass="col xl-8 input-container"
-                value={client && client.address && client.address[0].address1}
+                inputClass="xl-6 mr-xs input-container"
+                value={client && client.address && client.address[0].address1 + " " + client.address[0].address2 }
               />
               <Input
                 editable="false"
@@ -609,7 +609,7 @@ class InsuredinformationNew extends Component {
                 txtboxClass="no-border"
                 inputLabel="Country:"
                 inputClass="col xl-2 input-container"
-                value={client && client.address[0].address5}
+                value={client && client.address[0].countryCode}
               />
             </div>
             <div className="col xl-12 flex f-center f-start">
@@ -624,9 +624,8 @@ class InsuredinformationNew extends Component {
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Street/Municipality:"
-                inputClass="col xl-8 input-container"
-
-                value={client && client.address[1].address1}
+                inputClass="xl-6 mr-xs input-container"
+                value={client && client.address && client.address[1].address1 + " " + client.address[1].address2 }
               />
               <Input
                 editable="false"
@@ -640,7 +639,7 @@ class InsuredinformationNew extends Component {
                 txtboxClass="no-border"
                 inputLabel="Country:"
                 inputClass="col xl-2 input-container"
-                value={client && client.address[1].address5}
+                value={client && client.address[1].countryCode}
               />
             </div>
             <div className="col xl-12 flex f-center f-start">
@@ -655,9 +654,8 @@ class InsuredinformationNew extends Component {
                 editable="false"
                 txtboxClass="no-border"
                 inputLabel="Street/Municipality:"
-                inputClass="col xl-8 input-container"
-
-                value={client && client.address[2].address1}
+                inputClass="xl-6 mr-xs input-container"
+                value={client && client.address && client.address[2].address1 + " " + client.address[2].address2 }
               />
               <Input
                 editable="false"
@@ -671,7 +669,7 @@ class InsuredinformationNew extends Component {
                 txtboxClass="no-border"
                 inputLabel="Country:"
                 inputClass="col xl-2 input-container"
-                value={client && client.address[2].address5}
+                value={client && client.address[2].countryCode}
               />
             </div>
             <div className="xl-12 flex-container flex-wrap col">
