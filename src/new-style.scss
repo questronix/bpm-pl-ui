@@ -754,6 +754,12 @@ select { /* Chrome/Opera/Safari */
     }
 }
 // misc
+.editable-yesno{
+    position: absolute;
+    right: 0;
+    font-size: 13px;
+    margin-top: 10px;
+}
 .position-relative{
     position: relative;
 }
@@ -802,13 +808,13 @@ select { /* Chrome/Opera/Safari */
 	margin-top: -5px;
 	margin-left: -5px;
 }
-.editable::after{
-    font-family: "FontAwesome";
-    content: " \f303";
-    color: $prulife;
-    font-size: 13px;
+// .editable::after{
+//     font-family: "FontAwesome";
+//     content: " \f303";
+//     color: $prulife;
+//     font-size: 13px;
     
-}
+// }
 .label{
     // font-size: 13;   
     font-weight: bold;
@@ -2443,6 +2449,18 @@ input[type="search"] {
 }
 //input
 .input-container{
+    &.editable{
+        position: relative;
+        input{
+            padding-right: 30px;
+        }
+        span{
+            position: absolute;
+            right: 0;
+            transform: translate(-15px, 25px);
+        }
+    }
+
     @extend .flex;
     @extend .f-column;
     label{

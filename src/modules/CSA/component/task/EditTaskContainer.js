@@ -1193,7 +1193,7 @@ class EditTaskContainer extends Component {
                 onSelectSignatureVerified={this.handleYesNoSelect}
               />}
               {this.state.currentTab === 2 && <InsuredinformationNew 
-                type={"default"}
+                type={"editable"}
                 months={this.state.months}
                 client={this.state.insured} 
                 onInputChange={this.onInputChange}
@@ -1209,7 +1209,7 @@ class EditTaskContainer extends Component {
                 isPtrOrPwAvailed={this.state.isPtrOrPwAvailed}
               />}
               {this.state.currentTab === 3 && <OwnerinformationNew 
-                type={"default"}
+                type={"editable"}
                 client={this.state.owner} 
                 isChangeInOccupationOwner={this.state.isChangeInOccupationOwner}
                 isChangeInAddress={this.state.isChangeInAddressOwner}
