@@ -372,7 +372,7 @@ class OwnerinformationNew extends Component {
             </div>
             <div className="xl-12 flex-container flex-wrap col">
               <div className="xl-12">
-                <p className="label flex no-margin required">
+                <p className="label flex no-margin">
                   Additional requirements:
                 </p>
                 <div className="col xl-12 flex f-row-reverse f-end">
@@ -765,7 +765,7 @@ class OwnerinformationNew extends Component {
                             {this.props.isPregnant && (
                               <div className="xl-12 flex-container flex-wrap col">
                                 <div className="xl-12">
-                                  <p className="label flex no-margin required">
+                                  <p className="label flex no-margin">
                                     Additional requirements:
                     </p>
                                   <div className="col xl-12 flex f-row-reverse f-end">
