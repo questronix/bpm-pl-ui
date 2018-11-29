@@ -1007,19 +1007,25 @@ class OwnerinformationNew extends Component {
                 />
               </div>
               {this.props.isChangeInOccupationOwner == true ?
-                <div className="col xl-4 input-container editable pl-sm">
-                  <label>
-                    New Occupation
-                  </label>
-                  <input className="bg-lightgray" type="text" />
+                // <>
+                //   <div className="col xl-4 input-container">
+                //     <label>
+                //       New Occupation
+                //     </label>
+                //     <input className="bg-lightgray" type="text" />
+                //   </div>
+                // </>
+                <div className=" editable xl-4 input-container">
+                  <Input
+                    name="newOccupationOwner"
+                    txtboxClass="bg-lightgray"
+                    onInputChange={this.onInputChange}
+                    inputLabel="New Occupation:"
+                    inputClass="input-container"
+                    value={this.props.newOccupationOwner}
+                  />
                   <span className="fa fa-pencil-alt font-prulife"></span>
                 </div>
-                // <Input
-                //   txtboxClass="bg-lightgray"
-                //   inputLabel="Occupation:"
-                //   inputClass="col xl-4  input-container"
-                //   value={client && client.occupation1}
-                // />
                 : null}
             </div>
             <div className="col xl-12 flex f-center f-start">
