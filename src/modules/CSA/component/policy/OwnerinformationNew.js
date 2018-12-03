@@ -804,7 +804,6 @@ class OwnerinformationNew extends Component {
                   </Fragment>
                 )}
               </Fragment>)}
-            );
             </div>
         }
       </div>
