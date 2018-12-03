@@ -94,6 +94,11 @@ class EditTaskContainer extends Component {
       insured: null,
       isChangeInOccupation: null,
       isChangeInAddress: null,
+      newOccupation:'',
+      email:'',
+      mobileNum: '',
+      telNum: '',
+      months: '',
       isSOI: null,
       isPregnant: null,
       additionalFMA: false,
@@ -102,6 +107,11 @@ class EditTaskContainer extends Component {
 
       // OWNER TAB
       owner: null,
+      monthsOwner: '',
+      newOccupationOwner: '',
+      emailOwner:'',
+      mobileNumOwner: '',
+      telNumOwner: '',
       isChangeInOccupationOwner: null,
       isChangeInAddressOwner: null,
       isSOIOwner: null,
@@ -192,12 +202,9 @@ class EditTaskContainer extends Component {
   }
 
   onInputChange(name, value) {
-    // const value = event.target.value;
-
     this.setState({
       [name]: value
     })
-    console.log(this.state.months)
   }
 
   handleChangeInOccupation(){
@@ -1207,10 +1214,14 @@ class EditTaskContainer extends Component {
                 onSelectSignatureVerified={this.handleYesNoSelect}
               />}
               {this.state.currentTab === 2 && <InsuredinformationNew 
-                type={"default"}
+                type={"editable"}
                 months={this.state.months}
+                newOccupation={this.state.newOccupation}
+                email={this.state.email}
+                mobileNum={this.state.mobileNum}
+                telNum={this.state.telNum}
                 client={this.state.insured} 
-                onInputChange={this.onInputChange}
+                onInputChange={this.handleInputChange}
                 isChangeInOccupation={this.state.isChangeInOccupation}
                 isChangeInAddress={this.state.isChangeInAddress}
                 isSOI={this.state.isSOI}
@@ -1223,7 +1234,13 @@ class EditTaskContainer extends Component {
                 isPtrOrPwAvailed={this.state.isPtrOrPwAvailed}
               />}
               {this.state.currentTab === 3 && <OwnerinformationNew 
-                type={"default"}
+                type={"editable"}
+                monthsOwner={this.state.monthsOwner}
+                emailOwner={this.state.emailOwner}
+                telNumOwner={this.state.telNumOwner}
+                mobileNumOwner={this.state.mobileNumOwner}
+                onInputChange={this.handleInputChange}
+                newOccupationOwner={this.state.newOccupationOwner}
                 client={this.state.owner} 
                 isChangeInOccupationOwner={this.state.isChangeInOccupationOwner}
                 isChangeInAddress={this.state.isChangeInAddressOwner}
