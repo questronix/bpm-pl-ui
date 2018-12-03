@@ -809,19 +809,19 @@ class InsuredinformationNew extends Component {
               />
             </div>
             <div className="xl-12 flex-container flex-wrap">
-              <div className="xl-3 flex-container flex-wrap">
+              <div className="xl-3 flex-container">
                 <Input
                   editable="false"
                   txtboxClass="no-border"
                   inputLabel="Date of Birth:"
-                  inputClass="col xl-7 input-container"
+                  inputClass="col xl-7 pr-xs input-container"
                   value={client && client.dateOfBirth}
                 />
                 <Input
                   editable="false"
                   txtboxClass="no-border"
                   inputLabel="Attained Age:"
-                  inputClass="col xl-4 input-container"
+                  inputClass="col xl-4 pl-xs input-container"
                   value={client && client.attainedAge}
                 />
               </div>
@@ -900,32 +900,39 @@ class InsuredinformationNew extends Component {
                 <input className="bg-lightgray" type="text" />
                 <span className="fa fa-pencil-alt font-prulife"></span>
               </div> */}
-              <Input
-                txtboxClass="bg-lightgray"
-                name="email"
-                onInputChange={this.onInputChange}
-                inputLabel="Email Address:"
-                inputClass="col xl-4 input-container"
-                value={client && client.emailAdd || this.props.email}
-                
-              />
-               
-              <Input
-                txtboxClass="bg-lightgray"
-                name="telNum"
-                onInputChange={this.onInputChange}
-                inputLabel="Telephone Number:"
-                inputClass="col xl-4 input-container"
-                value={client && client.telephoneNum || this.props.telNum}
-              />
-              <Input
-                txtboxClass="bg-lightgray"
-                name="mobileNum"
-                onInputChange={this.onInputChange}
-                inputLabel="Mobile Number:"
-                inputClass="col xl-4 input-container"
-                value={client && client.mobileNum || this.props.mobileNum}
-              />
+              <div className="col xl-4 position-relative input-container editable">
+                <Input
+                  txtboxClass="bg-lightgray"
+                  name="email"
+                  onInputChange={this.onInputChange}
+                  inputLabel="Email Address:"
+                  inputClass="input-container"
+                  value={client && client.emailAdd || this.props.email}
+                />
+                <span className="fa fa-pencil-alt font-prulife"></span>
+              </div>
+              <div className="col xl-4 position-relative input-container editable">
+                <Input
+                  txtboxClass="bg-lightgray"
+                  name="telNum"
+                  onInputChange={this.onInputChange}
+                  inputLabel="Telephone Number:"
+                  inputClass="input-container"
+                  value={client && client.telephoneNum || this.props.telNum}
+                />
+                <span className="fa fa-pencil-alt font-prulife"></span>
+              </div>
+              <div className="col xl-4 position-relative input-container editable">
+                <Input
+                  txtboxClass="bg-lightgray"
+                  name="mobileNum"
+                  onInputChange={this.onInputChange}
+                  inputLabel="Mobile Number:"
+                  inputClass="input-container"
+                  value={client && client.mobileNum || this.props.mobileNum}
+                />
+                <span className="fa fa-pencil-alt font-prulife"></span>
+              </div>
             </div>
             <div className="xl-12 flex-container flex-wrap">
               <div className="col xl-12 flex f-center f-start">
@@ -969,7 +976,7 @@ class InsuredinformationNew extends Component {
                 //     <input className="bg-lightgray" type="text" />
                 //   </div>
                 // </>
-                <div className=" editable xl-4 input-container">
+                <div className="col xl-4 position-relative input-container editable">
                   <Input
                     name="newOccupation"
                     txtboxClass="bg-lightgray"
