@@ -95,6 +95,9 @@ class EditTaskContainer extends Component {
       isChangeInOccupation: null,
       isChangeInAddress: null,
       newOccupation:'',
+      email:'',
+      mobileNum: '',
+      telNum: '',
       months: '',
       isSOI: null,
       isPregnant: null,
@@ -106,6 +109,9 @@ class EditTaskContainer extends Component {
       owner: null,
       monthsOwner: '',
       newOccupationOwner: '',
+      emailOwner:'',
+      mobileNumOwner: '',
+      telNumOwner: '',
       isChangeInOccupationOwner: null,
       isChangeInAddressOwner: null,
       isSOIOwner: null,
@@ -1197,6 +1203,9 @@ class EditTaskContainer extends Component {
                 type={"editable"}
                 months={this.state.months}
                 newOccupation={this.state.newOccupation}
+                email={this.state.email}
+                mobileNum={this.state.mobileNum}
+                telNum={this.state.telNum}
                 client={this.state.insured} 
                 onInputChange={this.handleInputChange}
                 isChangeInOccupation={this.state.isChangeInOccupation}
@@ -1213,6 +1222,9 @@ class EditTaskContainer extends Component {
               {this.state.currentTab === 3 && <OwnerinformationNew 
                 type={"editable"}
                 monthsOwner={this.state.monthsOwner}
+                emailOwner={this.state.emailOwner}
+                telNumOwner={this.state.telNumOwner}
+                mobileNumOwner={this.state.mobileNumOwner}
                 onInputChange={this.handleInputChange}
                 newOccupationOwner={this.state.newOccupationOwner}
                 client={this.state.owner} 

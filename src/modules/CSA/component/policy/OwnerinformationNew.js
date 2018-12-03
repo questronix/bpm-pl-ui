@@ -932,7 +932,7 @@ class OwnerinformationNew extends Component {
             </div>
             {/* CHECK POINT */}
             <div className="xl-12 flex-container flex-wrap">
-              <div className="col xl-4 input-container editable pl-sm">
+              {/* <div className="col xl-4 input-container editable pl-sm">
                 <label>
                   Email Address:
                   </label>
@@ -952,27 +952,36 @@ class OwnerinformationNew extends Component {
                   </label>
                 <input className="bg-lightgray" type="text" />
                 <span className="fa fa-pencil-alt font-prulife"></span>
-              </div>
-              {/* <Input
+              </div> */}
+             
+              <Input
                 // classRequired="editable"
                 txtboxClass="bg-lightgray"
+                name="emailOwner"
+                onInputChange={this.onInputChange}
                 inputLabel="Email Address:"
                 inputClass="col xl-4 input-container"
-                value={client && client.emailAdd}
+                value={client && client.emailAdd || this.props.emailOwner}
               // <span className="fa fa-pencil-alt font-prulife"></span>
               />
+             
+
               <Input
+                name="telNumOwner"
+                onInputChange={this.onInputChange}
                 txtboxClass="bg-lightgray"
                 inputLabel="Telephone Number:"
                 inputClass="col xl-4 input-container"
-                value={client && client.telephoneNum}
+                value={client && client.telephoneNum || this.props.telNumOwner}
               />
               <Input
                 txtboxClass="bg-lightgray"
+                name="mobileNumOwner"
+                onInputChange={this.onInputChange}
                 inputLabel="Mobile Number:"
                 inputClass="col xl-4 input-container"
-                value={client && client.mobileNum}
-              /> */}
+                value={client && client.mobileNum || this.props.mobileNumOwner}
+              />
             </div>
             <div className="xl-12 flex-container flex-wrap">
               <div className="col xl-12 flex f-center f-start">

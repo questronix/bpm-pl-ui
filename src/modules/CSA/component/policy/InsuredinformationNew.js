@@ -879,7 +879,7 @@ class InsuredinformationNew extends Component {
             </div>
             {/* CHECK POINT */}
             <div className="xl-12 flex-container flex-wrap">
-              <div className="col xl-4 input-container editable pl-sm">
+              {/* <div className="col xl-4 input-container editable pl-sm">
                 <label>
                   Email Address:
                   </label>
@@ -899,25 +899,33 @@ class InsuredinformationNew extends Component {
                   </label>
                 <input className="bg-lightgray" type="text" />
                 <span className="fa fa-pencil-alt font-prulife"></span>
-              </div>
-              {/* <Input
+              </div> */}
+              <Input
                 txtboxClass="bg-lightgray"
+                name="email"
+                onInputChange={this.onInputChange}
                 inputLabel="Email Address:"
                 inputClass="col xl-4 input-container"
-                value={client && client.emailAdd}
+                value={client && client.emailAdd || this.props.email}
+                
               />
+               
               <Input
                 txtboxClass="bg-lightgray"
+                name="telNum"
+                onInputChange={this.onInputChange}
                 inputLabel="Telephone Number:"
                 inputClass="col xl-4 input-container"
-                value={client && client.telephoneNum}
+                value={client && client.telephoneNum || this.props.telNum}
               />
               <Input
                 txtboxClass="bg-lightgray"
+                name="mobileNum"
+                onInputChange={this.onInputChange}
                 inputLabel="Mobile Number:"
                 inputClass="col xl-4 input-container"
-                value={client && client.mobileNum}
-              /> */}
+                value={client && client.mobileNum || this.props.mobileNum}
+              />
             </div>
             <div className="xl-12 flex-container flex-wrap">
               <div className="col xl-12 flex f-center f-start">
