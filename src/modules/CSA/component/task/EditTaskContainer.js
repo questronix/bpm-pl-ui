@@ -481,6 +481,7 @@ class EditTaskContainer extends Component {
   }
 
   handleNextTab() {
+    window.scrollTo(0,0);
     const { currentTab } = this.state;
     if (currentTab + 1 > 5) return;
     this.setState({ currentTab: currentTab + 1 });
@@ -488,6 +489,7 @@ class EditTaskContainer extends Component {
   }
 
   handlePrevTab() {
+    window.scrollTo(0,0);
     const { currentTab } = this.state;
     if (currentTab - 1 < 1) return;
     this.setState({ currentTab: currentTab - 1 });
@@ -1113,7 +1115,7 @@ class EditTaskContainer extends Component {
         </ModalOkCancel> */}
         <div className="col no-padding ghost-sidebar" />
         <div className="margin-top-70 col p-x2 margin-left-250">
-          <div className="">
+          <div id="journey" className="">
             <h1 className="text-darkgray larger normal mb-sm mt-0">
               New Transaction
             </h1>
@@ -1258,10 +1260,10 @@ class EditTaskContainer extends Component {
               />}
 
               <div className="flex f-justify-space-between p">
-                <button className={this.state.currentTab === 1 ? "btn prulife invisible" : "btn prulife"} accessKey="," onClick={this.handlePrevTab}>
+                <button href="#" className={this.state.currentTab === 1 ? "btn prulife invisible" : "btn prulife"} accessKey="," onClick={this.handlePrevTab}>
                   <span className="fa fa-chevron-left" />&nbsp; BACK
                 </button>
-                <button className="btn prulife" accessKey="." onClick={this.handleNextTab}>
+                <button href="#" className="btn prulife" accessKey="." onClick={this.handleNextTab}>
                   PROCEED &nbsp; <span className="fa fa-chevron-right" />
                 </button>
               </div>

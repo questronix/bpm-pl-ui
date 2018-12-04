@@ -70,7 +70,7 @@ class TransactionNew extends Component {
             Required field
           </div>
         </div>
-        <div className="flex-container flex-wrap">
+        <div className="flex-container">
           <div className="col no-padding xl-12 flex-container flex-wrap">
             <div className="xl-9 big-container">
               {this.props.transactionType == 1 && (
@@ -94,7 +94,7 @@ class TransactionNew extends Component {
                       </label>
                     </div>
                     <div className="flex f-center">
-                      <label className="checkbox" htmlFor="2">
+                        <label className="checkbox" htmlFor="2">
                         Redating
                         <input
                           type="radio"

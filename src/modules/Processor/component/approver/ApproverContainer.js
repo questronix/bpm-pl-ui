@@ -50,7 +50,6 @@ class ApproverContainer extends Component {
                   </div>
                   <p className="text-italic font-sm text-darkgray mb-sm mt-0"><b className="text-darkgray">Note:</b> remarks is required if the resolution is declined.</p>
                 </div>
-                <p className="text-italic font-sm text-darkgray mb-sm mt-0"><b className="text-darkgray">Note:</b> remarks is required if the resolution is declined.</p>
                 <div className="flex f-end">
                   <button className="btn prugray ml" onClick={this.handleDecline}>
                     <i className="icon fa fa-times mr-sm"></i>DECLINE
