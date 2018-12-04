@@ -1010,8 +1010,7 @@ class OwnerinformationNew extends Component {
                 inputClass="col xl-2 input-container"
                 value={client && client.tinNum}
               />
-              <div className="xl-2 position-relative">
-                <span className="fa fa-pencil-alt font-prulife editable-yesno"></span>
+              <div className="xl-2 position-relative editable-yesno-container">
                 <YesNoRadio
                   name="isChangeInOccupationOwner"
                   title="Change Occupation"
