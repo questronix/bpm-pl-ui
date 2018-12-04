@@ -754,9 +754,16 @@ select { /* Chrome/Opera/Safari */
     }
 }
 // misc
+
+.editable-yesno-container{
+    .editable-yesno{
+        display: inline !important;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+}
 .editable-yesno{
-    position: absolute;
-    right: 0;
+    display: none;
     font-size: 13px;
     margin-top: 10px;
 }

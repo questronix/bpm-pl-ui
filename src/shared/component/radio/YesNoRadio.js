@@ -32,6 +32,7 @@ class YesNoRadio extends Component {
           }
         >
           {this.props.title}:
+          <span className="fa fa-pencil-alt font-prulife editable-yesno"></span>
         </p>
         <div className="">
           <label className="checkbox container" htmlFor={`${this.props.name}Yes`}>
