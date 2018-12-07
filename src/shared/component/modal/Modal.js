@@ -14,7 +14,7 @@ class MyModal extends Component {
   render() {
     return (
       <div>
-        <input className="modal-state" id={this.props.modalId} type="checkbox" checked={this.props.isOpen} onChange={this.toggleModal} />
+        <input className="modal-state" id={this.props.modalId} type="checkbox" checked={this.props.isOpen} onChange={this.toggleModal}/>
         <div className="modal">
           <label className="modal-bg" htmlFor={this.props.modalId}></label>
           <div className="ghost p-lg">

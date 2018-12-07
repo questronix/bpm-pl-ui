@@ -32,7 +32,9 @@ class TaskContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleModalToggle = this.handleModalToggle.bind(this);
     this.handlemodalAlert = this.handlemodalAlert.bind(this);
+    
   }
+
 
   componentDidMount() {
     TaskService.getAllTasks()
@@ -91,16 +93,25 @@ class TaskContainer extends Component {
   }
 
   handleModalToggle() {
-    console.log('TOGGLE_MODAL')
+    console.log(this.state.openSearchModal) 
+    console.log(this.testInput)
+
     if(!this.state.openSearchModal){
       this.setState({
         policy : {
           status: false
         }
+      }, () => {
+        setTimeout(() => {this.testInput && this.testInput.focus() }, 300)
       });
     }
+
     this.setState({ openSearchModal: !this.state.openSearchModal });
+    // this.focusTextInput(autoFocus);
+    
   }
+
+
 
   handlemodalAlert(){
     this.setState({
@@ -154,7 +165,7 @@ class TaskContainer extends Component {
   }
 
   decrement() {
-    this.setState({
+    this.setState({ 
       Tabs: this.state.Tabs - 1
     });
   }
@@ -207,6 +218,7 @@ class TaskContainer extends Component {
       });
   }
 
+
   render() {
     const { policy, isSearching } = this.state;
     const role = JSON.parse(sessionStorage.getItem('user_info')).Role_Description;
@@ -235,17 +247,22 @@ class TaskContainer extends Component {
         <MyModal modalId="1" modalLabel="Add New Transaction" isOpen={this.state.openSearchModal} onToggle={this.handleModalToggle}>
           <div className="col no-padding xl-12 mb ml-0 mr-0 border-bottom border-gray">
             <form>
+              
               <div className="xl-12 flex f-justify-space-between ">
-                <div className="xl-11 search-container bg-lightgray no-border">
+                <div className="xl-11 search-container bg-lightgray no-border" > 
+                
                   <input
                     className="search bg-lightgray no-border"
                     type="text"
                     placeholder="Search..."
                     value={this.state.policyNumber}
                     onChange={this.handleInputChange}
-                    autoFocus
+                    // autoFocus
+                    ref={(input) => {this.testInput = input;}}
                   />
+                
                 </div>
+                
                 <button
                   className="btn prulife flex f-center"
                   onClick={this.handleSubmit}
@@ -288,7 +305,7 @@ class TaskContainer extends Component {
                 <AgentinformationNew policy={this.state.policy} />
               </div>
               <div className="col xl-12 modal-footer flex-container flex-wrap">
-                {this.state.policy.policyStatus != "LA" && <div className="col xl-10"><p className="">Sorry, y ou can't proceed. Invalid policy status.</p></div>}
+                {this.state.policy.policyStatus != "LA" && <div className="col xl-10"><p className="">Sorry, you can't proceed. Invalid policy status.</p></div>}
                 {this.state.policy.policyStatus == "LA" && <div className="xl-10"></div>}
                 <button
                   className="btn prulife"
@@ -332,7 +349,7 @@ class TaskContainer extends Component {
               </div>
              {role == "CSA" && (
                 <div className="flex f-row">
-                <button className="btn prulife" onClick={this.handleModalToggle} accessKey="s">
+                <button className="btn prulife" onClick={this.handleModalToggle}  accessKey="s">
                   <span className="fa fa-plus"></span> &nbsp;  ADD NEW TRANSACTION
                 </button>
               </div>
